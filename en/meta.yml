@@ -11,3 +11,10 @@ steps:
   - title: Getting started
   - title: Recording data from your experiment
   - title: Working out where the ISS is at a given time
+  - title: Recording images using the camera
+  - title: Doing more than one thing at a time
+  - title: Running your code for the 3 hours allocated to the experiment
+  - title: Using the LED matrix
+  - title: Networking
+  - title: User input
+  - title: A big worked example

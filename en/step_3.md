@@ -6,6 +6,12 @@ All Mission Space Lab (MSL) entries must be written in Python 3.
 
 If you find a Python library that you need for your experiment that is Python 2 only, please contact us and we will help you find an alternative approach.
 
+### Using additional Python libraries
+List of extra libraries installed on SD card image
+
+
+Some Python libraries may include functions that perform a web request to look-up some information or return a value that is dependent on time or location. Even though they may be very useful, these are not permitted (see Networking section below).  
+
 ### Using the Sense HAT
 
 [[[rpi-sensehat-attach]]]
