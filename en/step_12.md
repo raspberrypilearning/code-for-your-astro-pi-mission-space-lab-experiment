@@ -61,6 +61,9 @@ cam = PiCamera()
 
 # function to write lat/long to EXIF data for photographs
 def get_latlon():
+  """
+  A function to write lat/long to EXIF data for photographs
+  """
     iss.compute() # Get the lat/long values from ephem
     long_value = [float(i) for i in str(iss.sublong).split(":")]
     if long_value[0] < 0:
@@ -80,6 +83,10 @@ def get_latlon():
 
 # define a function to update the LED matrix
 def active_status():
+  """
+  A function to update the LED matrix regularly
+  to show that the experiment is progressing
+  """
     # a list with all possible rotation values
     orientation = [0,90,270,180]
     # pick one at random

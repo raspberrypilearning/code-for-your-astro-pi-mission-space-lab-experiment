@@ -23,3 +23,9 @@ If you've never used the Sense HAT before, [start with this project](https://pro
 When you submit your MSL experimental code, your main Python code file should be called astropi_main.py
 
 Ideally, all you code should be contained within this file. However, if your experiment is very complex, then additional code files are allowed.
+
+### Documenting your code
+
+When you’ve created a really useful project and you want to share it with other people, a crucial step is creating documentation that helps people understand what the code does, how it works, and how they can use it. This is especially import for your MSL experiment where it should be clear from your code how you are achieving your aims and objectives.
+
+This [project](https://projects.raspberrypi.org/en/projects/documenting-your-code) shows you the recommended way to add useful comments to your code.
