@@ -47,5 +47,52 @@ logger.info("%s,%s", humidity, temperature, )
 
 This means that you should not specify any other folder paths in your file names.
 
+How could you modify the code above to also record barometric pressure readings from the Sense HAT?
+
+---hints---
+---hint---
+You can take pressure readings using the `get_pressure()` function. Store the value in a variable:
+
+```Python
+pressure = sh.get_pressure()
+```
+
+---/hint---
+---hint---
+Add your pressure reading variable into the line that uses logzero to write the data to your file.
+
+---/hint---
+---hint---
+Your file should look like this:
+```python
+import logging
+import logzero
+from logzero import logger
+from sense_hat import SenseHat
+import os
+dir_path = os.path.dirname(os.path.realpath(__file__))
+
+# Connect to the Sense Hat
+sh = SenseHat()
+
+# Set a logfile name
+logzero.logfile(dir_path+"/data.csv")
+
+# Set a custom formatter
+formatter = logging.Formatter('%(name)s - %(asctime)-15s - %(levelname)s: %(mes
+sage)s');
+logzero.formatter(formatter)
+# Read some data from the Sense Hat
+temperature = sh.get_temperature()
+humidity = sh.get_humidity()
+pressure = sh.get_pressure()
+
+# Save the data to the file
+logger.info("%s,%s", humidity, temperature, pressure )
+```
+---/hint---
+---/hints---
+
 ### Using print for useful information
+
 Using the Python print function is a great way of testing and debugging your code, however you should remove or comment out all such lines before submitting your final code. If you want to keep track of things that happened as your code was executing, use the logging library.
