@@ -8,4 +8,6 @@ last_tested: "2018-06-29"
 steps:
   - title: Introduction
   - title: What you will need
-  - title: Step title
+  - title: Getting started
+  - title: Recording data from your experiment
+  - title: Working out where the ISS is at a given time

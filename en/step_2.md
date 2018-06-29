@@ -2,12 +2,18 @@
 
 ### Hardware
 
-+ List hardware here, or delete section.
++ Raspberry Pi
++ Sense HAT
 
 ### Software
 
-+ List software here, or delete section.
+You will need the Astro Pi 2018 version of Raspbian which already includes the following software packages:
+
++ Python 3
++ Sense HAT for Python
++ ephem python library
++ logzero python library
 
 ### Additional Resources
 
-+ List additional resources, or delete section.
++ If you have a 3D printed flight case, you can use this for even more realistic testing. 
