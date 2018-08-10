@@ -10,7 +10,7 @@ You may wish to revisit the videos from Phase 1 to remind yourself of the limita
 
 If you've never used the Sense HAT before, [start with this project](https://projects.raspberrypi.org/en/projects/getting-started-with-the-sense-hat/) first, then come back here once you've mastered the basic Sense HAT concepts.
 
-[[[rpi-connect-camera]]]
+[[[rpi-picamera-connect-camera]]]
 If you've never used the Raspberry Pi camera before, [start with this project](https://projects.raspberrypi.org/en/projects/getting-started-with-picamera/) first, then come back here once you've mastered the basic PiCamera library functions.
 
 Note that as you will be using the camera and the Sense Hat, you will need to thread the camera cable through the slot on the Sense Hat before connecting it the Pi.
