@@ -1,14 +1,14 @@
 ## Getting started
 
- If you have received an official Astro Pi kit from ESA, you have everything you need to develop and test your Phase 2 program. If you want to, you can even [create your own flight case]{https://projects.raspberrypi.org/en/projects/astro-pi-flight-case}, but don’t worry, that’s not essential. It can be a valuable activity in its own right, but completion of Mission Space Lab *does not* rely on having the flight case.
+ If you have received an official Astro Pi kit from ESA, you have everything you need to develop and test your Phase 2 program. If you want to, you can even [create your own flight case](https://projects.raspberrypi.org/en/projects/astro-pi-flight-case), but don’t worry, that’s not essential. It can be a valuable activity in its own right, but completion of Mission Space Lab *does not* rely on having the flight case.
 
 ### Using the hardware
 
 You may wish to revisit the videos from Phase 1 to remind yourself of the limitations of the Astro Pi hardware that is aboard the ISS. We also have the following resources to help you get started with the Sense Hat and Pi Camera:
 
-[Using the Sense Hat]{https://projects.raspberrypi.org/en/projects/getting-started-with-the-sense-hat}
+[Using the Sense Hat](https://projects.raspberrypi.org/en/projects/getting-started-with-the-sense-hat)
 
-[PiCamera resource]{https://projects.raspberrypi.org/en/projects/getting-started-with-picamera/}
+[PiCamera resource](https://projects.raspberrypi.org/en/projects/getting-started-with-picamera/)
 
 Note that as you will be using the camera and the Sense Hat, you will need to thread the camera cable through the slot on the Sense Hat before connecting it the Pi.
 
