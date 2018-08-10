@@ -6,9 +6,12 @@
 
 You may wish to revisit the videos from Phase 1 to remind yourself of the limitations of the Astro Pi hardware that is aboard the ISS. We also have the following resources to help you get started with the Sense Hat and Pi Camera:
 
-[Using the Sense Hat](https://projects.raspberrypi.org/en/projects/getting-started-with-the-sense-hat)
+[[[rpi-sensehat-attach]]]
 
-[PiCamera resource](https://projects.raspberrypi.org/en/projects/getting-started-with-picamera/)
+If you've never used the Sense HAT before, [start with this project](https://projects.raspberrypi.org/en/projects/getting-started-with-the-sense-hat/) first, then come back here once you've mastered the basic Sense HAT concepts.
+
+[[[rpi-connect-camera]]]
+If you've never used the Raspberry Pi camera before, [start with this project](https://projects.raspberrypi.org/en/projects/getting-started-with-picamera/) first, then come back here once you've mastered the basic PiCamera library functions.
 
 Note that as you will be using the camera and the Sense Hat, you will need to thread the camera cable through the slot on the Sense Hat before connecting it the Pi.
 
@@ -30,11 +33,7 @@ List of extra libraries installed on SD card image
 
 Some Python libraries may include functions that perform a web request to look-up some information or return a value that is dependent on time or location. Even though they may be very useful, these are not permitted (see Networking section below).  
 
-### Using the Sense HAT
 
-[[[rpi-sensehat-attach]]]
-
-If you've never used the Sense HAT before, [start with this project](https://projects.raspberrypi.org/en/projects/getting-started-with-the-sense-hat/) first, then come back here once you've mastered the basic Sense HAT concepts.
 
 ### What to call your Mission Space Lab code files
 
