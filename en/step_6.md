@@ -1,6 +1,6 @@
 ## Recording images using the camera
 
-the first thing to do, if you haven't already, is to connect your Picamera to the Pi.
+The first thing to do, if you haven't already, is to connect your Picamera to the Pi.
 
 [[[rpi-picamera-connect-camera]]]
 
@@ -10,7 +10,7 @@ Once you've done that, power the Pi back on and take some test photos:
 
 The snippet below shows how to take a picture with the Pi cameras on the Astro Pis, saving it to the correct directory. The PiCamera library is very powerful and has great documentation.
 
-```Python
+```python
 
 from time import sleep
 from picamera import PiCamera
@@ -28,6 +28,11 @@ camera.capture(dir_path+"/image.jpg”)
 
 
 If you’re using the visible light camera on Ed, then all images must be deleted at the end of your experiment time.
+
+```python
+os.remove(dir_path+"/image.jpg”)
+
+```
 
 If you’re using the IR camera on Izzy, then you will get some amazing pictures of the Earth as seen from the ISS. Even if you’re processing these images and only making use of the data you extract, we recommend that you do not delete all the images (unless you will generating so many of them that you may be in danger of running out of disk space on the Pi). Apart from being a unique souvenir of your mission, they may also help with debugging any unexpected issues with your results when you receive them back.
 
@@ -108,8 +113,9 @@ for filename in camera.capture_continuous(dir_path+"/image_{counter:04d}.jpg'):
     sleep(300) # wait 5 minutes
 ```
 
-Then you can use this command to create a timelapse (you will need to install the libav-tools package first).
+Then, *once you get your images back from the ISS*,  you can use this command to create a timelapse (you will need to install the libav-tools package first).
 
 ```bash
 avconv -r 10 -i image%04d.jpg -r 10 -vcodec libx264 -crf 20 -g 15 timelapse.mp4
 ```
+This is definitely a post-eperiment processing step. You should not use your 3 hour experiment time on the ISS to try to build a timelapse movie!
