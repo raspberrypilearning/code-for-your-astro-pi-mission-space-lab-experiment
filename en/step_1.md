@@ -4,10 +4,9 @@ In the three years of the Astro Pi competition we have seen many unique and inte
 
 However. before your code can be run on the ISS, it needs to be modified to make it easier for many programs to be run one after the other without the need for anyone to manually start and end the experiment.  Some of the coding approaches used by previous teams have made it super easy to make these changes and re-package the software so that it can be run on the ISS. Others have been more complicated and required significant rewrites of the  code before the experiment could be made to automatically run without errors. We also don’t always have enough time to fully test the modified code before it is sent to the ISS and there is then a risk that unforeseen errors will spoil the experiment.
 
-
 ### What you will make
 
-We want your code to run reliably on the ISS without the need for too many changes and so this year we have published a guide to help you get started quickly and have the best chance of running without problems.
+We want your experiment to run reliably on the ISS without the need for too many changes and so this year we have published a guide to help you get started quickly and have the best chance of running without problems.
 
 We don’t insist that you follow every rule, but if you’re think you need to do things differently, please get in touch before submitting your entry.  Code which does not follow these guidelines will score less highly during the judging process than a program that does.
 
