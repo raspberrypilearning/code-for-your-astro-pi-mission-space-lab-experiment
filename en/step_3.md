@@ -30,10 +30,7 @@ If you find a Python library that you need for your experiment that is Python 2 
 The following Python libraries are installed on the Astro Pis on the ISS.
 List of extra libraries installed on SD card image
 
-
 Some Python libraries may include functions that perform a web request to look-up some information or return a value that is dependent on time or location. Even though they may be very useful, these are not permitted (see Networking section below).  
-
-
 
 ### What to call your Mission Space Lab code files
 

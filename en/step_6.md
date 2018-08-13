@@ -8,7 +8,7 @@ Once you've done that, power the Pi back on and take some test photos:
 
 [[[rpi-picamera-take-photo]]]
 
-The snippet below shows how to take a picture with the Pi cameras on the Astro Pis, saving it to the correct directory. The PiCamera library is very powerful and has great documentation.
+The snippet below shows how to take a picture with the Pi cameras on the Astro Pis, saving it to the correct directory. The PiCamera library is very powerful and has [great documentation](https://picamera.readthedocs.io/en/latest/){:target="_blank"}.
 
 ```python
 
