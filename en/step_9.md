@@ -8,9 +8,9 @@ The SenseHat library has functions to write messages to the LED matrix or illumi
 
 These are blocking functions. In other words, nothing else can happen while these tasks are being performed. So if you are using show_message to display a very long string of text, that will occupy valuable mission time. Therefore  you should keep any introductory messages at  the start of your code to less than 15 seconds from start of program.
 
-You could, of course, use a program thread to perform some other task in the background while graphics are displayed on the LED matrix.  However, as mentioned in the threading section above, the use of threads should be avoided unless absolutely essential for your experiment.
+You could, of course, use a program thread to perform some other task in the background while graphics are displayed on the LED matrix.  However, as mentioned in the "Doing more than one thing at a time" section above, the use of threads should be avoided unless absolutely essential for your experiment.
 
-The LED matrix can produce very bright colourful images. However, remember that the ISS is a working environment ands so you should avoid too much flashing or flickering which may cause a distraction to the astronauts.
+The LED matrix can produce very bright colourful images. However, remember that the ISS is a working environment and so you should avoid too much flashing or flickering which may cause a distraction to the astronauts.
 
 ```python
 from sense_hat import SenseHat
