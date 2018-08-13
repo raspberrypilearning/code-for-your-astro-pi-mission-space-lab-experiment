@@ -5,6 +5,7 @@
 + Raspberry Pi
 + Sense HAT
 
+
 ### Software
 
 You will need the Astro Pi 2018 version of Raspbian which already includes the following software packages:
@@ -14,6 +15,8 @@ You will need the Astro Pi 2018 version of Raspbian which already includes the f
 + ephem python library
 + logzero python library
 
+For testing, you should use the Flight OS version of Raspbian.  This is a special build of the Raspbian operating system, optimised to run on the ISS AstroPis. It does not include any X-Windows or GUI applications and is command line only, so is not really useful for actually writing your code on. However, you should test your experiment using this version prior to submitting your entry. 
+
 ### Additional Resources
 
-+ If you have a 3D printed flight case, you can use this for even more realistic testing. 
++ If you want to, you can make a 3D printed flight case, and use this for even more realistic testing of the onboard ISS experience.
