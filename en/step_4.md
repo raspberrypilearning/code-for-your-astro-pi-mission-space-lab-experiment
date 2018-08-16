@@ -1,98 +1,51 @@
-## Recording data from your experiment
+## Working out where the ISS is at a given time
 
-Your experiment should collect and store data. These measurements should be written to a file in the current working directory and called data01.csv. The .csv extension shows that this should be a Comma Separated Values file. This means that your data can be easily saved in columns, with each different value being separated from the other using a comma.
+Using the PyEphem library, you can calculate the positions of space objects. This includes the Sun and Moon, the planets and many earth satellites such as the ISS.  So you can work out the ISS’s current  location which you can use to identify if the ISS is flying over land or sea, or which country it is flying over.
 
-For example, here is a snippet from a file which records the date, time humidity and temperature in a CSV format roughly every minute.
-
-Date, Time, Humidity, Temperature
-05/05/2018, 10:23:56, 45.60, 21.05
-05/05/2018, 10:24:58, 45.62, 21.10
-05/05/2018, 10:25:57, 45.68, 21.10
-05/05/2018, 10:26:58, 45.72, 21.13
-
-You should use the logzero library to make this easy, as shown in the next example.  
-
-If you require multiple data files,  these should be numbered sequentially (e.g. data02.csv). You should not create more than 5 separate files over the course of your experiment.
-
-
-### Directory structure for log files
-
-All log files should be saved in the same place that the code file itself is stored. When your code is run on the ISS, it will be started and stopped by an automated system. To ensure that your data files end up in the right place, you should use the method below, which uses  the special `__file__` variable which contains the path to the file that Python is currently running. You can use this variable to find the path of the file with the os library.
+For accurate calculations you need to provide ephem with the most recent two-line element set (TLE) for the ISS.  TLE is a data format used to convey sets of orbital elements that describe the orbits of Earth-orbiting satellites. You can get the latest ISS TLE data (along with the same information in other formats) here. These three lines should then be pasted into your code and passed in as arguments when you create an ISS object.
 
 ```python
-import logging
-import logzero
-from logzero import logger
-from sense_hat import SenseHat
-import os
-dir_path = os.path.dirname(os.path.realpath(__file__))
+import ephem
 
-# Connect to the Sense Hat
-sh = SenseHat()
+name = "ISS (ZARYA)"        	 
+line1 = "1 25544U 98067A   18032.92935684  .00002966  00000-0  52197-4 0  99911 25544U 98067A   18032.92935684  .00002966  00000-0  52197-4 0  9991"
+line2 = "2 25544  51.6438 332.9972 0003094  62.2964  46.0975 15.54039537 97480"
+iss = ephem.readtle(name, line1, line2)
 
-# Set a logfile name
-logzero.logfile(dir_path+"/data.csv")
+iss.compute()
 
-# Set a custom formatter
-formatter = logging.Formatter('%(name)s - %(asctime)-15s - %(levelname)s: %(mes
-sage)s');
-logzero.formatter(formatter)
-# Read some data from the Sense Hat
-temperature = sh.get_temperature()
-humidity = sh.get_humidity()
-
-# Save the data to the file
-logger.info("%s,%s", humidity, temperature, )
+print(iss.sublat, iss.sublong)
 ```
 
-This means that you should not specify any other folder paths in your file names.
+If you wanted your experiment to run when the ISS was above a particular location on Earth, you could use the values of latitude and longitude to trigger some other action. Remember that the ISS' orbit does not pass over everywhere on Earth, and that more of our planets surface is water than land. So in your 3 hour experimental window, the chances of passing over a very specific city or phenomenon will be low. 
 
-How could you modify the code above to also record barometric pressure readings from the Sense HAT?
+To think about how this could work, modify the code above so that it will print a warning if ISS is in the southern hemisphere.
 
 ---hints---
 ---hint---
-You can take pressure readings using the `get_pressure()` function. Store the value in a variable:
-
-```Python
-pressure = sh.get_pressure()
-```
+If a location is in the southern hemisphere, it will have a negative latitude (because it will be below the equator).
 
 ---/hint---
 ---hint---
-Add your pressure reading variable into the line that uses logzero to write the data to your file.
+You can check for a negative number by testing if it is larger than 0
 
 ---/hint---
 ---hint---
 Your file should look like this:
 ```python
-import logging
-import logzero
-from logzero import logger
-from sense_hat import SenseHat
-import os
-dir_path = os.path.dirname(os.path.realpath(__file__))
+import ephem
 
-# Connect to the Sense Hat
-sh = SenseHat()
+name = "ISS (ZARYA)"        	 
+line1 = "1 25544U 98067A   18032.92935684  .00002966  00000-0  52197-4 0  99911 25544U 98067A   18032.92935684  .00002966  00000-0  52197-4 0  9991"
+line2 = "2 25544  51.6438 332.9972 0003094  62.2964  46.0975 15.54039537 97480"
+iss = ephem.readtle(name, line1, line2)
 
-# Set a logfile name
-logzero.logfile(dir_path+"/data.csv")
+iss.compute()
 
-# Set a custom formatter
-formatter = logging.Formatter('%(name)s - %(asctime)-15s - %(levelname)s: %(mes
-sage)s');
-logzero.formatter(formatter)
-# Read some data from the Sense Hat
-temperature = sh.get_temperature()
-humidity = sh.get_humidity()
-pressure = sh.get_pressure()
-
-# Save the data to the file
-logger.info("%s,%s", humidity, temperature, pressure )
+if iss.sublat < 0:
+  print("In Southern hemisphere")
 ```
 ---/hint---
 ---/hints---
 
-### Using print for useful information
-
-Using the Python print function is a great way of testing and debugging your code, however you should remove or comment out all such lines before submitting your final code. If you want to keep track of things that happened as your code was executing, use the logging library.
+Note that when your code runs on the Space Station, the most accurate and up-to-date telemetry data will be used automatically, so you don’t need to write any routines to update this data as part of your program. Just include the most recent TLE lines when you submit your code.

@@ -1,60 +1,98 @@
-## Getting started
+## Recording data from your experiment
 
- If you have received an official Astro Pi kit from ESA, you have everything you need to develop and test your Phase 2 program. If you want to, you can even [create your own flight case](https://projects.raspberrypi.org/en/projects/astro-pi-flight-case), but don’t worry, that’s not essential. It can be a valuable activity in its own right, but completion of Mission Space Lab *does not* rely on having the flight case.
+Your experiment should collect and store data. These measurements should be written to a file in the current working directory and called data01.csv. The .csv extension shows that this should be a Comma Separated Values file. This means that your data can be easily saved in columns, with each different value being separated from the other using a comma.
 
-### Using the hardware
+For example, here is a snippet from a file which records the date, time humidity and temperature in a CSV format roughly every minute.
 
-You may wish to revisit the videos from Phase 1 to remind yourself of the limitations of the Astro Pi hardware that is aboard the ISS. We also have the following resources to help you get started with the Sense Hat and Pi Camera:
+Date, Time, Humidity, Temperature
+05/05/2018, 10:23:56, 45.60, 21.05
+05/05/2018, 10:24:58, 45.62, 21.10
+05/05/2018, 10:25:57, 45.68, 21.10
+05/05/2018, 10:26:58, 45.72, 21.13
 
-[[[rpi-sensehat-attach]]]
+You should use the logzero library to make this easy, as shown in the next example.  
 
-If you've never used the Sense HAT before, [start with this project](https://projects.raspberrypi.org/en/projects/getting-started-with-the-sense-hat/) first, then come back here once you've mastered the basic Sense HAT concepts.
+If you require multiple data files,  these should be numbered sequentially (e.g. data02.csv). You should not create more than 5 separate files over the course of your experiment.
 
-[[[rpi-picamera-connect-camera]]]
-If you've never used the Raspberry Pi camera before, [start with this project](https://projects.raspberrypi.org/en/projects/getting-started-with-picamera/) first, then come back here once you've mastered the basic PiCamera library functions.
 
-Note that as you will be using the camera and the Sense Hat, you will need to thread the camera cable through the slot on the Sense Hat before connecting it the Pi.
+### Directory structure for log files
 
-## Write your program
+All log files should be saved in the same place that the code file itself is stored. When your code is run on the ISS, it will be started and stopped by an automated system. To ensure that your data files end up in the right place, you should use the method below, which uses  the special `__file__` variable which contains the path to the file that Python is currently running. You can use this variable to find the path of the file with the os library.
 
-Next, you will need to write the program for your experiment. To do this, you will need to plan your coding sessions, understand the best way to write the program for your experiment, and ensure that it will work on the Astro Pis on the ISS.  To help you with coding your experiment, we have provided the following guide: Teachers and mentors guide to coding for phase 2, which provides useful tips on facilitating your team’s writing of their program.
+```python
+import logging
+import logzero
+from logzero import logger
+from sense_hat import SenseHat
+import os
+dir_path = os.path.dirname(os.path.realpath(__file__))
 
-### Which version of Python should you use?
+# Connect to the Sense Hat
+sh = SenseHat()
 
-All Mission Space Lab (MSL) entries must be written in Python 3.
+# Set a logfile name
+logzero.logfile(dir_path+"/data.csv")
 
-If you find a Python library that you need for your experiment that is Python 2 only, please contact us and we will help you find an alternative approach.
+# Set a custom formatter
+formatter = logging.Formatter('%(name)s - %(asctime)-15s - %(levelname)s: %(mes
+sage)s');
+logzero.formatter(formatter)
+# Read some data from the Sense Hat
+temperature = sh.get_temperature()
+humidity = sh.get_humidity()
 
-### Using additional Python libraries
+# Save the data to the file
+logger.info("%s,%s", humidity, temperature, )
+```
 
-In addition to the default Python libraries that are available in Raspbian, the following Python libraries are also installed on the Astro Pis on the ISS.
+This means that you should not specify any other folder paths in your file names.
 
-- [numpy](https://docs.scipy.org/doc/){:target="_blank"}
-- [scipy](https://docs.scipy.org/doc/){:target="_blank"}
-- [tensorflow](https://www.tensorflow.org/api_guides/python/){:target="_blank"}
-- [pandas](https://pandas.pydata.org/pandas-docs/stable/api.html){:target="_blank"}
-- [opencv-python](https://opencv-python-tutroals.readthedocs.io/en/latest/){:target="_blank"}
-- opencv-contrib-python
-- [evdev](https://python-evdev.readthedocs.io/en/latest/){:target="_blank"}
-- [matplotlib](https://matplotlib.org/){:target="_blank"}
-- [logzero](https://logzero.readthedocs.io/en/latest/){:target="_blank"}
-- [pyephem](http://rhodesmill.org/pyephem/) {:target="_blank"}
-- [scikit-image](http://scikit-image.org/docs/dev/){:target="_blank"}
-- [scikit-learn](http://scikit-learn.org/stable/documentation.html){:target="_blank"}
-- [reverse-geocoder](https://github.com/thampiman/reverse-geocoder){:target="_blank"}
+How could you modify the code above to also record barometric pressure readings from the Sense HAT?
 
-No other libraries can be used. If your experiment requires other Python libraries  please contact us and we will try you help you find an alternative approach.
+---hints---
+---hint---
+You can take pressure readings using the `get_pressure()` function. Store the value in a variable:
 
-Some Python libraries may include functions that perform a web request to look-up some information or return a value that is dependent on time or location. Even though they may be very useful, these are not permitted (see Networking section below).  
+```Python
+pressure = sh.get_pressure()
+```
 
-### What to call your Mission Space Lab code files
+---/hint---
+---hint---
+Add your pressure reading variable into the line that uses logzero to write the data to your file.
 
-When you submit your MSL experimental code, your main Python code file should be called astropi_main.py
+---/hint---
+---hint---
+Your file should look like this:
+```python
+import logging
+import logzero
+from logzero import logger
+from sense_hat import SenseHat
+import os
+dir_path = os.path.dirname(os.path.realpath(__file__))
 
-Ideally, all you code should be contained within this file. However, if your experiment is very complex, then additional code files are allowed.
+# Connect to the Sense Hat
+sh = SenseHat()
 
-### Documenting your code
+# Set a logfile name
+logzero.logfile(dir_path+"/data.csv")
 
-When you’ve created a really useful project and you want to share it with other people, a crucial step is creating documentation that helps people understand what the code does, how it works, and how they can use it. This is especially import for your MSL experiment where it should be clear from your code how you are achieving your aims and objectives.
+# Set a custom formatter
+formatter = logging.Formatter('%(name)s - %(asctime)-15s - %(levelname)s: %(mes
+sage)s');
+logzero.formatter(formatter)
+# Read some data from the Sense Hat
+temperature = sh.get_temperature()
+humidity = sh.get_humidity()
+pressure = sh.get_pressure()
 
-This [project](https://projects.raspberrypi.org/en/projects/documenting-your-code) shows you the recommended way to add useful comments to your code.
+# Save the data to the file
+logger.info("%s,%s", humidity, temperature, pressure )
+```
+---/hint---
+---/hints---
+
+### Using print for useful information
+
+Using the Python print function is a great way of testing and debugging your code, however you should remove or comment out all such lines before submitting your final code. If you want to keep track of things that happened as your code was executing, use the logging library.
