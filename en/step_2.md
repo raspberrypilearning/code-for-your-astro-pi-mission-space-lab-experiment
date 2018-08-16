@@ -15,7 +15,7 @@ You will need the Astro Pi 2018 version of Raspbian which already includes the f
 + ephem python library
 + logzero python library
 
-For testing, you should use the Flight OS version of Raspbian.  This is a special build of the Raspbian operating system, optimised to run on the ISS AstroPis. It does not include any X-Windows or GUI applications and is *"command line"* only, so is not really a useful platform for actually writing your code and developing on. However, you should test your experiment using this version prior to submitting your entry.
+For testing, you should use the Flight OS version of Raspbian.  This is a special build of the Raspbian operating system, optimised to run on the ISS Astro Pis. It does not include any X-Windows or GUI applications and is *"command line"* only, so is not really a useful platform for actually writing your code and developing on. However, you should test your experiment using this version prior to submitting your entry.
 
 ### Additional Resources
 

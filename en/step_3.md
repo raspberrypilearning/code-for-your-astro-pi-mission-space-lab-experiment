@@ -27,8 +27,23 @@ If you find a Python library that you need for your experiment that is Python 2 
 
 ### Using additional Python libraries
 
-The following Python libraries are installed on the Astro Pis on the ISS.
-List of extra libraries installed on SD card image
+In addition to the default Python libraries that are available in Raspbian, the following Python libraries are also installed on the Astro Pis on the ISS.
+
+- [numpy](https://docs.scipy.org/doc/){:target="_blank"}
+- [scipy](https://docs.scipy.org/doc/){:target="_blank"}
+- [tensorflow](https://www.tensorflow.org/api_guides/python/){:target="_blank"}
+- [pandas](https://pandas.pydata.org/pandas-docs/stable/api.html){:target="_blank"}
+- [opencv-python](https://opencv-python-tutroals.readthedocs.io/en/latest/){:target="_blank"}
+- opencv-contrib-python
+- [evdev](https://python-evdev.readthedocs.io/en/latest/){:target="_blank"}
+- [matplotlib](https://matplotlib.org/){:target="_blank"}
+- [logzero](https://logzero.readthedocs.io/en/latest/){:target="_blank"}
+- [pyephem](http://rhodesmill.org/pyephem/) {:target="_blank"}
+- [scikit-image](http://scikit-image.org/docs/dev/){:target="_blank"}
+- [scikit-learn](http://scikit-learn.org/stable/documentation.html){:target="_blank"}
+- [reverse-geocoder](https://github.com/thampiman/reverse-geocoder){:target="_blank"}
+
+No other libraries can be used. If your experiment requires other Python libraries  please contact us and we will try you help you find an alternative approach.
 
 Some Python libraries may include functions that perform a web request to look-up some information or return a value that is dependent on time or location. Even though they may be very useful, these are not permitted (see Networking section below).  
 

@@ -1,14 +1,17 @@
 ## Introduction
 
-In the three years of the Astro Pi competition we have seen many unique and interesting ways to collect data from the Flight Units on the ISS. One of the great things about coding is that there is always more than one way to achieve a particular goal.
+The European Astro Pi Challenge is run in collaboration with the European Space Agency.  It offers young people the amazing opportunity to conduct scientific investigations in space by writing computer programs that run on Raspberry Pi computers - the Astro Pis - aboard the International Space Station.
 
-However. before your code can be run on the ISS, it needs to be modified to make it easier for many programs to be run one after the other without the need for anyone to manually start and end the experiment.  Some of the coding approaches used by previous teams have made it super easy to make these changes and re-package the software so that it can be run on the ISS. Others have been more complicated and required significant rewrites of the  code before the experiment could be made to automatically run without errors. We also don’t always have enough time to fully test the modified code before it is sent to the ISS and there is then a risk that unforeseen errors will spoil the experiment.
+This guide covers Phase 2 of the competition and contains information on assembling your kit, coding your experiment, and testing your program. This guide also includes essential details of what is and isn’t possible with the Astro Pi hardware and software.
+
+
+This guide covers both Mission Space Lab themes: Life on Earth and Life in Space.
 
 ### What you will make
 
-We want your experiment to run reliably on the ISS without the need for too many changes and so this year we have published a guide to help you get started quickly and have the best chance of running without problems.
+We want your experiment to run reliably on the ISS  and so this year we have published a guide to help you get started quickly and have the best chance of running without problems.
 
-We don’t insist that you follow every rule, but if you’re think you need to do things differently, please get in touch before submitting your entry.  Code which does not follow these guidelines will score less highly during the judging process than a program that does.
+We don’t insist that you follow every rule, but if you’re think you need to do things differently, please get in touch before submitting your entry.  Code which does not follow these guidelines will score less highly during the judging process than a program that does, and may not progress to the next phase if it cannot be run easily as on the ISS without modification.   
 
 If you’ve entered the Astro Pi competition before, please make sure you read and follow this guide, as many things have changed from previous years.
 
