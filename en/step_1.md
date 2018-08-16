@@ -15,14 +15,43 @@ We don’t insist that you follow every rule, but if you’re think you need to 
 
 If you’ve entered the Astro Pi competition before, please make sure you read and follow this guide, as many things have changed from previous years.
 
+--- collapse ---
+---
+title: What you will learn
+---
+--- /collapse ---
 
-### What you will learn
+--- collapse ---
+---
+title: What you will need
+---
+### Hardware
 
-This project covers elements from the following strands of the [Raspberry Pi Digital Making Curriculum](http://rpf.io/curriculum){:target="_blank"}:
++ Raspberry Pi
++ Sense HAT
 
+### Software
 
-### Additional information for educators
+You will need the Astro Pi 2018 version of Raspbian which already includes the following software packages:
 
++ Python 3
++ Sense HAT for Python
++ ephem python library
++ logzero python library
+
+For testing, you should use the Flight OS version of Raspbian.  This is a special build of the Raspbian operating system, optimised to run on the ISS Astro Pis. It does not include any X-Windows or GUI applications and is *"command line"* only, so is not really a useful platform for actually writing your code and developing on. However, you should test your experiment using this version prior to submitting your entry.
+
+### Additional Resources
+
++ If you want to, you can [make a 3D printed flight case](https://projects.raspberrypi.org/en/projects/astro-pi-flight-case){:target="_blank"}, and use this for even more realistic testing of the onboard ISS experience. However this is not a requirement and you can enter Mission Space Lab without building a replica Flight Case.
+
+--- /collapse ---
+
+--- collapse ---
+---
+title: Additional information for educators
+---
 If you need to print this project, please use the [printer-friendly version](https://projects.raspberrypi.org/en/projects/project-name/print){:target="_blank"}.
 
 Use the link in the footer to access the GitHub repository for this project, which contains all resources (including an example finished project) in the 'en/resources' folder.
+--- /collapse ---
