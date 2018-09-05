@@ -119,3 +119,7 @@ Then, *once you get your images back from the ISS*,  you can use this command to
 avconv -r 10 -i image%04d.jpg -r 10 -vcodec libx264 -crf 20 -g 15 timelapse.mp4
 ```
 This is definitely a post-eperiment processing step. You should not use your 3 hour experiment time on the ISS to try to build a timelapse movie!
+
+### Low light and night-time photography
+
+Night-time photography is difficult.  This is mostly because the chances of the code being run when the ISS is over a bright city without cloud cover are very low. The low-light sensitivity of the camera is quite good but it needs to be used with the best software settings for the particular situation and this is difficult to code in advance. Having the camera adapt to changing light conditions in real-time is also tricky, especially when the camera is moving relative to the light source as is the case for the Astro Pis on the ISS.
