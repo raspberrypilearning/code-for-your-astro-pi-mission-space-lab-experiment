@@ -31,6 +31,7 @@ title: What you will need
 
 + A Raspberry Pi
 + A Sense HAT
++ A Camera Module (if necessary for your experiment)
 
 ### Software
 
