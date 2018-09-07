@@ -1,14 +1,15 @@
 ## A big worked example
-You can now combine all the elements described in this document to help code your experiment. The example below can be used as a template for your own experiment.
 
-The team from CoderDojo Tatooine wants to investigate whether the environment on the ISS is affected by the surface of the Earth it is passing over. Does the ISS get hotter when it passes over a desert, or wetter when it is above the sea?
+You can now combine all the elements described in this document to help code your experiment — the example below can serve as a template for this.
 
-Their code takes regular measurements of temperature and humidity every 30 seconds and logs these into a CSV file.
-They also calculate the ISS’s latitude and longitude using the ephem library and log this information in the data file.
-To see whether cloud cover might also be a factor, they take a photo using the IR camera on Izzy, which is pointing out of the window towards Earth.
-The latitude and longitude data is written into the EXIF tags of the images, which have sequentially numbered filenames.  It is also logged to the CSV file.
-The LED matrix is updated every 15 seconds
-Any unexpected error is handled and the details logged.
+Imagine this: the team from CoderDojo Tatooine wants to investigate whether the environment on the ISS is affected by the surface of the Earth it is passing over. Does the ISS get hotter when it passes over a desert, or wetter when it is above the sea?
+
++ Their code takes regular measurements of temperature and humidity every 30 seconds and logs these in a CSV file.
++ They also calculate the ISS’s latitude and longitude using the `ephem` library and log this information in the data file.
++ To see whether cloud cover might also be a factor, they take a photo using the IR camera on Astro Pi Izzy, which is pointing out of the window towards Earth.
++ The latitude and longitude data is written into the EXIF tags of the images, which have sequentially numbered filenames. It is also logged to the CSV file.
++ The LED matrix is updated every 15 seconds.
++ Any unexpected error is handled and the details logged.
 
 ```python
 import logging
@@ -127,9 +128,10 @@ while (now_time < start_time + datetime.timedelta(minutes=178)):
         logger.error("An error occurred:" + e.message)
 ```
 
-A snippet from the data.csv file that is produced:
-
+A snippet from the `data.csv` file that is produced:
+```
 logzero_default - 2018-06-19 08:43:28,653 - INFO: 1,54.9445,31.2797,[47.0, 0.0, 9.9],[90.0, 32.0, 3.3]
 logzero_default - 2018-06-19 08:43:59,320 - INFO: 2,55.3742,31.2257,[46.0, 8.0, 27.1],[88.0, 1.0, 29.1]
 logzero_default - 2018-06-19 08:44:29,964 - INFO: 3,55.6883,31.2797,[45.0, 15.0, 2.2],[85.0, 40.0, 34.5]
 logzero_default - 2018-06-19 08:45:00,615 - INFO: 4,55.3561,31.2977,[44.0, 16.0, 34.8],[83.0, 19.0, 55.1]
+```
