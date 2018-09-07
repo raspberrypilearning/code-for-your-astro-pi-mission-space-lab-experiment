@@ -2,7 +2,7 @@
 
 Using the Python `ephem` library, you can calculate the positions of space objects within out solar system. This includes the Sun, the Moon, the planets, and many Earth satellites such as the ISS. So you can work out the ISS’s current location above the Earth, which you can use to identify whether the ISS is flying over land or sea, or which country it is flying over.
 
-For accurate calculations, you need to provide `ephem` with the most recent two-line element (TLE) set for the ISS. TLE is a data format used to convey sets of orbital elements that describe the orbits of Earth satellites. You can get the latest ISS TLE data (along with the same information in other formats) here. These three lines should then be pasted into your code and passed in as arguments when you create an `iss` object in your program.
+For accurate calculations, you need to provide `ephem` with the most recent two-line element (TLE) set for the ISS. TLE is a data format used to convey sets of orbital elements that describe the orbits of Earth satellites. You can get the latest ISS TLE data (along with the same information in other formats) [here](http://www.celestrak.com/NORAD/elements/stations.txt){:target="_blank"}. These three lines should then be pasted into your code and passed in as arguments when you create an `iss` object in your program.
 
 ```python
 import ephem
@@ -18,7 +18,7 @@ iss.compute()
 print(iss.sublat, iss.sublong)
 ```
 
-If you wanted your experiment to run when the ISS is above a particular location on Earth, you could use the values of latitude and longitude to trigger some other action. Remember that the ISS' orbit does not pass over everywhere on Earth, and that more of our planet's surface is water than land. So in your three-hour experimental window, the chances of passing over a very specific city or location will be low. 
+If you wanted your experiment to run when the ISS is above a particular location on Earth, you could use the values of latitude and longitude to trigger some other action. Remember that the ISS' orbit does not pass over everywhere on Earth, and that more of our planet's surface is water than land. So in your three-hour experimental window, the chances of passing over a very specific city or location will be low.
 
 To try out how this could be useful in your program, modify the code above so that it will print a message when ISS is above the southern hemisphere.
 
