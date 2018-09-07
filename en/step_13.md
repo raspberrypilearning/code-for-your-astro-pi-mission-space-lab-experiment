@@ -1,26 +1,28 @@
 ## Tips for Educators
 
-### planning and running your coding sessions
+### Planning and running your coding sessions
 
-The following resource contains an example of an Astro Pi Mission Space Lab experiment idea, which we’ll use to illustrate how to plan and write your computer program.
+Here is an example of an Astro Pi Mission Space Lab experiment idea, which we’ll use to illustrate how to plan and write your computer program.
 The team from CoderDojo Tatooine wants to investigate whether the environment on the ISS is affected by the surface of the Earth it is passing over. Does the ISS get hotter when it passes over a desert, or wetter (more humid) when it is above the sea?
 
 Their computer program should:
-Take regular measurements of temperature and humidity every 30 seconds, and log the values in a CSV file.
-Calculate the ISS’s latitude and longitude using the PyEphem library, and log this information in the CSV file.
-Take a photo using the IR camera on Astro Pi computer Izzy, which is pointing out of a window towards Earth, to gather data on whether cloud cover might also be a factor.
-Write the latitude and longitude data into the EXIF tags of the images, which have sequentially numbered file names.
-Update the Astro Pi’s LED matrix every 15 seconds.
-Handle any unexpected errors and log the details.
+- Take regular measurements of temperature and humidity every 30 seconds, and log the values in a CSV file.
+- Calculate the ISS’s latitude and longitude using the PyEphem library, and log this information in the CSV file.
+- Take a photo using the IR camera on Astro Pi computer Izzy, which is pointing out of a window towards Earth, to gather data on whether cloud cover might also be a factor.
+- Write the latitude and longitude data into the EXIF tags of the images, which have sequentially numbered file names.
+- Update the Astro Pi’s LED matrix every 15 seconds.
+- Handle any unexpected errors and log the details.
 
-How to approach writing the program for Phase 2 of Mission Space Lab
+### How to approach writing the program for Phase 2 of Mission Space Lab
+
 Start by looking at the coding requirements. They contain a few things that a program should do so that it can run smoothly on the Astro Pis on the ISS, along with some useful tips for how to make the most of your results. There are also a few strict rules, such as making sure that all photos Astro Pi Ed takes of the inside of the ISS are deleted at the end of your experiment.  
-The complete program should be in a single file.
-Results should be saved to a CSV file.
-Photos from Astro Pi Izzy should have the ISS location information added to their metadata.
-The use of multiple threads should be avoided.
-The Astro Pi’s LED matrix should be regularly updated to indicate that a program is working.
-The program should finish after 3 hours.
+
+1. The complete program should be in a single file.
+2. Results should be saved to a CSV file.
+3. Photos from Astro Pi Izzy should have the ISS location information added to their metadata.
+4. The use of multiple threads should be avoided.
+5. The Astro Pi’s LED matrix should be regularly updated to indicate that a program is working.
+6. The program should finish after 3 hours.
 
 Get your team together and start to map out the rough outline of how your program will work. You can do this as a group and have everyone call out their ideas, or let the team members work individually and then get everyone together to compare results. Use a whiteboard or big sheet of paper to list all the key tasks that your program will need to perform. You don’t need to worry about the order or the actual functions and commands at this stage — just note down the specific things that need to be achieved. This is what that would look like for the example scenario above:
 
@@ -58,7 +60,7 @@ Get together regularly to discuss progress and work through any major challenges
 
 Keep the deadline for submitting your program in mind. If time is running out, are there any parts of your program that can be left out? If you are planning on performing analysis of results in real time, can this instead be done after your program has run, when you’ve got your results back?
 
-Don’t forget to test your program using the Flight OS disk image, which is the operating system running on the Astro Pis. It’s a cut-down version of the Raspbian OS, and it does not have X-Windows and many of the standard development tools installed. Testing your program using the Flight OS will let you check that none of the commands rely on files or libraries that aren’t present on the Astro Pis aboard the ISS. 
+Don’t forget to test your program using the Flight OS disk image, which is the operating system running on the Astro Pis. It’s a cut-down version of the Raspbian OS, and it does not have X-Windows and many of the standard development tools installed. Testing your program using the Flight OS will let you check that none of the commands rely on files or libraries that aren’t present on the Astro Pis aboard the ISS.
 
 ![](images/Astro_Pi_Educator_Web_V2f.png)
 
