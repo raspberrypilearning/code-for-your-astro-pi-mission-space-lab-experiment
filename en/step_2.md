@@ -18,7 +18,7 @@ If you've never used the Camera Module before, [start with this beginners' proje
 
 ## Write your program
 
-Next, you will write the program for your experiment. To do this, you'll need to plan your coding sessions, understand the best way to write the program for your experiment, and ensure that it will work on the Astro Pis on the ISS. To help you with planning, we've put together a teachers' and mentors' guide for Phase 2, which provides useful tips on facilitating your team’s coding of their experiment.
+Next, you will write the program for your experiment. To do this, you'll need to plan your coding sessions, understand the best way to write the program for your experiment, and ensure that it will work on the Astro Pis on the ISS. To help with planning, we've put together a teachers' and mentors' guide for Phase 2 that provides useful tips for facilitating your team’s coding of their experiment.
 
 ### Which version of Python should you use?
 
@@ -35,7 +35,7 @@ In addition to the default Python libraries that are available on Raspbian, the 
 - [tensorflow](https://www.tensorflow.org/api_guides/python/){:target="_blank"}
 - [pandas](https://pandas.pydata.org/pandas-docs/stable/api.html){:target="_blank"}
 - [opencv-python](https://opencv-python-tutroals.readthedocs.io/en/latest/){:target="_blank"}
-- opencv-contrib-python
+- [opencv-contrib-python](https://pypi.org/project/opencv-contrib-python/)
 - [evdev](https://python-evdev.readthedocs.io/en/latest/){:target="_blank"}
 - [matplotlib](https://matplotlib.org/){:target="_blank"}
 - [logzero](https://logzero.readthedocs.io/en/latest/){:target="_blank"}
@@ -56,6 +56,6 @@ Ideally, all you code should be contained within this file. However, if your exp
 
 ### Documenting your code
 
-When you’ve created a really useful program or piece of software and you want to share it with other people, a crucial step is creating documentation that helps people understand what the program does, how it works, and how they can use it. This is especially import for your MSL experiment, because it should be clearly obvious from your program how you will achieve your experiment's aims and objectives.
+When you’ve created a really useful program or piece of software and you want to share it with other people, a crucial step is creating documentation that helps people understand what the program does, how it works, and how they can use it. This is especially import for your MSL experiment, because it should be obvious from your program how you will achieve your experiment's aims and objectives.
 
 This [project](https://projects.raspberrypi.org/en/projects/documenting-your-code) shows you the recommended way to add useful comments to your program.
