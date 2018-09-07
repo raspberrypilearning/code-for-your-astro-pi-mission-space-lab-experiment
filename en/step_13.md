@@ -1,6 +1,4 @@
-## Tips for Educators
-
-### Planning and running your coding sessions
+## Tips for Educators - Planning and running your coding sessions
 
 Here is an example of an Astro Pi Mission Space Lab experiment idea, which we’ll use to illustrate how to plan and write your computer program.
 The team from CoderDojo Tatooine wants to investigate whether the environment on the ISS is affected by the surface of the Earth it is passing over. Does the ISS get hotter when it passes over a desert, or wetter (more humid) when it is above the sea?
@@ -38,6 +36,8 @@ Now try to put everything into a logical order, using lines to connect the vario
 
 If there are any repeated tasks, do they appear just once in your diagram, with flow lines passing through many times, or do they fit in in multiple places? Talk with your team about how repeated tasks should only be coded once, so that parts of the program can be reused.
 
+### Flow chart
+
 Take a fresh sheet of paper or find a clean area on your whiteboard (be sure to copy or take a photo of your first picture before erasing anything). Reconfigure the steps and flow into a more ordered diagram, maybe running clockwise around the paper or starting at the top and working downwards. Try a few different versions and see which one is the most easy to follow. Include a ‘start’ and ‘end’ block to make it very clear where the program begins and finishes. Are there any actions you need to perform at these stages (e.g. clear the LED matrix)?
 The final result is what is called pseudo-code: a diagram of all of a program’s tasks, in the right order, that doesn’t contain any actual programming language commands.
 
@@ -45,11 +45,15 @@ The final result is what is called pseudo-code: a diagram of all of a program’
 
 Now work through your task list and try to identify any missing pieces. Think about where in your program you should be looking to handle exceptions. Most experiments will have a main loop that runs repeatedly over the 3 hour period. An unexpected error encountered in this loop could be disastrous if it causes the program to stop or stall and prevent further data collection. So come up with some ‘what if’ scenarios. For example, if you’re reading data from a sensor, what will happen if it gives you an unexpected result? Will your program cope with this? How are you dealing with hardware errors? Add in any missing functionality into your pseudo-code.
 
+### Assigning tasks to members of the team
+
 Give descriptive names to each task block.
 
 Assign responsibility for each block to different members of the team. Try to think about the individual team members’ experience levels and programming ability and allocate tasks accordingly. Depending on the number of people in your team and the complexity of your program, it may be sensible to have more than one person allocated to a specific block or function. And don’t forget that someone needs to be responsible for the scaffold of the final program that will contain the various function calls in the right order.
 
-Get coding! You will probably discover that some functionalities are really easy to create using the recommended Python libraries, perhaps even with only a single line. Others will be more complex, and we have included some useful code snippets in the coding requirements document (e.g. for adding latitude and longitude information to the EXIF data of a photo) that you can copy into your project. To design slightly more complicated functions, if needed, you can use the same pseudo-code approach you went through with the program as a whole.
+### Get coding!
+
+You will probably discover that some functions are really easy to create using the recommended Python libraries, perhaps even with only a single line. Others will be more complex, and we have included some useful code snippets in the coding requirements document (e.g. for adding latitude and longitude information to the EXIF data of a photo) that you can copy into your project. To design slightly more complicated functions, if needed, you can use the same pseudo-code approach you went through with the program as a whole.
 
 Remind your team that they cannot install additional Python libraries or access the internet on the Astro Pi computers aboard the ISS, so they should not use any commands that make a web request or look up something from an online source.
 Encourage each team member or sub-team responsible for a specific part of the program to code their section so that works by itself, just like the examples in the coding requirements document. Suggest that they add comments and docstrings as they go along.
@@ -60,8 +64,8 @@ Get together regularly to discuss progress and work through any major challenges
 
 Keep the deadline for submitting your program in mind. If time is running out, are there any parts of your program that can be left out? If you are planning on performing analysis of results in real time, can this instead be done after your program has run, when you’ve got your results back?
 
+### Testing
+
 Don’t forget to test your program using the Flight OS disk image, which is the operating system running on the Astro Pis. It’s a cut-down version of the Raspbian OS, and it does not have X-Windows and many of the standard development tools installed. Testing your program using the Flight OS will let you check that none of the commands rely on files or libraries that aren’t present on the Astro Pis aboard the ISS.
 
 ![](images/Astro_Pi_Educator_Web_V2f.png)
-
-![](images/Astro_Pi_Educator_Web_V2c.png)
