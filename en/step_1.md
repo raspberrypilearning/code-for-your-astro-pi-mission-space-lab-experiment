@@ -2,17 +2,15 @@
 
 The European Astro Pi Challenge is an ESA Education project run in collaboration with the Raspberry Pi Foundation. Astro Pi Mission Space Lab offers young people the amazing opportunity to conduct scientific investigations in space by writing computer programs that run on Raspberry Pi computers — the Astro Pis — aboard the International Space Station.
 
-This guide covers Phase 2 for both Mission Space Lab themes: _Life on Earth_ and _Life in space_.
+This guide covers Phase 2 for both Mission Space Lab themes: _Life on Earth_ and _Life in space_. We want your experiment to run reliably on the ISS, and this guide will help you get started quickly and give you the best chance of running your program without problems.
 
 ### What you will make
 
-This guide includes information on assembling your kit, writing the code for your experiment, and testing your program. It also includes essential details about what is and isn’t possible with the Astro Pi hardware and software.
-
-We want your experiment to run reliably on the ISS, and this guide will help you get started quickly and give you the best chance of running your program without problems.
+The guide includes information on assembling your kit, writing the code for your experiment, and testing your program. It also includes essential details about what is and isn’t possible with the Astro Pi hardware and software.
 
 We don’t insist that you follow every rule, but if you think you need to do things differently, please get in touch **before** submitting your entry. A program that does not follow this guide will score less highly during the judging process than a program that does, and it may not progress to the next phase if it cannot be run easily on the ISS without modification.   
 
-If you’ve entered the Astro Pi competition before, please make sure you read and follow this guide, as many things have changed from previous years!
+Even if you’ve entered the Astro Pi competition before, please make sure you read and follow this guide, as many things have changed since the previous rounds!
 
 --- collapse ---
 ---
