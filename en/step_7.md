@@ -1,4 +1,4 @@
-## Running your experiment for its allocated 3h
+## Running your experiment for 3 hours
 
 Your experiment will be allocated 180 minutes of runtime on the ISS. Therefore, your code should run for no more than this three-hour period and should gracefully shut down any activity (e.g. close the camera, close any open files, clear the LED matrix). After thee hours, your code will be terminated automatically by the Astro Pi, but this may cause data to be lost or recorded incorrectly, so you should not rely on this to stop your program.
 

@@ -1,4 +1,4 @@
-## Working out where the ISS is
+## Finding the location of the ISS
 
 Using the Python `ephem` library, you can calculate the positions of space objects within out solar system. This includes the Sun, the Moon, the planets, and many Earth satellites such as the ISS. So you can work out the ISS’s current location above the Earth, which you can use to identify whether the ISS is flying over land or sea, or which country it is flying over.
 
