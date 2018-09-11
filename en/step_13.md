@@ -1,6 +1,6 @@
 ## Tips for educators — planning and running your coding sessions
 
-Here is an example of an Astro Pi Mission Space Lab experiment idea, which we’ll use to illustrate how to plan and write your computer program.
+Here is an example of an Astro Pi Mission Space Lab experiment idea, which we’ll use to illustrate how to plan and write your computer program (this is the same experiment that we're showing the program for in the step 'A big worked example').
 
 The team from CoderDojo Tatooine wants to investigate whether the environment on the ISS is affected by the surface of the Earth it is passing over. Does the ISS get hotter when it passes over a desert, or wetter (more humid) when it is above the sea?
 
