@@ -56,7 +56,7 @@ For final testing, you should use the Flight OS version of Raspbian. This is a s
 title: Additional information for educators
 ---
 
-The final part of this project contains useful tips for educators and an example of how to design the code needed for your experiment.
+The final part of this project contains useful tips for educators and an example of how to design the program needed for your experiment.
 
 If you need to print this project, please use the [printer-friendly version](https://projects.raspberrypi.org/en/projects/project-name/print){:target="_blank"}.
 
