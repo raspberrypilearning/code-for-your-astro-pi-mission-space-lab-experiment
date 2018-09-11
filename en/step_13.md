@@ -61,7 +61,9 @@ The final result is what is called pseudo-code: a diagram of all of a program’
 
 + Give descriptive names to each task block.
 
-+ Assign responsibility for each block to different members of the team. Try to think about the individual team members’ experience levels and programming ability and allocate tasks accordingly. Depending on the number of people in your team and the complexity of your program, it may be sensible to have more than one person allocated to a specific block or function. And don’t forget that someone needs to be responsible for the scaffold of the final program that will contain the various function calls in the right order.
++ Assign responsibility for each block to different members of the team. Try to think about the individual team members’ experience levels and programming ability and allocate tasks accordingly. Depending on the number of people in your team and the complexity of your program, it may be sensible to have more than one person allocated to a specific block or function.
+
++ And don’t forget that someone needs to be responsible for the scaffold of the final program that will contain the various function calls in the right order.
 
 ### Get coding!
 
