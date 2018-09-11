@@ -31,15 +31,15 @@ Remember, these are some key things that the program should do:
 
 + Use a whiteboard or big sheet of paper to list all the key tasks that your program will need to perform. You don’t need to worry about the order or the actual functions and commands at this stage — just note down the specific things that need to be achieved. This is what that would look like for the example scenario above:
 
-![](images/Astro_Pi_Educator_Web_V2a.png)
+![](images/Astro_Pi_Educator_Web_V6a.png)
 
 + Now have a closer look at each task and think about whether it can be split down into smaller sub-tasks. Moreover, are there any actions that can be sensibly combined with one another? Also see if there are any tasks that need to be repeated.
 
-![](images/Astro_Pi_Educator_Web_V2b.png)
+![](images/Astro_Pi_Educator_Web_V6b.png)
 
 + Now try to put everything into a logical order, using lines to connect the various tasks. It will start to get messy, but that’s good! You will probably discover that there are some obvious repeated tasks. This is a good time to introduce or reinforce the programming concepts of repetition and loops.
 
-![](images/Astro_Pi_Educator_Web_V2c.png)
+![](images/Astro_Pi_Educator_Web_V6c.png)
 
 + If there are any repeated tasks, do they appear just once in your diagram, with flow lines passing through many times, or do they fit in in multiple places? Talk with your team about how repeated tasks should only be coded once, so that parts of the program can be reused.
 
@@ -49,7 +49,7 @@ Remember, these are some key things that the program should do:
 
 The final result is what is called pseudo-code: a diagram of all of a program’s tasks, in the right order, that doesn’t contain any actual programming language commands.
 
-![](images/Astro_Pi_Educator_Web_V2d.png)
+![](images/Astro_Pi_Educator_Web_V6d.png)
 
 + Now work through your task list and try to identify any missing pieces.
 
@@ -75,7 +75,7 @@ The final result is what is called pseudo-code: a diagram of all of a program’
 
 + Get together regularly to discuss progress and work through any major challenges as a group. It is worth updating your pseudo-code flow diagram to reflect any changes that your team realise are necessary as they write the actual program.
 
-![](images/Astro_Pi_Educator_Web_V2e.png)
+![](images/Astro_Pi_Educator_Web_V6e.png)
 
 + Keep the deadline for submitting your program in mind. If time is running out, are there any parts of your program that can be left out? If you are planning on performing analysis of results in real time, can this instead be done after your program has run, when you’ve got your results back?
 
