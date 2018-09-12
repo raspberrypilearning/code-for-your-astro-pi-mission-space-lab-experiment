@@ -1,6 +1,6 @@
 ## Recording images using the camera
 
-The first thing to do, if you haven't already, is to connect your Picamera to the Pi.
+The first thing to do, if you haven't already, is to connect your Camera Module to the Pi.
 
 [[[rpi-picamera-connect-camera]]]
 
@@ -8,7 +8,7 @@ Once you've done that, power the Pi back on and take some test photos:
 
 [[[rpi-picamera-take-photo]]]
 
-The snippet below shows how to take a picture with the Pi cameras on the Astro Pis, saving it to the correct directory. The PiCamera library is very powerful and has [great documentation](https://picamera.readthedocs.io/en/latest/){:target="_blank"}.
+The code snippet below shows how to take a picture with the Camera Modules of the Astro Pis using the `picamera` library, and save it to the correct directory. The `picamera` library is very powerful and has [great documentation](https://picamera.readthedocs.io/en/latest/){:target="_blank"}.
 
 ```python
 
@@ -26,30 +26,27 @@ camera.capture(dir_path+"/image.jpg”)
 
 ```
 
-
-If you’re using the visible light camera on Ed, then all images must be deleted at the end of your experiment time.
+If you’re using the visible light camera on Astro Pi Ed, then your program must delete all images at the end of your experiment time.
 
 ```python
 os.remove(dir_path+"/image.jpg”)
 
 ```
 
-If you’re using the IR camera on Izzy, then you will get some amazing pictures of the Earth as seen from the ISS. Even if you’re processing these images and only making use of the data you extract, we recommend that you do not delete all the images (unless you will generating so many of them that you may be in danger of running out of disk space on the Pi). Apart from being a unique souvenir of your mission, they may also help with debugging any unexpected issues with your results when you receive them back.
+If you’re using the infrared camera on Astro Pi Izzy, then you will get some amazing pictures of the Earth as seen from the ISS. Even if you program will process these images and only make use of the extracted data, we recommend that you do not delete all the images (unless you will be generating so many of them that you risk running out of disk space on the Astro Pi). Apart from being a unique souvenir of your mission, they may also help you with debugging any unexpected issues with your experimental results.
 
 ### Location data
-Being able to take photographs of the Earth from a window on the ISS is something normally only available to astronauts. We recommend that you record the position of the space station for any images that you capture. You can do this by logging the latitude and longitude in a csv file along with the corresponding filename.
+Being able to take photographs of the Earth from a window on the ISS is something that normally only astronauts can do. We recommend that you record the position of the Space Station for any images that you capture. You can do this by logging the latitude and longitude in a CSV file along with the corresponding file name of the image.
 
-A better method is to add the location information into EXIF fields within each image file itself. This metadata is therefore ‘attached’ to the image file and does not need the accompanying csv data file.
+A better method is to add the location information into EXIF fields within each image file itself. This **metadata** is ‘attached’ to the image file and does not need the accompanying CSV data file.
 
-There are a few different ways of expressing latitude and longitude and it is important to get the units correct, especially when working with software and libraries which may expect the data to be in a certain format.
+There are a few different ways of expressing latitude and longitude, and it is important to get the units correct, especially when working with software and libraries that expect the data to be in a certain format.
 
-For the ephem library used to report the ISS position, coordinates are written using degrees (°) as the unit of measurement.  There are 360° of longitude: 180° East and 180° West of the Prime Meridian (the zero point of longitude,  defined as a point in Greenwich, England). Similarly, there are 180° of latitude (90° North and 90° South of the equator).
+For the `ephem` library used to report the ISS position, coordinates are written using degrees (°) as the unit of measurement.  There are 360° of longitude: 180° east and 180° west of the prime meridian (the zero point of longitude, defined as a point in Greenwich, England). There are 180° of latitude: 90° north and 90° south of the equator).
 
-To precisely specify a location, each degree can be reported as a decimal number, e.g. (28.277777, 71.5841666). Another approach is to split each degree into 60 minutes (’). Each minute can be then divided into 60 seconds (”) and for even finer accuracy, fractions of seconds given by a decimal point are used. The extra complication here is that the degrees value cannot be negative. An extra piece of information must be included for each value - the latitude reference and longitude reference. This simply says whether the point that the coordinate refers to is east or west of the Meridian (for longitude), and north or south of the equator (for latitude). So the same example above would be displayed as (28:16:40 N, 71:35:3 E).
+To precisely specify a location, each degree can be reported as a decimal number, e.g. (28.277777, 71.5841666). Another approach is to split each degree into 60 minutes (’). Each minute can be then divided into 60 seconds (”) and for even finer accuracy, fractions of seconds given by a decimal point are used. The extra complication here is that the degrees value cannot be negative. An extra piece of information must be included for each value — the latitude reference and longitude reference. This simply states whether the point that the coordinate refers to is east or west of the Meridian (for longitude), and north or south of the equator (for latitude). So the example from above would be displayed as (28:16:40 N, 71:35:3 E).
 
-It is this Degrees:Minutes:Seconds (DMS) format that should be used when storing coordinates in EXIF data of images.  The code to take the data returned by the ephem library and convert it into a format suitable for storing as EXIF data looks complicated but is really just the same series of steps described above. In the code snippet below, a function called get_latlon() is used to help keep our program tidy.
-
-The code snippet below has a function  which sets the Pi camera’s EXIf date to the current latitude and longitude, ready for storing within the metadata of the next photo that is taken.  
+It is this degrees:minutes:seconds (DMS) format that you should use to store coordinates in EXIF data of images. You can see the code to take the data returned by the `ephem` library and convert it into a format suitable for storing as EXIF data below. It might look complicated, but is really just the same series of steps described above. In the snippet below, to set each image file's EXIF data to the current latitude and longitude, a function called `get_latlon()` is used. Using a function to do this also helps keep the program tidy.
 
 ```python
 import ephem
@@ -95,11 +92,11 @@ get_latlon()
 cam.capture(dir_path+"/gps1.jpg")
 ```
 
-It is possible to overlay text data onto the visible image itself, like a watermark. However there is always a risk that this will obscure a useful part of the picture, and can confuse code that looks ate the brightness of pixels within the image. Unlike the EXIF method, it also does not make it easy to automatically process images based on this data, or search for images based on the location at which they were taken. Therefore we recommend you do not use this method to record the lat/long and instead use EXIF data.
+Instead of using EXIF data, it is possible to overlay text data onto the visible image itself, like a watermark. However, there is always a risk that this will obscure a useful part of the picture, and can confuse code that looks at the brightness of pixels within the image. Unlike the EXIF method, it also does not make it easy to automatically process images based on metadata, or search for images based on the location at which they were taken. Therefore, we recommend that you do not use the watermarking method to record the latidude and longitude, and instead use EXIF data.
 
-### Numbering schemes for files
+### Numbering plans for files
 
-Another cool thing to do with a sequence of photos from the ISS is to create a time lapse movie. This can be done on a Raspberry Pi with a single command - as long as the files are named sensibly and with an obvious sequence number.  The naming convention for image files should be: image_001.jpg
+Another cool thing to do with a sequence of photos from the ISS is to create a timelapse movie like the one in the first section of this project. This can be done on a Raspberry Pi with a single command — as long as the files are named sensibly and with an obvious sequence number. The naming convention for image files should be `image_001.jpg`, `image_002.jpg`, etc.
 
 ```python
 from time import sleep
@@ -113,9 +110,13 @@ for filename in camera.capture_continuous(dir_path+"/image_{counter:04d}.jpg'):
     sleep(300) # wait 5 minutes
 ```
 
-Then, *once you get your images back from the ISS*,  you can use this command to create a timelapse (you will need to install the libav-tools package first).
+Then, **once you get your images back from the ISS**,  you can use the following command to create a timelapse (you will need to install the `libav-tools` package first).
 
 ```bash
 avconv -r 10 -i image%04d.jpg -r 10 -vcodec libx264 -crf 20 -g 15 timelapse.mp4
 ```
-This is definitely a post-eperiment processing step. You should not use your 3 hour experiment time on the ISS to try to build a timelapse movie!
+This is definitely a post-experiment processing step. You should not use your three-hour experiment time on the ISS to try to build a timelapse movie!
+
+### Low-light and night-time photography
+
+Night-time photography using the Astro Pi's Camera Module is difficult. This is mostly because the very low chances of your program being run while the ISS is above a bright city without cloud cover. The light sensitivity of the camera is quite good, but it needs to be used with the best software settings for the particular situation, and it is difficult to anticipate what those settings will be and include them in your program. Having the camera adapt to changing light conditions in real time is also tricky, especially when the camera is moving relative to the light source as is the case for the Astro Pis on the ISS.

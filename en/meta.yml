@@ -2,19 +2,20 @@ title: Astro Pi Mission Space Lab Phase 2 guide
 hero_image: images/banner.png
 description: code-for-your-Astro-Pi-Mission-Space-Lab-experiment description
 version: 4
-listed: false
-copyedit: false
+listed: true
+copyedit: true
 last_tested: "2018-06-29"
 steps:
   - title: Introduction
   - title: Getting started
   - title: Recording data from your experiment
-  - title: Working out where the ISS is at a given time
+  - title: Finding the location of the ISS
   - title: Recording images using the camera
   - title: Doing more than one thing at a time
-  - title: Running your code for the 3 hours allocated to the experiment
+  - title: Running your experiment for 3 hours
   - title: Using the LED matrix
   - title: Networking
   - title: User input
   - title: A big worked example
   - title: Test your code
+  - title: Tips for educators
