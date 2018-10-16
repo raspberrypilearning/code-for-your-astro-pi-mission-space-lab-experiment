@@ -45,7 +45,7 @@ g,g,g,g,g,g,g,g,
  ]
 
 # Set a logfile name
-logzero.logfile(dir_path+"/data.csv")
+logzero.logfile(dir_path+"/data01.csv")
 
 # Set a custom formatter
 formatter = logging.Formatter('%(name)s - %(asctime)-15s - %(levelname)s: %(message)s');

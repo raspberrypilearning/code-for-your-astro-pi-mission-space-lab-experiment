@@ -96,7 +96,7 @@ Instead of using EXIF data, it is possible to overlay text data onto the visible
 
 ### Numbering plans for files
 
-Another cool thing to do with a sequence of photos from the ISS is to create a timelapse movie like the one in the first section of this project. This can be done on a Raspberry Pi with a single command — as long as the files are named sensibly and with an obvious sequence number. The naming convention for image files should be `image_001.jpg`, `image_002.jpg`, etc.
+Another cool thing to do with a sequence of photos from the ISS is to create a timelapse movie like the one in the first section of this project. This can be done on a Raspberry Pi with a single command — as long as the files are named sensibly and with an obvious sequence number. The naming convention for image files should be `image_001.jpg`, `image_002.jpg`, etc. Remember not to include spaces in your filenames!
 
 ```python
 from time import sleep

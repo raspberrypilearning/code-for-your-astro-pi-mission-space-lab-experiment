@@ -2,6 +2,16 @@
 
 If you have received an official Astro Pi kit from ESA, you have everything you need to develop and test your Phase 2 program for Mission Space Lab (MSL). If you want to, you could even [create your own Astro Pi flight case](https://projects.raspberrypi.org/en/projects/astro-pi-flight-case), but don’t worry, that’s not essential. It can be a valuable activity in its own right, but completion of Mission Space Lab **does not** rely on having the flight case.
 
+The first thing you'll need to do is set up your development environment. If you received a kit from ESA, it will contain a Raspberry Pi with an SD card that already has the Raspbian operating system installed. In order to make sure your Pi matches the way the Astro Pis on the ISS are set up, you'll need to install the extra extra libraries and software that are listed below.  To make this easy we've written a one-line installer script that will do everything in one go, and make sure the correct versions are installed. First of all, connect your Pi to the Internet via your wifi network. 
+
+Then, to run the script, open a Terminal window and type:
+
+```bash
+curl -sSL http://rpf.io/apstretch | bash
+```
+
+This will take a while to run as it will also make sure that all the other software on the Pi is up-to-date.
+
 ### Using the hardware
 
 You may wish to revisit the videos from Phase 1 to remind yourself of the limitations of the Astro Pi hardware aboard the ISS. We also have the following resources to help you get started with the Sense HAT and Camera Module:
