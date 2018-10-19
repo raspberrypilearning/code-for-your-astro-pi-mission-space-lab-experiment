@@ -2,15 +2,19 @@
 
 If you have received an official Astro Pi kit from ESA, you have everything you need to develop and test your Phase 2 program for Mission Space Lab (MSL). If you want to, you could even [create your own Astro Pi flight case](https://projects.raspberrypi.org/en/projects/astro-pi-flight-case), but don’t worry, that’s not essential. It can be a valuable activity in its own right, but completion of Mission Space Lab **does not** rely on having the flight case.
 
-The first thing you'll need to do is set up your development environment. If you received a kit from ESA, it will contain a Raspberry Pi with an SD card that already has the Raspbian operating system installed. In order to make sure your Pi matches the way the Astro Pis on the ISS are set up, you'll need to install the extra extra libraries and software that are listed below.  To make this easy we've written a one-line installer script that will do everything in one go, and make sure the correct versions are installed. First of all, connect your Pi to the Internet via your wifi network. 
+The first thing you'll need to do is set up your development environment. If you received a kit from ESA, it will contain a Raspberry Pi with an SD card that already has the Raspbian operating system installed. In order to make sure your Pi matches the way the Astro Pis on the ISS are set up, you'll need to install the extra extra libraries and software that are listed below.  To make this easy we've written a one-line installer script that will do everything in one go, and make sure the correct versions are installed. First of all, connect your Pi to the Internet via your wifi network.
 
-Then, to run the script, open a Terminal window and type:
-
+1. Boot the Pi and login (username: "pi", password: "raspberry")
+2. When you login for the first time, you'll be asked to configure a few things like your language, keyboard type and wifi settings. Go ahead and let the wizard guide you through this step.
+3. Start the Chromium web browser (click on the blue globe next to the Raspberry Pi symbol in the top left of the screen).
+4. Open a Terminal Window (click on the black box icon)
+5. Type this command to run the one-line installer which will add all the extra Python libraries and additional software:
 ```bash
 curl -sSL http://rpf.io/apstretch | bash
 ```
+Be aware that this can take up to 20 minutes to complete.
+6. Close and then re-open Chromium and you should see this guide displayed as the starting page. 
 
-This will take a while to run as it will also make sure that all the other software on the Pi is up-to-date.
 
 ### Using the hardware
 
