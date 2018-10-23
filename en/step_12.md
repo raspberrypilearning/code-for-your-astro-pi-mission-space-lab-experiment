@@ -12,12 +12,10 @@ To create a replica of the Flight OS, follow these steps:
 2. [Write the image onto a spare SD card](https://www.raspberrypi.org/documentation/installation/installing-images/).
 3. Boot the Pi and login (username: "pi", password: "raspberry")
 4. When you login for the first time, you'll be asked to configure a few things like your language, keyboard type and wifi settings. Go ahead and let the wizard guide you through this step.
-5. Start the Chromium web browser (click on the blue globe next to the Raspberry Pi symbol in the top left of the screen).
-6. Open a Terminal Window (click on the black box icon)
-4. Type this command to run the one-line installer which will add all the extra Python libraries and additional software:
+5. Type this command to run the one-line installer which will add all the extra Python libraries and additional software:
 ```bash
 curl -sSL http://rpf.io/apstretch | bash
 ```
 Be aware that this can take up to 20 minutes to complete.
-5. Copy your code to the Pi using an USB drive.
-6. Start testing!
+6. Copy your code to the Pi using an USB drive.
+7. Start testing!
