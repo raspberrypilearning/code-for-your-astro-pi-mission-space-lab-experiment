@@ -12,9 +12,10 @@ The first thing you'll need to do is set up your development environment. If you
 ```bash
 curl -sSL http://rpf.io/apstretch | bash
 ```
-Be aware that this can take up to 20 minutes to complete.
-6. Close and then re-open Chromium and you should see this guide displayed as the starting page. 
+Be aware that this can take up to 25 minutes to complete.
+6. Close and then re-open Chromium and you should see this guide displayed as the starting page.
 
+![](images/dev_image.png)
 
 ### Using the hardware
 
@@ -29,6 +30,12 @@ If you've never used the Sense HAT before, [start with this short project](https
 Note that, because you will be using the Raspberry Pi Camera Module with the Sense Hat, you'll need to thread the camera's ribbon cable through the slot on the Sense HAT before connecting it the Pi.
 
 If you've never used the Camera Module before, [start with this beginners' project](https://projects.raspberrypi.org/en/projects/getting-started-with-picamera/), and come back here once you've tried your hand using the basic `picamera` Python library functions.
+
+## Performance
+
+The Raspberry Pi's included in the ESA kits for 2018/19 are Raspberry Pi 3s. However the Astro Pis currently on the ISS are the older Raspberry Pi B+. Computing performance is always improving and so it shouldn't be a surprise that a Pi 3 is faster and more powerful than a B+. You should bear this in mind when writing the code for your experiment: some tasks that involve complicated mathematics or the processing of lots of data, will run more slowly on the Astro Pis on the ISS. In particular, using Python libraries like OpenCv (to process images captured with the Pi camera), or ephem (to work out which city the ISS is passing over) will be significantly slower.  
+
+See the "Test Your Code" section for instructions of how to create a test SD card image which is more representative of the performance of the Astro Pis on the ISS.
 
 ## Write your program
 
