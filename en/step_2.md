@@ -2,18 +2,17 @@
 
 If you have received an official Astro Pi kit from ESA, you have everything you need to develop and test your Phase 2 program for Mission Space Lab (MSL). If you want to, you could even [create your own Astro Pi flight case](https://projects.raspberrypi.org/en/projects/astro-pi-flight-case), but don’t worry, that’s not essential. It can be a valuable activity in its own right, but completion of Mission Space Lab **does not** rely on having the flight case.
 
-The first thing you'll need to do is set up your development environment. If you received a kit from ESA, it will contain a Raspberry Pi with an SD card that already has the Raspbian operating system installed. In order to make sure your Pi matches the way the Astro Pis on the ISS are set up, you'll need to install the extra extra libraries and software that are listed below.  To make this easy we've written a one-line installer script that will do everything in one go, and make sure the correct versions are installed. First of all, connect your Pi to the Internet via your wifi network.
+The first thing you'll need to do is set up your development environment. If you received a kit from ESA, it will contain a Raspberry Pi with an SD card that already has the Raspbian operating system installed. In order to make sure the setup of your Pi matches that of the Astro Pis on the ISS, you'll need to install the extra libraries and software listed below. To make this easy, we've written a one-line installer script that will do everything in one go and make sure the correct versions are installed. Here's how to run the script:
 
-1. Boot the Pi and login (username: "pi", password: "raspberry")
-2. When you login for the first time, you'll be asked to configure a few things like your language, keyboard type and wifi settings. Go ahead and let the wizard guide you through this step.
-3. Start the Chromium web browser (click on the blue globe next to the Raspberry Pi symbol in the top left of the screen).
-4. Open a Terminal Window (click on the black box icon)
-5. Type this command to run the one-line installer which will add all the extra Python libraries and additional software:
+1. Turn on the Pi and log in (username: "pi", password: "raspberry")
+2. When you log in for the first time, a wizard program will open and ask to walk you through choosing settings like your language, keyboard type, and WiFi details; let the wizard guide you through this process
+3. Start the Chromium web browser (click on the blue globe next to the Raspberry Pi symbol in the top left-hand corner of the screen) and test whether your Pi is connected to the internet
+4. Open a terminal window (click on the black box icon in the top bar of the screen)
+5. Type in the following command and press Press <kbd>Enter</kbd> to run the one-line installer that will add all the extra Python libraries and software:
 ```bash
 curl -sSL http://rpf.io/apstretch | bash
 ```
-Be aware that this can take up to 25 minutes to complete.
-6. Close and then re-open Chromium and you should see this guide displayed as the starting page.
+6. Close and then re-open Chromium, and you should see this guide displayed as the starting page.
 
 ![](images/dev_image.png)
 
@@ -33,9 +32,9 @@ If you've never used the Camera Module before, [start with this beginners' proje
 
 ## Performance
 
-The Raspberry Pi's included in the ESA kits for 2018/19 are Raspberry Pi 3s. However the Astro Pis currently on the ISS are the older Raspberry Pi B+. Computing performance is always improving and so it shouldn't be a surprise that a Pi 3 is faster and more powerful than a B+. You should bear this in mind when writing the code for your experiment: some tasks that involve complicated mathematics or the processing of lots of data, will run more slowly on the Astro Pis on the ISS. In particular, using Python libraries like OpenCv (to process images captured with the Pi camera), or ephem (to work out which city the ISS is passing over) will be significantly slower.  
+The Raspberry Pis in the ESA kits for Astro Pi 2018/19 are Raspberry Pi 3s. However, the Astro Pis currently on the ISS are the older Raspberry Pi model B+. A Pi 3 is a new model, and therefore faster and more powerful than a B+. You should bear this in mind when writing the code for your experiment: some tasks that need a lot of computing power (e.g. they involve complicated mathematics or the processing of lots of data) will run more slowly on the Astro Pis on the ISS than on your ESA kit Pi. In particular, using Python libraries like `OpenCV` (to process images captured with the Pi camera), or `ephem` (to work out which city the ISS is passing over) will be significantly slower on the Astro Pis.  
 
-See the "Test Your Code" section for instructions of how to create a test SD card image which is more representative of the performance of the Astro Pis on the ISS.
+See the "Test your code" section for instructions for creating a test SD card image that is more representative of the performance of the Astro Pis on the ISS.
 
 ## Write your program
 
