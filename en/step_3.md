@@ -1,6 +1,6 @@
 ## Recording data with your program
 
-Any files created by you code should have sensible, informative names. Only use letters, numbers, hyphens (-) or underscores (\_) in your filenames. Do Not use spaces in filenames as this can cause problems when transferring files between computers.  
+Any files your program creates should have sensible, informative names. Only use letters, numbers, hyphens (-), or underscores (\_) in your file names. **Do not use spaces** in file names, because spaces can cause problems when the files are transferred between computers.  
 
 Your program should collect and store experimental data. These measurements should be written to a file in the current working directory called `data01.csv`.
 
