@@ -48,7 +48,9 @@ except ZeroDivisionError:
     print("b cannot be zero")
 ```
 
-A good example of an exception occurring when using the Sense HAT is if you tried to use a variable as a pixel colour value, and the variable went outside of the range allowed (0 to 255):
+A good example of an exception that may occur when you use the Sense HAT is this:
+
+Your program uses a variable as a pixel colour value, but the value assigned to the variable falls outside of the range allowed (0 to 255).
 
 ```python
 >>> r = a + b
@@ -60,17 +62,17 @@ Traceback (most recent call last):
 ValueError: Pixel elements must be between 0 and 255
 ```
 
-It's important to anticipate anywhere a value might reach a value that's going to cause problems. If you're using the humidity value to denote how red the pixels are, make sure the value can't possibly go outside of the range 0 to 255, not just in testing but in all possible situations:
+It's important to anticipate all places in your program where a variable may reach a value that would cause problems. For example, if you're using the humidity measurement to denote how red pixels are, make sure that this value can't possibly go outside the range 0 to 255, not just during testing, but in all possible situations:
 
 ```python
 red = int(max(0, min(sh.humidity / 100 * 255, 255)))
 ```
 
-This means that if the humidity is 0 or below, the red value will be 0, if the humidity is 100 or over, the red value will be 255. Anywhere in between 0 and 100 the red value will be proportional, but always be an integer.
+This line of code means that if the humidity measurement is 0 or below, the value of `red` will be 0, and if the measurement is 100 or over, the value of `red` will be 255. For measurements in between 0 and 100, the value of `red` will be proportional. In addition, the value of `red` will always be an integer.
 
 ### Multiple exceptions
 
-The easiest way to handle an exception is to catch all exceptions and deal with them in the same way:
+The easiest way to handle exceptions is to catch all exceptions and deal with them in the same way:
 
 ```python
 try:
@@ -79,7 +81,7 @@ except:
     print("An error occurred")
 ```
 
-However, this tells you nothing about what went wrong. You should instead consider what types of exceptions can occur. It is possible to deal with different exceptions in different ways:
+However, this tells you nothing about what went wrong in your program. You should instead consider what types of exceptions can occur. It is possible to deal with different exceptions in different ways:
 
 ```python
 try:
@@ -90,4 +92,4 @@ except TypeError:
     print("a and b must be numbers")
 ```
 
-Using a combination of avoidance and good exception handling, you can avoid show-stopping errors and disappointment. Imagine getting back the logs from a failed experiment only to see that you had an exception thrown that could have been handled, or an error message that didn't reveal anything about what went wrong.
+Using a combination of avoidance and good exception handling, you can avoid errors that would prevent your program from completing its run and causing you disappointment. Imagine getting back the logs from a failed experiment only to see that there was an exception that could have been handled, or an error message that didn't reveal anything about what went wrong.
