@@ -34,15 +34,15 @@ o = [0,0,0]
 
 # define a simple image
 img1 = [
-g,g,g,g,g,g,g,g,
-o,g,o,o,o,o,g,o,
-o,o,g,o,o,g,o,o,
-o,o,o,g,g,o,o,o,
-o,o,o,g,g,o,o,o,
-o,o,g,g,g,g,o,o,
-o,g,g,g,g,g,g,o,
-g,g,g,g,g,g,g,g,
- ]
+    g,g,g,g,g,g,g,g,
+    o,g,o,o,o,o,g,o,
+    o,o,g,o,o,g,o,o,
+    o,o,o,g,g,o,o,o,
+    o,o,o,g,g,o,o,o,
+    o,o,g,g,g,g,o,o,
+    o,g,g,g,g,g,g,o,
+    g,g,g,g,g,g,g,g,
+]
 
 # Set a logfile name
 logzero.logfile(dir_path+"/data01.csv")
@@ -62,9 +62,9 @@ cam = PiCamera()
 
 # function to write lat/long to EXIF data for photographs
 def get_latlon():
-  """
-  A function to write lat/long to EXIF data for photographs
-  """
+    """
+    A function to write lat/long to EXIF data for photographs
+    """
     iss.compute() # Get the lat/long values from ephem
     long_value = [float(i) for i in str(iss.sublong).split(":")]
     if long_value[0] < 0:
@@ -84,10 +84,10 @@ def get_latlon():
 
 # define a function to update the LED matrix
 def active_status():
-  """
-  A function to update the LED matrix regularly
-  to show that the experiment is progressing
-  """
+    """
+    A function to update the LED matrix regularly
+    to show that the experiment is progressing
+    """
     # a list with all possible rotation values
     orientation = [0,90,270,180]
     # pick one at random
@@ -125,7 +125,7 @@ while (now_time < start_time + datetime.timedelta(minutes=178)):
         # update the current time
         now_time = datetime.datetime.now()
     except Exception as e:
-        logger.error("An error occurred:" + e.message)
+        logger.error("An error occurred: " + str(e))
 ```
 
 A snippet from the `data.csv` file that is produced:
