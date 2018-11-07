@@ -95,3 +95,7 @@ logger.info("%s,%s", humidity, temperature, pressure )
 ### Using print for testing
 
 The Python `print` function is a great tool for testing and debugging your code, but you should remove or comment out all such lines before submitting your final code. If you want to keep track of things that happened as your code was executing, use the `logging` library.
+
+### Data storage quota
+
+Each experiment is limited to producing 3GB of data. Make sure you calculate the maximum of amount of space that your measurements, including any saved photos, will use on the SD card and that is does not exceed 3GB.

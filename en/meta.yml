@@ -14,7 +14,7 @@ steps:
   - title: Doing more than one thing at a time
   - title: Running your experiment for 3 hours
   - title: Using the LED matrix
-  - title: Networking
+  - title: Networking and System processes
   - title: User input
   - title: A big worked example
   - title: Test your code
