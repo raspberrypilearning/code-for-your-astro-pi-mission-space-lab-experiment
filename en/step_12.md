@@ -25,15 +25,15 @@ Now you can start testing your program!
 
 ### Final check
 
-In order that your code can run safely and reliably on the ISS, there are few rules that need to be followed. If you've followed this guide then your code should already be fine. However as a final check before submission you should make sure that:
+So that your program can run safely and successfully on the ISS, there are some rules it needs to follow. If you've worked through this guide, then your program should already be fine. However, as a final steo before you submit your entry, you should double-check that:
 
-1. If you're entering "Life in Space", your code does not save any photos or videos taken aboard the ISS.
-2. Your code does not use networking or start a system process other than to measure the CPU temperature.
-3. Your code runs without errors and does not raise any unhandled exceptions.
-4. You have documented your code and that it is easy to understand.
-5. Your experiment does not rely on interaction with an astronaut.
-6. There is no bad language or rudeness in your code.
-7. Your program will stop after 3 hours.
-8. Your data is saved into files as described in this guide and does not use more than 3GB of space on the SD card.
-9. Your code is written in Python3.
-10. Your code does not rely on any additional libraries being installed other than those listed in this guide.
+1. Your experiment does not rely on interaction with an astronaut
+1. Your program is written in Python 3
+1. Your program does not rely on any additional libraries other than those listed in this guide
+1. Your program  does not use networking, and does not start a system process (other than to measure the CPU temperature if necessary)
+1. You have documented your program, and it is easy to understand
+1. Your data is saved in files as described in this guide and does not use more than 3GB of storage space
+1. If you chose the theme 'Life in space', your program does not save any photos or videos
+1. Your program runs without errors and does not raise any unhandled exceptions
+1. Your program stops running after 3 hours
+1. There is no bad language or rudeness in your program 
