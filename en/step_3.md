@@ -98,4 +98,4 @@ The Python `print` function is a great tool for testing and debugging your code,
 
 ### Data storage quota
 
-Each experiment is limited to producing 3GB of data. Make sure you calculate the maximum of amount of space that your measurements, including any saved photos, will use on the SD card and that is does not exceed 3GB.
+**Your experiment is allowed to produce a maximum of 3GB of data**. So make sure you calculate the maximum amount of storage space that your experiment's recorded data, including any photos, will take up, and that this does not exceed 3GB.
