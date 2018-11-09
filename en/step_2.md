@@ -80,4 +80,4 @@ When you’ve created a really useful program or piece of software and you want 
 
 This [project](https://projects.raspberrypi.org/en/projects/documenting-your-code) shows you the recommended way to add useful comments to your program.
 
-Any attempt to deliberately hide or make it difficult to understand what a piece of code is doing will result in disqualification. And, of course there should be no bad language or rudeness in your code.
+Any attempt to hide, or make it difficult to understand, what a piece of code is doing will result in disqualification. And of course there should be no bad language or rudeness in your code.
