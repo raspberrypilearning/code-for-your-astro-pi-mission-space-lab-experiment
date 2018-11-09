@@ -123,4 +123,4 @@ Night-time photography using the Astro Pi's Camera Module is difficult. This is 
 
 ### Size and number of images
 
-**Don't forget that your experiment is limited to producing 3GB of data.** Make sure you calculate the maximum amount of space that your measurements, including any saved image files, will use, and that this does not exceed 3GB. 
+**Don't forget that your experiment is limited to producing 3GB of data.** Make sure you calculate the maximum amount of space that your measurements, including any saved image files, will take up, and that this does not exceed 3GB. 
