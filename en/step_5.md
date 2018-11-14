@@ -92,7 +92,7 @@ get_latlon()
 cam.capture(dir_path+"/gps1.jpg")
 ```
 
-Instead of using EXIF data, it is possible to overlay text data onto the visible image itself, like a watermark. However, there is always a risk that this will obscure a useful part of the picture, and can confuse code that looks at the brightness of pixels within the image. Unlike the EXIF method, it also does not make it easy to automatically process images based on metadata, or search for images based on the location at which they were taken. Therefore, we recommend that you do not use the watermarking method to record the latidude and longitude, and instead use EXIF data.
+Instead of using EXIF data, it is possible to overlay text data onto the visible image itself, like a watermark. However, there is always a risk that this will obscure a useful part of the picture, and can confuse code that looks at the brightness of pixels within the image. Unlike the EXIF method, it also does not make it easy to automatically process images based on metadata, or search for images based on the location at which they were taken. Therefore, we recommend that you do not use the watermarking method to record the latitude and longitude, and instead use EXIF data.
 
 ### Numbering plans for files
 
@@ -123,4 +123,4 @@ Night-time photography using the Astro Pi's Camera Module is difficult. This is 
 
 ### Size and number of images
 
-**Don't forget that your experiment is limited to producing 3GB of data.** Make sure you calculate the maximum amount of space that your measurements, including any saved image files, will take up, and that this does not exceed 3GB. 
+**Don't forget that your experiment is limited to producing 3GB of data.** Make sure you calculate the maximum amount of space that your measurements, including any saved image files, will take up, and that this does not exceed 3GB.  Remember that the size of an image file will depend not only on the resolution but also on how much detail is in the picture: a photo of a blank white wall will be smaller than a photo of a landscape.  
