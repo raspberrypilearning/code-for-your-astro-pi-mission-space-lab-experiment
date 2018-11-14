@@ -1,5 +1,7 @@
 ## Recording data with your program
 
+Any files your program creates should have sensible, informative names. Only use letters, numbers, hyphens (-), or underscores (\_) in your file names. **Do not use spaces** in file names, because spaces can cause problems when the files are transferred between computers.  
+
 Your program should collect and store experimental data. These measurements should be written to a file in the current working directory called `data01.csv`.
 
 The `.csv` extension shows that this should be a comma-separated values file where your data will be saved in table format, with each individual value separated from the its neighbours with a comma. For example, here is a snippet from a CSV-format file that stores the date, time, humidity, and temperature recorded in roughly one-minute intervals.
@@ -30,11 +32,10 @@ dir_path = os.path.dirname(os.path.realpath(__file__))
 sh = SenseHat()
 
 # Set a logfile name
-logzero.logfile(dir_path+"/data.csv")
+logzero.logfile(dir_path+"/data01.csv")
 
 # Set a custom formatter
-formatter = logging.Formatter('%(name)s - %(asctime)-15s - %(levelname)s: %(mes
-sage)s');
+formatter = logging.Formatter('%(name)s - %(asctime)-15s - %(levelname)s: %(message)s');
 logzero.formatter(formatter)
 # Read some data from the Sense Hat
 temperature = sh.get_temperature()
@@ -75,11 +76,10 @@ dir_path = os.path.dirname(os.path.realpath(__file__))
 sh = SenseHat()
 
 # Set a logfile name
-logzero.logfile(dir_path+"/data.csv")
+logzero.logfile(dir_path+"/data01.csv")
 
 # Set a custom formatter
-formatter = logging.Formatter('%(name)s - %(asctime)-15s - %(levelname)s: %(mes
-sage)s');
+formatter = logging.Formatter('%(name)s - %(asctime)-15s - %(levelname)s: %(message)s');
 logzero.formatter(formatter)
 # Read some data from the Sense Hat
 temperature = sh.get_temperature()
@@ -95,3 +95,7 @@ logger.info("%s,%s", humidity, temperature, pressure )
 ### Using print for testing
 
 The Python `print` function is a great tool for testing and debugging your code, but you should remove or comment out all such lines before submitting your final code. If you want to keep track of things that happened as your code was executing, use the `logging` library.
+
+### Data storage quota
+
+**Your experiment is allowed to produce a maximum of 3GB of data**. So make sure you calculate the maximum amount of storage space that your experiment's recorded data, including any photos, will take up, and that this does not exceed 3GB.

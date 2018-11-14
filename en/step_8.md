@@ -1,4 +1,4 @@
-## Using the LED matrix
+## Using the LED display
 
 The LED matrix is the only display available to the Astro Pi computer, which is never connected to a normal monitor or TV screen on the ISS. The crew may begin to wonder if the Astro Pi computer has crashed if nothing is shown on its display for some time. It will then cost crew time if they need to check it and/or call ground control to report a problem. To avoid this, your code should keep updating the LED matrix in some way to indicate that your experiment is progressing.
 

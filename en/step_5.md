@@ -92,11 +92,11 @@ get_latlon()
 cam.capture(dir_path+"/gps1.jpg")
 ```
 
-Instead of using EXIF data, it is possible to overlay text data onto the visible image itself, like a watermark. However, there is always a risk that this will obscure a useful part of the picture, and can confuse code that looks at the brightness of pixels within the image. Unlike the EXIF method, it also does not make it easy to automatically process images based on metadata, or search for images based on the location at which they were taken. Therefore, we recommend that you do not use the watermarking method to record the latidude and longitude, and instead use EXIF data.
+Instead of using EXIF data, it is possible to overlay text data onto the visible image itself, like a watermark. However, there is always a risk that this will obscure a useful part of the picture, and can confuse code that looks at the brightness of pixels within the image. Unlike the EXIF method, it also does not make it easy to automatically process images based on metadata, or search for images based on the location at which they were taken. Therefore, we recommend that you do not use the watermarking method to record the latitude and longitude, and instead use EXIF data.
 
 ### Numbering plans for files
 
-Another cool thing to do with a sequence of photos from the ISS is to create a timelapse movie like the one in the first section of this project. This can be done on a Raspberry Pi with a single command — as long as the files are named sensibly and with an obvious sequence number. The naming convention for image files should be `image_001.jpg`, `image_002.jpg`, etc.
+Another cool thing to do with a sequence of images from the ISS is to create a timelapse movie, like the one in the first section of this project. This can be done on a Raspberry Pi with a single command — if the images are saved with sensible file names that include an obvious sequence number. So the naming convention for your image files should be `image_001.jpg`, `image_002.jpg`, etc. Remember not to include spaces in your file names!
 
 ```python
 from time import sleep
@@ -120,3 +120,7 @@ This is definitely a post-experiment processing step. You should not use your th
 ### Low-light and night-time photography
 
 Night-time photography using the Astro Pi's Camera Module is difficult. This is mostly because the very low chances of your program being run while the ISS is above a bright city without cloud cover. The light sensitivity of the camera is quite good, but it needs to be used with the best software settings for the particular situation, and it is difficult to anticipate what those settings will be and include them in your program. Having the camera adapt to changing light conditions in real time is also tricky, especially when the camera is moving relative to the light source as is the case for the Astro Pis on the ISS.
+
+### Size and number of images
+
+**Don't forget that your experiment is limited to producing 3GB of data.** Make sure you calculate the maximum amount of space that your measurements, including any saved image files, will take up, and that this does not exceed 3GB.  Remember that the size of an image file will depend not only on the resolution but also on how much detail is in the picture: a photo of a blank white wall will be smaller than a photo of a landscape.  
