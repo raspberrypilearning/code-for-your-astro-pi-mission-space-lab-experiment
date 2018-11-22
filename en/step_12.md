@@ -32,8 +32,8 @@ So that your program can run safely and successfully on the ISS, there are some 
 1. Your program does not rely on any additional libraries other than those listed in this guide
 1. Your program  does not use networking, and does not start a system process (other than to measure the CPU temperature if necessary)
 1. You have documented your program, and it is easy to understand
-1. Your data is saved in files as described in this guide and does not use more than 3GB of storage space
+1. Your data is saved in files as described in this guide and does not use more than 3GB of storage space. No single file should be larger than 35MB
 1. If you chose the theme 'Life in space', your program does not save any photos or videos
 1. Your program runs without errors and does not raise any unhandled exceptions
 1. Your program stops running after 3 hours
-1. There is no bad language or rudeness in your program 
+1. There is no bad language or rudeness in your program
