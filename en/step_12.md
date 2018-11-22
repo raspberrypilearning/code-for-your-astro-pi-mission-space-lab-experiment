@@ -36,4 +36,5 @@ So that your program can run safely and successfully on the ISS, there are some 
 1. If you chose the theme 'Life in space', your program does not save any photos or videos
 1. Your program runs without errors and does not raise any unhandled exceptions
 1. Your program stops running after 3 hours
+1. The LED matrix is updated regularly to indicate that an experiment is running.
 1. There is no bad language or rudeness in your program
