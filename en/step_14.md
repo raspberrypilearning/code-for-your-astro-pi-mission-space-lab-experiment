@@ -18,9 +18,9 @@ sudo pip3 install pyephem==3.7.6.0
 
 --- /collapse ---
 
+--- collapse ---
 You can use the library in your testing by downloading the telemetry data for the ISS flight path and when your code runs it will tell you exactly where the ISS is currently.
 
---- collapse ---
 Browse or download [celestrak.com/NORAD/elements/stations.txt](https://www.celestrak.com/NORAD/elements/stations.txt) and copy-and-paste the first three lines into variables in your code to get the latest telemetry data for the ISS flight path. This will be automatically updated when your code runs on the ISS.
 
 ```python
@@ -146,8 +146,6 @@ sudo apt install python3-gpiozero
 
 --- /collapse ---
 
-???
-
 --- collapse ---
 ---
 title: Usage
@@ -179,28 +177,14 @@ title: Documentation
 
 ### GDAL
 
-???
+The Geospatial Data Abstraction Library is for manipulating geospatial raster data and OGR for manipulating geospatial vector data.
 
 --- collapse ---
 ---
 title: How to install
 ---
 ```bash
-sudo pip3 install ???
-```
-
---- /collapse ---
-
-???
-
---- collapse ---
----
-title: Usage
----
-???
-
-```python
-from
+sudo apt install python3-gdal
 ```
 
 --- /collapse ---
@@ -210,34 +194,42 @@ from
 title: Documentation
 ---
 
-- [???](???)
+- [pypi.org/project/GDAL](https://pypi.org/project/GDAL/)
 
 --- /collapse ---
 
 ### numpy
 
-???
+numpy is a general-purpose array-processing package designed to efficiently manipulate large multi-dimensional arrays of arbitrary records without sacrificing too much speed for small multi-dimensional arrays.
 
 --- collapse ---
 ---
 title: How to install
 ---
 ```bash
-sudo pip3 install ???
+sudo pip3 install numpy==1.15.2
 ```
 
 --- /collapse ---
-
-???
 
 --- collapse ---
 ---
 title: Usage
 ---
-???
+numpy is particularly handy for capturing camera data for manipulation:
 
 ```python
-from
+from picamera import PiCamera
+from time import sleep
+import numpy as np
+
+camera = PiCamera()
+
+camera.resolution = (320, 240)
+camera.framerate = 24
+output = np.empty((240, 320, 3), dtype=np.uint8)
+sleep(2)
+camera.capture(output, 'rgb')
 ```
 
 --- /collapse ---
@@ -247,7 +239,7 @@ from
 title: Documentation
 ---
 
-- [???](???)
+- [docs.scipy.org/doc/numpy](https://docs.scipy.org/doc/numpy/user/index.html)
 
 --- /collapse ---
 
@@ -260,23 +252,8 @@ title: Documentation
 title: How to install
 ---
 ```bash
-sudo pip3 install ???
+sudo pip3 install scipy==1.1.0
 ```
-
---- /collapse ---
-
-???
-
---- collapse ---
----
-title: Usage
----
-???
-
-```python
-from
-```
-
 --- /collapse ---
 
 --- collapse ---
@@ -284,34 +261,20 @@ from
 title: Documentation
 ---
 
-- [???](???)
+- [docs.scipy.org/doc/scipy](https://docs.scipy.org/doc/scipy/reference/)
 
 --- /collapse ---
 
 ### tensorflow
 
-???
+Tensorflow is Google's machine learning framework.
 
 --- collapse ---
 ---
 title: How to install
 ---
 ```bash
-sudo pip3 install ???
-```
-
---- /collapse ---
-
-???
-
---- collapse ---
----
-title: Usage
----
-???
-
-```python
-from
+sudo pip3 install tensorflow==1.11.0
 ```
 
 --- /collapse ---
@@ -321,34 +284,20 @@ from
 title: Documentation
 ---
 
-- [???](???)
+- [tensorflow.org](https://www.tensorflow.org/)
 
 --- /collapse ---
 
 ### pandas
 
-???
+pandas is an open source library providing high-performance, easy-to-use data structures and data analysis tools.
 
 --- collapse ---
 ---
 title: How to install
 ---
 ```bash
-sudo pip3 install ???
-```
-
---- /collapse ---
-
-???
-
---- collapse ---
----
-title: Usage
----
-???
-
-```python
-from
+sudo pip3 install pandas==0.23.4
 ```
 
 --- /collapse ---
@@ -358,34 +307,35 @@ from
 title: Documentation
 ---
 
-- [???](???)
+- [pandas.pydata.org](https://pandas.pydata.org/)
 
 --- /collapse ---
 
 ### logzero
 
-???
+logzero makes Python logging easier.
 
 --- collapse ---
 ---
 title: How to install
 ---
 ```bash
-sudo pip3 install ???
+sudo pip3 install logzero==1.5.0
 ```
 
 --- /collapse ---
-
-???
 
 --- collapse ---
 ---
 title: Usage
 ---
-???
-
 ```python
-from
+from logzero import logger
+
+logger.debug("hello")
+logger.info("info")
+logger.warning("warning")
+logger.error("error")
 ```
 
 --- /collapse ---
@@ -395,34 +345,20 @@ from
 title: Documentation
 ---
 
-- [???](???)
+- [logzero.readthedocs.io](https://logzero.readthedocs.io/en/latest/)
 
 --- /collapse ---
 
 ### keras
 
-???
+Keras is a high-level neural networks API, and is capable of running on top of TensorFlow.
 
 --- collapse ---
 ---
 title: How to install
 ---
 ```bash
-sudo pip3 install ???
-```
-
---- /collapse ---
-
-???
-
---- collapse ---
----
-title: Usage
----
-???
-
-```python
-from
+sudo pip3 install keras==2.2.4
 ```
 
 --- /collapse ---
@@ -432,35 +368,52 @@ from
 title: Documentation
 ---
 
-- [???](???)
+- [keras.io](https://keras.io/)
 
 --- /collapse ---
 
 ### matplotlib
 
-???
+matplotlib is a 2D plotting library which produces publication quality figures in a variety of hardcopy formats and interactive environments.
 
 --- collapse ---
 ---
 title: How to install
 ---
 ```bash
-sudo pip3 install ???
+sudo pip3 install matplotlib==3.0.0
 ```
 
 --- /collapse ---
-
-???
 
 --- collapse ---
 ---
 title: Usage
 ---
-???
-
 ```python
-from
+from sense_hat import SenseHat
+from gpiozero import CPUTemperature
+import matplotlib.pyplot as plt
+from time import sleep
+
+sense = SenseHat()
+cpu = CPUTemperature()
+
+st = []
+ct = []
+
+for i in range(100):
+    st.append(sense.temperature)
+    ct.append(cpu.temperature)
+    sleep(1)
+
+plt.plot(st)
+plt.plot(ct)
+plt.legend(['Sense HAT temperature sensor', 'Raspberry Pi CPU temperature'], loc='upper left')
+plt.show()
 ```
+
+![](images/Figure_1.png)
 
 --- /collapse ---
 
@@ -469,7 +422,7 @@ from
 title: Documentation
 ---
 
-- [???](???)
+- [matplotlib.org](https://matplotlib.org/)
 
 --- /collapse ---
 
