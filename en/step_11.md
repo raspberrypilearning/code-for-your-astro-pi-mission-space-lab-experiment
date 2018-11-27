@@ -59,6 +59,7 @@ iss = ephem.readtle(name, l1, l2)
 
 # Set up camera
 cam = PiCamera()
+cam.resolution = (1296,972)
 
 # function to write lat/long to EXIF data for photographs
 def get_latlon():

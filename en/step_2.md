@@ -30,6 +30,9 @@ Note that, because you will be using the Raspberry Pi Camera Module with the Sen
 
 If you've never used the Camera Module before, [start with this beginners' project](https://projects.raspberrypi.org/en/projects/getting-started-with-picamera/), and come back here once you've tried your hand using the basic `picamera` Python library functions.
 
+Don't forget that the cameras on Astro Pis the ISS are the V1 model that was available in 2014. The later v2 camera that you is available in the ESA kits has an upgraded sensor that is capable of producing images at resolutions not available on the v1 model. So you should make sure that the resolution you specify in your code is available on the v1 camera. You can find more detailed information in [this section of the PiCamera library documentation] (https://picamera.readthedocs.io/en/release-1.13/fov.html?highlight=v2#sensor-modes) but examples of typical resolutions you might wish to use with the v1 camera are:
+ 2592x1944, 1920x1080, 1296x972,	1296x730, and 640x480.
+
 ## Performance
 
 The Raspberry Pis in the ESA kits for Astro Pi 2018/19 are Raspberry Pi 3s. However, the Astro Pis currently on the ISS are the older Raspberry Pi model B+. A Pi 3 is a new model, and therefore faster and more powerful than a B+. You should bear this in mind when writing the code for your experiment: some tasks that need a lot of computing power (e.g. they involve complicated mathematics or the processing of lots of data) will run more slowly on the Astro Pis on the ISS than on your ESA kit Pi. In particular, using Python libraries like `OpenCV` (to process images captured with the Pi camera), or `ephem` (to work out which city the ISS is passing over) will be significantly slower on the Astro Pis.  

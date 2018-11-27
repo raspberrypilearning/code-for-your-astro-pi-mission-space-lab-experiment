@@ -25,7 +25,7 @@ Now you can start testing your program!
 
 ### Final check
 
-So that your program can run safely and successfully on the ISS, there are some rules it needs to follow. If you've worked through this guide, then your program should already be fine. However, as a final steo before you submit your entry, you should double-check that:
+So that your program can run safely and successfully on the ISS, there are some rules it needs to follow. If you've worked through this guide, then your program should already be fine. However, as a final step before you submit your entry, you should double-check that:
 
 1. Your experiment does not rely on interaction with an astronaut
 1. Your program is written in Python 3
