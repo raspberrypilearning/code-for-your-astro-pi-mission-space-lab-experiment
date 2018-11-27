@@ -249,7 +249,7 @@ title: Documentation
 
 ### scipy
 
-???
+SciPy is a free and open-source Python library used for scientific computing and technical computing. SciPy contains modules for optimization, linear algebra, integration, interpolation, special functions, FFT, signal and image processing, ODE solvers and other tasks common in science and engineering.
 
 --- collapse ---
 ---
@@ -482,14 +482,14 @@ title: Documentation
 
 ### opencv
 
-opencv is an open source computer vision library. The Astro Pi units specifically have the `opencv_contrib_python_headless` package installed, which includes all of opencv, plus additional modules (listed in the [opencv docs](https://docs.opencv.org/master/)), and excludes any GUI functionality.
+opencv is an open source computer vision library. The Astro Pi units specifically have the `opencv-contrib-python-headless` package installed, which includes all of opencv, plus additional modules (listed in the [opencv docs](https://docs.opencv.org/master/)), and excludes any GUI functionality.
 
 --- collapse ---
 ---
 title: How to install
 ---
 ```bash
-sudo pip3 install opencv_contrib_python_headless==3.4.3.18
+sudo pip3 install opencv-contrib-python-headless==3.4.3.18
 ```
 
 --- /collapse ---
@@ -584,7 +584,7 @@ location = rg.search(iss.sublat, iss.sublong)
 print(location)
 ```
 
-This output shows the ISS is currently over the city of Takoradi in Ghana.
+This output shows the ISS is currently over the city of Takoradi in Ghana:
 
 ```
 [{'admin1': 'Western',
