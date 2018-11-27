@@ -60,6 +60,7 @@ sudo pip3 install pyephem==3.7.6.0
 
 --- /collapse ---
 
+--- collapse ---
 ---
 title: Usage
 ---
@@ -478,28 +479,14 @@ title: Documentation
 
 ### opencv
 
-???
+opencv is an open source computer vision library. The Astro Pi units specifically have the `opencv_contrib_python_headless` package installed, which includes all of opencv, plus additional modules (listed in the [opencv docs](https://docs.opencv.org/master/)), and excludes any GUI functionality.
 
 --- collapse ---
 ---
 title: How to install
 ---
 ```bash
-sudo pip3 install ???
-```
-
---- /collapse ---
-
-???
-
---- collapse ---
----
-title: Usage
----
-???
-
-```python
-from
+sudo pip3 install opencv_contrib_python_headless==3.4.3.18
 ```
 
 --- /collapse ---
@@ -509,34 +496,20 @@ from
 title: Documentation
 ---
 
-- [???](???)
+- [docs.opencv.org](https://docs.opencv.org/3.4.3/)
 
 --- /collapse ---
 
 ### scikit-learn
 
-???
+scikit-learn is a set of simple and efficient tools for data mining and data analysis accessible to everybody, and reusable in various contexts. It's designed to interoperate with numpy, scipy and matplotlib.
 
 --- collapse ---
 ---
 title: How to install
 ---
 ```bash
-sudo pip3 install ???
-```
-
---- /collapse ---
-
-???
-
---- collapse ---
----
-title: Usage
----
-???
-
-```python
-from
+sudo pip3 install scikit-learn==0.20.0
 ```
 
 --- /collapse ---
@@ -546,34 +519,20 @@ from
 title: Documentation
 ---
 
-- [???](???)
+- [scikit-learn.org](scikit-learn.org/stable/documentation.html)
 
 --- /collapse ---
 
 ### scikit-image
 
-???
+scikit-image is an open source image processing library. It includes algorithms for segmentation, geometric transformations, colour space manipulation, analysis, filtering, morphology, feature detection, and more.
 
 --- collapse ---
 ---
 title: How to install
 ---
 ```bash
-sudo pip3 install ???
-```
-
---- /collapse ---
-
-???
-
---- collapse ---
----
-title: Usage
----
-???
-
-```python
-from
+sudo pip3 install scikit-image==0.14.1
 ```
 
 --- /collapse ---
@@ -583,34 +542,54 @@ from
 title: Documentation
 ---
 
-- [???](???)
+- [scikit-image.org](https://scikit-image.org/)
 
 --- /collapse ---
 
 ### reverse-geocoder
 
-???
+reverse-geocoder takes a latitude / longitude coordinate and returns the nearest town/city.
 
 --- collapse ---
 ---
 title: How to install
 ---
 ```bash
-sudo pip3 install ???
+sudo pip3 install reverse-geocoder==1.5.1
 ```
 
 --- /collapse ---
-
-???
 
 --- collapse ---
 ---
 title: Usage
 ---
-???
+When used with pyephem, reverse-geocoder can be used to determine where the ISS currently is:
 
 ```python
-from
+import reverse_geocoder as rg
+from ephem import readtle
+
+name = "ISS (ZARYA)"
+line1 = "1 25544U 98067A   18327.76881777  .00002477  00000-0  44843-4 0  9999"
+line2 = "2 25544  51.6406 303.4674 0005305  77.2314 344.6784 15.54011739143334"
+
+iss = readtle(name, line1, line2)
+iss.compute()
+
+location = rg.search(iss.sublat, iss.sublong)
+print(location)
+```
+
+This output shows the ISS is currently over the city of Takoradi in Ghana.
+
+```
+[{'admin1': 'Western',
+  'admin2': '',
+  'cc': 'GH',
+  'lat': '4.88447',
+  'lon': '-1.75536',
+  'name': 'Takoradi'}]
 ```
 
 --- /collapse ---
@@ -620,6 +599,6 @@ from
 title: Documentation
 ---
 
-- [???](???)
+- [github.com/thampiman/reverse-geocoder](https://github.com/thampiman/reverse-geocoder)
 
 --- /collapse ---
