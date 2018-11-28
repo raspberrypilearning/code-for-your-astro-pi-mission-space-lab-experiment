@@ -8,25 +8,25 @@ The first thing you'll need to do is set up your development environment. If you
 
 Turn on the Pi and log in (username: `pi`, password: `raspberry`)
 
---- / task ---
+--- /task ---
 
 --- task ---
 
 When you log in for the first time, a wizard program will open and ask to walk you through choosing settings like your language, keyboard type, and WiFi details; let the wizard guide you through this process
 
---- / task ---
+--- /task ---
 
 --- task ---
 
 Start the Chromium web browser (click on the blue globe next to the Raspberry Pi symbol in the top left-hand corner of the screen) and test whether your Pi is connected to the internet
 
---- / task ---
+--- /task ---
 
 --- task ---
 
 Open a terminal window (click on the black box icon in the top bar of the screen)
 
---- / task ---
+--- /task ---
 
 --- task ---
 
@@ -36,7 +36,7 @@ Type in the following command and press Press <kbd>Enter</kbd> to run the one-li
 curl -sSL http://rpf.io/apstretch | bash
 ```
 
---- / task ---
+--- /task ---
 
 --- task ---
 
@@ -44,7 +44,7 @@ Close and then re-open Chromium, and you should see this guide displayed as the 
 
 ![](images/dev_image.png)
 
---- / task ---
+--- /task ---
 
 
 ### Using the hardware
