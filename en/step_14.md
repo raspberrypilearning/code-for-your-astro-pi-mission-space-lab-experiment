@@ -4,24 +4,19 @@ We've installed a collection of Python libraries on the Astro Pi's Flight OS. He
 
 Remember that you can download the Flight OS or run our one-line installer to get all these libraries on your Raspbian SD card.
 
-### ephem
-
-ephem is a library for performing high-precision astronomy computations. Its primary purpose for Astro Pi is calculating the position of the ISS over Earth, so you can work out whether you're currently over a country or a particular city at any time, according to the planned flight path of the ISS.
-
 --- collapse ---
 ---
-title: How to install
+title: pyephem
 ---
+
+### Install
+
 ```bash
 sudo pip3 install pyephem==3.7.6.0
 ```
 
---- /collapse ---
+### Usage
 
---- collapse ---
----
-title: Usage
----
 You can use the library in your testing by downloading the telemetry data for the ISS flight path and when your code runs it will tell you exactly where the ISS is currently.
 
 Browse or download [celestrak.com/NORAD/elements/stations.txt](https://www.celestrak.com/NORAD/elements/stations.txt) and copy-and-paste the first three lines into variables in your code to get the latest telemetry data for the ISS flight path. This will be automatically updated when your code runs on the ISS.
@@ -38,12 +33,7 @@ iss.compute()
 print(iss.sublat, iss.sublong)
 ```
 
---- /collapse ---
-
---- collapse ---
----
-title: Documentation
----
+### Documentation
 
 - [rhodesmill.org/pyephem/quick.html](https://rhodesmill.org/pyephem/quick.html)
 
