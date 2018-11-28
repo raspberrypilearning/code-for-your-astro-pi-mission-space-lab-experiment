@@ -2,6 +2,8 @@
 
 You need to test that your code will run on the Astro Pi units, with the same packages installed, the exact package versions, and matching configuration. We will test your code on the Flight OS and if it doesn't run without errors, you'll be disqualified, so it's important that you test as much as you can. That's why we've provided the Flight OS for download so you can simulate the same setup as on board the ISS.
 
+Read more about the one-line installer on GitHub: [github.com/astro-pi/astro-pi-stretch-installer](https://github.com/astro-pi/astro-pi-stretch-installer)
+
 ### One-line installer
 
 --- task ---
