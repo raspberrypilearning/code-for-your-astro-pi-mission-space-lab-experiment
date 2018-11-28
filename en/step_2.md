@@ -6,13 +6,15 @@ The first thing you'll need to do is set up your development environment. If you
 
 --- task ---
 
-Turn on the Pi and log in (username: `pi`, password: `raspberry`)
+Insert the flashed SD card into your Raspberry Pi and boot it. Log in with the username `pi` and password `raspberry`.
 
 --- /task ---
 
 --- task ---
 
-When you log in for the first time, a wizard program will open and ask to walk you through choosing settings like your language, keyboard type, and WiFi details; let the wizard guide you through this process
+When you log in for the first time, a wizard program will open and ask to walk you through choosing settings like your language, keyboard type, and WiFi details; let the wizard guide you through this process.
+
+You'll need to connect to the internet. If you have an ethernet connection, connect the cable to the Raspberry Pi. If not, you'll need to use WiFi.
 
 --- /task ---
 
@@ -24,17 +26,17 @@ Start the Chromium web browser (click on the blue globe next to the Raspberry Pi
 
 --- task ---
 
-Open a terminal window (click on the black box icon in the top bar of the screen)
-
---- /task ---
-
---- task ---
-
-Type in the following command and press Press <kbd>Enter</kbd> to run the one-line installer that will add all the extra Python libraries and software:
+Now open a terminal window, and run the one-line installer command:
 
 ```bash
-curl -sSL http://rpf.io/apstretch | bash
+curl -sSL rpf.io/apstretch | bash
 ```
+
+The whole installation will take a long time. You'll see timestamped messages with information about what's going on.
+
+If the installation stops for some reason, try running the command again.
+
+Once the installer has finished, you'll be asked to reboot.
 
 --- /task ---
 
@@ -45,7 +47,6 @@ Close and then re-open Chromium, and you should see this guide displayed as the 
 ![](images/dev_image.png)
 
 --- /task ---
-
 
 ### Using the hardware
 
