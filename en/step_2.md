@@ -4,17 +4,48 @@ If you have received an official Astro Pi kit from ESA, you have everything you 
 
 The first thing you'll need to do is set up your development environment. If you received a kit from ESA, it will contain a Raspberry Pi with an SD card that already has the Raspbian operating system installed. In order to make sure the setup of your Pi matches that of the Astro Pis on the ISS, you'll need to install the extra libraries and software listed below. To make this easy, we've written a one-line installer script that will do everything in one go and make sure the correct versions are installed. Here's how to run the script:
 
-1. Turn on the Pi and log in (username: "pi", password: "raspberry")
-2. When you log in for the first time, a wizard program will open and ask to walk you through choosing settings like your language, keyboard type, and WiFi details; let the wizard guide you through this process
-3. Start the Chromium web browser (click on the blue globe next to the Raspberry Pi symbol in the top left-hand corner of the screen) and test whether your Pi is connected to the internet
-4. Open a terminal window (click on the black box icon in the top bar of the screen)
-5. Type in the following command and press Press <kbd>Enter</kbd> to run the one-line installer that will add all the extra Python libraries and software:
+--- task ---
+
+Turn on the Pi and log in (username: `pi`, password: `raspberry`)
+
+--- / task ---
+
+--- task ---
+
+When you log in for the first time, a wizard program will open and ask to walk you through choosing settings like your language, keyboard type, and WiFi details; let the wizard guide you through this process
+
+--- / task ---
+
+--- task ---
+
+Start the Chromium web browser (click on the blue globe next to the Raspberry Pi symbol in the top left-hand corner of the screen) and test whether your Pi is connected to the internet
+
+--- / task ---
+
+--- task ---
+
+Open a terminal window (click on the black box icon in the top bar of the screen)
+
+--- / task ---
+
+--- task ---
+
+Type in the following command and press Press <kbd>Enter</kbd> to run the one-line installer that will add all the extra Python libraries and software:
+
 ```bash
 curl -sSL http://rpf.io/apstretch | bash
 ```
-6. Close and then re-open Chromium, and you should see this guide displayed as the starting page.
+
+--- / task ---
+
+--- task ---
+
+Close and then re-open Chromium, and you should see this guide displayed as the starting page.
 
 ![](images/dev_image.png)
+
+--- / task ---
+
 
 ### Using the hardware
 
