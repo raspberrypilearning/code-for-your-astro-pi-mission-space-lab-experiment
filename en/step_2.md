@@ -1,6 +1,6 @@
 ## Getting started
 
-If you have received an official Astro Pi kit from ESA, you have everything you need to develop and test your Phase 2 program for Mission Space Lab (MSL). If you want to, you could even [create your own Astro Pi flight case](https://projects.raspberrypi.org/en/projects/astro-pi-flight-case), but don’t worry, that’s not essential. It can be a valuable activity in its own right, but completion of Mission Space Lab **does not** rely on having the flight case.
+If you have received an official Astro Pi kit from ESA, you have everything you need to develop and test your Phase 2 program for Mission Space Lab (MSL). If you want to, you could even [create your own Astro Pi flight case](https://projects.raspberrypi.org/en/projects/astro-pi-flight-case), but don't worry, that's not essential. It can be a valuable activity in its own right, but completion of Mission Space Lab **does not** rely on having the flight case.
 
 The first thing you'll need to do is set up your development environment. If you received a kit from ESA, it will contain a Raspberry Pi with an SD card that already has the Raspbian operating system installed. In order to make sure the setup of your Pi matches that of the Astro Pis on the ISS, you'll need to install the extra libraries and software listed below. To make this easy, we've written a one-line installer script that will do everything in one go and make sure the correct versions are installed. Here's how to run the script:
 
@@ -41,7 +41,7 @@ See the "Test your code" section for instructions for creating a test SD card im
 
 ## Write your program
 
-Next, you will write the program for your experiment. To do this, you'll need to plan your coding sessions, understand the best way to write the program for your experiment, and ensure that it will work on the Astro Pis on the ISS. To help with planning, we've put together a teachers' and mentors' guide for Phase 2 that provides useful tips for facilitating your team’s coding of their experiment.
+Next, you will write the program for your experiment. To do this, you'll need to plan your coding sessions, understand the best way to write the program for your experiment, and ensure that it will work on the Astro Pis on the ISS. To help with planning, we've put together a teachers' and mentors' guide for Phase 2 that provides useful tips for facilitating your team's coding of their experiment.
 
 ### Which version of Python should you use?
 
@@ -57,12 +57,10 @@ In addition to the default Python libraries that are available on Raspbian, the 
 - [scipy](https://docs.scipy.org/doc/){:target="_blank"}
 - [tensorflow](https://www.tensorflow.org/api_guides/python/){:target="_blank"}
 - [pandas](https://pandas.pydata.org/pandas-docs/stable/api.html){:target="_blank"}
-- [opencv-python](https://opencv-python-tutroals.readthedocs.io/en/latest/){:target="_blank"}
-- [opencv-contrib-python](https://pypi.org/project/opencv-contrib-python/)
-- [evdev](https://python-evdev.readthedocs.io/en/latest/){:target="_blank"}
+- [opencv](https://opencv-python-tutroals.readthedocs.io/en/latest/){:target="_blank"}
 - [matplotlib](https://matplotlib.org/){:target="_blank"}
 - [logzero](https://logzero.readthedocs.io/en/latest/){:target="_blank"}
-- [pyephem](http://rhodesmill.org/pyephem/) {:target="_blank"}
+- [pyephem](http://rhodesmill.org/pyephem/){:target="_blank"}
 - [scikit-image](http://scikit-image.org/docs/dev/){:target="_blank"}
 - [scikit-learn](http://scikit-learn.org/stable/documentation.html){:target="_blank"}
 - [reverse-geocoder](https://github.com/thampiman/reverse-geocoder){:target="_blank"}
@@ -73,13 +71,13 @@ Some Python libraries may include functions that perform a web request to look u
 
 ### What to call your Mission Space Lab Python files
 
-When you submit the program for your MSL experiment, your main Python file should be called `astropi_main.py`.
+When you submit the program for your MSL experiment, your main Python file should be called `main.py`.
 
 Ideally, all you code should be contained within this file. However, if your experiment is very complex, then additional files are allowed.
 
 ### Documenting your code
 
-When you’ve created a really useful program or piece of software and you want to share it with other people, a crucial step is creating documentation that helps people understand what the program does, how it works, and how they can use it. This is especially import for your MSL experiment, because it should be obvious from your program how you will achieve your experiment's aims and objectives.
+When you've created a really useful program or piece of software and you want to share it with other people, a crucial step is creating documentation that helps people understand what the program does, how it works, and how they can use it. This is especially import for your MSL experiment, because it should be obvious from your program how you will achieve your experiment's aims and objectives.
 
 This [project](https://projects.raspberrypi.org/en/projects/documenting-your-code) shows you the recommended way to add useful comments to your program.
 
