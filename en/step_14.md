@@ -39,12 +39,12 @@ print(iss.sublat, iss.sublong)
 
 --- /collapse ---
 
-Picamera is the Python library for accessing the Raspberry Pi camera module. It is compatible with V1 and V2 cameras. The Astro Pi unit has the V1 camera on board, but you can test with either camera as long as you don't exceed the V1's maximum resolution of 2592x1944.
-
 --- collapse ---
 ---
 title: picamera
 ---
+
+Picamera is the Python library for accessing the Raspberry Pi camera module. It is compatible with V1 and V2 cameras. The Astro Pi unit has the V1 camera on board, but you can test with either camera as long as you don't exceed the V1's maximum resolution of 2592x1944.
 
 ### Install
 
@@ -416,8 +416,6 @@ sudo pip3 install opencv-contrib-python-headless==3.4.3.18
 ### Documentation
 
 - [docs.opencv.org](https://docs.opencv.org/3.4.3/)
-
---- /collapse ---
 
 --- /collapse ---
 
