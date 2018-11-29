@@ -73,7 +73,7 @@ See the "Test your code" section for instructions for creating a test SD card im
 
 ## Write your program
 
-Next, you will write the program for your experiment. To do this, you'll need to plan your coding sessions, understand the best way to write the program for your experiment, and ensure that it will work on the Astro Pis on the ISS. To help with planning, we've put together a teachers' and mentors' guide for Phase 2 that provides useful tips for facilitating your team's coding of their experiment.
+Now you can start writing the program for your experiment. To do this, you'll need to plan your coding sessions, understand the best way to write the program for your experiment, and ensure that it will work on the Astro Pis on the ISS. To help with planning, we've put together a teachers' and mentors' guide for Phase 2 that provides useful tips for facilitating your team's coding of their experiment.
 
 ### Which version of Python should you use?
 
@@ -85,7 +85,7 @@ If you find a Python library that you need for your experiment and that is Pytho
 
 We've installed a collection of Python libraries on the Astro Pi's Flight OS. Here's some information on how to install them and what they can be used for.
 
-Remember that you can download the Flight OS or run our one-line installer to get all these libraries on your Raspbian SD card. If you are have not run the one-line installer, observe the installation instructions in the information boxes below.
+Remember that you can download the Flight OS or run our one-line installer to get all these libraries on your Raspbian SD card. If you are using another version of raspbian or have not run the one-line installer, you can follow the installation instructions in the information boxes below to make sure your get the same versions of the libraries that are installed on the ISS.
 
 --- collapse ---
 ---
