@@ -62,7 +62,7 @@ Note that, because you will be using the Raspberry Pi Camera Module with the Sen
 
 If you've never used the Camera Module before, [start with this beginners' project](https://projects.raspberrypi.org/en/projects/getting-started-with-picamera/), and come back here once you've tried your hand using the basic `picamera` Python library functions.
 
-Don't forget that the cameras on Astro Pis the ISS are the V1 model that was available in 2014. The later v2 camera that you is available in the ESA kits has an upgraded sensor that is capable of producing images at resolutions not available on the v1 model. So you should make sure that the resolution you specify in your code is available on the v1 camera. You can find more detailed information in [this section of the PiCamera library documentation](https://picamera.readthedocs.io/en/release-1.13/fov.html?highlight=v2#sensor-modes) but examples of typical resolutions you might wish to use with the v1 camera are:
+Don't forget that the cameras on the Astro Pis on the ISS are the V1 model that was available in 2014. The later v2 camera that you can buy now (amd that you will receive in the ESA kits) has an upgraded sensor that is capable of producing images at resolutions not available on the v1 model. So you should make sure that the resolution you specify in your code is available on the v1 camera. You can find more detailed information in [this section of the PiCamera library documentation](https://picamera.readthedocs.io/en/release-1.13/fov.html?highlight=v2#sensor-modes) but examples of typical resolutions you might wish to use with the v1 camera are:
  2592x1944, 1920x1080, 1296x972,	1296x730, and 640x480.
 
 ## Performance
