@@ -461,7 +461,9 @@ line2 = "2 25544  51.6406 303.4674 0005305  77.2314 344.6784 15.54011739143334"
 iss = readtle(name, line1, line2)
 iss.compute()
 
-location = rg.search(iss.sublat, iss.sublong)
+pos = (iss.sublat, iss.sublong)
+
+location = rg.search(pos)
 print(location)
 ```
 
