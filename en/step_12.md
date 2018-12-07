@@ -120,4 +120,4 @@ When it's finished, observe any output files created by your project. Are you ex
 
 If you see any errors, or the experiment doesn't do what you expected it to, you'll need to address this before submitting your code to ensure chance of reaching the final judging round.
 
-Note: it may be advisable to disable your internet connection to make sure your experiment does not use internet access.
+**Note:** during testing, it may be advisable to disable the Pi's internet connection to make sure your experiment does not use internet access.
