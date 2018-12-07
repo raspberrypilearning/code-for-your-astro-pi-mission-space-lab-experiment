@@ -38,7 +38,7 @@ title: What you will need
 
 You will need the Astro Pi 2018 version of Raspbian, which includes all the software libraries present on the Astro Pi units on the ISS.
 
-For final testing, you should use the Astro Pi Flight OS. This is a special build of the Raspbian operating system, optimised to run on the ISS Astro Pis. It does not include any X-Windows or GUI applications and is "command line only", so it's not a useful platform to create your program on. However, it's highly recommended you test your experiment using this version before you submit your entry to ensure that it runs without errors. This is the best way to ensure your experiment passes our testing procedure.
+For final testing, you should use the Astro Pi Flight OS. This is a special build of the Raspbian operating system, optimised to run on the ISS Astro Pis. It does not include any X-Windows or GUI applications and is "command line only", so it's not a useful platform to create your program on. However, we very strongly recommend that you test your experiment using this version before you submit your entry to ensure that the program you have written runs without errors. This is the best way to ensure your experiment passes our testing procedure.
 
 ### Additional resources
 
