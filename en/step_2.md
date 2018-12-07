@@ -84,9 +84,9 @@ If you find a Python library that you need for your experiment and that is Pytho
 
 ### Python libraries
 
-We've installed a collection of Python libraries on the Astro Pi's Flight OS. Here's some information on how to install them and what they can be used for.
+We've installed a collection of Python libraries on the Astro Pi's Flight OS. Here's some information on how to install them and what you can use them for.
 
-Remember that you can download the Flight OS or run our one-line installer to get all these libraries on your Raspbian SD card. If you are using another version of raspbian or have not run the one-line installer, you can follow the installation instructions in the information boxes below to make sure your get the same versions of the libraries that are installed on the ISS.
+Remember that you can download the Flight OS or run our one-line installer to get all these libraries on your Raspbian SD card. If you are using another version of Raspbian or have not run the one-line installer, you can follow the installation instructions in the information boxes below to make sure your get the same versions of the libraries that are installed on the ISS.
 
 --- collapse ---
 ---
@@ -95,9 +95,9 @@ title: pyephem
 
 #### Usage
 
-You can use the library in your testing by downloading the telemetry data for the ISS flight path and when your code runs it will tell you exactly where the ISS is currently.
+You can download the telemetry data for the ISS flight path to use the `pyephem` library in your tests. When your code runs, it will tell you exactly where the ISS currently is.
 
-Browse or download [celestrak.com/NORAD/elements/stations.txt](https://www.celestrak.com/NORAD/elements/stations.txt) and copy-and-paste the first three lines into variables in your code to get the latest telemetry data for the ISS flight path. This will be automatically updated when your code runs on the ISS.
+Browse to, or download and open, [celestrak.com/NORAD/elements/stations.txt](https://www.celestrak.com/NORAD/elements/stations.txt) and copy and paste the first three lines as variables into your code to get the latest telemetry data for the ISS flight path. This data will be automatically updated when your code runs on the ISS.
 
 ```python
 from ephem import readtle
@@ -122,7 +122,7 @@ print(iss.sublat, iss.sublong)
 title: picamera
 ---
 
-Picamera is the Python library for accessing the Raspberry Pi camera module. It is compatible with V1 and V2 cameras. The Astro Pi unit has the V1 camera on board, but you can test with either camera as long as you don't exceed the V1's maximum resolution of 2592x1944.
+`picamera` is the Python library for controlling the Raspberry Pi Camera Module. It is compatible with V1 and V2 Camera Modules. The Astro Pi unit has the V1 Camera Module on board, but you can test with either version as long as you don't exceed the V1's maximum resolution of 2592×1944.
 
 #### Usage
 
@@ -149,7 +149,7 @@ for i in range(3*60):
 title: colorzero
 ---
 
-colorzero is a colour manipulation library which aims to be simple to use and Pythonic in nature.
+colorzero is a colour manipulation library that aims to be simple to use and Pythonic in nature.
 
 #### Usage
 
@@ -164,7 +164,7 @@ sense = SenseHat()
 start = Color('magenta')
 end = Color('cyan')
 
-# slowly and naturally transition the sense hat from magenta to cyan
+# slowly and naturally transition the Sense HAT from magenta to cyan
 for color in start.gradient(end, steps=100):
     sense.clear(color.rgb_bytes)
     sleep(0.1)
@@ -181,7 +181,7 @@ for color in start.gradient(end, steps=100):
 title: gpiozero
 ---
 
-GPIO Zero is a simple but powerful GPIO library. While much of its functionality is prohibited (no access to GPIOs), some of it could be handy in your experiment code, such as the internal device `CPUTemperature`.
+GPIO Zero is a simple but powerful GPIO library. While much of its functionality is prohibited (no access to GPIO pins), some of it can be handy in your experiment, such as the internal device `CPUTemperature`.
 
 #### Usage
 
@@ -210,7 +210,7 @@ while True:
 title: GDAL
 ---
 
-The Geospatial Data Abstraction Library is for manipulating geospatial raster data and OGR for manipulating geospatial vector data.
+The Geospatial Data Abstraction Library is an open-source, cross-platform set of libraries and low-level tools for working with geospatial data in many formats.
 
 #### Documentation
 
@@ -223,11 +223,11 @@ The Geospatial Data Abstraction Library is for manipulating geospatial raster da
 title: numpy
 ---
 
-numpy is a general-purpose array-processing package designed to efficiently manipulate large multi-dimensional arrays of arbitrary records without sacrificing too much speed for small multi-dimensional arrays.
+`numpy` is a general-purpose array-processing package designed to efficiently manipulate large multi-dimensional arrays of arbitrary records without sacrificing too much speed for small multi-dimensional arrays.
 
 #### Usage
 
-numpy is particularly handy for capturing camera data for manipulation:
+`numpy` is particularly handy for capturing camera data for manipulation:
 
 ```python
 from picamera import PiCamera
@@ -251,10 +251,10 @@ camera.capture(output, 'rgb')
 
 --- collapse ---
 ---
-title: scipy
+title: SciPy
 ---
 
-SciPy is a free and open-source Python library used for scientific computing and technical computing. SciPy contains modules for optimization, linear algebra, integration, interpolation, special functions, FFT, signal and image processing, ODE solvers and other tasks common in science and engineering.
+SciPy is a free and open-source Python library used for scientific computing and technical computing. SciPy contains modules for optimisation, linear algebra, integration, interpolation, special functions, FFT, signal and image processing, ODE solvers, and other tasks common in science and engineering.
 
 #### Documentation
 
@@ -280,7 +280,7 @@ Tensorflow is Google's machine learning framework.
 title: pandas
 ---
 
-pandas is an open source library providing high-performance, easy-to-use data structures and data analysis tools.
+pandas is an open-source library providing high-performance, easy-to-use data structures and data analysis tools.
 
 #### Documentation
 
@@ -330,7 +330,7 @@ Keras is a high-level neural networks API, and is capable of running on top of T
 title: matplotlib
 ---
 
-matplotlib is a 2D plotting library which produces publication quality figures in a variety of hardcopy formats and interactive environments.
+matplotlib is a 2D plotting library that produces publication-quality figures in a variety of hardcopy formats and interactive environments.
 
 #### Usage
 
@@ -370,9 +370,9 @@ plt.show()
 title: pisense
 ---
 
-pisense is an alternative interface to the Raspberry Pi Sense HAT. The major difference to `sense_hat` is that the various components of the Sense HAT (the screen, the joystick, the environment sensors, etc.) are each represented by separate classes which can be used individually or by the main class which composes them together.
+`pisense` is an alternative interface to the Raspberry Pi Sense HAT. The major difference to `sense_hat` is that in `pisense` the various components of the Sense HAT (the screen, the joystick, the environment sensors, etc.) are each represented by separate classes that can be used individually or by the main class that comprises them all.
 
-The screen has a few more tricks including support for any fonts that PIL supports, representation as a numpy array (which makes scrolling by assigning slices of a larger image very simple), and bunch of rudimentary animation functions. The joystick, and all sensors, have an iterable interface too.
+The screen has a few more tricks including support for any fonts that PIL supports, representation as a numpy array (which makes scrolling by assigning slices of a larger image very simple), and several rudimentary animation functions. The joystick, and all sensors, have an iterable interface too.
 
 #### Usage
 
@@ -406,7 +406,7 @@ hat.screen.fade_to(flag)
 title: opencv
 ---
 
-opencv is an open source computer vision library. The Astro Pi units specifically have the `opencv-contrib-python-headless` package installed, which includes all of opencv, plus additional modules (listed in the [opencv docs](https://docs.opencv.org/master/)), and excludes any GUI functionality.
+`opencv` is an open-source computer vision library. The Astro Pi units specifically have the `opencv-contrib-python-headless` package installed, which includes all of `opencv` plus additional modules (listed in the [opencv docs](https://docs.opencv.org/master/)), and excludes all GUI functionality.
 
 #### Documentation
 
@@ -419,7 +419,7 @@ opencv is an open source computer vision library. The Astro Pi units specificall
 title: scikit-learn
 ---
 
-scikit-learn is a set of simple and efficient tools for data mining and data analysis accessible to everybody, and reusable in various contexts. It's designed to interoperate with numpy, scipy and matplotlib.
+`scikit-learn` is a set of simple and efficient tools for data mining and data analysis accessible to everybody, and reusable in various contexts. It's designed to interoperate with `numpy`, `scipy`, and `matplotlib`.
 
 #### Documentation
 
@@ -432,7 +432,7 @@ scikit-learn is a set of simple and efficient tools for data mining and data ana
 title: scikit-image
 ---
 
-scikit-image is an open source image processing library. It includes algorithms for segmentation, geometric transformations, colour space manipulation, analysis, filtering, morphology, feature detection, and more.
+`scikit-image` is an open-source image processing library. It includes algorithms for segmentation, geometric transformations, colour space manipulation, analysis, filtering, morphology, feature detection, and more.
 
 #### Documentation
 
@@ -445,11 +445,11 @@ scikit-image is an open source image processing library. It includes algorithms 
 title: reverse-geocoder
 ---
 
-reverse-geocoder takes a latitude / longitude coordinate and returns the nearest town/city.
+`reverse-geocoder` takes a latitude/longitude coordinate and returns the nearest town/city.
 
 #### Usage
 
-When used with pyephem, reverse-geocoder can be used to determine where the ISS currently is:
+When used with `pyephem`, `reverse-geocoder` can determine where the ISS currently is:
 
 ```python
 import reverse_geocoder as rg
@@ -485,7 +485,7 @@ This output shows the ISS is currently over the city of Takoradi in Ghana:
 
 --- /collapse ---
 
-Note that no other libraries can be used. If your experiment requires other Python libraries, please contact us and we will try you help you find an alternative approach.
+Note that no other libraries can be used in your Mission Space Lab experiment. If your experiment requires other Python libraries, please contact us and we will try you help you find an alternative approach.
 
 Some Python libraries may include functions that perform a web request to look up some information or return a value that is dependent on time or location. Even though they may be very useful, these are not permitted (see the Networking section of this guide).  
 
