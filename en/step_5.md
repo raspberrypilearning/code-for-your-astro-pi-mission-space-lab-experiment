@@ -33,7 +33,7 @@ os.remove(dir_path+"/image.jpg”)
 
 ```
 
-If you’re using the infrared camera on Astro Pi Izzy, then you will get some amazing pictures of the Earth as seen from the ISS. Even if your program will process these images and only make use of the extracted data, we recommend that you do not delete all the images (unless you will be generating so many of them that you risk running out of disk space on the Astro Pi). Apart from being a unique souvenir of your mission, they may also help you with debugging any unexpected issues with your experimental results. Some examples of images captured using the IR camera on Izzy are available [here](https://www.flickr.com/photos/raspberrypi). If you're going to be processing images (e.g with the OpenCV Python library), you should test your code on some of these images.
+If you are using the infrared camera on Astro Pi Izzy, then you will get some amazing pictures of the Earth seen from the ISS. Even if your program will process these images and only make use of the extracted data, we recommend that you do not delete all the images (unless your program will generate so many of them that you risk running out of disk space on the Astro Pi). Apart from being a unique souvenir of your mission, the images may also help you with debugging any unexpected issues with your experimental results. Some examples of images captured using the IR camera on Izzy are available [here](https://www.flickr.com/photos/raspberrypi). If you're going to be processing images (e.g with the OpenCV Python library), you should test your code on some of these images.
 
 ### Location data
 Being able to take photographs of the Earth from a window on the ISS is something that normally only astronauts can do. We recommend that you record the position of the Space Station for any images that you capture. You can do this by logging the latitude and longitude in a CSV file along with the corresponding file name of the image.
@@ -60,7 +60,7 @@ l2 = "2 25544  51.6392 342.9681 0002977  45.8872  32.8379 15.54020911 97174"
 iss = ephem.readtle(name, l1, l2)
 
 cam = PiCamera()
-cam.resolution = (1296,972) # Valid resolution for v1 camera
+cam.resolution = (1296,972) # Valid resolution for V1 camera
 iss.compute()
 
 def get_latlon():
