@@ -92,12 +92,6 @@ Remember that you can download the Flight OS or run our one-line installer to ge
 title: pyephem
 ---
 
-#### Install
-
-```bash
-sudo pip3 install pyephem==3.7.6.0
-```
-
 #### Usage
 
 You can use the library in your testing by downloading the telemetry data for the ISS flight path and when your code runs it will tell you exactly where the ISS is currently.
@@ -129,12 +123,6 @@ title: picamera
 
 Picamera is the Python library for accessing the Raspberry Pi camera module. It is compatible with V1 and V2 cameras. The Astro Pi unit has the V1 camera on board, but you can test with either camera as long as you don't exceed the V1's maximum resolution of 2592x1944.
 
-#### Install
-
-```bash
-sudo pip3 install pyephem==3.7.6.0
-```
-
 #### Usage
 
 ```python
@@ -161,12 +149,6 @@ title: colorzero
 ---
 
 colorzero is a colour manipulation library which aims to be simple to use and Pythonic in nature.
-
-#### Install
-
-```bash
-sudo apt install python3-colorzero
-```
 
 #### Usage
 
@@ -200,12 +182,6 @@ title: gpiozero
 
 GPIO Zero is a simple but powerful GPIO library. While much of its functionality is prohibited (no access to GPIOs), some of it could be handy in your experiment code, such as the internal device `CPUTemperature`.
 
-#### Install
-
-```bash
-sudo apt install python3-gpiozero
-```
-
 #### Usage
 
 Compare the Raspberry Pi's CPU temperature to the Sense HAT's temperature reading:
@@ -235,12 +211,6 @@ title: GDAL
 
 The Geospatial Data Abstraction Library is for manipulating geospatial raster data and OGR for manipulating geospatial vector data.
 
-#### Install
-
-```bash
-sudo apt install python3-gdal
-```
-
 #### Documentation
 
 - [pypi.org/project/GDAL](https://pypi.org/project/GDAL/)
@@ -253,12 +223,6 @@ title: numpy
 ---
 
 numpy is a general-purpose array-processing package designed to efficiently manipulate large multi-dimensional arrays of arbitrary records without sacrificing too much speed for small multi-dimensional arrays.
-
-#### Install
-
-```bash
-sudo pip3 install numpy==1.15.2
-```
 
 #### Usage
 
@@ -291,12 +255,6 @@ title: scipy
 
 SciPy is a free and open-source Python library used for scientific computing and technical computing. SciPy contains modules for optimization, linear algebra, integration, interpolation, special functions, FFT, signal and image processing, ODE solvers and other tasks common in science and engineering.
 
-#### Usage
-
-```bash
-sudo pip3 install scipy==1.1.0
-```
-
 #### Documentation
 
 - [docs.scipy.org/doc/scipy](https://docs.scipy.org/doc/scipy/reference/)
@@ -309,12 +267,6 @@ title: tensorflow
 ---
 
 Tensorflow is Google's machine learning framework.
-
-#### Install
-
-```bash
-sudo pip3 install tensorflow==1.11.0
-```
 
 #### Documentation
 
@@ -329,12 +281,6 @@ title: pandas
 
 pandas is an open source library providing high-performance, easy-to-use data structures and data analysis tools.
 
-#### Install
-
-```bash
-sudo pip3 install pandas==0.23.4
-```
-
 #### Documentation
 
 - [pandas.pydata.org](https://pandas.pydata.org/)
@@ -347,12 +293,6 @@ title: logzero
 ---
 
 logzero makes Python logging easier.
-
-#### Install
-
-```bash
-sudo pip3 install logzero==1.5.0
-```
 
 #### Usage
 
@@ -378,12 +318,6 @@ title: keras
 
 Keras is a high-level neural networks API, and is capable of running on top of TensorFlow.
 
-#### Install
-
-```bash
-sudo pip3 install keras==2.2.4
-```
-
 #### Documentation
 
 - [keras.io](https://keras.io/)
@@ -396,12 +330,6 @@ title: matplotlib
 ---
 
 matplotlib is a 2D plotting library which produces publication quality figures in a variety of hardcopy formats and interactive environments.
-
-#### Install
-
-```bash
-sudo pip3 install matplotlib==3.0.0
-```
 
 #### Usage
 
@@ -445,12 +373,6 @@ pisense is an alternative interface to the Raspberry Pi Sense HAT. The major dif
 
 The screen has a few more tricks including support for any fonts that PIL supports, representation as a numpy array (which makes scrolling by assigning slices of a larger image very simple), and bunch of rudimentary animation functions. The joystick, and all sensors, have an iterable interface too.
 
-#### Install
-
-```bash
-sudo pip3 install pisense==0.1
-```
-
 #### Usage
 
 ```python
@@ -485,12 +407,6 @@ title: opencv
 
 opencv is an open source computer vision library. The Astro Pi units specifically have the `opencv-contrib-python-headless` package installed, which includes all of opencv, plus additional modules (listed in the [opencv docs](https://docs.opencv.org/master/)), and excludes any GUI functionality.
 
-#### Usage
-
-```bash
-sudo pip3 install opencv-contrib-python-headless==3.4.3.18
-```
-
 #### Documentation
 
 - [docs.opencv.org](https://docs.opencv.org/3.4.3/)
@@ -503,12 +419,6 @@ title: scikit-learn
 ---
 
 scikit-learn is a set of simple and efficient tools for data mining and data analysis accessible to everybody, and reusable in various contexts. It's designed to interoperate with numpy, scipy and matplotlib.
-
-#### Install
-
-```bash
-sudo pip3 install scikit-learn==0.20.0
-```
 
 #### Documentation
 
@@ -523,12 +433,6 @@ title: scikit-image
 
 scikit-image is an open source image processing library. It includes algorithms for segmentation, geometric transformations, colour space manipulation, analysis, filtering, morphology, feature detection, and more.
 
-#### Install
-
-```bash
-sudo pip3 install scikit-image==0.14.1
-```
-
 #### Documentation
 
 - [scikit-image.org](https://scikit-image.org/)
@@ -541,12 +445,6 @@ title: reverse-geocoder
 ---
 
 reverse-geocoder takes a latitude / longitude coordinate and returns the nearest town/city.
-
-#### Install
-
-```bash
-sudo pip3 install reverse-geocoder==1.5.1
-```
 
 #### Usage
 
