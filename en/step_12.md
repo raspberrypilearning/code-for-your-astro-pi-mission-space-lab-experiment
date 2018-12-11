@@ -12,7 +12,14 @@ Finally, it’s also important for you to consider any errors that could occur d
 
 You need to test that your code will run on the Astro Pi units, with the same packages installed, the exact package versions, and matching configuration. We will test your code on the Flight OS and if it doesn't run without errors, you'll be disqualified, so it's important that you test as much as you can. That's why we've provided the Flight OS for download so you can simulate the same setup as on board the ISS.
 
-Read more about the one-line installer on GitHub: [github.com/astro-pi/astro-pi-stretch-installer](https://github.com/astro-pi/astro-pi-stretch-installer)
+You can either use the ready-made images or use the one-line installer to upgrade your Raspbian image to the Astro Pi. We recommend using the ready-made images for your final testing to be sure you have an exact match, particularly the lite image rather than desktop.
+
+### SD card images
+
+- [Astro Pi Desktop image](https://downloads.raspberrypi.org/AstroPi/images/AstroPi-2018-12-03/astropi_stretch_desktop.zip)
+- [Astro Pi Lite image](https://downloads.raspberrypi.org/AstroPi_lite/images/AstroPi_lite-2018-12-03/astropi_stretch_lite.zip)
+
+Download your chosen image, extract it from the zip file and use [etcher.io](https://etcher.io/) to write the image to your SD card.
 
 ### One-line installer
 

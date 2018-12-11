@@ -4,7 +4,7 @@ If you have received an official Astro Pi kit from ESA, you have everything you 
 
 The first thing you'll need to do is set up your development environment. If you received a kit from ESA, it will contain a Raspberry Pi with an SD card that already has the Raspbian operating system installed. In order to make sure the setup of your Pi matches that of the Astro Pis on the ISS, you'll need to install the extra libraries and software listed below. To make this easy, we've provided ready-made SD card images and a one-line installer script that will do everything in one go and make sure the correct versions are installed.
 
-## SD card images
+### SD card images
 
 You can download one of the Astro Pi images and write them to an SD card, and you'll have everything you need. We've provided two images: one with desktop and one lite image (command line only). The desktop image is best suited for development of your experiment, and the lite image is ideal for final testing.
 
