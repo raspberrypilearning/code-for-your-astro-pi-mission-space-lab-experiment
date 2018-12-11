@@ -2,7 +2,20 @@
 
 If you have received an official Astro Pi kit from ESA, you have everything you need to develop and test your Phase 2 program for Mission Space Lab (MSL). If you want to, you could even [create your own Astro Pi flight case](https://projects.raspberrypi.org/en/projects/astro-pi-flight-case), but don't worry, that's not essential. It can be a valuable activity in its own right, but completion of Mission Space Lab **does not** rely on having the flight case.
 
-The first thing you'll need to do is set up your development environment. If you received a kit from ESA, it will contain a Raspberry Pi with an SD card that already has the Raspbian operating system installed. In order to make sure the setup of your Pi matches that of the Astro Pis on the ISS, you'll need to install the extra libraries and software listed below. To make this easy, we've written a one-line installer script that will do everything in one go and make sure the correct versions are installed. Here's how to run the script:
+The first thing you'll need to do is set up your development environment. If you received a kit from ESA, it will contain a Raspberry Pi with an SD card that already has the Raspbian operating system installed. In order to make sure the setup of your Pi matches that of the Astro Pis on the ISS, you'll need to install the extra libraries and software listed below. To make this easy, we've provided ready-made SD card images and a one-line installer script that will do everything in one go and make sure the correct versions are installed.
+
+## SD card images
+
+You can download one of the Astro Pi images and write them to an SD card, and you'll have everything you need. We've provided two images: one with desktop and one lite image (command line only). The desktop image is best suited for development of your experiment, and the lite image is ideal for final testing.
+
+- [Astro Pi Desktop image](https://downloads.raspberrypi.org/AstroPi/images/AstroPi-2018-12-03/astropi_stretch_desktop.zip)
+- [Astro Pi Lite image](https://downloads.raspberrypi.org/AstroPi_lite/images/AstroPi_lite-2018-12-03/astropi_stretch_lite.zip)
+
+Download your chosen image, extract it from the zip file and use [etcher.io](https://etcher.io/) to write the image to your SD card.
+
+### One-line installer
+
+Alternatively, you can run the one-line installer to upgrade your Raspbian image to be ready for Astro Pi.
 
 --- task ---
 
@@ -35,6 +48,8 @@ curl -sSL rpf.io/apstretch | bash
 The whole installation will take a long time. You'll see timestamped messages with information about what's going on.
 
 If the installation stops for some reason, try running the command again.
+
+Note: if you find that `rpf.io` is not accessible on your network (perhaps short domains are blocked in your school), you can use the full URL instead: `https://raw.githubusercontent.com/astro-pi/astro-pi-stretch-installer/master/setup.sh`
 
 Once the installer has finished, you'll be asked to reboot.
 
