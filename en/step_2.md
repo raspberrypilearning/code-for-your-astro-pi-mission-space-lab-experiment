@@ -118,8 +118,8 @@ Browse to, or download and open, [celestrak.com/NORAD/elements/stations.txt](htt
 from ephem import readtle
 
 name = "ISS (ZARYA)"
-line1 = "1 25544U 98067A   18327.76881777  .00002477  00000-0  44843-4 0  9999"
-line2 = "2 25544  51.6406 303.4674 0005305  77.2314 344.6784 15.54011739143334"
+line1 = "1 25544U 98067A   18356.58700427  .00000680  00000-0  17564-4 0  9997"
+line2 = "2 25544  51.6379 159.8223 0004659 171.1463 304.0053 15.54085692147811"
 
 iss = readtle(name, line1, line2)
 iss.compute()
@@ -468,30 +468,30 @@ When used with `pyephem`, `reverse-geocoder` can determine where the ISS current
 
 ```python
 import reverse_geocoder as rg
-from ephem import readtle
+from ephem import readtle, degree
 
 name = "ISS (ZARYA)"
-line1 = "1 25544U 98067A   18327.76881777  .00002477  00000-0  44843-4 0  9999"
-line2 = "2 25544  51.6406 303.4674 0005305  77.2314 344.6784 15.54011739143334"
+line1 = "1 25544U 98067A   18356.58700427  .00000680  00000-0  17564-4 0  9997"
+line2 = "2 25544  51.6379 159.8223 0004659 171.1463 304.0053 15.54085692147811"
 
 iss = readtle(name, line1, line2)
 iss.compute()
 
-pos = (iss.sublat, iss.sublong)
+pos = (iss.sublat / degree, iss.sublong / degree)
 
 location = rg.search(pos)
 print(location)
 ```
 
-This output shows the ISS is currently over the city of Takoradi in Ghana:
+This output shows the ISS is currently over the Rongelap Atoll:
 
 ```
-[{'admin1': 'Western',
+[{'admin1': 'Rongelap Atoll',
   'admin2': '',
-  'cc': 'GH',
-  'lat': '4.88447',
-  'lon': '-1.75536',
-  'name': 'Takoradi'}]
+  'cc': 'MH',
+  'lat': '11.16351',
+  'lon': '166.89408',
+  'name': 'Rongelap'}]
 ```
 
 #### Documentation
