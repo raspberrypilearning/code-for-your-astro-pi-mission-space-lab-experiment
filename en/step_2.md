@@ -483,15 +483,15 @@ location = rg.search(pos)
 print(location)
 ```
 
-This output shows the ISS is currently over the Rongelap Atoll:
+This output shows the ISS is currently over the Sand Point city, in Alaska:
 
 ```
-[{'admin1': 'Rongelap Atoll',
-  'admin2': '',
-  'cc': 'MH',
-  'lat': '11.16351',
-  'lon': '166.89408',
-  'name': 'Rongelap'}]
+[{'admin1': 'Alaska',
+  'admin2': 'Aleutians East Borough',
+  'cc': 'US',
+  'lat': '55.33655',
+  'lon': '-160.4988',
+  'name': 'Sand Point'}]
 ```
 
 #### Documentation
