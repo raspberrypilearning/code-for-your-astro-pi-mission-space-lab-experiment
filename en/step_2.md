@@ -468,7 +468,7 @@ When used with `pyephem`, `reverse-geocoder` can determine where the ISS current
 
 ```python
 import reverse_geocoder as rg
-from ephem import readtle
+from ephem import readtle, degree
 
 name = "ISS (ZARYA)"
 line1 = "1 25544U 98067A   18327.76881777  .00002477  00000-0  44843-4 0  9999"
@@ -477,7 +477,7 @@ line2 = "2 25544  51.6406 303.4674 0005305  77.2314 344.6784 15.54011739143334"
 iss = readtle(name, line1, line2)
 iss.compute()
 
-pos = (iss.sublat, iss.sublong)
+pos = (iss.sublat / degree, iss.sublong / degree)
 
 location = rg.search(pos)
 print(location)
