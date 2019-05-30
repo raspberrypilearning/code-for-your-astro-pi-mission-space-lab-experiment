@@ -42,7 +42,7 @@ Start the Chromium web browser (click on the blue globe next to the Raspberry Pi
 Now open a terminal window, and run the one-line installer command:
 
 ```bash
-curl -sSL rpf.io/apstretch | bash
+sudo curl -sSL rpf.io/apstretch | bash
 ```
 
 The whole installation will take a long time. You'll see timestamped messages with information about what's going on.
