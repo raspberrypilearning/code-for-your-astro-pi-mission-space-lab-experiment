@@ -8,8 +8,7 @@ This guide covers Phase 2 for both Mission Space Lab themes: _Life on Earth_ and
 
 The guide includes information on assembling your kit, writing the code for your experiment, and testing your program. It also includes essential details about what is and isn’t possible with the Astro Pi hardware and software.
 
-<stream src="9f6ab2e8642e7595fd8f6cd74e68f969" controls preload></stream>
-<script data-cfasync="false" defer type="text/javascript" src="https://embed.cloudflarestream.com/embed/r4xu.fla9.latest.js?video=9f6ab2e8642e7595fd8f6cd74e68f969"></script>
+![Earth from the ISS](images/ap1.gif)
 
 We don’t insist that you follow every rule, but if you think you need to do things differently, please get in touch **before** submitting your entry. A program that does not follow this guide will score less highly during the judging process than a program that does, and it may not progress to the next phase if it cannot be run easily on the ISS without modification.   
 
