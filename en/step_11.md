@@ -8,7 +8,7 @@ Imagine this: the team from CoderDojo Tatooine wants to investigate whether the 
 + They also calculate the ISS’s latitude and longitude using the `ephem` library and log this information in the data file.
 + To see whether cloud cover might also be a factor, they take a photo using the IR camera on Astro Pi Izzy, which is pointing out of the window towards Earth.
 + The latitude and longitude data is written into the EXIF tags of the images, which have sequentially numbered filenames. It is also logged to the CSV file.
-+ The LED matrix is updated every 15 seconds.
++ The LED matrix is not used as this is a Life on earth Experiment.
 + Any unexpected error is handled and the details logged.
 
 ```python
@@ -26,23 +26,6 @@ dir_path = os.path.dirname(os.path.realpath(__file__))
 
 # Connect to the Sense Hat
 sh = SenseHat()
-
-# define some colours - keep brightness low
-
-g = [0,50,0]
-o = [0,0,0]
-
-# define a simple image
-img1 = [
-    g,g,g,g,g,g,g,g,
-    o,g,o,o,o,o,g,o,
-    o,o,g,o,o,g,o,o,
-    o,o,o,g,g,o,o,o,
-    o,o,o,g,g,o,o,o,
-    o,o,g,g,g,g,o,o,
-    o,g,g,g,g,g,g,o,
-    g,g,g,g,g,g,g,g,
-]
 
 # Set a logfile name
 logzero.logfile(dir_path+"/data01.csv")
@@ -83,19 +66,6 @@ def get_latlon():
     cam.exif_tags['GPS.GPSLatitude'] = '%d/1,%d/1,%d/10' % (lat_value[0], lat_value[1], lat_value[2]*10)
     return(str(lat_value), str(long_value))
 
-# define a function to update the LED matrix
-def active_status():
-    """
-    A function to update the LED matrix regularly
-    to show that the experiment is progressing
-    """
-    # a list with all possible rotation values
-    orientation = [0,90,270,180]
-    # pick one at random
-    rot = random.choice(orientation)
-    # set the rotation
-    sh.set_rotation(rot)
-
 
 # create a datetime variable to store the start time
 start_time = datetime.datetime.now()
@@ -104,7 +74,7 @@ start_time = datetime.datetime.now()
 now_time = datetime.datetime.now()
 # run a loop for 2 minutes
 photo_counter = 1
-sh.set_pixels(img1)
+
 while (now_time < start_time + datetime.timedelta(minutes=178)):
     try:
         # Read some data from the Sense Hat, rounded to 4 decimal places
@@ -119,10 +89,6 @@ while (now_time < start_time + datetime.timedelta(minutes=178)):
         # use zfill to pad the integer value used in filename to 3 digits (e.g. 001, 002...)
         cam.capture(dir_path+"/photo_"+ str(photo_counter).zfill(3)+".jpg")
         photo_counter+=1
-        active_status()
-        sleep(15)
-        active_status()
-        sleep(15)
         # update the current time
         now_time = datetime.datetime.now()
     except Exception as e:

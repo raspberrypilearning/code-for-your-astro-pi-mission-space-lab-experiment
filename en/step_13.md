@@ -9,7 +9,7 @@ Their computer program should:
 - Calculate the ISS’s latitude and longitude using the PyEphem library, and log this information in the CSV file.
 - Take a photo using the IR camera on Astro Pi computer Izzy, which is pointing out of a window towards Earth, to gather data on whether cloud cover might also be a factor.
 - Write the latitude and longitude data into the EXIF tags of the images, which have sequentially numbered file names.
-- Update the Astro Pi’s LED matrix every 15 seconds.
+- For a Life in Space experiment, update the Astro Pi’s LED matrix every 15 seconds. Life on Earth experiments should not use the LED matrix.
 - Handle any unexpected errors and log the details.
 
 ### How to approach writing the program for Phase 2 of Mission Space Lab
@@ -22,7 +22,7 @@ Remember, these are some key things that the program should do:
 1. Results should be saved to a CSV file.
 1. Photos from Astro Pi Izzy should have the ISS location information added to their metadata.
 1. The use of multiple threads should be avoided.
-1. The Astro Pi’s LED matrix should be regularly updated to indicate that a program is working.
+1. The Astro Pi’s LED matrix should be regularly updated to indicate that a program is working (Life in Space only).
 1. The program should finish after 3 hours.
 
 ### Figure out the key tasks
