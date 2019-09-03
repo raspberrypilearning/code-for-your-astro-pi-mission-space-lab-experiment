@@ -1,4 +1,4 @@
-Mission Space Lab has been running for a few years now and there have been some amazing experiments. However, every year there some fantastic entries that don't get to run on the ISS due to problems with their final code.
+Mission Space Lab has been running for a few years now and there have been some amazing experiments. However, every year there are some fantastic entries that don't get to run on the ISS due to problems with their final code.
 
 There are also some experiments that run but do not produce and data for their teams due to avoidable errors.
 
@@ -16,6 +16,6 @@ Make sure that any experimental data is written to a file on disk as soon as it 
 
 Make sure you don't use any specific paths for your data files. Use the `__file__` variable as described in step 2.
 
-## Check for 'divide bu zero' errors
+## Check for 'divide by zero' errors
 
-A common cause of failed programs is when a mathematical function tries to divide a value by zero. This can happen if you're reading values from a sensor and then using that as part of a calculation. Always make sure that your program can cope if one of the values returned by a sensor (in particular the accelerometer) is zero. 
+A common cause of failed programs is when a mathematical function tries to divide a value by zero. This can happen if you're reading value from a sensor and then using that as part of a calculation. Always make sure that your program can cope if one of the values returned by a sensor (in particular the accelerometer) is zero.
