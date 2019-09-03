@@ -6,10 +6,12 @@ The first thing you'll need to do is set up your development environment. If you
 
 ### SD card images
 
-You can download one of the Astro Pi images and write them to an SD card, and you'll have everything you need. We've provided two images: one with desktop and one lite image (command line only). The desktop image is best suited for development of your experiment, and the lite image is ideal for final testing.
+The Astro Pis on the ISS run a modified version of the normal Raspbian operating system software. This is known as the Flight OS and you'll need to make sure that the program you create will run on it without any modifications.
+
+You can download one of the Astro Pi images and write them to an SD card, and you'll have everything you need. We've provided two images: one with desktop and development software and one lite image (command line only) which is the sample Flight OS which you should use for testing.
 
 - [Astro Pi Desktop image](https://downloads.raspberrypi.org/AstroPi/images/AstroPi-2018-12-03/astropi_stretch_desktop.zip)
-- [Astro Pi Lite image](https://downloads.raspberrypi.org/AstroPi_lite/images/AstroPi_lite-2018-12-03/astropi_stretch_lite.zip)
+- [Astro Pi Lite image - sample Flight OS](https://downloads.raspberrypi.org/AstroPi_lite/images/AstroPi_lite-2018-12-03/astropi_stretch_lite.zip)
 
 Download your chosen image, extract it from the zip file and use [etcher.io](https://etcher.io/) to write the image to your SD card.
 
@@ -62,6 +64,8 @@ Close and then re-open Chromium, and you should see this guide displayed as the 
 ![](images/dev_image.png)
 
 --- /task ---
+
+
 
 ### Using the hardware
 
