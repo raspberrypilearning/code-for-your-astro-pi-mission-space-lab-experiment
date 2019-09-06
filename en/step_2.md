@@ -2,70 +2,15 @@
 
 If you have received an official Astro Pi kit from ESA, you have everything you need to develop and test your Phase 2 program for Mission Space Lab (MSL). If you want to, you could even [create your own Astro Pi flight case](https://projects.raspberrypi.org/en/projects/astro-pi-flight-case), but don't worry, that's not essential and completion of Mission Space Lab **does not** rely on having the flight case.
 
-The first thing you'll need to do is set up your development environment. If you received a kit from ESA, it will contain a Raspberry Pi with an SD card that already has the Raspbian operating system installed. In order to make sure the setup of your Pi matches that of the Astro Pis on the ISS, you'll need to install the extra libraries and software listed below. To make this easy, we've provided ready-made SD card images and a one-line installer script that will do everything in one go and make sure the correct versions are installed.
+The first thing you'll need to do is set up your development environment. If you received a kit from ESA, it will contain a Raspberry Pi with two identical SD cards from which you can install the different version s of Raspbian - the Raspberry Pi Operating System - that you'll need.
 
 ### SD card images
 
 The Astro Pis on the ISS run a modified version of the normal Raspbian operating system software. This is known as the Flight OS and you'll need to make sure that the program you create will run on it without any modifications.
 
-You can download one of the Astro Pi images and write them to an SD card, and you'll have everything you need. We've provided two images: one with desktop and development software and one lite image (command line only) which is the sample Flight OS which you should use for testing.
+The two SD cards both contain our operating system installer: (NOOBS)[https://www.raspberrypi.org/documentation/installation/noobs.md]. Put one of the SD cards into the Pi, (connect everything up)[https://projects.raspberrypi.org/en/projects/raspberry-pi-setting-up/4] and start it booting. After a few seconds you should see the NOOBS selection screen, showing two options. Select the "Astro Pi Development OS" and click the Install button. This process with take a few minutes and your Pi will reboot into the Desktop operating system once it has finished. You should use this SD card for editing and developing your program.
 
-- [Astro Pi Desktop image](https://downloads.raspberrypi.org/AstroPi/images/AstroPi-2018-12-03/astropi_stretch_desktop.zip)
-- [Astro Pi Lite image - sample Flight OS](https://downloads.raspberrypi.org/AstroPi_lite/images/AstroPi_lite-2018-12-03/astropi_stretch_lite.zip)
-
-Download your chosen image, extract it from the zip file and use [etcher.io](https://etcher.io/) to write the image to your SD card.
-
-### One-line installer
-
-Alternatively, you can run the one-line installer to upgrade your Raspbian image to be ready for Astro Pi.
-
---- task ---
-
-Insert the flashed SD card into your Raspberry Pi and boot it. Log in with the username `pi` and password `raspberry`.
-
---- /task ---
-
---- task ---
-
-When you log in for the first time, a wizard program will open and ask to walk you through choosing settings like your language, keyboard type, and WiFi details; let the wizard guide you through this process.
-
-You'll need to connect to the internet. If you have an ethernet connection, connect the cable to the Raspberry Pi. If not, you'll need to use WiFi.
-
---- /task ---
-
---- task ---
-
-Start the Chromium web browser (click on the blue globe next to the Raspberry Pi symbol in the top left-hand corner of the screen) and test whether your Pi is connected to the internet
-
---- /task ---
-
---- task ---
-
-Now open a terminal window, and run the one-line installer command:
-
-```bash
-sudo curl -sSL rpf.io/apstretch | bash
-```
-
-The whole installation will take a long time. You'll see timestamped messages with information about what's going on.
-
-If the installation stops for some reason, try running the command again.
-
-Note: if you find that `rpf.io` is not accessible on your network (perhaps short domains are blocked in your school), you can use the full URL instead: `https://raw.githubusercontent.com/astro-pi/astro-pi-stretch-installer/master/setup.sh`
-
-Once the installer has finished, you'll be asked to reboot.
-
---- /task ---
-
---- task ---
-
-Close and then re-open Chromium, and you should see this guide displayed as the starting page.
-
-![](images/dev_image.png)
-
---- /task ---
-
-
+Now take the second SD card and repeat the process, this time selecting the 'Sample Flight OS' option. You should use this SD card for testing your program. 
 
 ### Using the hardware
 
