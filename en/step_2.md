@@ -10,7 +10,7 @@ The Astro Pis on the ISS run a modified version of the normal Raspbian operating
 
 The two SD cards both contain our operating system installer: (NOOBS)[https://www.raspberrypi.org/documentation/installation/noobs.md]. Put one of the SD cards into the Pi, (connect everything up)[https://projects.raspberrypi.org/en/projects/raspberry-pi-setting-up/4] and start it booting. After a few seconds you should see the NOOBS selection screen, showing two options. Select the "Astro Pi Development OS" and click the Install button. This process with take a few minutes and your Pi will reboot into the Desktop operating system once it has finished. You should use this SD card for editing and developing your program.
 
-Now take the second SD card and repeat the process, this time selecting the 'Sample Flight OS' option. You should use this SD card for testing your program. 
+Now take the second SD card and repeat the process, this time selecting the 'Sample Flight OS' option. You should use this SD card for testing your program.
 
 ### Using the hardware
 
@@ -19,6 +19,8 @@ You may wish to revisit the videos from Phase 1 to remind yourself of the limita
 [[[rpi-sensehat-attach]]]
 
 If you've never used the Sense HAT before, [start with this short project](https://projects.raspberrypi.org/en/projects/getting-started-with-the-sense-hat/), and come back here once you're aware of basic Sense HAT uses.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/VzYGDq0D1mw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 [[[rpi-picamera-connect-camera]]]
 
