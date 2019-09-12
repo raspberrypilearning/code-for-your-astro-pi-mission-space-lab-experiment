@@ -156,8 +156,6 @@ The final result is what is called pseudo-code: a diagram of all of a program’
 
 + Don’t forget to test your program using the Flight OS disk image, which is the operating system running on the Astro Pis. It’s a cut-down version of the Raspbian OS, and it does not have X-Windows and many of the standard development tools installed. Testing your program using the Flight OS will let you check that none of the commands rely on files or libraries that aren’t present on the Astro Pis aboard the ISS.
 
-![](images/Astro_Pi_Educator_Web_V6f.png)
-
 
 If you need to print this project, please use the [printer-friendly version](https://projects.raspberrypi.org/en/projects/project-name/print){:target="_blank"}.
 
