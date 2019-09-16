@@ -1,4 +1,4 @@
-Microsoft## Getting started
+## Getting started
 
 If you have received an official Astro Pi kit from ESA, you have everything you need to develop and test your Phase 2 program for Mission Space Lab (MSL). If you want to, you could even [create your own Astro Pi flight case](https://projects.raspberrypi.org/en/projects/astro-pi-flight-case), but don't worry, that's not essential and completion of Mission Space Lab **does not** rely on having the flight case.
 
@@ -8,7 +8,19 @@ The first thing you'll need to do is set up your development environment. If you
 
 The Astro Pis on the ISS run a modified version of the normal Raspbian operating system software. This is known as the Flight OS and you'll need to make sure that the program you create will run on it without any modifications.
 
-The two SD cards both contain our operating system installer: [NOOBS](https://www.raspberrypi.org/documentation/installation/noobs.md). Put one of the SD cards into the Pi, [connect everything up](https://projects.raspberrypi.org/en/projects/raspberry-pi-setting-up/4) and start it booting. After a few seconds you should see the NOOBS selection screen, showing two options. Select the "Astro Pi Development OS" and click the Install button. This process will take a few minutes and your Pi will reboot into the Desktop operating system once it has finished. You should use this SD card for editing and developing your program.
+The two SD cards both contain our operating system installer: [NOOBS](https://www.raspberrypi.org/documentation/installation/noobs.md). Put one of the SD cards into the Pi, [connect everything up](https://projects.raspberrypi.org/en/projects/raspberry-pi-setting-up/4) and start it booting. After a few seconds you should see the NOOBS selection screen, showing the different operating systems that are available.  If you have connected your Raspberry Pi to a network using the ethernet port that you may see several options.
+
+![](images/noobs1.png)
+
+If your Raspberry Pi is offline, then you'll just see two.
+
+![](images/noobs3.png)
+
+Select the "Astro Pi Development OS" and click the Install button.
+
+![](images/noobs2.png)
+
+This process will take a few minutes and your Pi will reboot into the Desktop operating system once it has finished. You should use this SD card for editing and developing your program.
 
 ![](images/raspbiandesktop.png)
 
@@ -59,7 +71,7 @@ And eventually the area surrounding the window cannot be seen at all.
 
 ![](images/zz_astropi_1_photo_193.jpg)
 
-You can use these images to train a Machine Learning algorithm to recognise different types of views. However please note that there is no guarantee that the location, view and orientation  of Astro PI Izzy will be exactly the same in 2010. So your program should be flexible enough to adapt to any changes. 
+You can use these images to train a Machine Learning algorithm to recognise different types of views. However please note that there is no guarantee that the location, view and orientation  of Astro PI Izzy will be exactly the same in 2010. So your program should be flexible enough to adapt to any changes.
 
 #### The sample Flight OS
 
@@ -75,11 +87,12 @@ You may wish to revisit the videos from Phase 1 to remind yourself of the limita
 
 If you've never used the Sense HAT before, [start with this short project](https://projects.raspberrypi.org/en/projects/getting-started-with-the-sense-hat/), and come back here once you're aware of basic Sense HAT uses.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/VzYGDq0D1mw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 [[[rpi-picamera-connect-camera]]]
 
 Note that, because you will be using the Raspberry Pi Camera Module with the Sense Hat, you'll need to thread the camera's ribbon cable through the slot on the Sense HAT before connecting it the Pi.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/VzYGDq0D1mw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 If you've never used the Camera Module before, [start with this beginners' project](https://projects.raspberrypi.org/en/projects/getting-started-with-picamera/), and come back here once you've tried your hand using the basic `picamera` Python library functions.
 
