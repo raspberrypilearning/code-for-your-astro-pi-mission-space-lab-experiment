@@ -8,7 +8,7 @@ The first thing you'll need to do is set up your development environment. If you
 
 The Astro Pis on the ISS run a modified version of the normal Raspbian operating system software. This is known as the Flight OS and you'll need to make sure that the program you create will run on it without any modifications.
 
-The two SD cards both contain our operating system installer: [NOOBS](https://www.raspberrypi.org/documentation/installation/noobs.md). Put one of the SD cards into the Pi, [connect everything up](https://projects.raspberrypi.org/en/projects/raspberry-pi-setting-up/4) and start it booting. After a few seconds you should see the NOOBS selection screen, showing the different operating systems that are available.  If you have connected your Raspberry Pi to a network using the ethernet port that you may see several options.
+The two SD cards both contain our operating system installer: [NOOBS](https://www.raspberrypi.org/documentation/installation/noobs.md). Put one of the SD cards into the Pi, [connect everything up](https://projects.raspberrypi.org/en/projects/raspberry-pi-setting-up/4) and start it booting. After a few seconds you should see the NOOBS selection screen, showing the different operating systems that are available.  If you have connected your Raspberry Pi to a network using the ethernet port then you may see several options.
 
 ![](images/noobs1.png)
 
@@ -24,9 +24,9 @@ This process will take a few minutes and your Pi will reboot into the Desktop op
 
 ![](images/raspbiandesktop.png)
 
-#### The Desktop image_
+#### The Desktop image
 
-The Desktop operating system also contains a folder with sample data from the 2018-19 mission which can use help test and refine your code.  There is a comma separated variable (CSV) file with 3 hours worth of data from all the SenseHat sensors. The columns in this file are in this order:
+The Desktop operating system also contains a folder with sample data from the 2018-19 mission which can be used to help test and refine your code.  There is a comma separated variable (CSV) file with 3 hours worth of data from all the SenseHat sensors. The columns in this file are in this order:
 
 Date
 time
@@ -71,11 +71,11 @@ And eventually the area surrounding the window cannot be seen at all.
 
 ![](images/zz_astropi_1_photo_193.jpg)
 
-You can use these images to train a Machine Learning algorithm to recognise different types of views. However please note that there is no guarantee that the location, view and orientation  of Astro PI Izzy will be exactly the same in 2010. So your program should be flexible enough to adapt to any changes.
+You could use these images to train a Machine Learning algorithm to recognise different types of views. However please note that there is no guarantee that the location, view and orientation  of Astro PI Izzy will be exactly the same in 2010. So your program should be flexible enough to adapt to any changes.
 
 #### The sample Flight OS
 
-Now take the second SD card and repeat the process, this time selecting the 'Sample Flight OS' option. You should use this SD card for testing your program.
+Now take the second SD card and repeat the installation process, this time selecting the 'Sample Flight OS' option. You should use this SD card for testing your program.
 
 The packages installed on both the Desktop and Sample Flight OS match those available on the Astro Pi computers on the ISS. You should not perform any upgrades or install any additional packages or Python libraries as these will not be available when your experiment runs.
 
