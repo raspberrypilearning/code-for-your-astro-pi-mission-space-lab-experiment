@@ -16,7 +16,7 @@ If your Raspberry Pi is offline, then you'll just see two.
 
 ![](images/noobs3.png)
 
-Select the "Astro Pi Development OS" and click the Install button.
+Whichever view you have,  select the "AstroPiDesktop" and click the Install button.
 
 ![](images/noobs2.png)
 
