@@ -87,7 +87,7 @@ Their computer program should:
 
 ### How to approach writing the program for Phase 2 of Mission Space Lab
 
-+ Start by looking at the coding guidelines in the previous steps.  They contain a few things that your program should do so that it can run smoothly on the Astro Pis on the ISS, along with some useful tips for how to make the most of your experimental results. There are also a few strict rules, such as making sure that all photos Astro Pi Ed takes of the inside of the ISS are deleted at the end of your experiment.
++ Start by looking at the coding guidelines in the steps in this project.  They contain a few things that your program should do so that it can run smoothly on the Astro Pis on the ISS, along with some useful tips for how to make the most of your experimental results. There are also a few strict rules, such as making sure that all photos Astro Pi Ed takes of the inside of the ISS are deleted at the end of your experiment.
 
 Remember, these are some key things that the program should do:
 

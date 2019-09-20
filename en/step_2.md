@@ -81,7 +81,7 @@ The packages installed on both the Desktop and Sample Flight OS match those avai
 
 ### Using the hardware
 
-You may wish to revisit the videos from Phase 1 to remind yourself of the limitations of the Astro Pi hardware aboard the ISS. We also have the following resources to help you get started with the Sense HAT and Camera Module:
+You may wish to revisit [the videos from Phase 1](https://www.esa.int/Education/AstroPI/European_Astro_Pi_Challenge_2019-20_now_open) to remind yourself of the limitations of the Astro Pi hardware aboard the ISS. We also have the following resources to help you get started with the Sense HAT and Camera Module:
 
 [[[rpi-sensehat-attach]]]
 
