@@ -1,26 +1,26 @@
 ## Getting started
 
-If you have received an official Astro Pi kit from ESA, you have everything you need to develop and test your Phase 2 program for Mission Space Lab (MSL). If you want to, you could even [create your own Astro Pi flight case](https://projects.raspberrypi.org/en/projects/astro-pi-flight-case), but don't worry, that's not essential and completion of Mission Space Lab **does not** rely on having the flight case.
+If you have received an official Astro Pi kit from ESA, you have everything you need to develop and test your Phase 2 program for Mission Space Lab (MSL). If you want to, you could even [create your own Astro Pi flight case](https://projects.raspberrypi.org/en/projects/astro-pi-flight-case), but don't worry, that's not essential, and completion of Mission Space Lab **does not** rely on having the flight case.
 
-The first thing you'll need to do is set up your development environment. If you received a kit from ESA, it will contain a Raspberry Pi with two identical SD cards from which you can install the different version s of Raspbian - the Raspberry Pi Operating System - that you'll need.
+The first thing you'll need to do is set up your development environment. If you received a kit from ESA, it will contain a Raspberry Pi with two identical SD cards from which you can install the different versions of Raspbian — the Raspberry Pi operating system — that you will need.
 
 ### SD card images
 
-The Astro Pis on the ISS run a modified version of the normal Raspbian operating system software. This is known as the Flight OS and you'll need to make sure that the program you create will run on it without any modifications.
+The Astro Pis on the ISS run a modified version of the normal Raspbian operating system software. This is known as the Flight OS and you'll need to make sure that the program that you create will run on it without any modifications.
 
-The two SD cards both contain our operating system installer: [NOOBS](https://www.raspberrypi.org/documentation/installation/noobs.md). Put one of the SD cards into the Pi, [connect everything up](https://projects.raspberrypi.org/en/projects/raspberry-pi-setting-up/4) and start it booting. After a few seconds you should see the NOOBS selection screen, showing the different operating systems that are available.  If you have connected your Raspberry Pi to a network using the ethernet port then you may see several options.
+The two SD cards both contain our operating system installer, [NOOBS](https://www.raspberrypi.org/documentation/installation/noobs.md). Put one of the SD cards into the Raspberry Pi, [connect everything up](https://projects.raspberrypi.org/en/projects/raspberry-pi-setting-up/4), and start it booting. After a few seconds, you should see the NOOBS selection screen, showing the different operating systems that are available.  If you have connected your Raspberry Pi to a network using the Ethernet port, then you may see several options.
 
 ![](images/noobs1.png)
 
-If your Raspberry Pi is offline, then you'll just see two.
+If your Raspberry Pi is offline, then you'll just see two options.
 
 ![](images/noobs3.png)
 
-Whichever view you have,  select the "AstroPiDesktop" and click the Install button.
+Whichever view you have, select "AstroPiDesktop" and click the **Install** button.
 
 ![](images/noobs2.png)
 
-This process will take a few minutes and your Pi will reboot into the Desktop operating system once it has finished. You should use this SD card for editing and developing your program.
+This process will take a few minutes and your Raspberry Pi will reboot into the Desktop operating system once it has finished. You should use this SD card for editing and developing your program.
 
 ![](images/raspbiandesktop.png)
 
