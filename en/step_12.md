@@ -2,7 +2,7 @@
 
 This is the last and most important part of Phase 2.
 
-Before you submit your program, it is vital that you test it using an Astro Pi running the sample Flight OS. This is a special build of the Raspbian operating system, optimised to run on the ISS Astro Pis. It does not include any X-Windows or GUI applications and is command line only. It also has been locked down in terms of security settings. So you definitely need to check that none of the differences between this Flight OS and the version of Raspbian on which you developed your code will cause your experiment to fail.
+Before you submit your program, it is vital that you test it using an Astro Pi running the sample Flight OS. This is a special build of the Raspbian operating system, optimised to run on the ISS Astro Pis. It does not include any X-Windows or GUI applications and is command line only. It also has been locked down in terms of security settings. So, you definitely need to check that none of the differences between this Flight OS and the version of Raspbian on which you developed your code will cause your experiment to fail.
 
 There are also a few settings in the sample Flight OS that will limit the performance of the Pi, in order to more accurately mimic the capabilities of the Astro Pis on the ISS, which are old Raspberry Pi B+ models. This means that your code will probably run more slowly, especially if you're processing images or looking up locations based on latitude or longitude.
 
@@ -10,7 +10,7 @@ Finally, it’s also important for you to consider any errors that could occur d
 
 ## Test your code on the Flight OS
 
-You need to test that your code will run on the Astro Pi units, with the same packages installed, the exact package versions, and matching configuration. We will test your code on the Flight OS and if it doesn't run without errors, you'll be disqualified, so it's important that you test as much as you can. That's why we've provided the Sample Flight OS so you can simulate the same setup as on board the ISS.
+You need to test that your code will run on the Astro Pi units, with the same packages installed, the exact package versions, and matching configuration. We will test your code on the Flight OS and if it doesn't run without errors, you'll be disqualified, so it's important that you test as much as you can. That's why we've provided the sample Flight OS, so that you can simulate the same setup as on board the ISS.
 
 You should use the second SD card on to which you installed the sample Flight OS for testing.   
 
@@ -27,14 +27,14 @@ So that your program can run safely and successfully on the ISS, there are some 
 1. If you chose the theme 'Life in space', your program does not save any photos or videos
 1. Your program runs without errors and does not raise any unhandled exceptions
 1. Your program stops running after 3 hours
-1. The LED matrix is updated regularly to indicate that an experiment is running.
+1. The LED matrix is updated regularly to indicate that an experiment is running
 1. There is no bad language or rudeness in your program
 
 ### Run your code
 
 --- task ---
 
-Connect the Sense HAT and camera module (if required).
+Connect the Sense HAT and Camera Module (if required).
 
 --- /task ---
 
@@ -68,6 +68,6 @@ When it's finished, observe any output files created by your project. Are you ex
 
 --- /task ---
 
-If you see any errors, or the experiment doesn't do what you expected it to, you'll need to address this before submitting your code to ensure chance of reaching the final judging round.
+If you see any errors, or the experiment doesn't do what you expected it to, you'll need to address this before you submit your code to ensure chance of reaching the final judging round.
 
-**Note:** during testing, it may be advisable to disable the Pi's internet connection to make sure your experiment does not use internet access.
+**Note:** During testing, it may be advisable to disable the Raspberry Pi's internet connection to make sure that your experiment does not use internet access.
