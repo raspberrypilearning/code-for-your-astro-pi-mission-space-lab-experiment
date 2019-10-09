@@ -1,10 +1,10 @@
 ## Recording images using the camera
 
-The first thing to do, if you haven't already, is to connect your Camera Module to the Pi.
+The first thing to do, if you haven't already, is to connect your Camera Module to the Raspberry Pi.
 
 [[[rpi-picamera-connect-camera]]]
 
-Once you've done that, power the Pi back on and take some test photos:
+Once you've done that, power the Raspberry Pi back on and take some test photos:
 
 [[[rpi-picamera-take-photo]]]
 
@@ -35,21 +35,21 @@ os.remove(dir_path+"/image.jpg”)
 
 If you are using the infrared camera on Astro Pi Izzy, then you will get some amazing pictures of the Earth seen from the ISS. Even if your program will process these images and only make use of the extracted data, we recommend that you do not delete all the images (unless your program will generate so many of them that you risk running out of disk space on the Astro Pi). Apart from being a unique souvenir of your mission, the images may also help you with debugging any unexpected issues with your experimental results. Some examples of images captured using the IR camera on Izzy are available [here](https://www.flickr.com/photos/raspberrypi). If you're going to be processing images (e.g with the OpenCV Python library), you should test your code on some of these images.
 
-The rest of this step is mainly for Life on Earth experiments. No images from Life in Space experiments can be saved.
+The rest of this step is mainly for 'Life on Earth' experiments. No images from 'Life in space' experiments can be saved.
 
-### Location data (Life on Earth)
+### Location data ('Life on Earth')
 
 Being able to take photographs of the Earth from a window on the ISS is something that normally only astronauts can do. We recommend that you record the position of the Space Station for any images that you capture. You can do this by logging the latitude and longitude in a CSV file along with the corresponding file name of the image.
 
-A better method is to add the location information into EXIF fields within each image file itself. This **metadata** is ‘attached’ to the image file and does not need the accompanying CSV data file.
+A better method is to add the location information into EXIF fields within each image file itself. This **metadata** is 'attached' to the image file and does not need the accompanying CSV data file.
 
 There are a few different ways of expressing latitude and longitude, and it is important to get the units correct, especially when working with software and libraries that expect the data to be in a certain format.
 
-For the `ephem` library used to report the ISS position, coordinates are written using degrees (°) as the unit of measurement.  There are 360° of longitude: 180° east and 180° west of the prime meridian (the zero point of longitude, defined as a point in Greenwich, England). There are 180° of latitude: 90° north and 90° south of the equator).
+For the `ephem` library used to report the ISS position, coordinates are written using degrees (°) as the unit of measurement. There are 360° of longitude: 180° east and 180° west of the prime meridian (the zero point of longitude, defined as a point in Greenwich, England). There are 180° of latitude: 90° north and 90° south of the equator).
 
 To precisely specify a location, each degree can be reported as a decimal number, e.g. (28.277777, 71.5841666). Another approach is to split each degree into 60 minutes (’). Each minute can be then divided into 60 seconds (”) and for even finer accuracy, fractions of seconds given by a decimal point are used. The extra complication here is that the degrees value cannot be negative. An extra piece of information must be included for each value — the latitude reference and longitude reference. This simply states whether the point that the coordinate refers to is east or west of the Meridian (for longitude), and north or south of the equator (for latitude). So the example from above would be displayed as (28:16:40 N, 71:35:3 E).
 
-It is this degrees:minutes:seconds (DMS) format that you should use to store coordinates in EXIF data of images. You can see the code to take the data returned by the `ephem` library and convert it into a format suitable for storing as EXIF data below. It might look complicated, but is really just the same series of steps described above. In the snippet below, to set each image file's EXIF data to the current latitude and longitude, a function called `get_latlon()` is used. Using a function to do this also helps keep the program tidy.
+It is this degrees:minutes:seconds (DMS) format that you should use to store coordinates in EXIF data of images. You can see the code to take the data returned by the `ephem` library and convert it into a format suitable for storing as EXIF data below. It might look complicated, but it is really just the same series of steps described above. In the snippet below, to set each image file's EXIF data to the current latitude and longitude, a function called `get_latlon()` is used. Using a function to do this also helps keep the program tidy.
 
 ```python
 import ephem
@@ -96,7 +96,7 @@ get_latlon()
 cam.capture(dir_path+"/gps1.jpg")
 ```
 
-Instead of using EXIF data, it is possible to overlay text data onto the visible image itself, like a watermark. However, there is always a risk that this will obscure a useful part of the picture, and can confuse code that looks at the brightness of pixels within the image. These overlays also cannot easily be removed.  Unlike the EXIF method, it also does not make it easy to automatically process images based on metadata, or search for images based on the location at which they were taken. Therefore, we recommend that you do not use the watermarking method to record the latitude and longitude, and instead use EXIF data.
+Instead of using EXIF data, it is possible to overlay text data onto the visible image itself, like a watermark. However, there is always a risk that this will obscure a useful part of the picture, and can confuse code that looks at the brightness of pixels within the image. In addition, these overlays cannot easily be removed. Unlike the EXIF method, it also does not make it easy to automatically process images based on metadata, or search for images based on the location at which they were taken. Therefore, we recommend that you do not use the watermarking method to record the latitude and longitude, and instead use EXIF data.
 
 ### Numbering plans for files
 
@@ -123,8 +123,8 @@ This is definitely a post-experiment processing step. You should not use your th
 
 ### Low-light and night-time photography
 
-Night-time photography using the Astro Pi's Camera Module is difficult. This is mostly because the very low chances of your program being run while the ISS is above a bright city without cloud cover. The light sensitivity of the camera is quite good, but it needs to be used with the best software settings for the particular situation, and it is difficult to anticipate what those settings will be and include them in your program. Having the camera adapt to changing light conditions in real time is also tricky, especially when the camera is moving relative to the light source as is the case for the Astro Pis on the ISS.
+Night-time photography using the Astro Pi's Camera Module is difficult. This is mostly because of the very low chances of your program being run while the ISS is above a bright city without cloud cover. The light sensitivity of the camera is quite good, but it needs to be used with the best software settings for the particular situation, and it is difficult to anticipate what those settings will be and include them in your program. Having the camera adapt to changing light conditions in real time is also tricky, especially when the camera is moving relative to the light source, as is the case for the Astro Pis on the ISS.
 
 ### Size and number of images
 
-**Don't forget that your experiment is limited to producing 3GB of data.** Make sure you calculate the maximum amount of space that your measurements, including any saved image files, will take up, and that this does not exceed 3GB.  Remember that the size of an image file will depend not only on the resolution but also on how much detail is in the picture: a photo of a blank white wall will be smaller than a photo of a landscape.  
+**Don't forget that your experiment is limited to producing 3GB of data.** Make sure that you calculate the maximum amount of space that your measurements, including any saved image files, will take up, and that this does not exceed 3GB. Remember that the size of an image file will depend not only on the resolution, but also on how much detail is in the picture: a photo of a blank white wall will be smaller than a photo of a landscape.  
