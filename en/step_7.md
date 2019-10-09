@@ -23,4 +23,4 @@ while (now_time < start_time + datetime.timedelta(minutes=2)):
     now_time = datetime.datetime.now()
 ```
 
-**Note:** When deciding on the runtime for your code, make sure you take into account how long it takes for your loop to complete a cycle. So if you want to make use of the full three-hour (180-minute) experiment slot available, but each loop through your code takes six minutes to complete, then your `timedelta` should be `180-6 = 174` minutes, to ensure that your code finishes **before** the three hours have elapsed.
+**Note:** When deciding on the runtime for your code, make sure you take into account how long it takes for your loop to complete a cycle. So if you want to make use of the full three-hour (180-minute) experiment slot available, but each loop through your code takes 6 minutes to complete, then your `timedelta` should be `180-6 = 174` minutes, to ensure that your code finishes **before** the three hours have elapsed.
