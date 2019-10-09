@@ -1,6 +1,6 @@
 ## Recording data with your program
 
-Any files your program creates should have sensible, informative names. Only use letters, numbers, hyphens (-), or underscores (\_) in your file names. **Do not use spaces** in file names, because spaces can cause problems when the files are transferred between computers.  
+Any files that your program creates should have sensible, informative names. Only use letters, numbers, hyphens (-), or underscores (\_) in your file names. **Do not use spaces** in file names, because spaces can cause problems when the files are transferred between computers.  
 
 Your program should collect and store experimental data. These measurements should be written to a file in the current working directory called `data01.csv`.
 
@@ -20,7 +20,7 @@ If you require multiple data files, these should be numbered sequentially (e.g. 
 
 All log files should be saved in the same place that the Python file itself will be stored when running on the Astro Pis on the ISS. You should not use a specific path in your code (for example, `/home/pi/Desktop` will not exist on the Astro Pis on the ISS).
 
- When your code is run on the ISS, it will be started and stopped by an automated system. To ensure that your data files end up in the right place, you should use the method below, which uses the special `__file__` variable that contains the path to the file that Python is currently running. You can use this variable to find the path of the file with the `os` library.
+When your code is run on the ISS, it will be started and stopped by an automated system. To ensure that your data files end up in the right place, you should use the method below, which uses the special `__file__` variable that contains the path to the file that Python is currently running. You can use this variable to find the path of the file with the `os` library.
 
 ```python
 import logging
@@ -98,4 +98,4 @@ The Python `print` function is a great tool for testing and debugging your code,
 
 ### Data storage quota
 
-**Your experiment is allowed to produce a maximum of 3GB of data**. So make sure you calculate the maximum amount of storage space that your experiment's recorded data, including any photos, will take up, and that this does not exceed 3GB. No single file should be larger than 35MB.
+**Your experiment is allowed to produce a maximum of 3GB of data**. So make sure that you calculate the maximum amount of storage space that your experiment's recorded data, including any photos, will take up, and that this does not exceed 3GB. No single file should be larger than 35MB.
