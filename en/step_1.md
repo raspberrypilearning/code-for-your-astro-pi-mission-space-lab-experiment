@@ -19,7 +19,7 @@ Most of the information in this guide applies to both 'Life in space' and 'Life 
 title: Notes for 'Life in space' experiments
 ---
 
-+ Although you can use the camera as part of your experiment (for example, to work out how bright it is on the ISS), you cannot use it to take photos of astronauts, and all images must be deleted as your experiment ends.
++ Although you can use the camera as part of your experiment (for example, to work out how bright it is on the ISS), you cannot use it to take photos of astronauts, and your program must delete all images at the end of your experiment.
 + Your program should display a helpful message or image on the Sense HAT's LED matrix so that nearby astronauts know that an experiment is running. This should change regularly to indicate that everything is running correctly.
 
 --- /collapse ---
@@ -154,7 +154,7 @@ The final result is what is called pseudocode: a diagram of all of a program’s
 
 ### Test your program
 
-+ Don’t forget to test your program using the Flight OS disk image, which is the operating system running on the Astro Pis. It’s a cut-down version of the Raspbian OS, and it does not have X-Windows and many of the standard development tools installed. Testing your program using the Flight OS will let you check that none of the commands rely on files or libraries that aren’t present on the Astro Pis aboard the ISS.
++ Don’t forget to test your program using the Flight OS, which is the operating system running on the Astro Pis. It’s a cut-down version of the Raspbian OS, and it does not have X-Windows and many of the standard development tools installed. Testing your program using the Flight OS will let you check that none of the commands rely on files or libraries that aren’t present on the Astro Pis aboard the ISS.
 
 
 If you need to print this project, please use the [printer-friendly version](https://projects.raspberrypi.org/en/projects/project-name/print){:target="_blank"}.
