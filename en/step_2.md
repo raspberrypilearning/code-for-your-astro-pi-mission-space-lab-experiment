@@ -8,7 +8,7 @@ The first thing you'll need to do is set up your development environment. If you
 
 The Astro Pis on the ISS run a modified version of the normal Raspbian operating system software. This is known as the Flight OS and you'll need to make sure that the program that you create will run on it without any modifications.
 
-The two SD cards both contain our operating system installer, [NOOBS](https://www.raspberrypi.org/documentation/installation/noobs.md). Put one of the SD cards into the Raspberry Pi, [connect everything up](https://projects.raspberrypi.org/en/projects/raspberry-pi-setting-up/4), and start it booting. After a few seconds, you should see the NOOBS selection screen, showing the different operating systems that are available.  If you have connected your Raspberry Pi to a network using the Ethernet port, then you may see several options.
+The two SD cards both contain our operating system installer, [NOOBS](https://www.raspberrypi.org/documentation/installation/noobs.md). Put one of the SD cards into the Raspberry Pi, [connect everything up](https://projects.raspberrypi.org/en/projects/raspberry-pi-setting-up/4), and start booting it. After a few seconds, you should see the NOOBS selection screen, showing the different operating systems that are available.  If you have connected your Raspberry Pi to a network using the Ethernet port, then you may see several options.
 
 ![](images/noobs1.png)
 
@@ -26,7 +26,7 @@ This process will take a few minutes, and your Raspberry Pi will reboot into the
 
 #### The Desktop image
 
-The Desktop operating system also contains a folder with sample data from the 2018–19 mission which can be used to help test and refine your code. There is a comma-separated variable (CSV) file with 3 hours worth of data from all of the Sense HAT sensors. The columns in this file are in this order:
+The Desktop operating system also contains a folder with sample data from the 2018–19 mission which can be used to help test and refine your code. There is a comma-separated values (CSV) file with 3 hours worth of data from all of the Sense HAT sensors. The columns in this file are in this order:
 
 Date
 Time
@@ -90,7 +90,7 @@ If you've never used the Sense HAT before, [start with this short project](https
 
 [[[rpi-picamera-connect-camera]]]
 
-Note that, because you will be using the Raspberry Pi Camera Module with the Sense HAT, you'll need to thread the camera's ribbon cable through the slot on the Sense HAT before connecting it the Raspberry Pi.
+Note that, because you will be using the Raspberry Pi Camera Module with the Sense HAT, you'll need to thread the camera's ribbon cable through the slot on the Sense HAT before connecting it to the Raspberry Pi.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/VzYGDq0D1mw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -102,7 +102,7 @@ Please note that the cameras on the Astro Pis on the ISS are the V1 Camera Modul
 
 ## Performance
 
-The Raspberry Pis in the ESA kits for Astro Pi 2018/19 are Raspberry Pi 3s. However, the Astro Pis currently on the ISS are the older Raspberry Pi model B+. A Raspberry Pi 3 is a new model, and therefore faster and more powerful than a B+. You should bear this in mind when writing the code for your experiment: some tasks that need a lot of computing power (e.g. they involve complicated mathematics or the processing of lots of data) will run more slowly on the Astro Pis on the ISS than on the Raspberry Pi in your ESA kit. In particular, using Python libraries like `OpenCV` (to process images captured with the Camera Module), or `ephem` (to work out which city the ISS is passing over) will be significantly slower on the Astro Pis.  
+The Raspberry Pis in the ESA kits for Astro Pi 2019/20 are Raspberry Pi 3s. However, the Astro Pis currently on the ISS are the older Raspberry Pi model B+. A Raspberry Pi 3 is a newer model, and therefore faster and more powerful than a B+. You should bear this in mind when writing the code for your experiment: some tasks that need a lot of computing power (e.g. they involve complicated mathematics or the processing of lots of data) will run more slowly on the Astro Pis on the ISS than on the Raspberry Pi in your ESA kit. In particular, using Python libraries like `OpenCV` (to process images captured with the Camera Module), or `ephem` (to work out which city the ISS is passing over) will be significantly slower on the Astro Pis.  
 
 See the 'Test your code' section for instructions for creating a test SD card image that is more representative of the performance of the Astro Pis on the ISS.
 
@@ -114,13 +114,13 @@ Now you can start writing the program for your experiment. To do this, you'll ne
 
 Programs for all MSL challenge entries must be written in **Python 3**.
 
-If you find a Python library that you need for your experiment and that is Python 2 only, please contact us — we will help you find an alternative approach.
+If you find a Python library that you need for your experiment and that can only be used in Python 2, please contact us — we will help you find an alternative approach.
 
 ### Python libraries
 
 We've installed a collection of Python libraries on the Astro Pi's Flight OS. Here's some information on how to install them and what you can use them for.
 
-Remember that you can download the Flight OS or run our one-line installer to get all of these libraries on your Raspbian SD card. If you are using another version of Raspbian or have not run the one-line installer, you can follow the installation instructions in the information boxes below to make sure that you get the same versions of the libraries as the ones installed on the ISS.
+Remember that you can download the Flight OS or run our one-line installer to get all of these libraries on your Raspbian SD card. If you are using another version of Raspbian or have not run the one-line installer, you can follow the installation instructions in the information boxes below to make sure that you get the same versions of the libraries as the ones installed on the Astro Pis aboard the ISS.
 
 --- collapse ---
 ---
