@@ -16,22 +16,22 @@ If your Raspberry Pi is offline, then you'll just see two options.
 
 ![](images/noobs3.png)
 
-Whichever view you have, select "AstroPiDesktop" and click the **Install** button.
+Whichever view you have, select 'AstroPiDesktop' and click the **Install** button.
 
 ![](images/noobs2.png)
 
-This process will take a few minutes and your Raspberry Pi will reboot into the Desktop operating system once it has finished. You should use this SD card for editing and developing your program.
+This process will take a few minutes, and your Raspberry Pi will reboot into the Desktop operating system once it has finished. You should use this SD card for editing and developing your program.
 
 ![](images/raspbiandesktop.png)
 
 #### The Desktop image
 
-The Desktop operating system also contains a folder with sample data from the 2018-19 mission which can be used to help test and refine your code.  There is a comma separated variable (CSV) file with 3 hours worth of data from all the SenseHat sensors. The columns in this file are in this order:
+The Desktop operating system also contains a folder with sample data from the 2018–19 mission which can be used to help test and refine your code. There is a comma-separated variable (CSV) file with 3 hours worth of data from all of the Sense HAT sensors. The columns in this file are in this order:
 
 Date
-time
+Time
 Humidity
-temperature
+Temperature
 Pressure
 Pitch (as measured by gyroscope)
 Roll (as measured by gyroscope)
@@ -54,28 +54,28 @@ Longitude seconds
 
 LibreOffice Calc is a spreadsheet program similar to Microsft Excel and is installed on the Desktop operating system. You can use this to look at the data and plot charts.
 
-There are also a sequence of photos taken by the IR camera. The sequence starts at 'night' and so the first few photos are black.
+There is also a sequence of photos taken by the IR camera. The sequence starts at 'night', and so the first few photos are black.
 
 ![](images/zz_astropi_1_photo_116.jpg)
 
 
-Then the window gradually appears as light starts to flood in.
+Then, the window gradually appears as light starts to flood in.
 
 ![](images/zz_astropi_1_photo_133.jpg)
 
-By image number 150, the earth below becomes visible.
+By image 150, the Earth below becomes visible.
 
 ![](images/zz_astropi_1_photo_159.jpg)
 
-And eventually the area surrounding the window cannot be seen at all.
+And eventually, the area surrounding the window cannot be seen at all.
 
 ![](images/zz_astropi_1_photo_193.jpg)
 
-You could use these images to train a Machine Learning algorithm to recognise different types of views. However please note that there is no guarantee that the location, view and orientation  of Astro PI Izzy will be exactly the same in 2010. So your program should be flexible enough to adapt to any changes.
+You could use these images to train a machine learning algorithm to recognise different types of views. However, please note that there is no guarantee that the location, view, and orientation of Astro Pi Izzy will be exactly the same in 2020. Therefore, your program should be flexible enough to adapt to any changes.
 
 #### The sample Flight OS
 
-Now take the second SD card and repeat the installation process, this time selecting the 'Sample Flight OS' option. You should use this SD card for testing your program.
+Now take the second SD card and repeat the installation process, but this time, select the 'Sample Flight OS' option. You should use this SD card for testing your program.
 
 The packages installed on both the Desktop and Sample Flight OS match those available on the Astro Pi computers on the ISS. You should not perform any upgrades or install any additional packages or Python libraries as these will not be available when your experiment runs.
 
@@ -90,21 +90,21 @@ If you've never used the Sense HAT before, [start with this short project](https
 
 [[[rpi-picamera-connect-camera]]]
 
-Note that, because you will be using the Raspberry Pi Camera Module with the Sense Hat, you'll need to thread the camera's ribbon cable through the slot on the Sense HAT before connecting it the Pi.
+Note that, because you will be using the Raspberry Pi Camera Module with the Sense HAT, you'll need to thread the camera's ribbon cable through the slot on the Sense HAT before connecting it the Raspberry Pi.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/VzYGDq0D1mw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-If you've never used the Camera Module before, [start with this beginners' project](https://projects.raspberrypi.org/en/projects/getting-started-with-picamera/), and come back here once you've tried your hand using the basic `picamera` Python library functions.
+If you've never used the Camera Module before, [start with this beginners' project](https://projects.raspberrypi.org/en/projects/getting-started-with-picamera/), and come back here once you've tried using the basic `picamera` Python library functions.
 
-Don't forget that the cameras on the Astro Pis on the ISS are the V1 Camera Module that was available in 2014. The later V2 Camera Module that you can buy now (and that are included in the ESA kits) has an upgraded sensor that is capable of producing images at resolutions not available on the v1 model. So you should make sure that the resolution you specify in your code is available on the V1 camera. You can find more detailed information in [this section of the PiCamera library documentation](https://picamera.readthedocs.io/en/release-1.13/fov.html?highlight=v2#sensor-modes), but examples of typical resolutions you might wish to use with the V1 Camera Module are:
+Please note that the cameras on the Astro Pis on the ISS are the V1 Camera Module that was available in 2014. The later V2 Camera Module that you can buy now (and that are included in the ESA kits) has an upgraded sensor that is capable of producing images at resolutions not available on the V1 model. Therefore, you should make sure that the resolution that you specify in your code is available on the V1 Camera Module. You can find more detailed information in [this section of the PiCamera library documentation](https://picamera.readthedocs.io/en/release-1.13/fov.html?highlight=v2#sensor-modes), but examples of typical resolutions that you might wish to use with the V1 Camera Module are:
 
- 2592×1944, 1920×1080, 1296×972,	1296×730, and 640×480.
+ 2592×1944, 1920×1080, 1296×972, 1296×730, and 640×480
 
 ## Performance
 
-The Raspberry Pis in the ESA kits for Astro Pi 2018/19 are Raspberry Pi 3s. However, the Astro Pis currently on the ISS are the older Raspberry Pi model B+. A Pi 3 is a new model, and therefore faster and more powerful than a B+. You should bear this in mind when writing the code for your experiment: some tasks that need a lot of computing power (e.g. they involve complicated mathematics or the processing of lots of data) will run more slowly on the Astro Pis on the ISS than on your ESA kit Pi. In particular, using Python libraries like `OpenCV` (to process images captured with the Pi camera), or `ephem` (to work out which city the ISS is passing over) will be significantly slower on the Astro Pis.  
+The Raspberry Pis in the ESA kits for Astro Pi 2018/19 are Raspberry Pi 3s. However, the Astro Pis currently on the ISS are the older Raspberry Pi model B+. A Raspberry Pi 3 is a new model, and therefore faster and more powerful than a B+. You should bear this in mind when writing the code for your experiment: some tasks that need a lot of computing power (e.g. they involve complicated mathematics or the processing of lots of data) will run more slowly on the Astro Pis on the ISS than on the Raspberry Pi in your ESA kit. In particular, using Python libraries like `OpenCV` (to process images captured with the Camera Module), or `ephem` (to work out which city the ISS is passing over) will be significantly slower on the Astro Pis.  
 
-See the "Test your code" section for instructions for creating a test SD card image that is more representative of the performance of the Astro Pis on the ISS.
+See the 'Test your code' section for instructions for creating a test SD card image that is more representative of the performance of the Astro Pis on the ISS.
 
 ## Write your program
 
@@ -120,7 +120,7 @@ If you find a Python library that you need for your experiment and that is Pytho
 
 We've installed a collection of Python libraries on the Astro Pi's Flight OS. Here's some information on how to install them and what you can use them for.
 
-Remember that you can download the Flight OS or run our one-line installer to get all these libraries on your Raspbian SD card. If you are using another version of Raspbian or have not run the one-line installer, you can follow the installation instructions in the information boxes below to make sure your get the same versions of the libraries that are installed on the ISS.
+Remember that you can download the Flight OS or run our one-line installer to get all of these libraries on your Raspbian SD card. If you are using another version of Raspbian or have not run the one-line installer, you can follow the installation instructions in the information boxes below to make sure that you get the same versions of the libraries as the ones installed on the ISS.
 
 --- collapse ---
 ---
@@ -257,7 +257,7 @@ The Geospatial Data Abstraction Library is an open-source, cross-platform set of
 title: numpy
 ---
 
-`numpy` is a general-purpose array-processing package designed to efficiently manipulate large multi-dimensional arrays of arbitrary records without sacrificing too much speed for small multi-dimensional arrays.
+`numpy` is a general-purpose array-processing package designed to efficiently manipulate large multidimensional arrays of arbitrary records without sacrificing too much speed for small multidimensional arrays.
 
 #### Usage
 
@@ -301,7 +301,7 @@ SciPy is a free and open-source Python library used for scientific computing and
 title: tensorflow
 ---
 
-Tensorflow is Google's machine learning framework.
+TensorFlow is Google's machine learning framework.
 
 #### Documentation
 
@@ -364,7 +364,7 @@ Keras is a high-level neural networks API, and is capable of running on top of T
 title: matplotlib
 ---
 
-matplotlib is a 2D plotting library that produces publication-quality figures in a variety of hardcopy formats and interactive environments.
+matplotlib is a 2D plotting library that produces publication-quality figures in a variety of hard copy formats and interactive environments.
 
 #### Usage
 
@@ -453,7 +453,7 @@ title: opencv
 title: scikit-learn
 ---
 
-`scikit-learn` is a set of simple and efficient tools for data mining and data analysis accessible to everybody, and reusable in various contexts. It's designed to interoperate with `numpy`, `scipy`, and `matplotlib`.
+`scikit-learn` is a set of simple and efficient tools for data mining and data analysis that are accessible to everybody, and reusable in various contexts. It's designed to interoperate with `numpy`, `scipy`, and `matplotlib`.
 
 #### Documentation
 
@@ -521,18 +521,18 @@ This output shows the ISS is currently over the Sand Point city, in Alaska:
 
 Note that no other libraries can be used in your Mission Space Lab experiment. If your experiment requires other Python libraries, please contact us and we will try you help you find an alternative approach.
 
-Some Python libraries may include functions that perform a web request to look up some information or return a value that is dependent on time or location. Even though they may be very useful, these are not permitted (see the Networking section of this guide).  
+Some Python libraries may include functions that perform a web request to look up some information or return a value that is dependent on time or location. Even though they may be very useful, these are not permitted (see the 'Networking' section of this guide).  
 
 ### What to call your Mission Space Lab Python files
 
 When you submit the program for your MSL experiment, your main Python file should be called `main.py`.
 
-Ideally, all you code should be contained within this file. However, if your experiment is very complex, then additional files are allowed.
+Ideally, all of your code should be contained within this file. However, if your experiment is very complex, then additional files are allowed.
 
 ### Documenting your code
 
-When you've created a really useful program or piece of software and you want to share it with other people, a crucial step is creating documentation that helps people understand what the program does, how it works, and how they can use it. This is especially import for your MSL experiment, because it should be obvious from your program how you will achieve your experiment's aims and objectives.
+When you've created a really useful program or piece of software and you want to share it with other people, a crucial step is creating documentation that helps people understand what the program does, how it works, and how they can use it. This is especially important for your MSL experiment, because it should be obvious from your program how you will achieve your experiment's aims and objectives.
 
 This [project](https://projects.raspberrypi.org/en/projects/documenting-your-code) shows you the recommended way to add useful comments to your program.
 
-Any attempt to hide, or make it difficult to understand, what a piece of code is doing will result in disqualification. And of course there should be no bad language or rudeness in your code.
+Any attempt to hide, or make it difficult to understand, what a piece of code is doing will result in disqualification. And of course, there should be no bad language or rudeness in your code.
