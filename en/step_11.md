@@ -20,6 +20,7 @@ from datetime import datetime, timedelta
 from time import sleep
 import random
 import os
+import csv
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
@@ -29,9 +30,8 @@ sh = SenseHat()
 # Set a logfile name
 logfile(dir_path + "/teamname.log")
 
-# initialise the CSV file
-data_file = dir_path + "/data.csv"
-create_csv_file(data_file)
+
+
 
 # Latest TLE data for ISS location
 name = "ISS (ZARYA)"
@@ -78,6 +78,9 @@ def get_latlon():
     cam.exif_tags['GPS.GPSLatitude'] = '%d/1,%d/1,%d/10' % (lat_value[0], lat_value[1], lat_value[2]*10)
     return (iss.sublat / degree, iss.sublong / degree)
 
+# initialise the CSV file
+data_file = dir_path + "/data.csv"
+create_csv_file(data_file)
 # store the start time
 start_time = datetime.now()
 # store the current time
