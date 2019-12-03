@@ -40,6 +40,8 @@ from datetime import datetime
 import os
 from time import sleep
 
+sense = SenseHat()
+
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
 data_file = dir_path + '/data.csv'
