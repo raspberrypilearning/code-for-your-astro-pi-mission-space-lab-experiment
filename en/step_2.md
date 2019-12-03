@@ -52,12 +52,11 @@ Longitude degrees
 Longitude minutes
 Longitude seconds
 
-LibreOffice Calc is a spreadsheet program similar to Microsft Excel and is installed on the Desktop operating system. You can use this to look at the data and plot charts.
+LibreOffice Calc is a spreadsheet program similar to Microsoft Excel and is installed on the Desktop operating system. You can use this to look at the data and plot charts.
 
 There is also a sequence of photos taken by the IR camera. The sequence starts at 'night', and so the first few photos are black.
 
 ![](images/zz_astropi_1_photo_116.jpg)
-
 
 Then, the window gradually appears as light starts to flood in.
 
