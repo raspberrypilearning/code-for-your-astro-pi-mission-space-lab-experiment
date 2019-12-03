@@ -108,10 +108,30 @@ with open(data_file, 'w') as f:
     writer = csv.writer(f)
     header = ("Date/time", "Temperature", "Humidity")
     writer.writerow(header)
-    for i in range(10):
-        row = (datetime.now(), sense.temperature, sense.humidity)
+
+for i in range(10):
+    row = (datetime.now(), sense.temperature, sense.humidity)
+    with open(data_file, 'a') as f:
+        writer = csv.writer(f)
         writer.writerow(row)
-        sleep(60)
+    sleep(60)
+```
+
+**Note that the first time you write to a file, you must open it with `w` (write mode). If you want to add data to it later, you must use `a` (append mode).**
+
+You could use two separate functions for this:
+
+```python
+def create_csv(data_file):
+    with open(data_file, 'w') as f:
+        writer = csv.writer(f)
+        header = ("Date/time", "Temperature", "Humidity")
+        writer.writerow(header)
+
+def add_csv_data(data_file, data):
+    with open(data_file, 'a') as f:
+        writer = csv.writer(f)
+        writer.writerow(data)
 ```
 
 It's important to log the timestamp along with your data points, so that you know when the measurement was taken, how long between each measurement, and at what point things happened. You can also retrospectively calculate the ISS position using ephem with a timestamp.
