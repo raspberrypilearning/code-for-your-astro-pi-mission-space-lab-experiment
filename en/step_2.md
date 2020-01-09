@@ -8,6 +8,20 @@ The first thing you'll need to do is set up your development environment. If you
 
 The Astro Pis on the ISS run a modified version of the normal Raspbian operating system software. This is known as the Flight OS and you'll need to make sure that the program that you create will run on it without any modifications.
 
+#### Downloading Astro Pi NOOBS (optional)
+
+If you have the SD cards from the kits - you can skip to the next section to install.
+
+If you want to create additional SD cards to use for Astro Pi, you can download the Astro Pi NOOBS image (the same one in the kits) and install onto your own SD cards.
+
+- Download the Astro Pi NOOBS zip file: [NOOBS_v3_2_0_AstroPi_25092019_CPC.zip](https://downloads.raspberrypi.org/AstroPi_NOOBS/images/AstroPi_NOOBS-2020-01-08/NOOBS_v3_2_0_AstroPi_25092019_CPC.zip)
+
+You can see the checksums and more in the directory listing for the image: https://downloads.raspberrypi.org/AstroPi_NOOBS/images/AstroPi_NOOBS-2020-01-08/
+
+Once downloaded, extract the contents of the zip file, and copy them onto a formatted SD card. See the [NOOBS guide](https://www.raspberrypi.org/documentation/installation/noobs.md) for instructions on how to do this (make sure you use the Astro Pi zip file, not the standard NOOBS from the Raspberry Pi downloads page). Once the contents have transferred, safely remove the SD card from your computer. You're now ready to set up your Raspberry Pi.
+
+#### Installing from Astro Pi NOOBS
+
 The two SD cards both contain our operating system installer, [NOOBS](https://www.raspberrypi.org/documentation/installation/noobs.md). Put one of the SD cards into the Raspberry Pi, [connect everything up](https://projects.raspberrypi.org/en/projects/raspberry-pi-setting-up/4), and start booting it. After a few seconds, you should see the NOOBS selection screen, showing the different operating systems that are available.  If you have connected your Raspberry Pi to a network using the Ethernet port, then you may see several options.
 
 ![](images/noobs1.png)
@@ -52,12 +66,11 @@ Longitude degrees
 Longitude minutes
 Longitude seconds
 
-LibreOffice Calc is a spreadsheet program similar to Microsft Excel and is installed on the Desktop operating system. You can use this to look at the data and plot charts.
+LibreOffice Calc is a spreadsheet program similar to Microsoft Excel and is installed on the Desktop operating system. You can use this to look at the data and plot charts.
 
 There is also a sequence of photos taken by the IR camera. The sequence starts at 'night', and so the first few photos are black.
 
 ![](images/zz_astropi_1_photo_116.jpg)
-
 
 Then, the window gradually appears as light starts to flood in.
 

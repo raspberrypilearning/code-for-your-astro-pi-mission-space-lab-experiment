@@ -12,42 +12,54 @@ Imagine this: the team from CoderDojo Tatooine wants to investigate whether the 
 + Any unexpected error is handled and the details logged.
 
 ```python
-import logging
-import logzero
-from logzero import logger
+from logzero import logger, logfile
 from sense_hat import SenseHat
-import ephem
+from ephem import readtle, degree
 from picamera import PiCamera
-import datetime
+from datetime import datetime, timedelta
 from time import sleep
 import random
 import os
+import csv
+
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
 # Connect to the Sense Hat
 sh = SenseHat()
 
 # Set a logfile name
-logzero.logfile(dir_path+"/data01.csv")
+logfile(dir_path + "/teamname.log")
 
-# Set a custom formatter
-formatter = logging.Formatter('%(name)s - %(asctime)-15s - %(levelname)s: %(message)s');
-logzero.formatter(formatter)
+
+
 
 # Latest TLE data for ISS location
 name = "ISS (ZARYA)"
-l1 = "1 25544U 98067A   18030.93057008  .00011045  00000-0  17452-3 0  9997"
-l2 = "2 25544  51.6392 342.9681 0002977  45.8872  32.8379 15.54020911 97174"
-iss = ephem.readtle(name, l1, l2)
+l1 = "1 25544U 98067A   19336.91239465 -.00004070  00000-0 -63077-4 0  9991"
+l2 = "2 25544  51.6431 244.7958 0006616 354.0287  44.0565 15.50078860201433"
+iss = readtle(name, l1, l2)
 
 # Set up camera
 cam = PiCamera()
-cam.resolution = (1296,972)
+cam.resolution = (1296, 972)
 
-# function to write lat/long to EXIF data for photographs
+def create_csv_file(data_file):
+    "Create a new CSV file and add the header row"
+    with open(data_file, 'w') as f:
+        writer = csv.writer(f)
+        header = ("Date/time", "Temperature", "Humidity")
+        writer.writerow(header)
+
+def add_csv_data(data_file, data):
+    "Add a row of data to the data_file CSV"
+    with open(data_file, 'a') as f:
+        writer = csv.writer(f)
+        writer.writerow(data)
+
 def get_latlon():
     """
-    A function to write lat/long to EXIF data for photographs
+    A function to write lat/long to EXIF data for photographs.
+    Returns (lat, long)
     """
     iss.compute() # Get the lat/long values from ephem
     long_value = [float(i) for i in str(iss.sublong).split(":")]
@@ -64,41 +76,43 @@ def get_latlon():
     else:
         cam.exif_tags['GPS.GPSLatitudeRef'] = "N"
     cam.exif_tags['GPS.GPSLatitude'] = '%d/1,%d/1,%d/10' % (lat_value[0], lat_value[1], lat_value[2]*10)
-    return(str(lat_value), str(long_value))
+    return (iss.sublat / degree, iss.sublong / degree)
 
-
-# create a datetime variable to store the start time
-start_time = datetime.datetime.now()
-# create a datetime variable to store the current time
+# initialise the CSV file
+data_file = dir_path + "/data.csv"
+create_csv_file(data_file)
+# store the start time
+start_time = datetime.now()
+# store the current time
 # (these will be almost the same at the start)
-now_time = datetime.datetime.now()
+now_time = datetime.now()
 # run a loop for 2 minutes
 photo_counter = 1
 
-while (now_time < start_time + datetime.timedelta(minutes=178)):
+while (now_time < start_time + timedelta(minutes=178)):
     try:
-        # Read some data from the Sense Hat, rounded to 4 decimal places
-        temperature = round(sh.get_temperature(),4)
-        humidity = round(sh.get_humidity(),4)
-
-
+        logger.info("{} iteration {}".format(datetime.now(), photo_counter))
+        humidity = round(sh.humidity, 4)
+        temperature = round(sh.temperature, 4)
         # get latitude and longitude
         lat, lon = get_latlon()
         # Save the data to the file
-        logger.info("%s,%s,%s,%s,%s", photo_counter,humidity, temperature, lat, lon )
+        data = (datetime.now(), photo_counter, humidity, temperature, lat, lon)
+        add_csv_data(data_file, data)
         # use zfill to pad the integer value used in filename to 3 digits (e.g. 001, 002...)
-        cam.capture(dir_path+"/photo_"+ str(photo_counter).zfill(3)+".jpg")
-        photo_counter+=1
+        cam.capture(dir_path + "/photo_" + str(photo_counter).zfill(3) + ".jpg")
+        photo_counter += 1
         # update the current time
-        now_time = datetime.datetime.now()
+        now_time = datetime.now()
     except Exception as e:
-        logger.error("An error occurred: " + str(e))
+        logger.error('{}: {})'.format(e.__class__.__name__, e))
 ```
 
 A snippet from the `data.csv` file that is produced:
+
 ```
-logzero_default - 2018-06-19 08:43:28,653 - INFO: 1,54.9445,31.2797,[47.0, 0.0, 9.9],[90.0, 32.0, 3.3]
-logzero_default - 2018-06-19 08:43:59,320 - INFO: 2,55.3742,31.2257,[46.0, 8.0, 27.1],[88.0, 1.0, 29.1]
-logzero_default - 2018-06-19 08:44:29,964 - INFO: 3,55.6883,31.2797,[45.0, 15.0, 2.2],[85.0, 40.0, 34.5]
-logzero_default - 2018-06-19 08:45:00,615 - INFO: 4,55.3561,31.2977,[44.0, 16.0, 34.8],[83.0, 19.0, 55.1]
+2019-12-03 08:43:28,1,54.9445,31.2797,0.2812739610671997,-0.7029094696044922
+2019-12-03 08:43:59,2,55.3742,31.2257,0.2812739610671997,-0.7029094696044922
+2019-12-03 08:44:29,3,55.6883,31.2797,0.2812739610671997,-0.7029094696044922
+2019-12-03 08:45:00,4,55.3561,31.2977,0.2812739610671997,-0.7029094696044922
 ```
