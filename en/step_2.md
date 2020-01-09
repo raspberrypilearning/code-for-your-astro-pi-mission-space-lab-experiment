@@ -16,7 +16,7 @@ If you want to create additional SD cards to use for Astro Pi, you can download 
 
 - Download the Astro Pi NOOBS zip file: [NOOBS_v3_2_0_AstroPi_25092019_CPC.zip](https://downloads.raspberrypi.org/AstroPi_NOOBS/images/AstroPi_NOOBS-2020-01-08/NOOBS_v3_2_0_AstroPi_25092019_CPC.zip)
 
-You can see the checksums and more in the directory listing for the image: https://downloads.raspberrypi.org/AstroPi_NOOBS/images/AstroPi_NOOBS-2020-01-08/
+You can see the checksums and more in the directory listing for the image: [AstroPi_NOOBS-2020-01-08/](https://downloads.raspberrypi.org/AstroPi_NOOBS/images/AstroPi_NOOBS-2020-01-08/)
 
 Once downloaded, extract the contents of the zip file, and copy them onto a formatted SD card. See the [NOOBS guide](https://www.raspberrypi.org/documentation/installation/noobs.md) for instructions on how to do this (make sure you use the Astro Pi zip file, not the standard NOOBS from the Raspberry Pi downloads page). Once the contents have transferred, safely remove the SD card from your computer. You're now ready to set up your Raspberry Pi.
 
