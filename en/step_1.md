@@ -4,6 +4,13 @@ The European Astro Pi Challenge is an ESA Education project run in collaboration
 
 This guide covers Phase 2 for both Mission Space Lab themes: _Life on Earth_ and _Life in space_. We want your experiment to run reliably on the ISS, and this guide will help you get started quickly and give you the best chance of running your program without problems.
 
+## Collaboration during the coronavirus pandemic
+
+We understand that restrictions in place due to the coronavirus pandemic might negatively impact teams being able to get together to work with their Astro Pi kit. To help teams lead these sessions online and navigate how to collaborate virtually, we have created lessons plan templates for your sessions.
+
+[First session](https://rpf.io/first-session-spacelab){:target="_blank"}
+[Ongoing sessions](https://rpf.io/ongoing-sessions-spacelab){:target="_blank"}
+
 ### What you will make
 
 The guide includes information on assembling your kit, writing the code for your experiment, and testing your program. It also includes essential details about what is and isn’t possible with the Astro Pi hardware and software.
