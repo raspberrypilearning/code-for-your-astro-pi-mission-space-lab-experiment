@@ -66,32 +66,36 @@ cam = PiCamera()
 cam.resolution = (1296,972) # Valid resolution for V1 camera
 iss.compute()
 
-def dms(angle):
-  values = [float(field) for field in str(angle).split(":")]
-  return int(values[0]), int(values[1]), int(values[2]*10)
+def convert(angle):
+    """
+    Convert an ephem angle (degrees, minutes, seconds) to 
+    an EXIF-approriate representation (rationals)
+    e.g. '51:35:19.7' to '51/1,35/1,197/10'
+    Return a tuple containing a boolean and the converted angle,
+    with the boolean indicating if the angle is negative.
+    """
+    degrees, minutes, seconds = (float(field) for field in str(angle).split(":"))
+    exif_angle = f'{abs(degrees):.0f}/1,{minutes:.0f}/1,{seconds*10:.0f}/10'
+    return degrees < 0, exif_angle
 
-def get_latlon():
+def capture(camera, image):
+    """Use `camera` to capture an `image` file with lat/long EXIF data."""
     iss.compute() # Get the lat/long values from ephem
-    print(str(iss.sublat), str(iss.sublong))
 
-    degrees, minutes, seconds = dms(iss.sublat)
-    if degrees < 0:
-        degrees = abs(degrees)
-        cam.exif_tags['GPS.GPSLatitudeRef'] = "S"
-    else:
-        cam.exif_tags['GPS.GPSLatitudeRef'] = "N"
-    cam.exif_tags['GPS.GPSLatitude'] =  f'{degrees}/1,{minutes}/1,{seconds}/10'
+    # convert the latitude and longitute to EXIF-appropriate representations
+    south, exif_latitude = convert(iss.sublat)
+    west, exif_longitude = convert(iss.sublong)
+    
+    # set the EXIF tags specifying the current location
+    camera.exif_tags['GPS.GPSLatitude'] = exif_latitude
+    camera.exif_tags['GPS.GPSLatitudeRef'] = "S" if south else "N"
+    camera.exif_tags['GPS.GPSLongitude'] = exif_longitude
+    camera.exif_tags['GPS.GPSLongitudeRef'] = "W" if west else "E"
 
-    degrees, minutes, seconds = dms(iss.sublong)
-    if degrees < 0:
-        degrees = abs(degrees)
-        cam.exif_tags['GPS.GPSLongitudeRef'] = "W"
-    else:
-        cam.exif_tags['GPS.GPSLongitudeRef'] = "E"
-    cam.exif_tags['GPS.GPSLongitude'] = f'{degrees}/1,{minutes}/1,{seconds}/10'
+    # capture the image
+    camera.capture(image)
 
-get_latlon()
-cam.capture(dir_path+"/gps1.jpg")
+capture(cam, dir_path + "/gps1.jpg")
 ```
 
 Instead of using EXIF data, it is possible to overlay text data onto the visible image itself, like a watermark. However, there is always a risk that this will obscure a useful part of the picture, and can confuse code that looks at the brightness of pixels within the image. In addition, these overlays cannot easily be removed. Unlike the EXIF method, it also does not make it easy to automatically process images based on metadata, or search for images based on the location at which they were taken. Therefore, we recommend that you do not use the watermarking method to record the latitude and longitude, and instead use EXIF data.

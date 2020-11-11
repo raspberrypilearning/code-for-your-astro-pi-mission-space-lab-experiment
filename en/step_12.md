@@ -24,14 +24,8 @@ import csv
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
-# Connect to the Sense Hat
-sh = SenseHat()
-
 # Set a logfile name
 logfile(dir_path + "/teamname.log")
-
-
-
 
 # Latest TLE data for ISS location
 name = "ISS (ZARYA)"
@@ -39,69 +33,92 @@ l1 = "1 25544U 98067A   19336.91239465 -.00004070  00000-0 -63077-4 0  9991"
 l2 = "2 25544  51.6431 244.7958 0006616 354.0287  44.0565 15.50078860201433"
 iss = readtle(name, l1, l2)
 
+# Set up Sense Hat
+sh = SenseHat()
+
 # Set up camera
 cam = PiCamera()
 cam.resolution = (1296, 972)
 
 def create_csv_file(data_file):
-    "Create a new CSV file and add the header row"
+    """Create a new CSV file and add the header row"""
     with open(data_file, 'w') as f:
         writer = csv.writer(f)
         header = ("Date/time", "Temperature", "Humidity")
         writer.writerow(header)
 
 def add_csv_data(data_file, data):
-    "Add a row of data to the data_file CSV"
+    """Add a row of data to the data_file CSV"""
     with open(data_file, 'a') as f:
         writer = csv.writer(f)
         writer.writerow(data)
 
 def get_latlon():
-    """
-    A function to write lat/long to EXIF data for photographs.
-    Returns (lat, long)
-    """
+    """Return the current latitude and longitude, in degrees"""
     iss.compute() # Get the lat/long values from ephem
-    long_value = [float(i) for i in str(iss.sublong).split(":")]
-    if long_value[0] < 0:
-        long_value[0] = abs(long_value[0])
-        cam.exif_tags['GPS.GPSLongitudeRef'] = "W"
-    else:
-        cam.exif_tags['GPS.GPSLongitudeRef'] = "E"
-    cam.exif_tags['GPS.GPSLongitude'] = '%d/1,%d/1,%d/10' % (long_value[0], long_value[1], long_value[2]*10)
-    lat_value = [float(i) for i in str(iss.sublat).split(":")]
-    if lat_value[0] < 0:
-        lat_value[0] = abs(lat_value[0])
-        cam.exif_tags['GPS.GPSLatitudeRef'] = "S"
-    else:
-        cam.exif_tags['GPS.GPSLatitudeRef'] = "N"
-    cam.exif_tags['GPS.GPSLatitude'] = '%d/1,%d/1,%d/10' % (lat_value[0], lat_value[1], lat_value[2]*10)
     return (iss.sublat / degree, iss.sublong / degree)
+
+def convert(angle):
+    """
+    Convert an ephem angle (degrees, minutes, seconds) to 
+    an EXIF-approriate representation (rationals)
+    e.g. '51:35:19.7' to '51/1,35/1,197/10'
+    Return a tuple containing a boolean and the converted angle,
+    with the boolean indicating if the angle is negative.
+    """
+    degrees, minutes, seconds = (float(field) for field in str(angle).split(":"))
+    exif_angle = f'{abs(degrees):.0f}/1,{minutes:.0f}/1,{seconds*10:.0f}/10'
+    return degrees < 0, exif_angle
+
+def capture(camera, image):
+    """Use `camera` to capture an `image` file with lat/long EXIF data."""
+    iss.compute() # Get the lat/long values from ephem
+
+    # convert the latitude and longitute to EXIF-appropriate representations
+    south, exif_latitude = convert(iss.sublat)
+    west, exif_longitude = convert(iss.sublong)
+    
+    # set the EXIF tags specifying the current location
+    camera.exif_tags['GPS.GPSLatitude'] = exif_latitude
+    camera.exif_tags['GPS.GPSLatitudeRef'] = "S" if south else "N"
+    camera.exif_tags['GPS.GPSLongitude'] = exif_longitude
+    camera.exif_tags['GPS.GPSLongitudeRef'] = "W" if west else "E"
+
+    # capture the image
+    camera.capture(image)
+
 
 # initialise the CSV file
 data_file = dir_path + "/data.csv"
 create_csv_file(data_file)
-# store the start time
-start_time = datetime.now()
-# store the current time
-# (these will be almost the same at the start)
-now_time = datetime.now()
-# run a loop for 2 minutes
+# initialise the photo counter
 photo_counter = 1
-
+# record the start and current time
+start_time = datetime.now()
+now_time = datetime.now()
+# run a loop for (almost) three hours
 while (now_time < start_time + timedelta(minutes=178)):
     try:
-        logger.info("{} iteration {}".format(datetime.now(), photo_counter))
         humidity = round(sh.humidity, 4)
         temperature = round(sh.temperature, 4)
         # get latitude and longitude
-        lat, lon = get_latlon()
+        latitude, longitude = get_latlon()
         # Save the data to the file
-        data = (datetime.now(), photo_counter, humidity, temperature, lat, lon)
+        data = (
+            datetime.now(),
+            photo_counter,
+            humidity,
+            temperature,
+            latitude,
+            longitude
+        )
         add_csv_data(data_file, data)
-        # use zfill to pad the integer value used in filename to 3 digits (e.g. 001, 002...)
-        cam.capture(dir_path + "/photo_" + str(photo_counter).zfill(3) + ".jpg")
+        # capture image
+        image_file = f"{dir_path}/photo_{photo_counter:03d}.jpg"
+        capture(cam, image_file)
+        logger.info(f"iteration {photo_counter}")
         photo_counter += 1
+        sleep(30)
         # update the current time
         now_time = datetime.now()
     except Exception as e:
