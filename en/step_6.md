@@ -89,6 +89,7 @@ def get_latlon():
     else:
         cam.exif_tags['GPS.GPSLongitudeRef'] = "E"
     cam.exif_tags['GPS.GPSLongitude'] = f'{degrees}/1,{minutes}/1,{seconds}/10'
+
 get_latlon()
 cam.capture(dir_path+"/gps1.jpg")
 ```

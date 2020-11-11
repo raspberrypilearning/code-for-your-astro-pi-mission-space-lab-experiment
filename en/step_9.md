@@ -34,7 +34,6 @@ o,g,g,g,g,g,g,o,
 g,g,g,g,g,g,g,g,
 ]
 
-
 # Define a function to update the LED matrix
 def active_status():
     # a list with all possible rotation values
