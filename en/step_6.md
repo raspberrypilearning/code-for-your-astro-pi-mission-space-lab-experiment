@@ -22,14 +22,14 @@ camera.resolution = (1296,972)
 camera.start_preview()
 # Camera warm-up time
 sleep(2)
-camera.capture(dir_path+"/image.jpg”)
+camera.capture(dir_path + "/image.jpg”)
 
 ```
 
 If you’re using the visible light camera on Astro Pi Ed, then your program must delete all images at the end of your experiment time.
 
 ```python
-os.remove(dir_path+"/image.jpg”)
+os.remove(dir_path + "/image.jpg”)
 
 ```
 
@@ -66,33 +66,30 @@ cam = PiCamera()
 cam.resolution = (1296,972) # Valid resolution for V1 camera
 iss.compute()
 
+def dms(angle):
+  values = [float(field) for field in str(angle).split(":")]
+  return int(values[0]), int(values[1]), int(values[2]*10)
+
 def get_latlon():
     iss.compute() # Get the lat/long values from ephem
+    print(str(iss.sublat), str(iss.sublong))
 
-    long_value = [float(i) for i in str(iss.sublong).split(":")]
-
-    if long_value[0] < 0:
-
-        long_value[0] = abs(long_value[0])
-        cam.exif_tags['GPS.GPSLongitudeRef'] = "W"
-    else:
-        cam.exif_tags['GPS.GPSLongitudeRef'] = "E"
-    cam.exif_tags['GPS.GPSLongitude'] = '%d/1,%d/1,%d/10' % (long_value[0], long_value[1], long_value[2]*10)
-
-    lat_value = [float(i) for i in str(iss.sublat).split(":")]
-
-    if lat_value[0] < 0:
-
-        lat_value[0] = abs(lat_value[0])
+    degrees, minutes, seconds = dms(iss.sublat)
+    if degrees < 0:
+        degrees = abs(degrees)
         cam.exif_tags['GPS.GPSLatitudeRef'] = "S"
     else:
         cam.exif_tags['GPS.GPSLatitudeRef'] = "N"
+    cam.exif_tags['GPS.GPSLatitude'] =  f'{degrees}/1,{minutes}/1,{seconds}/10'
 
-    cam.exif_tags['GPS.GPSLatitude'] = '%d/1,%d/1,%d/10' % (lat_value[0], lat_value[1], lat_value[2]*10)
-    print(str(lat_value), str(long_value))
-
+    degrees, minutes, seconds = dms(iss.sublong)
+    if degrees < 0:
+        degrees = abs(degrees)
+        cam.exif_tags['GPS.GPSLongitudeRef'] = "W"
+    else:
+        cam.exif_tags['GPS.GPSLongitudeRef'] = "E"
+    cam.exif_tags['GPS.GPSLongitude'] = f'{degrees}/1,{minutes}/1,{seconds}/10'
 get_latlon()
-
 cam.capture(dir_path+"/gps1.jpg")
 ```
 
@@ -105,19 +102,21 @@ Another cool thing to do with a sequence of images from the ISS is to create a t
 ```python
 from time import sleep
 from picamera import PiCamera
+import os
+dir_path = os.path.dirname(os.path.realpath(__file__))
 
 camera = PiCamera()
 camera.start_preview()
 sleep(2)
-for filename in camera.capture_continuous(dir_path+"/image_{counter:04d}.jpg'):
-    print('Captured %s' % filename)
+for filename in camera.capture_continuous(dir_path + "/image_{counter:03d}.jpg"):
+    print(f'Captured {filename}')
     sleep(300) # wait 5 minutes
 ```
 
 Then, **once you get your images back from the ISS**,  you can use the following command to create a timelapse (you will need to install the `libav-tools` package first).
 
 ```bash
-avconv -r 10 -i image%04d.jpg -r 10 -vcodec libx264 -crf 20 -g 15 timelapse.mp4
+avconv -r 10 -i image%03d.jpg -r 10 -vcodec libx264 -crf 20 -g 15 timelapse.mp4
 ```
 This is definitely a post-experiment processing step. You should not use your three-hour experiment time on the ISS to try to build a timelapse movie!
 
