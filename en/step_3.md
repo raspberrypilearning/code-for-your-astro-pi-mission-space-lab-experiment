@@ -1,10 +1,12 @@
 ## Writing your program
 
-Now you can start writing the program for your experiment. To do this, you'll need to plan your coding sessions, understand the best way to write the program for your experiment, and ensure that it will work on the Astro Pis on the ISS. To help with planning, we've put together a teachers' and mentors' guide for Phase 2 that provides useful tips for facilitating your team's coding of their experiment.
+Now you can start writing the program for your experiment. To do this, you'll need to plan your coding sessions, understand the best way to write the program for your experiment, and ensure that it will work on the Astro Pis on the ISS. 
+
+To help with planning, we've put together a guide for Phase 2 that provides useful tips for facilitating your team's coding.
 
 --- collapse ---
 ---
-title: Planning and running your coding sessions
+title: Tips for planning and running coding sessions
 ---
 
 Here is an example of an Astro Pi Mission Space Lab experiment idea, which will be used to illustrate how to plan and write your computer program (this is the experiment that the program shown in the step 'A big worked example' comes from).
@@ -88,9 +90,7 @@ The final result is what is called pseudocode: a diagram of all of a program’s
 
 ### Test your program
 
-+ Don’t forget to test your program using the Flight OS, which is the operating system running on the Astro Pis. It’s a cut-down version of the Raspbian OS, and it does not have X-Windows and many of the standard development tools installed. Testing your program using the Flight OS will let you check that none of the commands rely on files or libraries that aren’t present on the Astro Pis aboard the ISS.
-
-Use the link in the footer to access the GitHub repository for this project, which contains all resources (including an example finished project) in the 'en/resources' folder.
++ Don’t forget to test your program using the Flight version of the OS. It’s a cut-down version of the Raspberry Pi OS, and it does not have X-Windows and many of the standard development tools installed. Testing your program using the Flight OS will let you check that none of the commands rely on files or libraries that aren’t present on the Astro Pis aboard the ISS.
 
 --- /collapse ---
 
