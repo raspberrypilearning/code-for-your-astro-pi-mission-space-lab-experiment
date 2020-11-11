@@ -1,73 +1,118 @@
-## Test your program
+## A big worked example
 
-This is the last and most important part of Phase 2.
+You can now combine all the elements described in this document to help code your experiment — the example below can serve as a template for this.
 
-Before you submit your program, it is vital that you test it using an Astro Pi running the sample Flight OS. This is a special build of the Raspbian operating system, optimised to run on the ISS Astro Pis. It does not include any X-Windows or GUI applications and is command line only. It also has been locked down in terms of security settings. So, you definitely need to check that none of the differences between this Flight OS and the version of Raspbian on which you developed your code will cause your experiment to fail.
+Imagine this: the team from CoderDojo Tatooine wants to investigate whether the environment on the ISS is affected by the surface of the Earth it is passing over. Does the ISS get hotter when it passes over a desert, or wetter when it is above the sea?
 
-There are also a few settings in the sample Flight OS that will limit the performance of the Pi, in order to more accurately mimic the capabilities of the Astro Pis on the ISS, which are old Raspberry Pi B+ models. This means that your code will probably run more slowly, especially if you're processing images or looking up locations based on latitude or longitude.
++ Their code takes regular measurements of temperature and humidity every 30 seconds and logs these in a CSV file.
++ They also calculate the ISS’s latitude and longitude using the `ephem` library and log this information in the data file.
++ To see whether cloud cover might also be a factor, they take a photo using the IR camera on Astro Pi Izzy, which is pointing out of the window towards Earth.
++ The latitude and longitude data is written into the EXIF tags of the images, which have sequentially numbered filenames. It is also logged to the CSV file.
++ The LED matrix is not used as this is a 'Life on Earth' experiment.
++ Any unexpected error is handled and the details logged.
 
-Finally, it’s also important for you to consider any errors that could occur during your program’s run on the on-board Astro Pis’ Flight OS, such as file path errors or overwriting of files. Hundreds of teams submit programs to the challenge each year and, unfortunately, we do not have the capacity to check for mistakes or debug complex code errors: if your program fails to run without errors when we test it on the sample Flight OS, your team will not progress to Phase 3. So to ensure that your entry has the best chance of success, thoroughly test your program, debug any errors, and check it against the coding requirements.
+```python
+from logzero import logger, logfile
+from sense_hat import SenseHat
+from ephem import readtle, degree
+from picamera import PiCamera
+from datetime import datetime, timedelta
+from time import sleep
+import random
+import os
+import csv
 
-## Test your code on the Flight OS
+dir_path = os.path.dirname(os.path.realpath(__file__))
 
-You need to test that your code will run on the Astro Pi units, with the same packages installed, the exact package versions, and matching configuration. We will test your code on the Flight OS and if it doesn't run without errors, you'll be disqualified, so it's important that you test as much as you can. That's why we've provided the sample Flight OS, so that you can simulate the same setup as on board the ISS.
+# Connect to the Sense Hat
+sh = SenseHat()
 
-You should use the second SD card on to which you installed the sample Flight OS for testing.   
+# Set a logfile name
+logfile(dir_path + "/teamname.log")
 
-### Final check
 
-So that your program can run safely and successfully on the ISS, there are some rules it needs to follow. If you've worked through this guide, then your program should already be fine. However, as a final step before you submit your entry, you should double-check that:
 
-1. Your experiment does not rely on interaction with an astronaut
-1. Your program is written in Python 3
-1. Your program does not rely on any additional libraries other than those listed in this guide
-1. Your program does not use networking, and does not start a system process
-1. You have documented your program, and it is easy to understand
-1. Your data is saved in files as described in this guide and does not use more than 3GB of storage space. No single file should be larger than 35MB
-1. If you chose the theme 'Life in space', your program does not save any photos or videos
-1. Your program runs without errors and does not raise any unhandled exceptions
-1. Your program stops running after 3 hours
-1. The LED matrix is updated regularly to indicate that an experiment is running
-1. There is no bad language or rudeness in your program
 
-### Run your code
+# Latest TLE data for ISS location
+name = "ISS (ZARYA)"
+l1 = "1 25544U 98067A   19336.91239465 -.00004070  00000-0 -63077-4 0  9991"
+l2 = "2 25544  51.6431 244.7958 0006616 354.0287  44.0565 15.50078860201433"
+iss = readtle(name, l1, l2)
 
---- task ---
+# Set up camera
+cam = PiCamera()
+cam.resolution = (1296, 972)
 
-Connect the Sense HAT and Camera Module (if required).
+def create_csv_file(data_file):
+    "Create a new CSV file and add the header row"
+    with open(data_file, 'w') as f:
+        writer = csv.writer(f)
+        header = ("Date/time", "Temperature", "Humidity")
+        writer.writerow(header)
 
---- /task ---
+def add_csv_data(data_file, data):
+    "Add a row of data to the data_file CSV"
+    with open(data_file, 'a') as f:
+        writer = csv.writer(f)
+        writer.writerow(data)
 
---- task ---
+def get_latlon():
+    """
+    A function to write lat/long to EXIF data for photographs.
+    Returns (lat, long)
+    """
+    iss.compute() # Get the lat/long values from ephem
+    long_value = [float(i) for i in str(iss.sublong).split(":")]
+    if long_value[0] < 0:
+        long_value[0] = abs(long_value[0])
+        cam.exif_tags['GPS.GPSLongitudeRef'] = "W"
+    else:
+        cam.exif_tags['GPS.GPSLongitudeRef'] = "E"
+    cam.exif_tags['GPS.GPSLongitude'] = '%d/1,%d/1,%d/10' % (long_value[0], long_value[1], long_value[2]*10)
+    lat_value = [float(i) for i in str(iss.sublat).split(":")]
+    if lat_value[0] < 0:
+        lat_value[0] = abs(lat_value[0])
+        cam.exif_tags['GPS.GPSLatitudeRef'] = "S"
+    else:
+        cam.exif_tags['GPS.GPSLatitudeRef'] = "N"
+    cam.exif_tags['GPS.GPSLatitude'] = '%d/1,%d/1,%d/10' % (lat_value[0], lat_value[1], lat_value[2]*10)
+    return (iss.sublat / degree, iss.sublong / degree)
 
-Boot your Raspberry Pi running the Flight OS.
+# initialise the CSV file
+data_file = dir_path + "/data.csv"
+create_csv_file(data_file)
+# store the start time
+start_time = datetime.now()
+# store the current time
+# (these will be almost the same at the start)
+now_time = datetime.now()
+# run a loop for 2 minutes
+photo_counter = 1
 
---- /task ---
-
---- task ---
-
-Copy your code and any required files to the Raspberry Pi.
-
---- /task ---
-
---- task ---
-
-The main entry point for your experiment should be named `main.py`. Run it directly with the following command only:
-
-```bash
-python3 main.py
+while (now_time < start_time + timedelta(minutes=178)):
+    try:
+        logger.info("{} iteration {}".format(datetime.now(), photo_counter))
+        humidity = round(sh.humidity, 4)
+        temperature = round(sh.temperature, 4)
+        # get latitude and longitude
+        lat, lon = get_latlon()
+        # Save the data to the file
+        data = (datetime.now(), photo_counter, humidity, temperature, lat, lon)
+        add_csv_data(data_file, data)
+        # use zfill to pad the integer value used in filename to 3 digits (e.g. 001, 002...)
+        cam.capture(dir_path + "/photo_" + str(photo_counter).zfill(3) + ".jpg")
+        photo_counter += 1
+        # update the current time
+        now_time = datetime.now()
+    except Exception as e:
+        logger.error('{}: {})'.format(e.__class__.__name__, e))
 ```
 
---- /task ---
+A snippet from the `data.csv` file that is produced:
 
---- task ---
-
-Your code should run for three hours and then stop.
-
-When it's finished, observe any output files created by your project. Are you expecting image files from the camera? Data logs? Anything else?
-
---- /task ---
-
-If you see any errors, or the experiment doesn't do what you expected it to, you'll need to address this before you submit your code to ensure that you have a chance of reaching the final judging round.
-
-**Note:** During testing, it may be advisable to disable the Raspberry Pi's internet connection to make sure that your experiment does not use internet access.
+```
+2019-12-03 08:43:28,1,54.9445,31.2797,0.2812739610671997,-0.7029094696044922
+2019-12-03 08:43:59,2,55.3742,31.2257,0.2812739610671997,-0.7029094696044922
+2019-12-03 08:44:29,3,55.6883,31.2797,0.2812739610671997,-0.7029094696044922
+2019-12-03 08:45:00,4,55.3561,31.2977,0.2812739610671997,-0.7029094696044922
+```

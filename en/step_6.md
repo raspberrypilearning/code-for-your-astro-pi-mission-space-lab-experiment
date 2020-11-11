@@ -1,95 +1,130 @@
-## Doing more than one thing at a time
+## Recording images using the camera
 
-In simple programs, each line of executed in order, and things happen one after another. The program cannot do two things at once — it must wait until a running task has completed before starting the next. This is referred to as a single-threaded process.
+The first thing to do, if you haven't already, is to connect your Camera Module to the Raspberry Pi.
 
-### Multiple threads
+[[[rpi-picamera-connect-camera]]]
 
-If you need to do more than one thing at a time, you can use a multi-threaded process. There are a number of Python libraries that allow this type of multitasking to be code, However, to do this on the Astro Pis, you're only permitted to use the `threading` library.
+Once you've done that, power the Raspberry Pi back on and take some test photos:
 
-**Only use the `threading` library if absolutely necessary** for your experiment. Managing threads can be tricky, and as your experiment will be run as part of a sequence of programs, we need to make sure that the previous one has ended smoothly before starting the next. Rogue threads can run amok and hog system resources and so must be avoided. If you do use threads in your code, you should make sure that they are all managed carefully and closed cleanly at the end of your experiment. You should additionally make sure that comments in your code clearly explain how this is achieved.
+[[[rpi-picamera-take-photo]]]
 
-### Make sure your code can handle errors (exceptions)
-
-An **exception** is an event that occurs during the execution of a program and disrupts the normal flow of the program's instructions. For example, if your program takes two numbers and divides them, this would work in many cases:
+The code snippet below shows how to take a picture with the Camera Modules of the Astro Pis using the `picamera` library, and save it to the correct directory. The `picamera` library is very powerful and has [great documentation](https://picamera.readthedocs.io/en/latest/){:target="_blank"}.
 
 ```python
->>> a = 1
->>> b = 2
->>> c = a / b
->>> print(c)
-0.5
+
+from time import sleep
+from picamera import PiCamera
+import os
+dir_path = os.path.dirname(os.path.realpath(__file__))
+
+camera = PiCamera()
+camera.resolution = (1296,972)
+camera.start_preview()
+# Camera warm-up time
+sleep(2)
+camera.capture(dir_path+"/image.jpg”)
+
 ```
-But if the second number is zero, then the division operation would fail:
+
+If you’re using the visible light camera on Astro Pi Ed, then your program must delete all images at the end of your experiment time.
 
 ```python
->>> a = 1
->>> b = 0
->>> c = a / b
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-ZeroDivisionError: division by zero
+os.remove(dir_path+"/image.jpg”)
+
 ```
 
-One way to handle this potential situation is to catch the zero case early:
+If you are using the infrared camera on Astro Pi Izzy, then you will get some amazing pictures of the Earth seen from the ISS. Even if your program will process these images and only make use of the extracted data, we recommend that you do not delete all the images (unless your program will generate so many of them that you risk running out of disk space on the Astro Pi). Apart from being a unique souvenir of your mission, the images may also help you with debugging any unexpected issues with your experimental results. Some examples of images captured using the IR camera on Izzy are available [here](https://www.flickr.com/photos/raspberrypi). If you're going to be processing images (e.g with the OpenCV Python library), you should test your code on some of these images.
+
+The rest of this step is mainly for 'Life on Earth' experiments. No images from 'Life in space' experiments can be saved.
+
+### Location data ('Life on Earth')
+
+Being able to take photographs of the Earth from a window on the ISS is something that normally only astronauts can do. We recommend that you record the position of the Space Station for any images that you capture. You can do this by logging the latitude and longitude in a CSV file along with the corresponding file name of the image.
+
+A better method is to add the location information into EXIF fields within each image file itself. This **metadata** is 'attached' to the image file and does not need the accompanying CSV data file.
+
+There are a few different ways of expressing latitude and longitude, and it is important to get the units correct, especially when working with software and libraries that expect the data to be in a certain format.
+
+For the `ephem` library used to report the ISS position, coordinates are written using degrees (°) as the unit of measurement. There are 360° of longitude: 180° east and 180° west of the prime meridian (the zero point of longitude, defined as a point in Greenwich, England). There are 180° of latitude: 90° north and 90° south of the equator).
+
+To precisely specify a location, each degree can be reported as a decimal number, e.g. (28.277777, 71.5841666). Another approach is to split each degree into 60 minutes (’). Each minute can be then divided into 60 seconds (”) and for even finer accuracy, fractions of seconds given by a decimal point are used. The extra complication here is that the degrees value cannot be negative. An extra piece of information must be included for each value — the latitude reference and longitude reference. This simply states whether the point that the coordinate refers to is east or west of the Meridian (for longitude), and north or south of the equator (for latitude). So the example from above would be displayed as (28:16:40 N, 71:35:3 E).
+
+It is this degrees:minutes:seconds (DMS) format that you should use to store coordinates in EXIF data of images. You can see the code to take the data returned by the `ephem` library and convert it into a format suitable for storing as EXIF data below. It might look complicated, but it is really just the same series of steps described above. In the snippet below, to set each image file's EXIF data to the current latitude and longitude, a function called `get_latlon()` is used. Using a function to do this also helps keep the program tidy.
 
 ```python
-if b != 0:
-    c = a / b
-else:
-    print("b cannot be zero")
+import ephem
+from picamera import PiCamera
+import os
+dir_path = os.path.dirname(os.path.realpath(__file__))
+
+name = "ISS (ZARYA)"
+l1 = "1 25544U 98067A   18030.93057008  .00011045  00000-0  17452-3 0  9997"
+l2 = "2 25544  51.6392 342.9681 0002977  45.8872  32.8379 15.54020911 97174"
+iss = ephem.readtle(name, l1, l2)
+
+cam = PiCamera()
+cam.resolution = (1296,972) # Valid resolution for V1 camera
+iss.compute()
+
+def get_latlon():
+    iss.compute() # Get the lat/long values from ephem
+
+    long_value = [float(i) for i in str(iss.sublong).split(":")]
+
+    if long_value[0] < 0:
+
+        long_value[0] = abs(long_value[0])
+        cam.exif_tags['GPS.GPSLongitudeRef'] = "W"
+    else:
+        cam.exif_tags['GPS.GPSLongitudeRef'] = "E"
+    cam.exif_tags['GPS.GPSLongitude'] = '%d/1,%d/1,%d/10' % (long_value[0], long_value[1], long_value[2]*10)
+
+    lat_value = [float(i) for i in str(iss.sublat).split(":")]
+
+    if lat_value[0] < 0:
+
+        lat_value[0] = abs(lat_value[0])
+        cam.exif_tags['GPS.GPSLatitudeRef'] = "S"
+    else:
+        cam.exif_tags['GPS.GPSLatitudeRef'] = "N"
+
+    cam.exif_tags['GPS.GPSLatitude'] = '%d/1,%d/1,%d/10' % (lat_value[0], lat_value[1], lat_value[2]*10)
+    print(str(lat_value), str(long_value))
+
+get_latlon()
+
+cam.capture(dir_path+"/gps1.jpg")
 ```
 
-Another way is to try to complete the operation, but handle the exception if it occurs:
+Instead of using EXIF data, it is possible to overlay text data onto the visible image itself, like a watermark. However, there is always a risk that this will obscure a useful part of the picture, and can confuse code that looks at the brightness of pixels within the image. In addition, these overlays cannot easily be removed. Unlike the EXIF method, it also does not make it easy to automatically process images based on metadata, or search for images based on the location at which they were taken. Therefore, we recommend that you do not use the watermarking method to record the latitude and longitude, and instead use EXIF data.
+
+### Numbering plans for files
+
+Another cool thing to do with a sequence of images from the ISS is to create a timelapse movie, like the one in the first section of this project. This can be done on a Raspberry Pi with a single command — if the images are saved with sensible file names that include an obvious sequence number. So the naming convention for your image files should be `image_001.jpg`, `image_002.jpg`, etc. Remember not to include spaces in your file names!
 
 ```python
-try:
-    c = a / b
-except ZeroDivisionError:
-    print("b cannot be zero")
+from time import sleep
+from picamera import PiCamera
+
+camera = PiCamera()
+camera.start_preview()
+sleep(2)
+for filename in camera.capture_continuous(dir_path+"/image_{counter:04d}.jpg'):
+    print('Captured %s' % filename)
+    sleep(300) # wait 5 minutes
 ```
 
-A good example of an exception that may occur when you use the Sense HAT is this:
+Then, **once you get your images back from the ISS**,  you can use the following command to create a timelapse (you will need to install the `libav-tools` package first).
 
-Your program uses a variable as a pixel colour value, but the value assigned to the variable falls outside of the range allowed (0 to 255).
-
-```python
->>> r = a + b
->>> sense.set_pixel(x, y, r, g, b)
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-  File "/usr/local/lib/python3.5/dist-packages/sense_hat/sense_hat.py", line 399, in set_pixel
-    raise ValueError('Pixel elements must be between 0 and 255')
-ValueError: Pixel elements must be between 0 and 255
+```bash
+avconv -r 10 -i image%04d.jpg -r 10 -vcodec libx264 -crf 20 -g 15 timelapse.mp4
 ```
+This is definitely a post-experiment processing step. You should not use your three-hour experiment time on the ISS to try to build a timelapse movie!
 
-It's important to anticipate all places in your program where a variable may reach a value that would cause problems. For example, if you're using the humidity measurement to denote how red pixels are, make sure that this value can't possibly go outside the range 0 to 255, not just during testing, but in all possible situations:
+### Low-light and night-time photography
 
-```python
-red = int(max(0, min(sh.humidity / 100 * 255, 255)))
-```
+Night-time photography using the Astro Pi's Camera Module is difficult. This is mostly because of the very low chances of your program being run while the ISS is above a bright city without cloud cover. The light sensitivity of the camera is quite good, but it needs to be used with the best software settings for the particular situation, and it is difficult to anticipate what those settings will be and include them in your program. Having the camera adapt to changing light conditions in real time is also tricky, especially when the camera is moving relative to the light source, as is the case for the Astro Pis on the ISS.
 
-This line of code means that if the humidity measurement is 0 or below, the value of `red` will be 0, and if the measurement is 100 or over, the value of `red` will be 255. For measurements in between 0 and 100, the value of `red` will be proportional. In addition, the value of `red` will always be an integer.
+### Size and number of images
 
-### Multiple exceptions
-
-The easiest way to handle exceptions is to catch all exceptions and deal with them in the same way:
-
-```python
-try:
-    do_something()
-except:
-    print("An error occurred")
-```
-
-However, this tells you nothing about what went wrong in your program. You should instead consider what types of exceptions can occur. It is possible to deal with different exceptions in different ways:
-
-```python
-try:
-    divide(a, b)
-except ZeroDivisionError:
-    print("b cannot be zero")
-except TypeError:
-    print("a and b must be numbers")
-```
-
-Using a combination of avoidance and good exception handling, you can avoid errors that would prevent your program from completing its run and causing you disappointment. Imagine getting back the logs from a failed experiment only to see that there was an exception that could have been handled, or an error message that didn't reveal anything about what went wrong.
+**Don't forget that your experiment is limited to producing 3GB of data.** Make sure that you calculate the maximum amount of space that your measurements, including any saved image files, will take up, and that this does not exceed 3GB. Remember that the size of an image file will depend not only on the resolution, but also on how much detail is in the picture: a photo of a blank white wall will be smaller than a photo of a landscape.  
