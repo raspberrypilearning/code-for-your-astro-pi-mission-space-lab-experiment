@@ -2,28 +2,38 @@
 
 If you have received an official Astro Pi kit from ESA, you have everything you need to develop and test your Phase 2 program for Mission Space Lab (MSL). If you want to, you could even [create your own Astro Pi flight case](https://projects.raspberrypi.org/en/projects/astro-pi-flight-case), but don't worry, that's not essential, and completion of Mission Space Lab **does not** rely on having the flight case.
 
-The first thing you'll need to do is set up your development environment. If you received a kit from ESA, it will contain a Raspberry Pi with two identical SD cards from which you can install the different versions of Raspbian — the Raspberry Pi operating system — that you will need.
+The first thing you'll need to do is set up your development environment. If you received a kit from ESA, it will contain two SD cards that contain the two different, custom-built versions of the Raspberry Pi Operating System that you will need.
 
 ### SD card images
 
-The Astro Pis on the ISS run a modified version of the normal Raspbian operating system software. This is known as the Flight OS and you'll need to make sure that the program that you create will run on it without any modifications.
+The **Desktop version** of the Operating System provides all the facilities of a regular operating system and also includes a host of programming tools. Use this version while _developing_ and _testing_ the code for your experiment.
 
-#### Downloading Astro Pi software (optional)
+The **Flight version** resembles the operating system installed on the Astro Pi units on the ISS. It does not include any X-Windows or GUI applications and is "command line only", so it's not a useful platform to create your program on. However, we very strongly recommend that you use this version for the _final testing_ of your experiment before you submit your entry, to verify that the program that you have written runs without errors. This is the best way to ensure that your experiment passes our testing procedure and can run on the Astro Pis on the ISS without any modifications.
 
-If you have the SD cards from the kits - you can skip to the next section to install.
+The packages installed on both the Desktop and Flight versions of the OS match those available on the Astro Pi computers on the ISS. You should not perform any upgrades or install any additional packages or Python libraries as these will not be available when your experiment runs.
 
-If you want to create additional SD cards to use for Astro Pi, you can download the Astro Pi  images (the same ones as in the kits) and install onto your own SD cards.
+--- collapse ---
+---
+title: Downloading Operating System images (optional)
+---
 
-- Download the Astro Pi NOOBS zip file: [NOOBS_v3_2_0_AstroPi_25092019_CPC.zip](https://downloads.raspberrypi.org/AstroPi_NOOBS/images/AstroPi_NOOBS-2020-01-08/NOOBS_v3_2_0_AstroPi_25092019_CPC.zip)
+If you want to create additional SD cards to use for Astro Pi, you can download the Astro Pi Operating System images (the same ones as in the kits) and install onto your own SD cards.
 
-You can see the checksums and more in the directory listing for the image: [AstroPi_NOOBS-2020-01-08/](https://downloads.raspberrypi.org/AstroPi_NOOBS/images/AstroPi_NOOBS-2020-01-08/)
+- Download the Astro Pi [Desktop image]() or [Flight image]().
+- Once downloaded, you can use any software tool to write the image file to an SD card. See [this guide](https://www.raspberrypi.org/documentation/installation/installing-images/) for instructions on how to do this. Once the image file has been written, safely remove the SD card from your computer. You're now ready to set up your Raspberry Pi.
 
-Once downloaded, extract the contents of the zip file, and copy them onto a formatted SD card. See the [NOOBS guide](https://www.raspberrypi.org/documentation/installation/noobs.md) for instructions on how to do this (make sure you use the Astro Pi zip file, not the standard NOOBS from the Raspberry Pi downloads page). Once the contents have transferred, safely remove the SD card from your computer. You're now ready to set up your Raspberry Pi.
+--- /collapse ---
 
+--- collapse ---
+---
+title: Sample data in the Desktop image
+---
 
-#### The Desktop image
+The Desktop operating system also contains a `Data` folder with sample data from the 2018–19 mission which can be used to help test and refine your code. 
 
-The Desktop operating system also contains a folder with sample data from the 2018–19 mission which can be used to help test and refine your code. There is a comma-separated values (CSV) file with 3 hours worth of data from all of the Sense HAT sensors. The columns in this file are in this order:
+#### Sensor readings
+
+There is a comma-separated values (CSV) file with 3 hours worth of data from all of the Sense HAT sensors. The columns in this file are in this order:
 
 Date
 Time
@@ -51,6 +61,8 @@ Longitude seconds
 
 LibreOffice Calc is a spreadsheet program similar to Microsoft Excel and is installed on the Desktop operating system. You can use this to look at the data and plot charts.
 
+#### Images
+
 There is also a sequence of photos taken by the IR camera. The sequence starts at 'night', and so the first few photos are black.
 
 ![](images/zz_astropi_1_photo_116.jpg)
@@ -69,11 +81,7 @@ And eventually, the area surrounding the window cannot be seen at all.
 
 You could use these images to train a machine learning algorithm to recognise different types of views. However, please note that there is no guarantee that the location, view, and orientation of Astro Pi Izzy will be exactly the same in 2020. Therefore, your program should be flexible enough to adapt to any changes.
 
-#### The sample Flight OS
-
-Now take the second SD card and repeat the installation process, but this time, select the 'Sample Flight OS' option. You should use this SD card for testing your program.
-
-The packages installed on both the Desktop and Sample Flight OS match those available on the Astro Pi computers on the ISS. You should not perform any upgrades or install any additional packages or Python libraries as these will not be available when your experiment runs.
+--- /collapse ---
 
 ### Using the hardware
 

@@ -65,10 +65,6 @@ title: What you will need
 
 You will need the Astro Pi Operating System, which comes in two flavours: Desktop and Flight. These are custom versions of the Raspberry Pi Operating System which include all the software libraries present on the Astro Pi units on the ISS.
 
-While creating the code for your experiment, you should use the Desktop version. It provides all the facilities of a regular operating system and includes a host of tools that can help you with the development and testing of your program.
-
-For final testing, you should use the Flight version, which resembles the operating system installed on the Astro Pi units on the ISS. It does not include any X-Windows or GUI applications and is "command line only", so it's not a useful platform to create your program on. However, we very strongly recommend that you test your experiment using this version before you submit your entry to ensure that the program that you have written runs without errors. This is the best way to ensure that your experiment passes our testing procedure.
-
 ### Additional resources
 
 + If you want to, you can [make a 3D-printed flight case](https://projects.raspberrypi.org/en/projects/astro-pi-flight-case){:target="_blank"}, and use this to even more closely simulate the ISS environment for more realistic testing. However, this is not a requirement, and you can take part in Mission Space Lab without building a replica flight case.
