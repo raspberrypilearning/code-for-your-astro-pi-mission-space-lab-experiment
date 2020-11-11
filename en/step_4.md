@@ -155,7 +155,7 @@ dir_path = os.path.dirname(os.path.realpath(__file__))
 logfile(dir_path + "/teamname.log")
 
 for i in range(10):
-    logger.info("Loop number {} started".format(i+1))
+    logger.info(f"Loop number {i+1} started")
     ...
     sleep(60)
 ```
@@ -179,7 +179,7 @@ If you want to handle an exception, but log that you did so, you can use `logger
 try:
     do_something()
  except Exception as e:
-    logger.error('{}: {})'.format(e.__class__.__name__, e))
+    logger.error(f'{e.__class__.__name__}: {e})')
 ```
 
 For example dividing by zero in `do_something` would create the following log entry:
