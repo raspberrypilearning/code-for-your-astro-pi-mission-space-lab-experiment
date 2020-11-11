@@ -10,9 +10,9 @@ If you find a Python library that you need for your experiment and that can only
 
 ### Python libraries
 
-We've installed a collection of Python libraries on the Astro Pi's Flight OS. Here's some information on how to install them and what you can use them for.
+We've installed a collection of Python libraries on the Astro Pi's OS. Here's some information on what you can use them for and where you can find the relevant documentation.
 
-Remember that you can download the Flight OS or run our one-line installer to get all of these libraries on your Raspbian SD card. If you are using another version of Raspbian or have not run the one-line installer, you can follow the installation instructions in the information boxes below to make sure that you get the same versions of the libraries as the ones installed on the Astro Pis aboard the ISS.
+Remember that you can download the Astro Pi OS to get all of these libraries on your SD card. 
 
 --- collapse ---
 ---
@@ -60,7 +60,7 @@ camera = PiCamera()
 camera.resolution = (2592, 1944)  # max resolution
 
 for i in range(3*60):
-    camera.capture('image{:3d}'.format())  # take a picture every minute for 3 hours
+    camera.capture(f'image{i:3d}')  # take a picture every minute for 3 hours
     sleep(60)
 ```
 
@@ -75,7 +75,7 @@ for i in range(3*60):
 title: colorzero
 ---
 
-colorzero is a colour manipulation library that aims to be simple to use and Pythonic in nature.
+`colorzero` is a colour manipulation library that aims to be simple to use and Pythonic in nature.
 
 #### Usage
 
@@ -121,8 +121,8 @@ sense = SenseHat()
 cpu = CPUTemperature()
 
 while True:
-    print('CPU: {}'.format(cpu.temperature))
-    print('Sense HAT: {}'.format(sense.temperature))
+    print(f'CPU: {cpu.temperature}')
+    print(f'Sense HAT: {sense.temperature}')
 ```
 
 #### Documentation
@@ -206,7 +206,7 @@ TensorFlow is Google's machine learning framework.
 title: pandas
 ---
 
-pandas is an open-source library providing high-performance, easy-to-use data structures and data analysis tools.
+`pandas` is an open-source library providing high-performance, easy-to-use data structures and data analysis tools.
 
 #### Documentation
 
@@ -216,10 +216,37 @@ pandas is an open-source library providing high-performance, easy-to-use data st
 
 --- collapse ---
 ---
+title: geopandas
+---
+
+GeoPandas is an open source project to make working with geospatial data in python easier. `geopandas` extends the datatypes used by pandas to allow spatial operations on geometric types.
+
+#### Documentation
+
+- [geopandas.org](https://geopandas.org/)
+
+--- /collapse ---
+
+--- collapse ---
+---
+title: EarthPy
+---
+
+
+#### Documentation
+
+`earthpy` is a python package that makes it easier to plot and work with spatial raster and vector data using open source tools.
+
+- [earthpy.readthedocs.io](https://earthpy.readthedocs.io/)
+
+--- /collapse ---
+
+--- collapse ---
+---
 title: logzero
 ---
 
-logzero makes Python logging easier.
+`logzero` makes Python logging easier.
 
 #### Usage
 
@@ -256,7 +283,7 @@ Keras is a high-level neural networks API, and is capable of running on top of T
 title: matplotlib
 ---
 
-matplotlib is a 2D plotting library that produces publication-quality figures in a variety of hard copy formats and interactive environments.
+`matplotlib` is a 2D plotting library that produces publication-quality figures in a variety of hard copy formats and interactive environments.
 
 #### Usage
 
@@ -337,6 +364,19 @@ title: opencv
 #### Documentation
 
 - [docs.opencv.org](https://docs.opencv.org/3.4.3/)
+
+--- /collapse ---
+
+--- collapse ---
+---
+title: exif
+---
+
+`exif` allows you to read and modify image EXIF metadata using Python.
+
+#### Documentation
+
+- [pypi.org/project/exif](https://pypi.org/project/exif/)
 
 --- /collapse ---
 
