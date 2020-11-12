@@ -29,9 +29,9 @@ logfile(dir_path + "/teamname.log")
 
 # Latest TLE data for ISS location
 name = "ISS (ZARYA)"
-l1 = "1 25544U 98067A   19336.91239465 -.00004070  00000-0 -63077-4 0  9991"
-l2 = "2 25544  51.6431 244.7958 0006616 354.0287  44.0565 15.50078860201433"
-iss = readtle(name, l1, l2)
+line1 = "1 25544U 98067A   20316.41516162  .00001589  00000+0  36499-4 0  9995"
+line2 = "2 25544  51.6454 339.9628 0001882  94.8340 265.2864 15.49409479254842"
+iss = readtle(name, line1, line2)
 
 # Set up Sense Hat
 sh = SenseHat()

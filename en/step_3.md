@@ -121,8 +121,8 @@ Browse to, or download and open, [celestrak.com/NORAD/elements/stations.txt](htt
 from ephem import readtle
 
 name = "ISS (ZARYA)"
-line1 = "1 25544U 98067A   18356.58700427  .00000680  00000-0  17564-4 0  9997"
-line2 = "2 25544  51.6379 159.8223 0004659 171.1463 304.0053 15.54085692147811"
+line1 = "1 25544U 98067A   20316.41516162  .00001589  00000+0  36499-4 0  9995"
+line2 = "2 25544  51.6454 339.9628 0001882  94.8340 265.2864 15.49409479254842"
 
 iss = readtle(name, line1, line2)
 iss.compute()
@@ -514,8 +514,8 @@ import reverse_geocoder as rg
 from ephem import readtle, degree
 
 name = "ISS (ZARYA)"
-line1 = "1 25544U 98067A   18356.58700427  .00000680  00000-0  17564-4 0  9997"
-line2 = "2 25544  51.6379 159.8223 0004659 171.1463 304.0053 15.54085692147811"
+line1 = "1 25544U 98067A   20316.41516162  .00001589  00000+0  36499-4 0  9995"
+line2 = "2 25544  51.6454 339.9628 0001882  94.8340 265.2864 15.49409479254842"
 
 iss = readtle(name, line1, line2)
 iss.compute()

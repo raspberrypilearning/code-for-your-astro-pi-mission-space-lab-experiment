@@ -52,9 +52,9 @@ import os
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
 name = "ISS (ZARYA)"
-l1 = "1 25544U 98067A   18030.93057008  .00011045  00000-0  17452-3 0  9997"
-l2 = "2 25544  51.6392 342.9681 0002977  45.8872  32.8379 15.54020911 97174"
-iss = ephem.readtle(name, l1, l2)
+line1 = "1 25544U 98067A   20316.41516162  .00001589  00000+0  36499-4 0  9995"
+line2 = "2 25544  51.6454 339.9628 0001882  94.8340 265.2864 15.49409479254842"
+iss = ephem.readtle(name, line1, line2)
 
 cam = PiCamera()
 cam.resolution = (1296,972) # Valid resolution for V1 camera
