@@ -18,17 +18,71 @@ You should use the second SD card on to which you installed the sample Flight OS
 
 So that your program can run safely and successfully on the ISS, there are some rules it needs to follow. If you've worked through this guide, then your program should already be fine. However, as a final step before you submit your entry, you should double-check that:
 
-1. Your experiment does not rely on interaction with an astronaut
-1. Your program is written in Python 3
-1. Your program does not rely on any additional libraries other than those listed in this guide
-1. Your program does not use networking, and does not start a system process
-1. You have documented your program, and it is easy to understand
-1. Your data is saved in files as described in this guide and does not use more than 3GB of storage space. No single file should be larger than 35MB
-1. If you chose the theme 'Life in space', your program does not save any photos or videos
-1. Your program runs without errors and does not raise any unhandled exceptions
-1. Your program stops running after 3 hours
-1. The LED matrix is updated regularly to indicate that an experiment is running
-1. There is no bad language or rudeness in your program
+--- task ---
+
+Your experiment does not rely on interaction with an astronaut
+
+--- /task ---
+
+--- task ---
+
+Your program is written in Python 3
+
+--- /task ---
+
+--- task ---
+
+Your program does not rely on any additional libraries other than those listed in this guide
+
+--- /task ---
+
+--- task ---
+
+Your program does not use networking, and does not start a system process
+
+--- /task ---
+
+--- task ---
+
+You have documented your program, and it is easy to understand
+
+--- /task ---
+
+--- task ---
+
+Your data is saved in files as described in this guide and does not use more than 3GB of storage space. No  single file should be larger than 35MB
+
+--- /task ---
+
+--- task ---
+
+If you chose the theme 'Life in space', your program does not save any photos or videos
+
+--- /task ---
+
+--- task ---
+
+Your program runs without errors and does not raise any unhandled exceptions
+
+--- /task ---
+
+--- task ---
+
+Your program stops running after 3 hours
+
+--- /task ---
+
+--- task ---
+
+The LED matrix is updated regularly to indicate that an experiment is running
+
+--- /task ---
+
+--- task ---
+
+There is no bad language or rudeness in your program
+
+--- /task ---
 
 ### Run your code
 
