@@ -62,9 +62,7 @@ except ZeroDivisionError:
     print("b cannot be zero")
 ```
 
-A good example of an exception that may occur when you use the Sense HAT is this:
-
-Your program uses a variable as a pixel colour value, but the value assigned to the variable falls outside of the range allowed (0 to 255).
+A good example of an exception that may occur when you use the Sense HAT is this: your program uses a variable as a pixel colour value, but the value assigned to the variable falls outside of the range allowed (0 to 255).
 
 ```python
 >>> r = a + b
