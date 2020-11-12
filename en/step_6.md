@@ -92,6 +92,21 @@ def capture(camera, image):
 capture(cam, dir_path + "/gps1.jpg")
 ```
 
+--- collapse ---
+---
+title: Locating images on a map
+---
+
+You can use software such as DigiKam (included in the Desktop version of the OS) or an online service to extract the coordinates from the EXIF metadata of an image and automatically locate the position where the image was taken on a map.
+
+You can also extract the coordinates from the EXIF metadata of an image programmatically. For example, the image below is part of the sample data included in the Desktop version of the OS. Using the `exif` Python library, you can find out that the image was taken at the coordinates 35°24'20.0"N 112°10'46.2"W. 
+
+![](images/zz_astropi_1_photo_387.jpg)
+
+It turns out this is the Grand Canyon, with Lake Mead at the top left!
+
+--- /collapse ---
+
 Instead of using EXIF data, it is possible to overlay text data onto the visible image itself, like a watermark. However, there is always a risk that this will obscure a useful part of the picture, and can confuse code that looks at the brightness of pixels within the image. In addition, these overlays cannot easily be removed. Unlike the EXIF method, it also does not make it easy to automatically process images based on metadata, or search for images based on the location at which they were taken. Therefore, we recommend that you do not use the watermarking method to record the latitude and longitude, and instead use EXIF data.
 
 ### Numbering plans for files
