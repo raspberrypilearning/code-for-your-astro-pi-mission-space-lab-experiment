@@ -63,7 +63,7 @@ title: What you will need
 
 ### Software
 
-You will need the Astro Pi Operating System, which comes in two flavours: Desktop and Flight. These are custom versions of the Raspberry Pi Operating System which include all the software libraries present on the Astro Pi units on the ISS.
+You will need the Operating System (OS) for the Astro Pi, which comes in two versions: Desktop and Flight. These are custom builds of the Raspberry Pi Operating System which include all the software libraries present on the Astro Pi units on the ISS.
 
 ### Additional resources
 

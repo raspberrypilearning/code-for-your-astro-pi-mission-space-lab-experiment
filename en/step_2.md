@@ -21,19 +21,19 @@ The packages installed on both the Desktop and Flight versions of the OS match t
 title: Downloading Operating System images (optional)
 ---
 
-If you want to create additional SD cards to use for Astro Pi, you can download the Astro Pi Operating System images (the same ones as in the kits) and install onto your own SD cards.
+If you want to create additional SD cards to use for Astro Pi, you can download the OS images (the same ones as in the kits) and install onto your own SD cards.
 
-- Download the Astro Pi [Desktop image]() or [Flight image]().
+- Download the [Desktop version]() or [Flight version]() of the Operating System for the Astro Pi.
 - Once downloaded, you can use any software tool to write the image file to an SD card. See [this guide](https://www.raspberrypi.org/documentation/installation/installing-images/) for instructions on how to do this. Once the image file has been written, safely remove the SD card from your computer. You're now ready to set up your Raspberry Pi.
 
 --- /collapse ---
 
 --- collapse ---
 ---
-title: Sample data in the Desktop image
+title: Sample data in the Desktop version
 ---
 
-The Desktop operating system also contains a `Data` folder with sample data from the 2018–19 mission which can be used to help test and refine your code. 
+The Desktop version of the OS also contains a `Data` folder with sample data from the 2018–19 mission which can be used to help test and refine your code. 
 
 #### Sensor readings
 
