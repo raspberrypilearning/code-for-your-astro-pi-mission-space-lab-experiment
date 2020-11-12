@@ -8,11 +8,11 @@ The first thing you'll need to do is set up your development environment. If you
 
 The **Desktop version** of the Operating System provides all the facilities of a regular operating system and also includes a host of programming tools. Use this version while _developing_ and _testing_ the code for your experiment.
 
-![Screenshot of the Desktop version of the Operating System](images/OS-desktop.png)
+![Screenshot of the Desktop version of the Operating System](images/os-desktop.png)
 
 The **Flight version** resembles the operating system installed on the Astro Pi units on the ISS. It does not include any X-Windows or GUI applications and is "command line only", so it's not a useful platform to create your program on. However, we very strongly recommend that you use this version for the _final testing_ of your experiment before you submit your entry, to verify that the program that you have written runs without errors. This is the best way to ensure that your experiment passes our testing procedure and can run on the Astro Pis on the ISS without any modifications.
 
-![Screenshot of the Flight version of the Operating System](images/OS-flight.png)
+![Screenshot of the Flight version of the Operating System](images/os-flight.png)
 
 The packages installed on both the Desktop and Flight versions of the OS match those available on the Astro Pi computers on the ISS. You should not perform any upgrades or install any additional packages or Python libraries as these will not be available when your experiment runs.
 
