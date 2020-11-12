@@ -5,18 +5,32 @@ Using the Python `ephem` library, you can calculate the positions of space objec
 For accurate calculations, you need to provide `ephem` with the most recent two-line element (TLE) set for the ISS. TLE is a data format used to convey sets of orbital elements that describe the orbits of Earth satellites. You can get the latest ISS TLE data (along with the same information in other formats) [here](http://www.celestrak.com/NORAD/elements/stations.txt){:target="_blank"}. These three lines should then be pasted into your code and passed in as arguments when you create an `iss` object in your program.
 
 ```python
-import ephem
+from ephem import readtle, degree
 
 name = "ISS (ZARYA)"        	 
 line1 = "1 25544U 98067A   18032.92935684  .00002966  00000-0  52197-4 0  99911 25544U 98067A   18032.92935684  .00002966  00000-0  52197-4 0  9991"
 line2 = "2 25544  51.6438 332.9972 0003094  62.2964  46.0975 15.54039537 97480"
 
-iss = ephem.readtle(name, line1, line2)
+iss = readtle(name, line1, line2)
 
 iss.compute()
 
-print(iss.sublat, iss.sublong)
+print(f"{iss.sublat/degree} {iss.sublong/degree}")
 ```
+
+There are a few different ways of expressing latitude and longitude, and it is important to get the units correct, especially when working with software and libraries that expect the data to be in a certain format.
+
+The code above outputs latitude and longitude using the Decimal Degrees (DD) format, where coordinates are written using degrees (°) as the unit of measurement. There are 180° of latitude: 90° north and 90° south of the equator). There are 360° of longitude: 180° east and 180° west of the prime meridian (the zero point of longitude, defined as a point in Greenwich, England). To precisely specify a location, each degree can be reported as a decimal number, e.g. (-28.277777, 71.5841666). 
+
+Another approach is the degrees:minutes:seconds (DMS) format, where each degree is split into 60 minutes (’) and each minute is divided into 60 seconds (”). For even finer accuracy, fractions of seconds given by a decimal point are used. The extra complication here is that the degrees value cannot be negative. An extra piece of information must be included for each value — the latitude reference and longitude reference. This simply states whether the point that the coordinate refers to is north or south of the equator (for latitude) and east or west of the Meridian (for longitude). So the example from above would be displayed as (28:16:40 S, 71:35:3 E).
+
+If you need to use the DMS format, then it's convenient to process the string representation of `iss.sublat` and `iss.sublong` (without dividing by `ephem.degree`):
+
+```python
+print(f"{iss.sublat} {iss.sublong}")
+```
+
+### Checking the current coordinates
 
 If you wanted your experiment to run when the ISS is above a particular location on Earth, you could use the values of latitude and longitude to trigger some other action. Remember that the ISS' orbit does not pass over everywhere on Earth, and that more of our planet's surface is water than land. So in your three-hour experimental window, the chances of passing over a very specific city or location will be low.
 
@@ -33,18 +47,24 @@ You can test whether a number is negative by checking if it is larger than 0.
 ---/hint---
 ---hint---
 Your file should look like this:
+
 ```python
-import ephem
+from ephem import readtle, degree
 
 name = "ISS (ZARYA)"        	 
 line1 = "1 25544U 98067A   18032.92935684  .00002966  00000-0  52197-4 0  99911 25544U 98067A   18032.92935684  .00002966  00000-0  52197-4 0  9991"
 line2 = "2 25544  51.6438 332.9972 0003094  62.2964  46.0975 15.54039537 97480"
-iss = ephem.readtle(name, line1, line2)
+
+iss = readtle(name, line1, line2)
 
 iss.compute()
+latitude = iss.sublat / degree
 
-if iss.sublat < 0:
+if latitude < 0:
   print("In Southern hemisphere")
+else:
+  print("In Northern hemisphere")
+
 ```
 ---/hint---
 ---/hints---

@@ -43,13 +43,7 @@ Being able to take photographs of the Earth from a window on the ISS is somethin
 
 A better method is to add the location information into EXIF fields within each image file itself. This **metadata** is 'attached' to the image file and does not need the accompanying CSV data file.
 
-There are a few different ways of expressing latitude and longitude, and it is important to get the units correct, especially when working with software and libraries that expect the data to be in a certain format.
-
-For the `ephem` library used to report the ISS position, coordinates are written using degrees (°) as the unit of measurement. There are 360° of longitude: 180° east and 180° west of the prime meridian (the zero point of longitude, defined as a point in Greenwich, England). There are 180° of latitude: 90° north and 90° south of the equator).
-
-To precisely specify a location, each degree can be reported as a decimal number, e.g. (28.277777, 71.5841666). Another approach is to split each degree into 60 minutes (’). Each minute can be then divided into 60 seconds (”) and for even finer accuracy, fractions of seconds given by a decimal point are used. The extra complication here is that the degrees value cannot be negative. An extra piece of information must be included for each value — the latitude reference and longitude reference. This simply states whether the point that the coordinate refers to is east or west of the Meridian (for longitude), and north or south of the equator (for latitude). So the example from above would be displayed as (28:16:40 N, 71:35:3 E).
-
-It is this degrees:minutes:seconds (DMS) format that you should use to store coordinates in EXIF data of images. You can see the code to take the data returned by the `ephem` library and convert it into a format suitable for storing as EXIF data below. It might look complicated, but it is really just the same series of steps described above. In the snippet below, to set each image file's EXIF data to the current latitude and longitude, a function called `get_latlon()` is used. Using a function to do this also helps keep the program tidy.
+In the snippet below, a function called `capture` is called to capture an image, after setting the EXIF data to the current latitude and longitude. The coordinates in the EXIF data of images are stored using a variant of the Degrees:Minutes:Seconds (DMS) format, and you can see how the `convert` function takes the data returned by the `ephem` library and converts it into a format suitable for storing as EXIF data. Using functions to perform these tasks keeps the program tidy.
 
 ```python
 import ephem
@@ -68,7 +62,7 @@ iss.compute()
 
 def convert(angle):
     """
-    Convert an ephem angle (degrees, minutes, seconds) to 
+    Convert an ephem angle (degrees:minutes:seconds) to 
     an EXIF-approriate representation (rationals)
     e.g. '51:35:19.7' to '51/1,35/1,197/10'
     Return a tuple containing a boolean and the converted angle,
