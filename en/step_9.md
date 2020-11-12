@@ -50,10 +50,12 @@ while True:
     sleep(2)
     # update the LED matrix
     active_status()
+```
 
-# You should aim to update the screen at least every 15 seconds.
-# If your experiment has period of ‘sleeping’ that is longer than that, you can split the waiting period up:
+You should aim to update the screen at least every 15 seconds.
+If your experiment has period of ‘sleeping’ that is longer than that, you can split the waiting period up:
 
+```python
 sh.set_pixels(img1)
 while True:
     # do stuff (in this case, nothing)
