@@ -23,7 +23,7 @@ title: Downloading Operating System images (optional)
 
 If you want to create additional SD cards to use for Astro Pi, you can download the OS images (the same ones as in the kits) and install onto your own SD cards.
 
-- Download the [Desktop version]() or [Flight version]() of the Operating System for the Astro Pi.
+- Download the [Desktop version](http://downloads.raspberrypi.org/AstroPi_latest) or [Flight version](http://downloads.raspberrypi.org/AstroPi_flight_latest) of the Operating System for the Astro Pi.
 - Once downloaded, you can use any software tool to write the image file to an SD card. See [this guide](https://www.raspberrypi.org/documentation/installation/installing-images/) for instructions on how to do this. Once the image file has been written, safely remove the SD card from your computer. You're now ready to set up your Raspberry Pi.
 
 --- /collapse ---
