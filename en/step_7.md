@@ -1,6 +1,6 @@
 ## Doing more than one thing at a time
 
-In simple programs, each line of executed in order, and things happen one after another. The program cannot do two things at once — it must wait until a running task has completed before starting the next. This is referred to as a single-threaded process.
+In simple programs, each line is executed in order, and things happen one after another. The program cannot do two things at once — it must wait until a running task has completed before starting the next. This is referred to as a single-threaded process.
 
 ### Multiple threads
 
