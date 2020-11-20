@@ -63,7 +63,7 @@ iss.compute()
 def convert(angle):
     """
     Convert an ephem angle (degrees:minutes:seconds) to 
-    an EXIF-approriate representation (rationals)
+    an EXIF-appropriate representation (rationals)
     e.g. '51:35:19.7' to '51/1,35/1,197/10'
     Return a tuple containing a boolean and the converted angle,
     with the boolean indicating if the angle is negative.
