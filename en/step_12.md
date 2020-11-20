@@ -74,7 +74,7 @@ def capture(camera, image):
     """Use `camera` to capture an `image` file with lat/long EXIF data."""
     iss.compute() # Get the lat/long values from ephem
 
-    # convert the latitude and longitute to EXIF-appropriate representations
+    # convert the latitude and longitude to EXIF-appropriate representations
     south, exif_latitude = convert(iss.sublat)
     west, exif_longitude = convert(iss.sublong)
     
