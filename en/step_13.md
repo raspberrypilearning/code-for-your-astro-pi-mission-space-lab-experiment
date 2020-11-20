@@ -2,7 +2,7 @@
 
 This is the last and most important part of Phase 2.
 
-Before you submit your program, it is vital that you test it using an Astro Pi running the Flight version of the OS. This is a special build of the Raspberry Pi OS that resembles the operating system installed on the Astro Pi units on the ISS. It does not include any X-Windows or GUI applications and is command line only. So, you definitely need to check that none of the differences between this Flight OS and the version of Raspberry Pi OS on which you developed your code will cause your experiment to fail.
+Before you submit your program, it is vital that you test it using an Astro Pi running the Flight version of the OS. This is a special build of the Raspberry Pi OS that resembles the operating system installed on the Astro Pi units on the ISS. It does not include any X-Windows or GUI applications and is "command line only". So, you definitely need to check that none of the differences between this Flight OS and the version of Raspberry Pi OS on which you developed your code will cause your experiment to fail.
 
 There are also a few settings in the Flight version of the OS that will limit the performance of the Pi, in order to more accurately mimic the capabilities of the Astro Pis on the ISS, which are old Raspberry Pi B+ models. This means that your code will probably run more slowly, especially if you're processing images or looking up locations based on latitude or longitude.
 
