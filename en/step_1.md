@@ -6,7 +6,7 @@ This guide covers Phase 2 for both Mission Space Lab themes: _Life on Earth_ and
 
 ## Collaboration during the coronavirus pandemic
 
-We understand that restrictions in place due to the coronavirus pandemic might negatively impact teams being able to get together to work with their Astro Pi kit. To help teams lead these sessions online and navigate how to collaborate virtually, we have created lessons plan templates for your sessions.
+We understand that restrictions in place due to the coronavirus pandemic might negatively impact teams being able to get together to work with their Astro Pi kit. To help teams lead these sessions online and navigate how to collaborate virtually, we have created lesson plan templates for your sessions.
 
 [First session](https://rpf.io/first-session-spacelab){:target="_blank"}
 [Ongoing sessions](https://rpf.io/ongoing-sessions-spacelab){:target="_blank"}
@@ -63,7 +63,7 @@ title: What you will need
 
 ### Software
 
-You will need the Operating System (OS) for the Astro Pi, which comes in two versions: Desktop and Flight. These are custom builds of the Raspberry Pi Operating System which include all the software libraries present on the Astro Pi units on the ISS.
+You will need the operating system (OS) for the Astro Pi, which comes in two versions: Desktop and Flight. These are custom builds of the Raspberry Pi operating system, which include all the software libraries present on the Astro Pi units on the ISS.
 
 ### Additional resources
 
