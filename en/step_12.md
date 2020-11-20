@@ -7,7 +7,7 @@ Imagine this: the team from CoderDojo Tatooine wants to investigate whether the 
 + Their code takes regular measurements of temperature and humidity every 30 seconds and logs these in a CSV file.
 + They also calculate the ISS’s latitude and longitude using the `ephem` library and log this information in the data file.
 + To see whether cloud cover might also be a factor, they take a photo using the IR camera on Astro Pi Izzy, which is pointing out of the window towards Earth.
-+ The latitude and longitude data is written into the EXIF tags of the images, which have sequentially numbered filenames. It is also logged to the CSV file.
++ The latitude and longitude data is written into the EXIF tags of the images, which have sequentially numbered file names. It is also logged to the CSV file.
 + The LED matrix is not used as this is a 'Life on Earth' experiment.
 + Any unexpected error is handled and the details logged.
 
