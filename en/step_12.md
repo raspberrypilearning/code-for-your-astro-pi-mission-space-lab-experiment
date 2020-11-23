@@ -19,10 +19,10 @@ from picamera import PiCamera
 from datetime import datetime, timedelta
 from time import sleep
 import random
-import os
+from pathlib import Path
 import csv
 
-dir_path = os.path.dirname(os.path.realpath(__file__))
+dir_path = Path(__file__).parent.resolve()
 
 # Set a logfile name
 logfile(dir_path + "/teamname.log")

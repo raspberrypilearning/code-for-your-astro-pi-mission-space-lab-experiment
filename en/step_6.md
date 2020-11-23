@@ -14,8 +14,10 @@ The code snippet below shows how to take a picture with the Camera Modules of th
 
 from time import sleep
 from picamera import PiCamera
+from pathlib import Path
 import os
-dir_path = os.path.dirname(os.path.realpath(__file__))
+
+dir_path = Path(__file__).parent.resolve()
 
 camera = PiCamera()
 camera.resolution = (1296,972)
@@ -48,8 +50,9 @@ In the snippet below, a function called `capture` is called to capture an image,
 ```python
 import ephem
 from picamera import PiCamera
-import os
-dir_path = os.path.dirname(os.path.realpath(__file__))
+from pathlib import Path
+
+dir_path = Path(__file__).parent.resolve()
 
 name = "ISS (ZARYA)"
 line1 = "1 25544U 98067A   20316.41516162  .00001589  00000+0  36499-4 0  9995"
@@ -116,8 +119,9 @@ Another cool thing to do with a sequence of images from the ISS is to create a t
 ```python
 from time import sleep
 from picamera import PiCamera
-import os
-dir_path = os.path.dirname(os.path.realpath(__file__))
+from pathlib import Path
+
+dir_path = Path(__file__).parent.resolve()
 
 camera = PiCamera()
 camera.start_preview()

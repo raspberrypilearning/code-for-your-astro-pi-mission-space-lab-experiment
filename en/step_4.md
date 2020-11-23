@@ -21,12 +21,12 @@ If you require multiple data files, these should be numbered sequentially (e.g. 
 
 All log files should be saved in the same place that the Python file itself will be stored when running on the Astro Pis on the ISS. You should not use a specific path in your code (for example, `/home/pi/Desktop` will not exist on the Astro Pis on the ISS).
 
-When your code is run on the ISS, it will be started and stopped by an automated system. To ensure that your data files end up in the right place, you should use the method below, which uses the special `__file__` variable that contains the path to the file that Python is currently running. You can use this variable to find the path of the file with the `os` library.
+When your code is run on the ISS, it will be started and stopped by an automated system. To ensure that your data files end up in the right place, you should use the method below, which uses the special `__file__` variable that contains the path to the file that Python is currently running. You can use this variable to find the path of the file with the `pathlib` library.
 
 ```python
-import os
+from pathlib import Path
 
-dir_path = os.path.dirname(os.path.realpath(__file__))
+dir_path = Path(__file__).parent.resolve()
 ```
 
 ### Logging data to a CSV file
@@ -37,13 +37,12 @@ When you want to log data from the Sense HAT, we recommend using `csv` from the 
 import csv
 from sense_hat import SenseHat
 from datetime import datetime
-import os
+from pathlib import Path
 from time import sleep
 
 sense = SenseHat()
 
-dir_path = os.path.dirname(os.path.realpath(__file__))
-
+dir_path = Path(__file__).parent.resolve()
 data_file = dir_path + '/data.csv'
 
 with open(data_file, 'w') as f:
@@ -74,11 +73,10 @@ Your program should look like this:
 import csv
 from sense_hat import SenseHat
 from datetime import datetime
-import os
+from pathlib import Path
 from time import sleep
 
-dir_path = os.path.dirname(os.path.realpath(__file__))
-
+dir_path = Path(__file__).parent.resolve()
 data_file = dir_path + '/data.csv'
 
 with open(data_file, 'w') as f:
@@ -99,11 +97,10 @@ You might prefer to write the header row at the top of your file, and then add e
 import csv
 from sense_hat import SenseHat
 from datetime import datetime
-import os
+from pathlib import Path
 from time import sleep
 
-dir_path = os.path.dirname(os.path.realpath(__file__))
-
+dir_path = Path(__file__).parent.resolve()
 data_file = dir_path + '/data.csv'
 
 with open(data_file, 'w') as f:
@@ -146,11 +143,11 @@ Here's a basic example use of logzero to keep track of loop iterations:
 
 ```python
 from logzero import logger, logfile
-import os
+from pathlib import Path
 from time import sleep
 from datetime import datetime
 
-dir_path = os.path.dirname(os.path.realpath(__file__))
+dir_path = Path(__file__).parent.resolve()
 
 logfile(dir_path + "/teamname.log")
 
