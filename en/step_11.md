@@ -74,7 +74,7 @@ Traceback (most recent call last):
 ValueError: Pixel elements must be between 0 and 255
 ```
 
-It's important to anticipate all places in your program where a variable may reach a value that would cause problems. For example, if you're using the humidity measurement to denote how red pixels are, make sure that this value can't possibly go outside the range 0 to 255, not just during testing, but in all possible situations:
+It's important to anticipate all places in your program where a variable may reach a value that would cause problems. For example, if you're using the humidity measurement to determine how red pixels are, make sure that this value can't possibly go outside the range 0 to 255, not just during testing, but in all possible situations:
 
 ```python
 red = int(max(0, min(sh.humidity / 100 * 255, 255)))
