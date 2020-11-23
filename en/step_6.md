@@ -33,7 +33,7 @@ os.remove(dir_path + "/image.jpg”)
 
 ```
 
-If you are using the infrared camera on Astro Pi Izzy, then you will get some amazing pictures of the Earth seen from the ISS. Even if your program will process these images and only make use of the extracted data, we recommend that you do not delete all the images (unless your program will generate so many of them that you risk running out of disk space on the Astro Pi). Apart from being a unique souvenir of your mission, the images may also help you with debugging any unexpected issues with your experimental results. Some examples of images captured using the IR camera on Izzy are available [here](https://www.flickr.com/photos/raspberrypi). If you're going to be processing images (e.g with the OpenCV Python library), you should test your code on some of these images.
+If you are using the infrared camera on Astro Pi Izzy, then you will get some amazing pictures of the Earth seen from the ISS. Even if your program will process these images and only make use of the extracted data, we recommend that you do not delete all the images (unless your program will generate so many of them that you risk running out of disk space on the Astro Pi). Apart from being a unique souvenir of your mission, the images may also help you with debugging any unexpected issues with your experimental results. Here are some examples of [images captured using the IR camera on Izzy](https://www.flickr.com/photos/raspberrypi). If you're going to be processing images (e.g. with the OpenCV Python library), you should test your code on some of these images.
 
 The rest of this step is mainly for 'Life on Earth' experiments. No images from 'Life in space' experiments can be saved.
 
@@ -43,7 +43,7 @@ Being able to take photographs of the Earth from a window on the ISS is somethin
 
 A better method is to add the location information into EXIF fields within each image file itself. This **metadata** is 'attached' to the image file and does not need the accompanying CSV data file.
 
-In the snippet below, a function called `capture` is called to capture an image, after setting the EXIF data to the current latitude and longitude. The coordinates in the EXIF data of images are stored using a variant of the Degrees:Minutes:Seconds (DMS) format, and you can see how the `convert` function takes the data returned by the `ephem` library and converts it into a format suitable for storing as EXIF data. Using functions to perform these tasks keeps the program tidy.
+In the snippet below, a function called `capture` is called to capture an image, after setting the EXIF data to the current latitude and longitude. The coordinates in the EXIF data of images are stored using a variant of the degrees:minutes:seconds (DMS) format, and you can see how the `convert` function takes the data returned by the `ephem` library and converts it into a format suitable for storing as EXIF data. Using functions to perform these tasks keeps the program tidy.
 
 ```python
 import ephem
