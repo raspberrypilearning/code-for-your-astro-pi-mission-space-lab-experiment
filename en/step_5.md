@@ -1,130 +1,72 @@
-## Recording images using the camera
+## Finding the location of the ISS
 
-The first thing to do, if you haven't already, is to connect your Camera Module to the Raspberry Pi.
+Using the Python `ephem` library, you can calculate the positions of space objects within our solar system. This includes the Sun, the Moon, the planets, and many Earth satellites such as the ISS. So you can work out the ISS’s current location above the Earth, which you can use to identify whether the ISS is flying over land or sea, or which country it is flying over.
 
-[[[rpi-picamera-connect-camera]]]
-
-Once you've done that, power the Raspberry Pi back on and take some test photos:
-
-[[[rpi-picamera-take-photo]]]
-
-The code snippet below shows how to take a picture with the Camera Modules of the Astro Pis using the `picamera` library, and save it to the correct directory. The `picamera` library is very powerful and has [great documentation](https://picamera.readthedocs.io/en/latest/){:target="_blank"}.
+For accurate calculations, you need to provide `ephem` with the most recent two-line element (TLE) set for the ISS. TLE is a data format used to convey sets of orbital elements that describe the orbits of Earth satellites. Here is the latest [ISS TLE data](http://www.celestrak.com/NORAD/elements/stations.txt){:target="_blank"} (along with the same information in other formats). These three lines should then be pasted into your code and passed in as arguments when you create an `iss` object in your program.
 
 ```python
+from ephem import readtle, degree
 
-from time import sleep
-from picamera import PiCamera
-import os
-dir_path = os.path.dirname(os.path.realpath(__file__))
+name = "ISS (ZARYA)"        	 
+line1 = "1 25544U 98067A   20316.41516162  .00001589  00000+0  36499-4 0  9995"
+line2 = "2 25544  51.6454 339.9628 0001882  94.8340 265.2864 15.49409479254842"
 
-camera = PiCamera()
-camera.resolution = (1296,972)
-camera.start_preview()
-# Camera warm-up time
-sleep(2)
-camera.capture(dir_path+"/image.jpg”)
+iss = readtle(name, line1, line2)
 
+iss.compute()
+
+print(f"{iss.sublat/degree} {iss.sublong/degree}")
 ```
-
-If you’re using the visible light camera on Astro Pi Ed, then your program must delete all images at the end of your experiment time.
-
-```python
-os.remove(dir_path+"/image.jpg”)
-
-```
-
-If you are using the infrared camera on Astro Pi Izzy, then you will get some amazing pictures of the Earth seen from the ISS. Even if your program will process these images and only make use of the extracted data, we recommend that you do not delete all the images (unless your program will generate so many of them that you risk running out of disk space on the Astro Pi). Apart from being a unique souvenir of your mission, the images may also help you with debugging any unexpected issues with your experimental results. Some examples of images captured using the IR camera on Izzy are available [here](https://www.flickr.com/photos/raspberrypi). If you're going to be processing images (e.g with the OpenCV Python library), you should test your code on some of these images.
-
-The rest of this step is mainly for 'Life on Earth' experiments. No images from 'Life in space' experiments can be saved.
-
-### Location data ('Life on Earth')
-
-Being able to take photographs of the Earth from a window on the ISS is something that normally only astronauts can do. We recommend that you record the position of the Space Station for any images that you capture. You can do this by logging the latitude and longitude in a CSV file along with the corresponding file name of the image.
-
-A better method is to add the location information into EXIF fields within each image file itself. This **metadata** is 'attached' to the image file and does not need the accompanying CSV data file.
 
 There are a few different ways of expressing latitude and longitude, and it is important to get the units correct, especially when working with software and libraries that expect the data to be in a certain format.
 
-For the `ephem` library used to report the ISS position, coordinates are written using degrees (°) as the unit of measurement. There are 360° of longitude: 180° east and 180° west of the prime meridian (the zero point of longitude, defined as a point in Greenwich, England). There are 180° of latitude: 90° north and 90° south of the equator).
+The code above outputs latitude and longitude using the Decimal Degrees (DD) format, where coordinates are written using degrees (°) as the unit of measurement. There are 180° of latitude: 90° north and 90° south of the equator). There are 360° of longitude: 180° east and 180° west of the prime meridian (the zero point of longitude, defined as a point in Greenwich, England). To precisely specify a location, each degree can be reported as a decimal number, e.g. (-28.277777, 71.5841666). 
 
-To precisely specify a location, each degree can be reported as a decimal number, e.g. (28.277777, 71.5841666). Another approach is to split each degree into 60 minutes (’). Each minute can be then divided into 60 seconds (”) and for even finer accuracy, fractions of seconds given by a decimal point are used. The extra complication here is that the degrees value cannot be negative. An extra piece of information must be included for each value — the latitude reference and longitude reference. This simply states whether the point that the coordinate refers to is east or west of the Meridian (for longitude), and north or south of the equator (for latitude). So the example from above would be displayed as (28:16:40 N, 71:35:3 E).
+Another approach is the degrees:minutes:seconds (DMS) format, where each degree is split into 60 minutes (’) and each minute is divided into 60 seconds (”). For even finer accuracy, fractions of seconds given by a decimal point are used. The extra complication here is that the degrees value cannot be negative. An extra piece of information must be included for each value — the latitude reference and longitude reference. This simply states whether the point that the coordinate refers to is north or south of the equator (for latitude) and east or west of the Meridian (for longitude). So the example from above would be displayed as (28:16:40 S, 71:35:3 E).
 
-It is this degrees:minutes:seconds (DMS) format that you should use to store coordinates in EXIF data of images. You can see the code to take the data returned by the `ephem` library and convert it into a format suitable for storing as EXIF data below. It might look complicated, but it is really just the same series of steps described above. In the snippet below, to set each image file's EXIF data to the current latitude and longitude, a function called `get_latlon()` is used. Using a function to do this also helps keep the program tidy.
+If you need to use the DMS format, then it's convenient to process the string representation of `iss.sublat` and `iss.sublong` (without dividing by `ephem.degree`):
 
 ```python
-import ephem
-from picamera import PiCamera
-import os
-dir_path = os.path.dirname(os.path.realpath(__file__))
+print(f"{iss.sublat} {iss.sublong}")
+```
 
-name = "ISS (ZARYA)"
-l1 = "1 25544U 98067A   18030.93057008  .00011045  00000-0  17452-3 0  9997"
-l2 = "2 25544  51.6392 342.9681 0002977  45.8872  32.8379 15.54020911 97174"
-iss = ephem.readtle(name, l1, l2)
+### Checking the current coordinates
 
-cam = PiCamera()
-cam.resolution = (1296,972) # Valid resolution for V1 camera
+If you wanted your experiment to run when the ISS is above a particular location on Earth, you could use the values of latitude and longitude to trigger some other action. Remember that the ISS's orbit does not pass over everywhere on Earth, and that more of our planet's surface is water than land. So in your three-hour experimental window, the chances of passing over a very specific city or location will be low.
+
+To try out how this could be useful in your program, modify the code above so that it will print a message when the ISS is above the southern hemisphere.
+
+---hints---
+---hint---
+If a location is in the southern hemisphere, it has a negative latitude because it is "below" the equator.
+
+---/hint---
+---hint---
+You can test whether a number is negative by checking if it is larger than 0.
+
+---/hint---
+---hint---
+Your file should look like this:
+
+```python
+from ephem import readtle, degree
+
+name = "ISS (ZARYA)"        	 
+line1 = "1 25544U 98067A   20316.41516162  .00001589  00000+0  36499-4 0  9995"
+line2 = "2 25544  51.6454 339.9628 0001882  94.8340 265.2864 15.49409479254842"
+
+iss = readtle(name, line1, line2)
+
 iss.compute()
+latitude = iss.sublat / degree
 
-def get_latlon():
-    iss.compute() # Get the lat/long values from ephem
+if latitude < 0:
+  print("In Southern hemisphere")
+else:
+  print("In Northern hemisphere")
 
-    long_value = [float(i) for i in str(iss.sublong).split(":")]
-
-    if long_value[0] < 0:
-
-        long_value[0] = abs(long_value[0])
-        cam.exif_tags['GPS.GPSLongitudeRef'] = "W"
-    else:
-        cam.exif_tags['GPS.GPSLongitudeRef'] = "E"
-    cam.exif_tags['GPS.GPSLongitude'] = '%d/1,%d/1,%d/10' % (long_value[0], long_value[1], long_value[2]*10)
-
-    lat_value = [float(i) for i in str(iss.sublat).split(":")]
-
-    if lat_value[0] < 0:
-
-        lat_value[0] = abs(lat_value[0])
-        cam.exif_tags['GPS.GPSLatitudeRef'] = "S"
-    else:
-        cam.exif_tags['GPS.GPSLatitudeRef'] = "N"
-
-    cam.exif_tags['GPS.GPSLatitude'] = '%d/1,%d/1,%d/10' % (lat_value[0], lat_value[1], lat_value[2]*10)
-    print(str(lat_value), str(long_value))
-
-get_latlon()
-
-cam.capture(dir_path+"/gps1.jpg")
 ```
+---/hint---
+---/hints---
 
-Instead of using EXIF data, it is possible to overlay text data onto the visible image itself, like a watermark. However, there is always a risk that this will obscure a useful part of the picture, and can confuse code that looks at the brightness of pixels within the image. In addition, these overlays cannot easily be removed. Unlike the EXIF method, it also does not make it easy to automatically process images based on metadata, or search for images based on the location at which they were taken. Therefore, we recommend that you do not use the watermarking method to record the latitude and longitude, and instead use EXIF data.
-
-### Numbering plans for files
-
-Another cool thing to do with a sequence of images from the ISS is to create a timelapse movie, like the one in the first section of this project. This can be done on a Raspberry Pi with a single command — if the images are saved with sensible file names that include an obvious sequence number. So the naming convention for your image files should be `image_001.jpg`, `image_002.jpg`, etc. Remember not to include spaces in your file names!
-
-```python
-from time import sleep
-from picamera import PiCamera
-
-camera = PiCamera()
-camera.start_preview()
-sleep(2)
-for filename in camera.capture_continuous(dir_path+"/image_{counter:04d}.jpg'):
-    print('Captured %s' % filename)
-    sleep(300) # wait 5 minutes
-```
-
-Then, **once you get your images back from the ISS**,  you can use the following command to create a timelapse (you will need to install the `libav-tools` package first).
-
-```bash
-avconv -r 10 -i image%04d.jpg -r 10 -vcodec libx264 -crf 20 -g 15 timelapse.mp4
-```
-This is definitely a post-experiment processing step. You should not use your three-hour experiment time on the ISS to try to build a timelapse movie!
-
-### Low-light and night-time photography
-
-Night-time photography using the Astro Pi's Camera Module is difficult. This is mostly because of the very low chances of your program being run while the ISS is above a bright city without cloud cover. The light sensitivity of the camera is quite good, but it needs to be used with the best software settings for the particular situation, and it is difficult to anticipate what those settings will be and include them in your program. Having the camera adapt to changing light conditions in real time is also tricky, especially when the camera is moving relative to the light source, as is the case for the Astro Pis on the ISS.
-
-### Size and number of images
-
-**Don't forget that your experiment is limited to producing 3GB of data.** Make sure that you calculate the maximum amount of space that your measurements, including any saved image files, will take up, and that this does not exceed 3GB. Remember that the size of an image file will depend not only on the resolution, but also on how much detail is in the picture: a photo of a blank white wall will be smaller than a photo of a landscape.  
+Note that when your code runs on the Space Station, the most accurate and up-to-date telemetry data will be used automatically, so you don’t need to write any routines to update this data as part of your program. Just include the most recent TLE lines when you submit your code.
