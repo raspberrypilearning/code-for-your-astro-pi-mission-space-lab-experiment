@@ -34,7 +34,7 @@ print(f"{iss.sublat} {iss.sublong}")
 
 If you wanted your experiment to run when the ISS is above a particular location on Earth, you could use the values of latitude and longitude to trigger some other action. Remember that the ISS's orbit does not pass over everywhere on Earth, and that more of our planet's surface is water than land. So in your three-hour experimental window, the chances of passing over a very specific city or location will be low.
 
-To try out how this could be useful in your program, modify the code above so that it will print a message when ISS is above the southern hemisphere.
+To try out how this could be useful in your program, modify the code above so that it will print a message when the ISS is above the southern hemisphere.
 
 ---hints---
 ---hint---
