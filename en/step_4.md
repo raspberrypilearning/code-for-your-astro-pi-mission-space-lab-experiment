@@ -4,7 +4,7 @@ Any files that your program creates should have sensible, informative names. Onl
 
 Your program should collect and store experiment data. These measurements should be written to a file in the current working directory called `data01.csv`.
 
-The `.csv` extension shows that this should be a comma-separated values file where your data will be saved in table format, with each individual value separated from the its neighbours with a comma. For example, here is a snippet from a CSV-format file that stores the date, time, humidity, and temperature recorded in roughly one-minute intervals.
+The `.csv` extension shows that this should be a comma-separated values file where your data will be saved in table format, with each individual value separated from its neighbours with a comma. For example, here is a snippet from a CSV-format file that stores the date, time, humidity, and temperature recorded in roughly one-minute intervals.
 
 ```
 Date, Time, Humidity, Temperature
