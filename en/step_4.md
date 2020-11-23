@@ -136,7 +136,7 @@ def add_csv_data(data_file, data):
         writer.writerow(data)
 ```
 
-It's important to log the timestamp along with your data points, so that you know when the measurement was taken, how long was between each measurement, and at what point things happened. You can also retrospectively calculate the ISS position using ephem with a timestamp.
+It's important to log the timestamp along with your data points, so that you know when the measurement was taken, how long between each measurement, and at what point things happened. You can also retrospectively calculate the ISS position using ephem with a timestamp.
 
 ### Logging with logzero
 
