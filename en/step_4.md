@@ -182,13 +182,13 @@ try:
     logger.error(f'{e.__class__.__name__}: {e})')
 ```
 
-For example dividing by zero in `do_something` would create the following log entry:
+For example, dividing by zero in `do_something` would create the following log entry:
 
 ```
 [E 190423 00:04:16 test:9] ZeroDivisionError: division by zero
 ```
 
-Your program would continue without crashing, but rather than seeing no log entry, you see that an error occurred at this time
+Your program would continue without crashing, but rather than seeing no log entry, you see that an error occurred at this time.
 
 **You can (and should) use both the `csv` library and the `logzero` library.**
 
