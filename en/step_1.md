@@ -6,7 +6,7 @@ This guide covers Phase 2 for both Mission Space Lab themes: _Life on Earth_ and
 
 ## Collaboration during the coronavirus pandemic
 
-We understand that restrictions in place due to the coronavirus pandemic might negatively impact teams being able to get together to work with their Astro Pi kit. To help teams lead these sessions online and navigate how to collaborate virtually, we have created lesson plan templates for your sessions.
+We understand that restrictions in place due to the coronavirus pandemic might negatively impact teams being able to get together to work with their Astro Pi kit. To help teams lead these sessions online and collaborate remotely, we have created lesson plan templates for your sessions.
 
 [First session](https://rpf.io/first-session-spacelab){:target="_blank"}
 [Ongoing sessions](https://rpf.io/ongoing-sessions-spacelab){:target="_blank"}
