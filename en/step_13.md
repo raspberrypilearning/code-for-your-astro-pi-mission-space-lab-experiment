@@ -56,19 +56,19 @@ Your data is saved in files as described in this guide and does not use more tha
 
 --- task ---
 
-If you chose the theme 'Life in Space', your program does not save any photos or videos
+If you chose the theme 'Life in space', your program does not save any photos or videos
 
 --- /task ---
 
 --- task ---
 
-If you chose the theme 'Life in Space', your program regularly displays messages or images on the LED matrix, to indicate that an experiment is running
+If you chose the theme 'Life in space', your program regularly displays messages or images on the LED matrix, to indicate that an experiment is running
 
 --- /task ---
 
 --- task ---
 
-If you chose the theme 'Life on Earth', your program does __not__ use the LED matrix
+If you chose the theme 'Life on earth', your program does not use the LED matrix
 
 --- /task ---
 
