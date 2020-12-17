@@ -25,7 +25,7 @@ import csv
 dir_path = Path(__file__).parent.resolve()
 
 # Set a logfile name
-logfile(dir_path + "/teamname.log")
+logfile(dir_path/"teamname.log")
 
 # Latest TLE data for ISS location
 name = "ISS (ZARYA)"
@@ -89,7 +89,7 @@ def capture(camera, image):
 
 
 # initialise the CSV file
-data_file = dir_path + "/data.csv"
+data_file = dir_path/"data.csv"
 create_csv_file(data_file)
 # initialise the photo counter
 photo_counter = 1

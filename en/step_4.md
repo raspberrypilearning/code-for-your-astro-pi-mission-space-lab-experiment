@@ -43,7 +43,7 @@ from time import sleep
 sense = SenseHat()
 
 dir_path = Path(__file__).parent.resolve()
-data_file = dir_path + '/data.csv'
+data_file = dir_path/'data.csv'
 
 with open(data_file, 'w') as f:
     writer = csv.writer(f)
@@ -77,7 +77,7 @@ from pathlib import Path
 from time import sleep
 
 dir_path = Path(__file__).parent.resolve()
-data_file = dir_path + '/data.csv'
+data_file = dir_path/'data.csv'
 
 with open(data_file, 'w') as f:
     writer = csv.writer(f)
@@ -101,7 +101,7 @@ from pathlib import Path
 from time import sleep
 
 dir_path = Path(__file__).parent.resolve()
-data_file = dir_path + '/data.csv'
+data_file = dir_path/'data.csv'
 
 with open(data_file, 'w') as f:
     writer = csv.writer(f)
@@ -149,7 +149,7 @@ from datetime import datetime
 
 dir_path = Path(__file__).parent.resolve()
 
-logfile(dir_path + "/teamname.log")
+logfile(dir_path/"teamname.log")
 
 for i in range(10):
     logger.info(f"Loop number {i+1} started")

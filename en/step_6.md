@@ -24,14 +24,14 @@ camera.resolution = (1296,972)
 camera.start_preview()
 # Camera warm-up time
 sleep(2)
-camera.capture(dir_path + "/image.jpg”)
+camera.capture(dir_path/"image.jpg")
 
 ```
 
 If you’re using the visible light camera on Astro Pi Ed, then your program must delete all images at the end of your experiment time.
 
 ```python
-os.remove(dir_path + "/image.jpg”)
+os.remove(dir_path/"image.jpg")
 
 ```
 
@@ -92,7 +92,7 @@ def capture(camera, image):
     # capture the image
     camera.capture(image)
 
-capture(cam, dir_path + "/gps1.jpg")
+capture(cam, dir_path/"gps1.jpg")
 ```
 
 --- collapse ---
@@ -126,7 +126,7 @@ dir_path = Path(__file__).parent.resolve()
 camera = PiCamera()
 camera.start_preview()
 sleep(2)
-for filename in camera.capture_continuous(dir_path + "/image_{counter:03d}.jpg"):
+for filename in camera.capture_continuous(f"{dir_path}/image_{counter:03d}.jpg"):
     print(f'Captured {filename}')
     sleep(300) # wait 5 minutes
 ```
