@@ -50,31 +50,37 @@ You have documented your program, and it is easy to understand
 
 --- task ---
 
-Your data is saved in files as described in this guide and does not use more than 3GB of storage space. No  single file should be larger than 35MB
+Your data is saved in files as described in this guide and does not use more than 3GB of storage space. No single file should be larger than 35MB
 
 --- /task ---
 
 --- task ---
 
-If you chose the theme 'Life in space', your program does not save any photos or videos
+If you chose the theme 'Life in Space', your program does not save any photos or videos
 
 --- /task ---
 
 --- task ---
 
-Your program runs without errors and does not raise any unhandled exceptions
+If you chose the theme 'Life in Space', your program regularly displays messages or images on the LED matrix, to indicate that an experiment is running
+
+--- /task ---
+
+--- task ---
+
+If you chose the theme 'Life on Earth', your program does __not__ use the LED matrix
+
+--- /task ---
+
+--- task ---
+
+Your program runs without errors on the Flight OS and does not raise any unhandled exceptions
 
 --- /task ---
 
 --- task ---
 
 Your program stops running after 3 hours
-
---- /task ---
-
---- task ---
-
-The LED matrix is updated regularly to indicate that an experiment is running
 
 --- /task ---
 
