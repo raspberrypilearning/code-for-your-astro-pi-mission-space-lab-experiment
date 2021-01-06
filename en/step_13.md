@@ -12,7 +12,7 @@ Finally, it’s also important for you to consider any errors that could occur d
 
 You need to test that your code will run on the Astro Pi units, with the same packages installed, the exact package versions, and matching configuration. We will test your code on the Flight OS and if it doesn't run without errors, you'll be disqualified, so it's important that you test as much as you can. That's why we've provided the sample Flight OS, so that you can simulate the same setup as on board the ISS.
 
-You should use the second SD card on to which you installed the sample Flight OS for testing.   
+You should use the second SD card, on which the sample Flight OS is installed, for testing. Here is [a video detailing how to move your program](https://youtu.be/ywU5UB2GkyU) from the Desktop version of the OS to the Flight version. 
 
 ### Final check
 

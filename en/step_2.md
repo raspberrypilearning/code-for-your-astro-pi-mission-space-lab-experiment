@@ -6,7 +6,7 @@ The first thing you'll need to do is set up your development environment. If you
 
 ### SD card images
 
-The **Desktop version** of the Operating System provides all the facilities of a regular operating system and also includes a host of programming tools. Use this version while _developing_ and _testing_ the code for your experiment.
+The **Desktop version** of the Operating System provides all the facilities of a regular operating system and also includes a host of programming tools. Here is a [video tour](https://youtu.be/i57kwOiR7UM)! Use this version while _developing_ and _testing_ the code for your experiment.
 
 ![Screenshot of the Desktop version of the Operating System](images/os-desktop.png)
 
