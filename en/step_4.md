@@ -76,6 +76,8 @@ from datetime import datetime
 from pathlib import Path
 from time import sleep
 
+sense = SenseHat()
+
 dir_path = Path(__file__).parent.resolve()
 data_file = dir_path/'data.csv'
 

@@ -24,7 +24,7 @@ camera.resolution = (1296,972)
 camera.start_preview()
 # Camera warm-up time
 sleep(2)
-camera.capture(dir_path/"image.jpg")
+camera.capture(f"{dir_path}/image.jpg")
 
 ```
 
