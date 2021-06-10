@@ -4,26 +4,13 @@ The European Astro Pi Challenge is an ESA Education project run in collaboration
 
 This guide covers Phase 2 for both Mission Space Lab themes: _Life on Earth_ and _Life in space_. We want your experiment to run reliably on the ISS, and this guide will help you get started quickly and give you the best chance of running your program without problems.
 
-## Collaboration during the coronavirus pandemic
-
-We understand that restrictions in place due to the coronavirus pandemic might negatively impact teams being able to get together to work with their Astro Pi kit. To help teams lead these sessions online and collaborate remotely, we have created lesson plan templates for your sessions.
-
-[First session](https://rpf.io/first-session-spacelab){:target="_blank"}
-[Ongoing sessions](https://rpf.io/ongoing-sessions-spacelab){:target="_blank"}
-
-When collaborating remotely with your team, it is important to ensure that you enforce solid child safeguarding policies and procedures, as well as comply with all local laws. 
-
-We recommend following the Raspberry Pi Foundation's [safeguarding guidelines](https://rpf.io/safeguarding){:target="_blank"} and best practices.
- 
-
+Even if you’ve entered the Astro Pi competition before, please make sure that you read and follow this guide, as many things have changed in comparison to previous years.
 
 ### What you will make
 
 The guide includes information on assembling your kit, writing the code for your experiment, and testing your program. It also includes essential details about what is and isn’t possible with the Astro Pi hardware and software.
 
-![Earth from the ISS](images/ap1.gif)
-
-We don’t insist that you follow every rule, but if you think you need to do things differently, please get in touch **before** submitting your entry. A program that does not follow this guide will score less highly during the judging process than a program that does, and it may not progress to the next phase if it cannot be run easily on the ISS without modification.   
+There are certain reasonable _requirements_ that your entry needs to meet in order to progress to the next phase. You will find them clearly explained throughout the guide and also in the last step, as a checklist. There are also _suggestions_ or best practices that you should follow, to ensure that your program scores highly during the judging process and can run easily on the ISS without requiring modifications. If you think you need to do things differently, please get in touch _before_ submitting your entry.
 
 Most of the information in this guide applies to both 'Life in space' and 'Life on Earth' experiments, however, there are a few differences that you need consider depending on the theme that you have chosen.
 
@@ -46,7 +33,7 @@ title: Notes for 'Life on Earth' experiments
 
 --- /collapse ---
 
-Even if you’ve entered the Astro Pi competition before, please make sure that you read and follow this guide, as many things have changed since the previous rounds!
+![The Earth, as photographed by a Mission Space Lab experiment on the ISS in 2021](images/astrocmp-2021.gif)
 
 --- collapse ---
 ---
@@ -76,3 +63,14 @@ You will need the Operating System (OS) for the Astro Pi, which comes in two ver
 + If you want to, you can [make a 3D-printed flight case](https://projects.raspberrypi.org/en/projects/astro-pi-flight-case){:target="_blank"}, and use this to even more closely simulate the ISS environment for more realistic testing. However, this is not a requirement, and you can take part in Mission Space Lab without building a replica flight case.
 
 --- /collapse ---
+
+### Collaboration during the coronavirus pandemic
+
+We understand that restrictions in place due to the coronavirus pandemic might negatively impact teams being able to get together to work with their Astro Pi kit. To help teams lead these sessions online and collaborate remotely, we have created lesson plan templates for your sessions.
+
+[First session](https://rpf.io/first-session-spacelab){:target="_blank"}
+[Ongoing sessions](https://rpf.io/ongoing-sessions-spacelab){:target="_blank"}
+
+When collaborating remotely with your team, it is important to ensure that you enforce solid child safeguarding policies and procedures, as well as comply with all local laws. 
+
+We recommend following the Raspberry Pi Foundation's [safeguarding guidelines](https://rpf.io/safeguarding){:target="_blank"} and best practices.
