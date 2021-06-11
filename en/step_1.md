@@ -2,7 +2,7 @@
 
 The European Astro Pi Challenge is an ESA Education project run in collaboration with the Raspberry Pi Foundation. Astro Pi Mission Space Lab offers young people the amazing opportunity to conduct scientific investigations in space by writing computer programs that run on Raspberry Pi computers — the Astro Pis — aboard the International Space Station.
 
-This guide covers Phase 2 for both Mission Space Lab themes: _Life on Earth_ and _Life in space_. We want your experiment to run reliably on the ISS, and this guide will help you get started quickly and give you the best chance of running your program without problems.
+This guide covers Phase 2 for both Mission Space Lab themes: _Life on Earth_ and _Life in Space_. We want your experiment to run reliably on the ISS, and this guide will help you get started quickly and give you the best chance of running your program without problems.
 
 Even if you’ve entered the Astro Pi competition before, please make sure that you read and follow this guide, as many things have changed in comparison to previous years.
 
@@ -16,7 +16,7 @@ Most of the information in this guide applies to both 'Life in space' and 'Life 
 
 --- collapse ---
 ---
-title: Notes for 'Life in space' experiments
+title: Notes for 'Life in Space' experiments
 ---
 
 + Although you can use the camera as part of your experiment (for example, to work out how bright it is on the ISS), you cannot use it to take photos of astronauts, and your program must delete all images at the end of your experiment.
@@ -40,7 +40,7 @@ title: Notes for 'Life on Earth' experiments
 title: What you will learn
 ---
 
-You'll learn how to connect the hardware that you'll need to the Raspberry Pi (Sense HAT and Camera Module), and how to turn your Mission Space Lab Phase 1 idea into a working experiment by writing a Python program that can run on the ISS Astro Pis.
+You'll learn how to connect the hardware that you'll need to the Raspberry Pi (e.g. the Sense HAT, the Camera Module, a PIR Motion Sensor or the Coral TPU), and how to turn your Mission Space Lab Phase 1 idea into a working experiment by writing a Python program that can run on the ISS Astro Pis.
 
 --- /collapse ---
 
@@ -50,13 +50,15 @@ title: What you will need
 ---
 ### Hardware
 
-+ A Raspberry Pi
++ A Raspberry Pi 4
 + A Sense HAT
 + A Camera Module (if necessary for your experiment)
++ A PIR Motion Sensor (if necessary for your experiment)
++ A Coral TPU (if necessary for your experiment)
 
 ### Software
 
-You will need the Operating System (OS) for the Astro Pi, which comes in two versions: Desktop and Flight. These are custom builds of the Raspberry Pi Operating System, which include all the software libraries present on the Astro Pi units on the ISS.
+You will need the Desktop version of the Flight Operating System (OS) for the Astro Pi. This is a custom build of the Desktop Raspberry Pi Operating System, which includes all the software libraries present on the Astro Pi units on the ISS.
 
 ### Additional resources
 
