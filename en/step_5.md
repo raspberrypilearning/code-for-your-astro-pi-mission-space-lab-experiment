@@ -1,34 +1,74 @@
 ## Finding the location of the ISS
 
-Using the Python `ephem` library, you can calculate the positions of space objects within our solar system. This includes the Sun, the Moon, the planets, and many Earth satellites such as the ISS. So you can work out the ISS’s current location above the Earth, which you can use to identify whether the ISS is flying over land or sea, or which country it is flying over.
+Using the Python `skyfield` library, you can calculate the positions of space objects within our solar system. This includes the Sun, the Moon, the planets, and many Earth satellites such as the ISS. So you can work out the ISS’s current location above the Earth, which you can use to identify whether the ISS is flying over land or sea, or which country it is flying over.
 
-For accurate calculations, you need to provide `ephem` with the most recent two-line element (TLE) set for the ISS. TLE is a data format used to convey sets of orbital elements that describe the orbits of Earth satellites. Here is the latest [ISS TLE data](http://www.celestrak.com/NORAD/elements/stations.txt){:target="_blank"} (along with the same information in other formats). These three lines should then be pasted into your code and passed in as arguments when you create an `iss` object in your program.
+--- collapse ---
+---
+title: What happened to the `ephem` library?
+---
+
+If your team has participated in previous challenges, you may recall that the `ephem` library was used to calculate the position of the ISS. This library has now been deprecated and replaced by its successor, `skyfield`.
+--- /collapse ---
+
+The Flight OS offers the `astro_pi` Python package that uses `skyfield` to make the computation of the current coordinates of the ISS as simple as this:
 
 ```python
-from ephem import readtle, degree
+from astro_pi import ISS
 
-name = "ISS (ZARYA)"        	 
-line1 = "1 25544U 98067A   20316.41516162  .00001589  00000+0  36499-4 0  9995"
-line2 = "2 25544  51.6454 339.9628 0001882  94.8340 265.2864 15.49409479254842"
-
-iss = readtle(name, line1, line2)
-
-iss.compute()
-
-print(f"{iss.sublat/degree} {iss.sublong/degree}")
+point = ISS.coordinates()
+print(point)
 ```
 
-There are a few different ways of expressing latitude and longitude, and it is important to get the units correct, especially when working with software and libraries that expect the data to be in a certain format.
+`point` is a [`GeographicPosition`](https://rhodesmill.org/skyfield/api-topos.html#skyfield.toposlib.GeographicPosition), so you can access it's individual elements:
+
+```python
+from astro_pi import ISS
+
+point = ISS.coordinates()
+print(f'Latitude: {point.latitude}')
+print(f'Longitude: {point.longitude}')
+print(f'Elevation: {point.elevation}')
+```
+
+Note that the latitude and longitude are [`Angle`s](https://rhodesmill.org/skyfield/api-units.html#skyfield.units.Angle) and the elevation is a [`Distance`](https://rhodesmill.org/skyfield/api-units.html#skyfield.units.Distance), so you can switch between the representation and units that suit you best: 
+
+```python
+from astro_pi import ISS
+
+point = ISS.coordinates()
+print(f'Lat: {point.latitude.degrees:.1f}, Long: {point.longitude.degrees:.1f}')
+```
+
+There are a few different ways of representing latitude and longitude, and it is important to get the units correct, especially when working with software and libraries that expect the data to be in a certain format.
 
 The code above outputs latitude and longitude using the Decimal Degrees (DD) format, where coordinates are written using degrees (°) as the unit of measurement. There are 180° of latitude: 90° north and 90° south of the equator). There are 360° of longitude: 180° east and 180° west of the prime meridian (the zero point of longitude, defined as a point in Greenwich, England). To precisely specify a location, each degree can be reported as a decimal number, e.g. (-28.277777, 71.5841666). 
 
-Another approach is the degrees:minutes:seconds (DMS) format, where each degree is split into 60 minutes (’) and each minute is divided into 60 seconds (”). For even finer accuracy, fractions of seconds given by a decimal point are used. The extra complication here is that the degrees value cannot be negative. An extra piece of information must be included for each value — the latitude reference and longitude reference. This simply states whether the point that the coordinate refers to is north or south of the equator (for latitude) and east or west of the Meridian (for longitude). So the example from above would be displayed as (28:16:40 S, 71:35:3 E).
-
-If you need to use the DMS format, then it's convenient to process the string representation of `iss.sublat` and `iss.sublong` (without dividing by `ephem.degree`):
+Another approach is the degrees:minutes:seconds (DMS) format, where each degree is split into 60 minutes (’) and each minute is divided into 60 seconds (”). For even finer accuracy, fractions of seconds given by a decimal point are used. This _sign_ of the angle indicates whether the point that the coordinate refers to is north or south of the equator (for latitude) and east or west of the Meridian (for longitude).
 
 ```python
-print(f"{iss.sublat} {iss.sublong}")
+from astro_pi import ISS
+
+point = ISS.coordinates()
+print(f'Lat: {point.latitude.signed_dms()}, Long: {point.longitude.signed_dms()}')
 ```
+
+--- collapse ---
+---
+title: Telemetry data
+---
+For accurate calculations, `skyfield` requires the most recent two-line element (TLE) set for the ISS. TLE is a data format used to convey sets of orbital elements that describe the orbits of Earth satellites. 
+
+If your Astro Pi kit has no internet access, then you need to manually download the latest [ISS TLE data](http://www.celestrak.com/NORAD/elements/stations.txt){:target="_blank"}, copy the 3 ISS-related lines into a file called `iss.tle` and then place this file into the `/home/pi` folder. The TLE data will look something like this:
+
+```
+ISS (ZARYA)             
+1 25544U 98067A   21162.24455464  .00001369  00000-0  33046-4 0  9995
+2 25544  51.6454  12.1174 0003601  83.6963  83.5732 15.48975526287678
+```
+
+If an internet connection is available, this is taken care of automatically when you import the `ISS` object from the `astro_pi` library, so you don't need to worry about it. Likewise, when your code runs on the Space Station, we will make sure that the most accurate and up-to-date telemetry data will be used.
+--- /collapse ---
+
 
 ### Checking the current coordinates
 
@@ -49,24 +89,15 @@ You can test whether a number is negative by checking if it is larger than 0.
 Your file should look like this:
 
 ```python
-from ephem import readtle, degree
+from astro_pi import ISS
 
-name = "ISS (ZARYA)"        	 
-line1 = "1 25544U 98067A   20316.41516162  .00001589  00000+0  36499-4 0  9995"
-line2 = "2 25544  51.6454 339.9628 0001882  94.8340 265.2864 15.49409479254842"
-
-iss = readtle(name, line1, line2)
-
-iss.compute()
-latitude = iss.sublat / degree
+point = ISS.coordinates()
+latitude = point.latitude.degrees
 
 if latitude < 0:
   print("In Southern hemisphere")
 else:
   print("In Northern hemisphere")
-
 ```
 ---/hint---
 ---/hints---
-
-Note that when your code runs on the Space Station, the most accurate and up-to-date telemetry data will be used automatically, so you don’t need to write any routines to update this data as part of your program. Just include the most recent TLE lines when you submit your code.
