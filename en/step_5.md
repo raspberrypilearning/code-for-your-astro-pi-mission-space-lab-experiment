@@ -4,7 +4,7 @@ Using the Python `skyfield` library, you can calculate the positions of space ob
 
 --- collapse ---
 ---
-title: What happened to the `ephem` library?
+title: What happened to the ephem library?
 ---
 
 If your team has participated in previous challenges, you may recall that the `ephem` library was used to calculate the position of the ISS. This library has now been deprecated and replaced by its successor, `skyfield`.
@@ -19,7 +19,7 @@ point = ISS.coordinates()
 print(point)
 ```
 
-`point` is a [`GeographicPosition`](https://rhodesmill.org/skyfield/api-topos.html#skyfield.toposlib.GeographicPosition), so you can access it's individual elements:
+`point` is a `GeographicPosition`, so you can refer to the documentation and see [how you can access it's individual elements]((https://rhodesmill.org/skyfield/api-topos.html#skyfield.toposlib.GeographicPosition)):
 
 ```python
 from astro_pi import ISS
@@ -30,7 +30,7 @@ print(f'Longitude: {point.longitude}')
 print(f'Elevation: {point.elevation}')
 ```
 
-Note that the latitude and longitude are [`Angle`s](https://rhodesmill.org/skyfield/api-units.html#skyfield.units.Angle) and the elevation is a [`Distance`](https://rhodesmill.org/skyfield/api-units.html#skyfield.units.Distance), so you can switch between the representation and units that suit you best: 
+Note that the latitude and longitude are `Angle`s and the elevation is a `Distance`. The documentation describes [how to switch between different `Angle` representations]((https://rhodesmill.org/skyfield/api-units.html#skyfield.units.Angle) or [how to express `Distance` in different units](https://rhodesmill.org/skyfield/api-units.html#skyfield.units.Distance): 
 
 ```python
 from astro_pi import ISS
@@ -39,7 +39,7 @@ point = ISS.coordinates()
 print(f'Lat: {point.latitude.degrees:.1f}, Long: {point.longitude.degrees:.1f}')
 ```
 
-There are a few different ways of representing latitude and longitude, and it is important to get the units correct, especially when working with software and libraries that expect the data to be in a certain format.
+There are a few different ways of representing latitude and longitude, and it is important to select the appropriate one, especially when working with software and libraries that expect the data to be in a certain format.
 
 The code above outputs latitude and longitude using the Decimal Degrees (DD) format, where coordinates are written using degrees (°) as the unit of measurement. There are 180° of latitude: 90° north and 90° south of the equator). There are 360° of longitude: 180° east and 180° west of the prime meridian (the zero point of longitude, defined as a point in Greenwich, England). To precisely specify a location, each degree can be reported as a decimal number, e.g. (-28.277777, 71.5841666). 
 
@@ -58,7 +58,9 @@ title: Telemetry data
 ---
 For accurate calculations, `skyfield` requires the most recent two-line element (TLE) set for the ISS. TLE is a data format used to convey sets of orbital elements that describe the orbits of Earth satellites. 
 
-If your Astro Pi kit has no internet access, then you need to manually download the latest [ISS TLE data](http://www.celestrak.com/NORAD/elements/stations.txt){:target="_blank"}, copy the 3 ISS-related lines into a file called `iss.tle` and then place this file into the `/home/pi` folder. The TLE data will look something like this:
+When you import the `ISS` object from the `astro_pi` library, an attempt is made to retrieve the TLE data from a file called `iss.tle` in the `/home/pi` folder. If the file is not present but an internet connection is available, the latest data will be downloaded automatically into the `iss.tle` file, so you don't need to worry about it.
+
+However, if your Astro Pi kit has no internet access, then you need to manually download the latest [ISS TLE data](http://www.celestrak.com/NORAD/elements/stations.txt){:target="_blank"}, copy the 3 ISS-related lines into a file called `iss.tle` and then place this file into the `/home/pi` folder. The TLE data will look something like this:
 
 ```
 ISS (ZARYA)             
@@ -66,7 +68,7 @@ ISS (ZARYA)
 2 25544  51.6454  12.1174 0003601  83.6963  83.5732 15.48975526287678
 ```
 
-If an internet connection is available, this is taken care of automatically when you import the `ISS` object from the `astro_pi` library, so you don't need to worry about it. Likewise, when your code runs on the Space Station, we will make sure that the most accurate and up-to-date telemetry data will be used.
+When your code runs on the Space Station, we will make sure that the most accurate and up-to-date telemetry data will be used.
 --- /collapse ---
 
 
@@ -82,11 +84,11 @@ If a location is in the southern hemisphere, it has a negative latitude because 
 
 ---/hint---
 ---hint---
-You can test whether a number is negative by checking if it is larger than 0.
+You can test whether a number is negative by checking if it is less than 0.
 
 ---/hint---
 ---hint---
-Your file should look like this:
+Your code should look like this:
 
 ```python
 from astro_pi import ISS
