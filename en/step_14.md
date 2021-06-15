@@ -28,7 +28,7 @@ else:
     print('Light')
 ```
 
-You can also explore the multitude of [Sense HAT projects](https://projects.raspberrypi.org/en/projects?hardware%5B%5D=sense-hat) from the Raspberry Pi Foundation, making sure not to miss the [Getting Started with the Sense HAT]((https://projects.raspberrypi.org/en/projects/getting-started-with-the-sense-hat)) guide.
+You can also explore the multitude of [Sense HAT projects](https://projects.raspberrypi.org/en/projects?hardware%5B%5D=sense-hat) from the Raspberry Pi Foundation, making sure not to miss the [Getting Started with the Sense HAT](https://projects.raspberrypi.org/en/projects/getting-started-with-the-sense-hat) guide.
 
 ## Retrieving data from the motion sensor
 

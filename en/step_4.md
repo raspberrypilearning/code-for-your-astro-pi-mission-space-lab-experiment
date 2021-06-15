@@ -1,8 +1,8 @@
 ## Logging and recording data with your program
 
-Any files that your program creates should have sensible, informative names. Only use letters, numbers, hyphens (-), or underscores (\_) in your file names. **Do not use spaces** in file names, because spaces can cause problems when the files are transferred between computers.  
+Any files that your program creates should have sensible, informative names. Only use letters, numbers, dots (.), hyphens (-), or underscores (\_) in your file names. No other characters are allowed. **Do not use spaces** in file names, because they can cause problems when files are transferred between computers.
 
-Your program should collect and store experiment data. These measurements should be written to a file in the current working directory called `data01.csv`.
+Your program should collect and store experiment data. These measurements should be written to a file with a name such as `data.csv`.
 
 The `.csv` extension shows that this should be a comma-separated values file where your data will be saved in table format, with each individual value separated from its neighbours with a comma. For example, here is a snippet from a CSV-format file that stores the date, time, humidity, and temperature recorded in roughly one-minute intervals.
 
@@ -15,7 +15,7 @@ Date, Time, Humidity, Temperature
 ```
 To easily create and write to a CSV file, you should use the `csv` library, as shown in the example below.  
 
-If you require multiple data files, these should be numbered sequentially (e.g. `data02.csv`, `data03.csv`, etc.). You should not create more than five separate files over the course of your experiment.
+If you require multiple data files, these should be numbered sequentially (e.g. `data01.csv`, `data02.csv`, `data03.csv`, etc.). You should not create more than five separate files over the course of your experiment.
 
 ### Directory structure for files
 
@@ -135,7 +135,7 @@ def add_csv_data(data_file, data):
         writer.writerow(data)
 ```
 
-It's important to log the timestamp along with your data points, so that you know when the measurement was taken, how long between each measurement, and at what point things happened. You can also retrospectively calculate the ISS position using ephem with a timestamp.
+It's important to log the timestamp along with your data points, so that you know when the measurement was taken, how long between each measurement, and at what point things happened. You can also retrospectively calculate the ISS position using `skyfield` with a timestamp.
 
 ### Logging with logzero
 
