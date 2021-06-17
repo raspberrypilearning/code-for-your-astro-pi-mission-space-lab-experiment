@@ -98,7 +98,7 @@ title: Locating images on a map
 
 When coordinate information is included in the EXIF metadata of your captured images, you can use software such as DigiKam (included in the Desktop Flight OS) or an online service to automatically locate the position where the image was taken on a map.
 
-You can also extract the coordinates from the EXIF metadata of an image programmatically. For example, the image below is part of the sample data included in the Desktop version of the OS. Using the `exif` Python library, you can find out that the image was taken at the coordinates 35°24'20.0"N 112°10'46.2"W. 
+You can also extract the coordinates from the EXIF metadata of an image programmatically. For example, the image below is part of the sample data included in the Desktop Flight OS. Using the `exif` Python library, you can find out that the image was taken at the coordinates 35°24'20.0"N 112°10'46.2"W. 
 
 ![](images/zz_astropi_1_photo_387.jpg)
 

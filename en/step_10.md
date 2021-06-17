@@ -12,6 +12,5 @@ It is common to see people use a subprocess to measure the CPU's temperature. Ho
 from gpiozero import CPUTemperature
 
 cpu = CPUTemperature()
-
 print(cpu.temperature)
 ```

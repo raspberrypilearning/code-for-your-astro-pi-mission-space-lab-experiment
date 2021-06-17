@@ -27,11 +27,11 @@ The ESA kits for Astro Pi 2020/21 contain Raspberry Pi 4s with 4GB of memory (RA
 
 ### Software and your Development Environment
 
-After assembling your hardware, you will need to set up your development environment. If you received a kit from ESA, it will contain an SD card with a custom-built version of the Desktop Raspberry Pi Operating System that you will need.
+After assembling your hardware, you will need to set up your development environment. If you received a kit from ESA, it will contain an SD card with the Desktop version of the Flight OS: a custom-built version of the Raspberry Pi Operating System that you will need.
 
-The packages available in this Operating System closely match the ones in the Flight OS, i.e. the Operating System installed on the Astro Pi units on the ISS. However, the Flight OS is a "command-line only" environment that is not really convenient for developing programs, so the ESA kits provide a Desktop version that also includes a host of programming tools. Here is a [video tour](https://youtu.be/i57kwOiR7UM)! 
+The packages available in the Desktop Flight OS closely match the ones in the actual Flight OS, i.e. the operating system installed on the Astro Pi units on the ISS. However, the Flight OS is a "command-line only" environment that is not really convenient for developing programs and that is why the ESA kits provide a Desktop version that also includes a host of programming tools. Here is a [video tour](https://youtu.be/i57kwOiR7UM) of the 2020 version!
 
-![Screenshot of the Desktop version of the Operating System](images/os-desktop.png)
+![Screenshot of the Desktop version of the Flight Operating System](images/os-desktop.png)
 
 You will use this environment to _develop_ and _test_ the code for your experiment. Making sure that your program runs successfully in this environment is the best way to ensure that your experiment passes our testing procedure and can run on the Astro Pis on the ISS without any modifications.
 
@@ -42,7 +42,7 @@ Please, **do not perform any upgrades or install any additional packages or Pyth
 title: Downloading Operating System images (optional)
 ---
 
-If you want to create additional SD cards to use for Astro Pi, you can download the the [OS image file](http://downloads.raspberrypi.org/AstroPi_latest) used in the ESA kits. After downloading, you can use any software tool to write the image file to your own SD card. See [this guide](https://www.raspberrypi.org/documentation/installation/installing-images/) for instructions on how to do this. 
+If you want to create additional SD cards to use for Astro Pi, you can download the [Desktop Flight OS image file](http://downloads.raspberrypi.org/AstroPi_latest) used in the ESA kits. After downloading, you can use any software tool to write the image file to your own SD card. See [this guide](https://www.raspberrypi.org/documentation/installation/installing-images/) for instructions on how to do this. 
 
 --- /collapse ---
 
@@ -51,7 +51,7 @@ If you want to create additional SD cards to use for Astro Pi, you can download 
 title: Sample data
 ---
 
-The Desktop version of the OS also contains a `Data` folder with sample data from a previous mission which can be used to help test and refine your code. 
+The Desktop version of the Flight OS also contains a `Data` folder with sample data from a previous mission which can be used to help test and refine your code. 
 
 #### Sensor readings
 
@@ -81,7 +81,7 @@ Longitude degrees
 Longitude minutes
 Longitude seconds
 
-LibreOffice Calc is a spreadsheet program similar to Microsoft Excel and is installed on the Desktop operating system. You can use this to look at the data and plot charts.
+LibreOffice Calc is a spreadsheet program similar to Microsoft Excel and is installed on the Desktop Flight OS. You can use this to look at the data and plot charts.
 
 #### Images
 

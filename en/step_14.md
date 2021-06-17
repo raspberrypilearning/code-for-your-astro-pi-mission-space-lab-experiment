@@ -12,6 +12,8 @@ The Sense HAT used in the Astro Pi hosts a range of sensors that you can retriev
 
 The Astro Pi also includes a Passive Infra-Red (PIR) motion sensor, providing input data through one of the Raspberry Pi's GPIO pins.
 
+**Note**: Using data from the colour sensor or the motion sensor only makes sense for _Life in Space_ experiments. For _Life on Earth_, the Astro Pi is "hooded" to avoid reflections and the colour sensor is in darkness, facing away from the window.
+
 ## Retrieving sensor data from the Sense HAT
 
 The [Sense HAT documentation](https://pythonhosted.org/sense-hat/) contains sections on how to retrieve data from the [environmental sensors](https://pythonhosted.org/sense-hat/api/#environmental-sensors) (temperature, humidity, pressure, light and colour) and the [Inertial Measurement Unit (IMU)](https://pythonhosted.org/sense-hat/api/#imu-sensor) (acceleration, orientiation).

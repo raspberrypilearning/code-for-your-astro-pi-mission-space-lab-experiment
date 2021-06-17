@@ -90,7 +90,7 @@ The final result is what is called pseudocode: a diagram of all of a program’s
 
 ### Test your program
 
-+ Don’t forget to test your program using the Flight version of the OS. It’s a cut-down version of the Raspberry Pi OS, and it does not have X-Windows and many of the standard development tools installed. Testing your program using the Flight OS will let you check that none of the commands rely on files or libraries that aren’t present on the Astro Pis aboard the ISS.
++ Don’t forget to test your program using the Flight version of the Flight OS. It’s a custom, command-line only version of the Raspberry Pi OS, and it does not have X-Windows and many of the standard development tools installed. Testing your program using the Desktop Flight OS will let you check that none of the commands rely on files or libraries that aren’t present on the Astro Pis aboard the ISS.
 
 --- /collapse ---
 
@@ -131,7 +131,7 @@ print(iss.sublat, iss.sublong)
 
 #### Documentation
 
-- [rhodesmill.org/pyephem/quick.html](https://rhodesmill.org/pyephem/quick.html)
+- [rhodesmill.org/skyfield](https://rhodesmill.org/skyfield/)
 
 --- /collapse ---
 

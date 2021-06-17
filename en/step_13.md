@@ -46,7 +46,7 @@ Your program only saves data in the folder where the main Python file is, using 
 
 --- task ---
 
-Any files that your program creates have names that only incude letters, numbers, dots (.), dashes (-) or underscores (_).
+Any files that your program creates have names that only include letters, numbers, dots (.), dashes (-) or underscores (_).
 
 --- /task ---
 
@@ -120,7 +120,7 @@ Connect the Sense HAT and Camera Module (if required).
 
 --- task ---
 
-Boot your Raspberry Pi running the Flight OS.
+Boot your Raspberry Pi running the Desktop version of the Flight OS.
 
 --- /task ---
 
