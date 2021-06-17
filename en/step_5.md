@@ -10,7 +10,32 @@ title: What happened to the ephem library?
 If your team has participated in previous challenges, you may recall that the `ephem` library was used to calculate the position of the ISS. This library has now been deprecated and replaced by its successor, `skyfield`.
 --- /collapse ---
 
-The Flight OS offers the `astro_pi` Python package that uses `skyfield` to make the computation of the current coordinates of the ISS as simple as this:
+Up-to-date telemetry data is required by the `skyfield` library in order to accurately compute the position of the ISS (or any other satellite). In order to save you the trouble of obtaining and manipulating this data, the Flight OS offers the `astro_pi` Python package, from which you can import the `ISS` object:
+
+```python
+from astro_pi import ISS
+```
+
+--- collapse ---
+---
+title: Telemetry data
+---
+For accurate calculations, `skyfield` requires the most recent two-line element (TLE) set for the ISS. TLE is a data format used to convey sets of orbital elements that describe the orbits of Earth satellites. 
+
+When you import the `ISS` object from the `astro_pi` library, an attempt is made to retrieve the TLE data from a file called `iss.tle` in the `/home/pi` folder. If the file is not present but an internet connection is available, the latest data will be downloaded automatically into the `iss.tle` file, so you don't need to worry about it.
+
+However, if your Astro Pi kit has no internet access, then you need to manually download the latest [ISS TLE data](http://www.celestrak.com/NORAD/elements/stations.txt){:target="_blank"}, copy the 3 ISS-related lines into a file called `iss.tle` and then place this file into the `/home/pi` folder. The TLE data will look something like this:
+
+```
+ISS (ZARYA)             
+1 25544U 98067A   21162.24455464  .00001369  00000-0  33046-4 0  9995
+2 25544  51.6454  12.1174 0003601  83.6963  83.5732 15.48975526287678
+```
+
+When your code runs on the Space Station, we will make sure that the most accurate and up-to-date telemetry data will be used.
+--- /collapse ---
+
+You can use `ISS` just like any other `EarthSatellite` object in `skyfield` (see the [Reference](https://rhodesmill.org/skyfield/api-satellites.html#skyfield.sgp4lib.EarthSatellite) and [Examples](https://rhodesmill.org/skyfield/earth-satellites.html)) but `ISS` also provides an additional method for convenieniently obtaining its _current_ coordinates:
 
 ```python
 from astro_pi import ISS
@@ -51,26 +76,6 @@ from astro_pi import ISS
 point = ISS.coordinates()
 print(f'Lat: {point.latitude.signed_dms()}, Long: {point.longitude.signed_dms()}')
 ```
-
---- collapse ---
----
-title: Telemetry data
----
-For accurate calculations, `skyfield` requires the most recent two-line element (TLE) set for the ISS. TLE is a data format used to convey sets of orbital elements that describe the orbits of Earth satellites. 
-
-When you import the `ISS` object from the `astro_pi` library, an attempt is made to retrieve the TLE data from a file called `iss.tle` in the `/home/pi` folder. If the file is not present but an internet connection is available, the latest data will be downloaded automatically into the `iss.tle` file, so you don't need to worry about it.
-
-However, if your Astro Pi kit has no internet access, then you need to manually download the latest [ISS TLE data](http://www.celestrak.com/NORAD/elements/stations.txt){:target="_blank"}, copy the 3 ISS-related lines into a file called `iss.tle` and then place this file into the `/home/pi` folder. The TLE data will look something like this:
-
-```
-ISS (ZARYA)             
-1 25544U 98067A   21162.24455464  .00001369  00000-0  33046-4 0  9995
-2 25544  51.6454  12.1174 0003601  83.6963  83.5732 15.48975526287678
-```
-
-When your code runs on the Space Station, we will make sure that the most accurate and up-to-date telemetry data will be used.
---- /collapse ---
-
 
 ### Checking the current coordinates
 
