@@ -10,7 +10,7 @@ title: What happened to the ephem library?
 If your team has participated in previous challenges, you may recall that the `ephem` library was used to calculate the position of the ISS. This library has now been deprecated and replaced by its successor, `skyfield`.
 --- /collapse ---
 
-Up-to-date telemetry data is required by the `skyfield` library in order to accurately compute the position of the ISS (or any other satellite). In order to save you the trouble of obtaining and manipulating this data, the Flight OS offers the `astro_pi` Python package, from which you can import the `ISS` object:
+Up-to-date telemetry data is required in order to accurately compute the position of the ISS (or any other satellite orbiting the Earth). In order to save you the trouble of obtaining and manipulating this data, the Flight OS offers the `astro_pi` Python package, which uses `skyfield` to create an `ISS` object that you can import in your program:
 
 ```python
 from astro_pi import ISS
@@ -35,7 +35,7 @@ ISS (ZARYA)
 When your code runs on the Space Station, we will make sure that the most accurate and up-to-date telemetry data will be used.
 --- /collapse ---
 
-You can use `ISS` just like any other `EarthSatellite` object in `skyfield` (see the [Reference](https://rhodesmill.org/skyfield/api-satellites.html#skyfield.sgp4lib.EarthSatellite) and [Examples](https://rhodesmill.org/skyfield/earth-satellites.html)) but `ISS` also provides an additional method for convenieniently obtaining its _current_ coordinates:
+You can use `ISS` just like any other `EarthSatellite` object in `skyfield` (see the [Reference](https://rhodesmill.org/skyfield/api-satellites.html#skyfield.sgp4lib.EarthSatellite) and [Examples](https://rhodesmill.org/skyfield/earth-satellites.html)) but `ISS` also provides an additional convenient method for obtaining the Space Station's _current_ coordinates:
 
 ```python
 from astro_pi import ISS
@@ -44,7 +44,7 @@ point = ISS.coordinates()
 print(point)
 ```
 
-`point` is a `GeographicPosition`, so you can refer to the documentation and see [how you can access it's individual elements]((https://rhodesmill.org/skyfield/api-topos.html#skyfield.toposlib.GeographicPosition)):
+`point` is a `GeographicPosition`, so you can refer to the documentation and see [how you can access it's individual elements](https://rhodesmill.org/skyfield/api-topos.html#skyfield.toposlib.GeographicPosition):
 
 ```python
 from astro_pi import ISS
@@ -55,7 +55,7 @@ print(f'Longitude: {point.longitude}')
 print(f'Elevation: {point.elevation}')
 ```
 
-Note that the latitude and longitude are `Angle`s and the elevation is a `Distance`. The documentation describes [how to switch between different `Angle` representations]((https://rhodesmill.org/skyfield/api-units.html#skyfield.units.Angle) or [how to express `Distance` in different units](https://rhodesmill.org/skyfield/api-units.html#skyfield.units.Distance): 
+Note that the latitude and longitude are `Angle`s and the elevation is a `Distance`. The documentation describes [how to switch between different `Angle` representations](https://rhodesmill.org/skyfield/api-units.html#skyfield.units.Angle) or [how to express `Distance` in different units](https://rhodesmill.org/skyfield/api-units.html#skyfield.units.Distance): 
 
 ```python
 from astro_pi import ISS
