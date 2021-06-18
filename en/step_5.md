@@ -47,12 +47,19 @@ point = ISS.at(t).subpoint()
 print(point)
 ```
 
+If you are not interested in setting or recording the time `t`, then the `ISS` object also offers a convenient `coordinates` method that you can use as an alternative for retrieving the coordinates of the point on Earth that is _currently_ directly beneath the ISS:
+
+```python
+from astro_pi import ISS
+point = ISS.coordinates() # equivalent to ISS.at(timescale.now()).subpoint()
+print(point)
+```
+
 **Note**: The current position of the ISS is an _estimate_, based on the telemetry data and the current time. Therefore, when you are testing your program on Desktop Flight OS, you need to make sure that the system time has been set correctly.
 
 `point` is a `GeographicPosition`, so you can refer to the documentation and see [how you can access it's individual elements](https://rhodesmill.org/skyfield/api-topos.html#skyfield.toposlib.GeographicPosition):
 
 ```python
-point = ISS.at(t).subpoint()
 print(f'Latitude: {point.latitude}')
 print(f'Longitude: {point.longitude}')
 print(f'Elevation: {point.elevation.km}')
@@ -61,7 +68,6 @@ print(f'Elevation: {point.elevation.km}')
 Note that the latitude and longitude are `Angle`s and the elevation is a `Distance`. The documentation describes [how to switch between different `Angle` representations](https://rhodesmill.org/skyfield/api-units.html#skyfield.units.Angle) or [how to express `Distance` in different units](https://rhodesmill.org/skyfield/api-units.html#skyfield.units.Distance): 
 
 ```python
-point = ISS.at(t).subpoint()
 print(f'Lat: {point.latitude.degrees:.1f}, Long: {point.longitude.degrees:.1f}')
 ```
 
@@ -72,7 +78,6 @@ The code above outputs latitude and longitude using the Decimal Degrees (DD) for
 Another approach is the degrees:minutes:seconds (DMS) format, where each degree is split into 60 minutes (’) and each minute is divided into 60 seconds (”). For even finer accuracy, fractions of seconds given by a decimal point are used. This _sign_ of the angle indicates whether the point that the coordinate refers to is north or south of the equator (for latitude) and east or west of the Meridian (for longitude).
 
 ```python
-point = ISS.at(t).subpoint()
 print(f'Lat: {point.latitude.signed_dms()}, Long: {point.longitude.signed_dms()}')
 ```
 
@@ -96,17 +101,13 @@ Your code should look like this:
 
 ```python
 from astro_pi import ISS
-from skyfield.api import load
 
-timescale = load.timescale()
-t = timescale.now()
-point = ISS.at(t).subpoint()
-
+point = ISS.coordinates()
 latitude = point.latitude.degrees
 if latitude < 0:
-  print("In Southern hemisphere")
+    print("In Southern hemisphere")
 else:
-  print("In Northern hemisphere")
+    print("In Northern hemisphere")
 ```
 ---/hint---
 ---/hints---
