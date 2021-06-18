@@ -74,10 +74,7 @@ point = ISS.at(t).subpoint()
 print(f'Lat: {point.latitude.signed_dms()}, Long: {point.longitude.signed_dms()}')
 ```
 
---- collapse ---
----
-title: Example: Which hemisphere?
----
+### Example: Which hemisphere?
 
 If you wanted your experiment to run when the ISS is above a particular location on Earth, you could use the values of latitude and longitude to trigger some other action. Remember that the ISS's orbit does not pass over everywhere on Earth, and that more of our planet's surface is water than land. So in your three-hour experimental window, the chances of passing over a very specific city or location will be low.
 
@@ -112,4 +109,39 @@ else:
 ---/hint---
 ---/hints---
 
---- /collapse ---
+### Example: ISS in the sunlight
+
+The behaviour of your code might differ depending on whether or not the ISS is in sunlight. The `skyfield` library makes it very easy to obtain this information for any `EarthSatellite` object. Can you consult the documentation and write a program that displays whether or not the ISS is in sunlight every 30 seconds?
+
+---hints---
+---hint---
+According to the [documentation](https://rhodesmill.org/skyfield/earth-satellites.html#find-when-a-satellite-is-in-sunlight) you can check whether a satellite is in sunlight at a given point in time by using the `is_sunlit` method.
+
+Note that you will also need to load an _ephemeris_ that contains data about the position of the Sun.
+---/hint---
+---hint---
+Remember to use a loop and update the current time before computing the position of the ISS.
+---/hint---
+---hint---
+Your code should look like this:
+
+```python
+from time import sleep
+from astro_pi import ISS
+from skyfield.api import load
+
+ephemeris = load('de421.bsp')
+timescale = load.timescale()
+
+while True:
+    t = timescale.now()
+    if ISS.at(t).is_sunlit(ephemeris):
+        print("In sunlight")
+    else:
+        print("In darkness")
+    sleep(30)
+```
+---/hint---
+---/hints---
+
+
