@@ -16,20 +16,20 @@ The team from CoderDojo Tatooine wants to investigate whether the environment on
 Their computer program should:
 - Take regular measurements of temperature and humidity every 30 seconds, and log the values in a CSV file.
 - Calculate the ISS’s latitude and longitude using the PyEphem library, and log this information in the CSV file.
-- Take a photo using the IR camera on Astro Pi computer Izzy, which is pointing out of a window towards Earth, to gather data on whether cloud cover might also be a factor.
+- Take a photo using the camera on Astro Pi IR, which is pointing out of a window towards Earth, to gather data on whether cloud cover might also be a factor.
 - Write the latitude and longitude data into the EXIF tags of the images, which have sequentially numbered file names.
 - For a 'Life in space' experiment, update the Astro Pi’s LED matrix every 15 seconds. 'Life on Earth' experiments should not use the LED matrix.
 - Handle any unexpected errors and log the details.
 
 ### How to approach writing the program for Phase 2 of Mission Space Lab
 
-+ First, look at the coding guidelines in the steps in this project. They contain a few things that your program should do so that it can run smoothly on the Astro Pis on the ISS, along with some useful tips for how to make the most of your experimental results. There are also a few strict rules, such as making sure that all of the photos that Astro Pi Ed takes of the inside of the ISS are deleted at the end of your experiment.
++ First, look at the coding guidelines in the steps in this project. They contain a few things that your program should do so that it can run smoothly on the Astro Pis on the ISS, along with some useful tips for how to make the most of your experimental results. There are also a few strict rules, such as making sure that all of the photos that Astro Pi VIS takes of the inside of the ISS are deleted at the end of your experiment.
 
 Remember, these are some key things that the program should do:
 
 1. The complete program should be in a single file.
 1. Results should be saved to a CSV file.
-1. Photos from Astro Pi Izzy should have the ISS location information added to their metadata.
+1. Photos from Astro Pi IR should have the ISS location information added to their metadata.
 1. The use of multiple threads should be avoided.
 1. The Astro Pi’s LED matrix should be updated regularly to indicate that the program is working ('Life in space' only).
 1. The program should finish after 3 hours.

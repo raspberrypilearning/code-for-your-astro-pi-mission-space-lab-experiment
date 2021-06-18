@@ -11,11 +11,9 @@ Once you've done that, power the Raspberry Pi back on and take some test photos:
 The code snippet below shows how to take a picture with the Camera Modules of the Astro Pis using the `picamera` library, and save it to the correct directory. The `picamera` library is very powerful and has [great documentation](https://picamera.readthedocs.io/en/latest/){:target="_blank"}.
 
 ```python
-
 from time import sleep
 from picamera import PiCamera
 from pathlib import Path
-import os
 
 dir_path = Path(__file__).parent.resolve()
 
@@ -25,17 +23,15 @@ camera.start_preview()
 # Camera warm-up time
 sleep(2)
 camera.capture(f"{dir_path}/image.jpg")
-
 ```
 
-If you’re using the visible light camera on Astro Pi Ed, then your program must delete all images at the end of your experiment time.
+If you’re using the visible light camera on Astro Pi VIS, then your program must make sure that captured images have been deleted by the end of your experiment time:
 
 ```python
-os.remove(dir_path/"image.jpg")
-
+(dir_path/"image.jpg").unlink()
 ```
 
-If you are using the infrared camera on Astro Pi Izzy, then you will get some amazing pictures of the Earth seen from the ISS. Even if your program will process these images and only make use of the extracted data, we recommend that you do not delete all the images (unless your program will generate so many of them that you risk running out of disk space on the Astro Pi). Apart from being a unique souvenir of your mission, the images may also help you with debugging any unexpected issues with your experimental results. Here are some examples of [images captured using the IR camera on Izzy](https://www.flickr.com/photos/raspberrypi). If you're going to be processing images (e.g. with the OpenCV Python library), you should test your code on some of these images.
+If you are using the infrared camera on Astro Pi IR, then you will get some amazing pictures of the Earth seen from the ISS. Even if your program will process these images and only make use of the extracted data, we recommend that you do not delete all the images (unless your program will generate so many of them that you risk running out of disk space on the Astro Pi). Apart from being a unique souvenir of your mission, the images may also help you with debugging any unexpected issues with your experimental results. Here are some examples of [images captured using the infrared camera on Astro Pi IR](https://www.flickr.com/photos/raspberrypi). If you're going to be processing images (e.g. with the OpenCV Python library), you should test your code on some of these images.
 
 The rest of this step is mainly for 'Life on Earth' experiments. No images from 'Life in space' experiments can be saved.
 
