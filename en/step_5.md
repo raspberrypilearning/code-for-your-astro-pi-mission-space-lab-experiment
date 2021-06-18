@@ -1,6 +1,6 @@
 ## Finding the location of the ISS
 
-Using the Python `skyfield` library, you can calculate the positions of space objects within our solar system. This includes the Sun, the Moon, the planets, and many Earth satellites such as the ISS. So you can work out the ISS’s current location above the Earth, which you can use to identify whether the ISS is flying over land or sea, or which country it is flying over.
+Using the Python `skyfield` library, you can calculate the positions of space objects within our solar system. This includes the Sun, the Moon, the planets, and many Earth satellites such as the ISS. You can use the ISS’s current location above the Earth to identify whether the ISS is flying over land or sea, or which country it is passing over.
 
 --- collapse ---
 ---
@@ -35,32 +35,31 @@ ISS (ZARYA)
 When your code runs on the Space Station, we will make sure that the most accurate and up-to-date telemetry data will be used.
 --- /collapse ---
 
-You can use `ISS` just like any other `EarthSatellite` object in `skyfield` (see the [Reference](https://rhodesmill.org/skyfield/api-satellites.html#skyfield.sgp4lib.EarthSatellite) and [Examples](https://rhodesmill.org/skyfield/earth-satellites.html)) but `ISS` also provides an additional convenient method for obtaining the Space Station's _current_ coordinates:
+You can use `ISS` just like any other `EarthSatellite` object in `skyfield` (see the [Reference](https://rhodesmill.org/skyfield/api-satellites.html#skyfield.sgp4lib.EarthSatellite) and [Examples](https://rhodesmill.org/skyfield/earth-satellites.html)). This is how to compute the coordinates of the point on Earth that is _currently_ directly beneath the ISS:
 
 ```python
 from astro_pi import ISS
+from skyfield.api import load
 
-point = ISS.coordinates()
+timescale = load.timescale()
+t = timescale.now()
+point = ISS.at(t).subpoint()
 print(point)
 ```
 
 `point` is a `GeographicPosition`, so you can refer to the documentation and see [how you can access it's individual elements](https://rhodesmill.org/skyfield/api-topos.html#skyfield.toposlib.GeographicPosition):
 
 ```python
-from astro_pi import ISS
-
-point = ISS.coordinates()
+point = ISS.at(t).subpoint()
 print(f'Latitude: {point.latitude}')
 print(f'Longitude: {point.longitude}')
-print(f'Elevation: {point.elevation}')
+print(f'Elevation: {point.elevation.km}')
 ```
 
 Note that the latitude and longitude are `Angle`s and the elevation is a `Distance`. The documentation describes [how to switch between different `Angle` representations](https://rhodesmill.org/skyfield/api-units.html#skyfield.units.Angle) or [how to express `Distance` in different units](https://rhodesmill.org/skyfield/api-units.html#skyfield.units.Distance): 
 
 ```python
-from astro_pi import ISS
-
-point = ISS.coordinates()
+point = ISS.at(t).subpoint()
 print(f'Lat: {point.latitude.degrees:.1f}, Long: {point.longitude.degrees:.1f}')
 ```
 
@@ -71,13 +70,14 @@ The code above outputs latitude and longitude using the Decimal Degrees (DD) for
 Another approach is the degrees:minutes:seconds (DMS) format, where each degree is split into 60 minutes (’) and each minute is divided into 60 seconds (”). For even finer accuracy, fractions of seconds given by a decimal point are used. This _sign_ of the angle indicates whether the point that the coordinate refers to is north or south of the equator (for latitude) and east or west of the Meridian (for longitude).
 
 ```python
-from astro_pi import ISS
-
-point = ISS.coordinates()
+point = ISS.at(t).subpoint()
 print(f'Lat: {point.latitude.signed_dms()}, Long: {point.longitude.signed_dms()}')
 ```
 
-### Checking the current coordinates
+--- collapse ---
+---
+title: Example: Which hemisphere?
+---
 
 If you wanted your experiment to run when the ISS is above a particular location on Earth, you could use the values of latitude and longitude to trigger some other action. Remember that the ISS's orbit does not pass over everywhere on Earth, and that more of our planet's surface is water than land. So in your three-hour experimental window, the chances of passing over a very specific city or location will be low.
 
@@ -97,8 +97,11 @@ Your code should look like this:
 
 ```python
 from astro_pi import ISS
+from skyfield.api import load
 
-point = ISS.coordinates()
+timescale = load.timescale()
+t = timescale.now()
+point = ISS.at(t).subpoint()
 latitude = point.latitude.degrees
 
 if latitude < 0:
@@ -108,3 +111,5 @@ else:
 ```
 ---/hint---
 ---/hints---
+
+--- /collapse ---
