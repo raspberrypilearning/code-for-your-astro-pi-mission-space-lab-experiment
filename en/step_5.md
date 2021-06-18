@@ -47,6 +47,8 @@ point = ISS.at(t).subpoint()
 print(point)
 ```
 
+**Note**: The current position of the ISS is an _estimate_, based on the telemetry data and the current time. Therefore, when you are testing your program on Desktop Flight OS, you need to make sure that the system time has been set correctly.
+
 `point` is a `GeographicPosition`, so you can refer to the documentation and see [how you can access it's individual elements](https://rhodesmill.org/skyfield/api-topos.html#skyfield.toposlib.GeographicPosition):
 
 ```python
@@ -99,8 +101,8 @@ from skyfield.api import load
 timescale = load.timescale()
 t = timescale.now()
 point = ISS.at(t).subpoint()
-latitude = point.latitude.degrees
 
+latitude = point.latitude.degrees
 if latitude < 0:
   print("In Southern hemisphere")
 else:
@@ -144,4 +146,4 @@ while True:
 ---/hint---
 ---/hints---
 
-
+**Note**: Because of the altitude of the ISS, the sun rises on the ISS slightly earlier than it does on the surface of the Earth below the ISS. Likewise, the sun sets on the ISS slightly later than it does on the surface of the Earth directly below it.
