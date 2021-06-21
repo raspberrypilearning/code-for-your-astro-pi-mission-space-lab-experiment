@@ -5,7 +5,7 @@ You can now combine all the elements described in this document to help code you
 Imagine this: the team from CoderDojo Tatooine wants to investigate whether the environment on the ISS is affected by the surface of the Earth it is passing over. Does the ISS get hotter when it passes over a desert, or wetter when it is above the sea?
 
 + Their code takes regular measurements of temperature and humidity every 30 seconds and logs these in a CSV file.
-+ They also calculate the ISS’s latitude and longitude using the `ephem` library and log this information in the data file.
++ They also calculate the ISS’s latitude and longitude using the `skyfield` library and log this information in the data file.
 + To see whether cloud cover might also be a factor, they take a photo using the camera on Astro Pi IR, which is pointing out of the window towards Earth.
 + The latitude and longitude data is written into the EXIF tags of the images, which have sequentially numbered file names. It is also logged to the CSV file.
 + The LED matrix is not used as this is a 'Life on Earth' experiment.

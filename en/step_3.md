@@ -193,7 +193,7 @@ SciPy is a free and open-source Python library used for scientific computing and
 title: tensorflow
 ---
 
-TensorFlow is Google's machine learning framework. Also included are TensorFlow Lite (`tflite`) and the necessary libraries in order to use Coral USB Accelerator (Edge TPU).
+TensorFlow is Google's machine learning framework. Also included are TensorFlow Lite (`tflite`) and the necessary libraries in order the Coral USB Accelerator (Edge TPU).
 
 #### Documentation
 
@@ -542,7 +542,7 @@ The final result is what is called pseudocode: a diagram of all of a program’s
 
 ### Test your program
 
-+ Don’t forget to test your program using the Flight version of the Flight OS. It’s a custom, command-line only version of the Raspberry Pi OS, and it does not have X-Windows and many of the standard development tools installed. Testing your program using the Desktop Flight OS will let you check that none of the commands rely on files or libraries that aren’t present on the Astro Pis aboard the ISS.
++ Don’t forget to test your program in the Desktop version of the Flight OS. This will help you check that none of the commands rely on files or libraries that aren’t present on the Astro Pis aboard the ISS.
 
 --- /collapse ---
 

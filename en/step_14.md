@@ -241,4 +241,4 @@ For example, dividing by zero in `do_something` would create the following log e
 
 Your program would continue without crashing, but rather than seeing no log entry, you see that an error occurred at this time.
 
-**Note**: You can (and should) use _both_ the `csv` library (for recording experiment data) and the `logzero` library (for logging important events that take place during your experiment).**
+**Note**: You can (and should) use _both_ the `csv` library (for recording experiment data) and the `logzero` library (for logging important events that take place during your experiment).
