@@ -26,7 +26,7 @@ When your code is run on the ISS, it will be started and stopped by an automated
 ```python
 from pathlib import Path
 
-dir_path = Path(__file__).parent.resolve()
+base_folder = Path(__file__).parent.resolve()
 ```
 
 ### Logging data to a CSV file
@@ -42,8 +42,8 @@ from time import sleep
 
 sense = SenseHat()
 
-dir_path = Path(__file__).parent.resolve()
-data_file = dir_path/'data.csv'
+base_folder = Path(__file__).parent.resolve()
+data_file = base_folder/'data.csv'
 
 with open(data_file, 'w') as f:
     writer = csv.writer(f)
@@ -78,8 +78,8 @@ from time import sleep
 
 sense = SenseHat()
 
-dir_path = Path(__file__).parent.resolve()
-data_file = dir_path/'data.csv'
+base_folder = Path(__file__).parent.resolve()
+data_file = base_folder/'data.csv'
 
 with open(data_file, 'w') as f:
     writer = csv.writer(f)
@@ -102,8 +102,8 @@ from datetime import datetime
 from pathlib import Path
 from time import sleep
 
-dir_path = Path(__file__).parent.resolve()
-data_file = dir_path/'data.csv'
+base_folder = Path(__file__).parent.resolve()
+data_file = base_folder/'data.csv'
 
 with open(data_file, 'w') as f:
     writer = csv.writer(f)
@@ -149,9 +149,9 @@ from pathlib import Path
 from time import sleep
 from datetime import datetime
 
-dir_path = Path(__file__).parent.resolve()
+base_folder = Path(__file__).parent.resolve()
 
-logfile(dir_path/"teamname.log")
+logfile(base_folder/"teamname.log")
 
 for i in range(10):
     logger.info(f"Loop number {i+1} started")

@@ -22,10 +22,10 @@ import random
 from pathlib import Path
 import csv
 
-dir_path = Path(__file__).parent.resolve()
+base_folder = Path(__file__).parent.resolve()
 
 # Set a logfile name
-logfile(dir_path/"teamname.log")
+logfile(base_folder/"teamname.log")
 
 # Latest TLE data for ISS location
 name = "ISS (ZARYA)"
@@ -89,7 +89,7 @@ def capture(camera, image):
 
 
 # initialise the CSV file
-data_file = dir_path/"data.csv"
+data_file = base_folder/"data.csv"
 create_csv_file(data_file)
 # initialise the photo counter
 photo_counter = 1
@@ -114,7 +114,7 @@ while (now_time < start_time + timedelta(minutes=178)):
         )
         add_csv_data(data_file, data)
         # capture image
-        image_file = f"{dir_path}/photo_{photo_counter:03d}.jpg"
+        image_file = f"{base_folder}/photo_{photo_counter:03d}.jpg"
         capture(cam, image_file)
         logger.info(f"iteration {photo_counter}")
         photo_counter += 1

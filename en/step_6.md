@@ -15,20 +15,20 @@ from time import sleep
 from picamera import PiCamera
 from pathlib import Path
 
-dir_path = Path(__file__).parent.resolve()
+base_folder = Path(__file__).parent.resolve()
 
 camera = PiCamera()
 camera.resolution = (1296,972)
 camera.start_preview()
 # Camera warm-up time
 sleep(2)
-camera.capture(f"{dir_path}/image.jpg")
+camera.capture(f"{base_folder}/image.jpg")
 ```
 
 If you’re using the visible light camera on Astro Pi VIS, then your program must make sure that captured images have been deleted by the end of your experiment time:
 
 ```python
-(dir_path/"image.jpg").unlink()
+(base_folder/"image.jpg").unlink()
 ```
 
 If you are using the infrared camera on Astro Pi IR, then you will get some amazing pictures of the Earth seen from the ISS. Even if your program will process these images and only make use of the extracted data, we recommend that you do not delete all the images (unless your program will generate so many of them that you risk running out of disk space on the Astro Pi). Apart from being a unique souvenir of your mission, the images may also help you with debugging any unexpected issues with your experimental results. Here are some examples of [images captured using the infrared camera on Astro Pi IR](https://www.flickr.com/photos/raspberrypi). If you're going to be processing images (e.g. with the OpenCV Python library), you should test your code on some of these images.
@@ -83,8 +83,8 @@ def capture(camera, image):
 cam = PiCamera()
 cam.resolution = (1296,972)
 
-dir_path = Path(__file__).parent.resolve()
-capture(cam, f"{dir_path}/gps1.jpg")
+base_folder = Path(__file__).parent.resolve()
+capture(cam, f"{base_folder}/gps1.jpg")
 ```
 
 --- collapse ---
@@ -113,12 +113,12 @@ from time import sleep
 from picamera import PiCamera
 from pathlib import Path
 
-dir_path = Path(__file__).parent.resolve()
+base_folder = Path(__file__).parent.resolve()
 
 camera = PiCamera()
 camera.start_preview()
 sleep(2)
-for filename in camera.capture_continuous(f"{dir_path}/image_{counter:03d}.jpg"):
+for filename in camera.capture_continuous(f"{base_folder}/image_{counter:03d}.jpg"):
     print(f'Captured {filename}')
     sleep(300) # wait 5 minutes
 ```
