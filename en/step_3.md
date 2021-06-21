@@ -2,7 +2,7 @@
 
 Now you can start writing the program for your experiment. To do this, you'll need to plan your coding sessions, understand the best way to write the program for your experiment, and ensure that it will work on the Astro Pis on the ISS. 
 
-To help with planning, we've put together a guide for Phase 2 that provides useful tips for facilitating your team's coding.
+To help with planning, we've put together some useful tips for Phase 2 that will facilitate your team's coding.
 
 --- collapse ---
 ---
@@ -15,7 +15,7 @@ The team from CoderDojo Tatooine wants to investigate whether the environment on
 
 Their computer program should:
 - Take regular measurements of temperature and humidity every 30 seconds, and log the values in a CSV file.
-- Calculate the ISS’s latitude and longitude using the PyEphem library, and log this information in the CSV file.
+- Calculate the ISS’s latitude and longitude using the `skyfield` library, and log this information in the CSV file.
 - Take a photo using the camera on Astro Pi IR, which is pointing out of a window towards Earth, to gather data on whether cloud cover might also be a factor.
 - Write the latitude and longitude data into the EXIF tags of the images, which have sequentially numbered file names.
 - For a 'Life in space' experiment, update the Astro Pi’s LED matrix every 15 seconds. 'Life on Earth' experiments should not use the LED matrix.
@@ -94,40 +94,41 @@ The final result is what is called pseudocode: a diagram of all of a program’s
 
 --- /collapse ---
 
+
 ### Which version of Python should you use?
 
-Programs for all MSL challenge entries must be written in **Python 3**.
+Programs for all MSL challenge entries must be written in **Python 3**. The version of the Python interpreter currently available on the Flight OS is 3.7.3.
 
-If you find a Python library that you need for your experiment and that can only be used in Python 2, please contact us — we will help you find an alternative approach.
+### What to call your Mission Space Lab Python files
+
+When you submit the program for your MSL experiment, your main Python file should be called `main.py`.
+
+Ideally, all of your code should be contained within this file. However, if your experiment is complex and you need to break down your code in individual modules, then additional files are allowed.
+
+### Documenting your code
+
+When you've created a really useful program or piece of software and you want to share it with other people, a crucial step is creating documentation that helps people understand what the program does, how it works, and how they can use it. This is especially important for your MSL experiment, because it should be obvious from your program how you will achieve your experiment's aims and objectives.
+
+This [project](https://projects.raspberrypi.org/en/projects/documenting-your-code) shows you the recommended way to add useful comments to your program.
+
+**Note**: Any attempt to hide, or make it difficult to understand, what a piece of code is doing will result in disqualification. And of course, there should be no bad language or rudeness in your code.
 
 ### Python libraries
 
-We've installed a collection of Python libraries on the Astro Pi's OS. Here's some information on what you can use them for and where you can find the relevant documentation.
+The Astro Pi Flight OS offers a collection of Python libraries that can be used for your experiment, in addition to the ones that are available by default. The same libraries have also been installed on the Desktop Flight OS, so that the environment that you will use for developing and testing your code will match the one on the ISS as closely as possible (down to the same package versions). 
 
-Remember that you can download the Astro Pi OS to get all of these libraries on your SD card. 
+You can find some information below on what you can use them for and where you can find the relevant documentation.
 
 --- collapse ---
 ---
-title: pyephem
+title: skyfield
 ---
 
 #### Usage
 
-You can download the telemetry data for the ISS flight path to use the `pyephem` library in your tests. When your code runs, it will tell you exactly where the ISS currently is.
+Skyfield, the successor to PyEphem, is an astronomy package that computes the positions of stars, planets, and satellites in orbit around the Earth.
 
-Browse to, or download and open, [celestrak.com/NORAD/elements/stations.txt](https://www.celestrak.com/NORAD/elements/stations.txt) and copy and paste the first three lines as variables into your code to get the latest telemetry data for the ISS flight path. This data will be automatically updated when your code runs on the ISS.
-
-```python
-from ephem import readtle
-
-name = "ISS (ZARYA)"
-line1 = "1 25544U 98067A   20316.41516162  .00001589  00000+0  36499-4 0  9995"
-line2 = "2 25544  51.6454 339.9628 0001882  94.8340 265.2864 15.49409479254842"
-
-iss = readtle(name, line1, line2)
-iss.compute()
-print(iss.sublat, iss.sublong)
-```
+In _"Finding the location of the ISS"_, you can find out how to use Skyfield in order to obtain the position of the International Space Station above the Earth.
 
 #### Documentation
 
@@ -140,7 +141,7 @@ print(iss.sublat, iss.sublong)
 title: picamera
 ---
 
-`picamera` is the Python library for controlling the Raspberry Pi Camera Module. It is compatible with V1 and V2 Camera Modules. The Astro Pi unit has the V1 Camera Module on board, but you can test with either version as long as you don't exceed the V1's maximum resolution of 2592×1944.
+`picamera` is the Python library for controlling the Raspberry Pi Camera Module. 
 
 #### Usage
 
@@ -149,7 +150,7 @@ from picamera import PiCamera
 from time import sleep
 
 camera = PiCamera()
-camera.resolution = (2592, 1944)  # max resolution
+camera.resolution = (2592, 1944)
 
 for i in range(3*60):
     camera.capture(f'image{i:3d}')  # take a picture every minute for 3 hours
@@ -158,7 +159,7 @@ for i in range(3*60):
 
 #### Documentation
 
-- [picamera.readthedocs.io](https://picamera.readthedocs.io/en/release-1.13/)
+- [picamera.readthedocs.io](https://picamera.readthedocs.io)
 
 --- /collapse ---
 
@@ -190,7 +191,7 @@ for color in start.gradient(end, steps=100):
 
 #### Documentation
 
-- [colorzero.readthedocs.io](https://colorzero.readthedocs.io/en/release-1.1/)
+- [colorzero.readthedocs.io](https://colorzero.readthedocs.io)
 
 --- /collapse ---
 
@@ -199,7 +200,7 @@ for color in start.gradient(end, steps=100):
 title: gpiozero
 ---
 
-GPIO Zero is a simple but powerful GPIO library. While much of its functionality is prohibited (no access to GPIO pins), some of it can be handy in your experiment, such as the internal device `CPUTemperature`.
+GPIO Zero is a simple but powerful GPIO library. While much of its functionality is restricted for the purposes of Mission Space Lab (e.g. access to GPIO pins), some of it can be handy in your experiment, such as the internal device `CPUTemperature`.
 
 #### Usage
 
@@ -219,7 +220,7 @@ while True:
 
 #### Documentation
 
-- [gpiozero.readthedocs.io](https://gpiozero.readthedocs.io/en/v1.4.1/)
+- [gpiozero.readthedocs.io](https://gpiozero.readthedocs.io)
 
 --- /collapse ---
 
@@ -263,7 +264,7 @@ camera.capture(output, 'rgb')
 
 #### Documentation
 
-- [docs.scipy.org/doc/numpy](https://docs.scipy.org/doc/numpy/user/index.html)
+- [docs.scipy.org/doc](https://docs.scipy.org/doc/)
 
 --- /collapse ---
 
@@ -276,7 +277,7 @@ SciPy is a free and open-source Python library used for scientific computing and
 
 #### Documentation
 
-- [docs.scipy.org/doc/scipy](https://docs.scipy.org/doc/scipy/reference/)
+- [docs.scipy.org/doc](https://docs.scipy.org/doc/)
 
 --- /collapse ---
 
@@ -316,20 +317,6 @@ GeoPandas is an open source project to make working with geospatial data in pyth
 #### Documentation
 
 - [geopandas.org](https://geopandas.org/)
-
---- /collapse ---
-
---- collapse ---
----
-title: EarthPy
----
-
-
-#### Documentation
-
-`earthpy` is a python package that makes it easier to plot and work with spatial raster and vector data using open source tools.
-
-- [earthpy.readthedocs.io](https://earthpy.readthedocs.io/)
 
 --- /collapse ---
 
@@ -470,7 +457,7 @@ title: opencv
 
 #### Documentation
 
-- [docs.opencv.org](https://docs.opencv.org/3.4.3/)
+- [docs.opencv.org](https://docs.opencv.org/4.4.0/)
 
 --- /collapse ---
 
@@ -522,7 +509,7 @@ title: reverse-geocoder
 
 #### Usage
 
-When used with `pyephem`, `reverse-geocoder` can determine where the ISS currently is:
+When used with `skyfield`, `reverse-geocoder` can determine where the ISS currently is:
 
 ```python
 import reverse_geocoder as rg
@@ -541,15 +528,25 @@ location = rg.search(pos)
 print(location)
 ```
 
-This output shows the ISS is currently over the Sand Point city, in Alaska:
+```python
+import reverse_geocoder
+from astro_pi import ISS
+
+coordinates = (ISS.coordinates().latitude.degrees, ISS.coordinates().longitude.degrees)
+location = reverse_geocoder.search(coordinates)
+print(location)
+```
+This output shows the ISS is currently over Hamilton, New York:
 
 ```
-[{'admin1': 'Alaska',
-  'admin2': 'Aleutians East Borough',
-  'cc': 'US',
-  'lat': '55.33655',
-  'lon': '-160.4988',
-  'name': 'Sand Point'}]
+[OrderedDict([
+    ('lat', '42.82701'), 
+    ('lon', '-75.54462'), 
+    ('name', 'Hamilton'), 
+    ('admin1', 'New York'), 
+    ('admin2', 'Madison County'), 
+    ('cc', 'US')
+])]
 ```
 
 #### Documentation
@@ -558,20 +555,11 @@ This output shows the ISS is currently over the Sand Point city, in Alaska:
 
 --- /collapse ---
 
-Note that no other libraries can be used in your Mission Space Lab experiment. If your experiment requires other Python libraries, please contact us and we will try you help you find an alternative approach.
+You should not install additional Python packages or even change the versions of the ones already available on the Desktop Flight OS. If you do, your program may run successfully when you test it in your modified environment but it will _fail_ when tested on the actual Flight OS.
 
-Some Python libraries may include functions that perform a web request to look up some information or return a value that is dependent on time or location. Even though they may be very useful, these are not permitted (see the 'Networking' section of this guide).  
+To make sure that you are not using a Python package you are not supposed to, follow the instructions in this guide and check that your code will terminate successfully when executed in a terminal using `python3 main.py`, in an unmodified version of the Desktop Flight OS.
 
-### What to call your Mission Space Lab Python files
+If your experiment requires Python libraries that are not available in the Flight OS, please contact us and we will try to help you find a solution.
 
-When you submit the program for your MSL experiment, your main Python file should be called `main.py`.
+Note that some Python libraries may include functions that perform a web request to look up some information or return a value that is dependent on time or location. Even though they may be very useful, these are not permitted (see the 'Networking' section of this guide).  
 
-Ideally, all of your code should be contained within this file. However, if your experiment is very complex, then additional files are allowed.
-
-### Documenting your code
-
-When you've created a really useful program or piece of software and you want to share it with other people, a crucial step is creating documentation that helps people understand what the program does, how it works, and how they can use it. This is especially important for your MSL experiment, because it should be obvious from your program how you will achieve your experiment's aims and objectives.
-
-This [project](https://projects.raspberrypi.org/en/projects/documenting-your-code) shows you the recommended way to add useful comments to your program.
-
-Any attempt to hide, or make it difficult to understand, what a piece of code is doing will result in disqualification. And of course, there should be no bad language or rudeness in your code.
