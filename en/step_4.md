@@ -178,7 +178,7 @@ If you want to handle an exception, but log that you did so, you can use `logger
 try:
     do_something()
  except Exception as e:
-    logger.error(f'{e.__class__.__name__}: {e})')
+    logger.error(f'{e.__class__.__name__}: {e}')
 ```
 
 For example, dividing by zero in `do_something` would create the following log entry:
