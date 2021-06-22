@@ -4,6 +4,13 @@ Here is an example of an Astro Pi Mission Space Lab experiment idea: _The team f
 
 This example will serve as a template, to illustrate how you can combine all the elements described so far in this guide in order to plan and write your computer program.
 
+For this particular example, it seems that the program for the experiment should:
+- Take regular measurements of temperature and humidity every 30 seconds, and log the values in a CSV file.
+- Calculate the ISS’s latitude and longitude using the `skyfield` library, and log this information in the CSV file.
+- Take a photo using the camera on Astro Pi IR, which is pointing out of a window towards Earth, to gather data on whether cloud cover might also be a factor.
+- Write the latitude and longitude data in the CSV file and also into the EXIF tags of the images, which have sequentially numbered file names.
+- Handle any unexpected errors and log the details.
+
 ### Planning your coding sessions
 
 To help with planning, we've put together some useful tips for Phase 2 that will facilitate your team's coding.
@@ -15,27 +22,19 @@ title: Tips for planning and running coding sessions
 
 ### How to approach writing the program for Phase 2 of Mission Space Lab
 
-First, look at the requirements in this guide. They contain a few things that your program should do so that it can run smoothly on the Astro Pis on the ISS, along with some useful tips for how to make the most of your experimental results. Some of the requirements are strict, such as making sure that the generated data and image files are stored in the right place, with the appropriate filenames.
++ Read through this guide and the requirements it contains. There are a few things that your program should do so that it can run smoothly on the Astro Pis on the ISS, along with some useful tips for how to make the most of your experimental results. Some of the requirements are strict, such as making sure that the generated data and image files are stored in the right place, with the appropriate filenames.
 
-Remember, these are some key things that the program should do:
+For example, these are some key requirements you need to keep in mind:
 
-1. The complete program should be in a single file.
-1. Results should be saved to a CSV file.
+1. The complete program should be in a single file (if possible), named `main.py`.
+1. Data should be saved to a CSV file.
 1. Photos from Astro Pi IR should have the ISS location information added to their metadata.
 1. The use of multiple threads should be avoided.
-1. The Astro Pi’s LED matrix should be updated regularly to indicate that the program is working ('Life in space' only).
 1. The program should finish after 3 hours.
 
 ### Work out the key tasks
 
 + Get your team together and start to map out the rough outline of how your program will work. You could do this as a group and have everyone call out their ideas, or all team members could work individually and then get together to compare results.
-
-For this particular example, the program should:
-- Take regular measurements of temperature and humidity every 30 seconds, and log the values in a CSV file.
-- Calculate the ISS’s latitude and longitude using the `skyfield` library, and log this information in the CSV file.
-- Take a photo using the camera on Astro Pi IR, which is pointing out of a window towards Earth, to gather data on whether cloud cover might also be a factor.
-- Write the latitude and longitude data in the CSV file and also into the EXIF tags of the images, which have sequentially numbered file names.
-- Handle any unexpected errors and log the details.
 
 + Use a whiteboard or big sheet of paper to list all of the key tasks that your program will need to perform. You don’t need to worry about the order or the actual functions and commands at this stage — just note down the specific things that need to be achieved. This is what that would look like for the example scenario above:
 
