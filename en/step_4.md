@@ -10,9 +10,9 @@ The Sense HAT used in the Astro Pi hosts a range of sensors that you can retriev
 - Barometric pressure sensor
 - Light and colour sensor
 
-The Astro Pi also includes a Passive Infra-Red (PIR) motion sensor, providing input data through one of the Raspberry Pi's GPIO pins.
+The Astro Pi also includes a Passive Infra-Red (PIR) motion sensor, of the kind used in burglar alarms. It is able to detect whether or not there is an object moving within range of its field of view (e.g. an astronaut) and provides this input data through one of the Raspberry Pi's GPIO pins.
 
-**Note**: Using data from the colour sensor or the motion sensor only makes sense for _Life in Space_ experiments. For _Life on Earth_, the Astro Pi is "hooded" to avoid reflections and the colour sensor is in darkness, facing away from the window.
+**Note**: You can only use data from the light sensor or the PIR motion sensor for _Life in Space_ experiments. For _Life on Earth_, the Astro Pi is positioned with the camera facing out a window and placed under a black "hood", to avoid reflections. The light sensor and the PIR motion sensor face in the opposite direction from the camera, away from the window, so they are in darkness and under cover.
 
 ### Retrieving sensor data from the Sense HAT
 
@@ -71,7 +71,7 @@ Such a file would be named something like `data.csv`, with the `.csv` extension 
 
 ### Directory structure and file names
 
-When you are developing your code on the Desktop Flight OS, you are free to store your Python program wherever you please. However, you should make no assumptions about where your program will be stored when it is deployed on the ISS, especially given that the directory structure in the actual Flight OS is different. Your program must _never_ use absolute folder paths, i.e. it must not refer to specific folders such as `/home/pi` or `/home/pi/Desktop`. Instead, your main Python program should use the code below to work out at runtime which folder it is currently stored in, i.e. the `base_folder`:
+You should make no assumptions about where your program will be stored when it is deployed on the ISS, especially given that the directory structure in the actual Flight OS is different than from the Desktop version. Your program must _never_ use absolute folder paths, i.e. it must not refer to specific folders such as `/home/pi` or `/home/pi/Desktop`. Instead, your main Python program should use the code below to work out at runtime which folder it is currently stored in, i.e. the `base_folder`:
 
 ```python
 from pathlib import Path
