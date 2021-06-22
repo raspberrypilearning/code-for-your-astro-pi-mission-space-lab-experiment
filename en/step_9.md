@@ -55,8 +55,7 @@ while True:
     active_status()
 ```
 
-You should aim to update the screen at least every 15 seconds.
-If your experiment has period of ‘sleeping’ that is longer than that, you can split the waiting period up:
+You should aim to update the screen at least every 15 seconds. If your experiment has period of ‘sleeping’ that is longer than that, you can split the waiting period up:
 
 ```python
 sh.set_pixels(image)
@@ -71,4 +70,4 @@ while True:
     active_status()
 ```
 
-**Note**: You are not allowed to change light level of the LEDs. Do not use `sense.low_light`, `sense.gamma`, `sense.reset_gamma`, or `pisense.hat.screen.gamma` in your submitted program.
+**Note**: You are not allowed to change the light level of the LEDs. Do not use `sense.low_light`, `sense.gamma`, `sense.reset_gamma`, or `pisense.hat.screen.gamma` in your submitted program.
