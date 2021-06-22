@@ -93,7 +93,7 @@ title: Tips for planning and running coding sessions (no images)
 
 ### How to approach writing the program for Phase 2 of Mission Space Lab
 
-+ Read through this guide and the requirements it contains. There are a few things that your program should do so that it can run smoothly on the Astro Pis on the ISS, along with some useful tips for how to make the most of your experimental results. Some of the requirements are strict, such as making sure that the generated data and image files are stored in the right place, with the appropriate filenames.
++ Read through this guide. Familiarise yourself with the requirements that your program must meet so that it can advance to the next phase and run smoothly on the Astro Pis on the ISS. Read the useful tips provided throughout on how to best develop your program and make the most of your experimental results.
 
 ### Work out the key tasks
 
@@ -132,8 +132,6 @@ title: Tips for planning and running coding sessions (no images)
 + Encourage each team member or subteam responsible for a specific part of the program to code their section so that works by itself, just like the examples in the coding requirements document. Suggest that they add comments and docstrings as they go along.
 
 + Get together regularly to discuss progress and work through any major challenges as a group. It is useful to update your pseudocode flow diagram to reflect any changes that your team realise are necessary as they write the actual program.
-
-![](images/Astro_Pi_Educator_Web_V6e.png)
 
 + Keep the deadline for submitting your program in mind. If time is running out, are there any parts of your program that can be left out? If you are planning on performing analysis of results in real time, can this instead be done after your program has run, when you’ve got your results back?
 
