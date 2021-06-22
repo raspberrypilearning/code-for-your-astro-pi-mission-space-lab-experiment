@@ -122,11 +122,12 @@ The behaviour of your code might differ depending on whether or not the ISS is i
 ---hints---
 ---hint---
 According to the [documentation](https://rhodesmill.org/skyfield/earth-satellites.html#find-when-a-satellite-is-in-sunlight) you can check whether a satellite is in sunlight at a given point in time by using the `is_sunlit` method.
-
-Note that you will also need to load an _ephemeris_ that contains data about the position of the Sun.
 ---/hint---
 ---hint---
-Remember to use a loop and update the current time before computing the position of the ISS.
+You will need to start by loading an _ephemeris_. According to the [documentation](https://rhodesmill.org/skyfield/planets.html) this is a high accuracy table with the position of celestial objects. In this case, the ephemeris is necessary for computing the positions of the Earth and the Sun.
+---/hint---
+---hint---
+Remember to use a loop and update the current time within the loop, before computing the position of the ISS.
 ---/hint---
 ---hint---
 Your code should look like this:
