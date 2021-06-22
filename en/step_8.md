@@ -7,20 +7,20 @@ One way to stop your program after a specific length of time is using the `datet
 By recording and storing the time at the start of your experiment, you can then repeatedly check to see if the current time is greater than that start time plus a certain number of minutes, seconds, or hours. This difference is known as a `timedelta`.  
 
 ```python
-import datetime
+from datetime import datetime, timedelta
 from time import sleep
 
-# create a datetime variable to store the start time
-start_time = datetime.datetime.now()
-# create a datetime variable to store the current time
+# create a `datetime` variable to store the start time
+start_time = datetime.now()
+# create a `datetime` variable to store the current time
 # (these will be almost the same at the start)
-now_time = datetime.datetime.now()
+now_time = datetime.now()
 # run a loop for 2 minutes
-while (now_time < start_time + datetime.timedelta(minutes=2)):
+while (now_time < start_time + timedelta(minutes=2)):
     print("Doing stuff")
     sleep(1)
     # update the current time
-    now_time = datetime.datetime.now()
+    now_time = datetime.now()
 ```
 
-**Note:** When deciding on the runtime for your code, make sure you take into account how long it takes for your loop to complete a cycle. So if you want to make use of the full three-hour (180-minute) experiment slot available, but each loop through your code takes 6 minutes to complete, then your `timedelta` should be `180-6 = 174` minutes, to ensure that your code finishes **before** the three hours have elapsed.
+**Note:** When deciding on the runtime for your code, make sure you take into account how long it takes for your loop to complete a cycle. So if you want to make use of the full three-hour (180-minute) experiment slot available, but each loop through your code takes 6 minutes to complete, then your `timedelta` should be `180-6 = 174` minutes, to ensure that your code finishes __before__ the three hours have elapsed.
