@@ -1,6 +1,8 @@
-## For Life in space' experiments only:  Using the LED display
+## For 'Life in space' experiments only: Using the LED display
 
-The LED matrix is the only display available to the Astro Pi computer, which is never connected to a normal monitor or TV screen on the ISS. The crew may begin to wonder if the Astro Pi computer has crashed if nothing is shown on its display for some time. It will then cost crew time if they need to check it and/or call ground control to report a problem. To avoid this, your code should keep updating the LED matrix in some way to indicate that your experiment is progressing. **If your experiment is for 'Life on Earth', then you should not use the LED matrix because the Astro Pi will be hooded to prevent stray light spoiling the images taken from the ISS window.**
+The LED matrix is the only display available to the Astro Pi computer, which is never connected to a normal monitor or TV screen on the ISS. If nothing is shown on its display for some time, the crew may begin to wonder if the Astro Pi computer has crashed. It will then cost crew time if they need to check it and/or call ground control to report a problem. To avoid this, your code should regularly update the LED matrix in some way, to indicate that your experiment is progressing. 
+
+**Note**: If your experiment is for _'Life on Earth'_, then you should not use the LED matrix. When the Astro Pi is running _'Life on Earth'_ experiments, the LED matrix is disabled and the unit is placed under a black "hood", to prevent reflections and stray light from spoiling the images taken from the ISS window.
 
 The `sense_hat` library has functions to write messages to the LED matrix or light up individual pixels.
 
@@ -16,35 +18,36 @@ The LED matrix can produce very bright colourful images. However, remember that 
 from sense_hat import SenseHat
 from time import sleep
 import random
-sh = SenseHat()
+
+sense = SenseHat()
 
 # Define some colours - keep brightness low
-g = [0,50,0]
+g = [0,128,0]
 o = [0,0,0]
 
 # Define a simple image
-img1 = [
-g,g,g,g,g,g,g,g,
-o,g,o,o,o,o,g,o,
-o,o,g,o,o,g,o,o,
-o,o,o,g,g,o,o,o,
-o,o,o,g,g,o,o,o,
-o,o,g,g,g,g,o,o,
-o,g,g,g,g,g,g,o,
-g,g,g,g,g,g,g,g,
+image = [
+    g,g,g,g,g,g,g,g,
+    o,g,o,o,o,o,g,o,
+    o,o,g,o,o,g,o,o,
+    o,o,o,g,g,o,o,o,
+    o,o,o,g,g,o,o,o,
+    o,o,g,g,g,g,o,o,
+    o,g,g,g,g,g,g,o,
+    g,g,g,g,g,g,g,g,
 ]
 
 # Define a function to update the LED matrix
 def active_status():
     # a list with all possible rotation values
-    orientation = [0,90,270,180]
+    rotation_values = [0,90,180,270]
     # pick one at random
-    rot = random.choice(orientation)
+    rotation = random.choice(rotation_values)
     # set the rotation
-    sh.set_rotation(rot)
+    sense.set_rotation(rotation)
 
-# Load the image
-sh.set_pixels(img1)
+# Display the image
+sense.set_pixels(image)
 while True:
     # do stuff (in this case, nothing)
     sleep(2)
@@ -56,7 +59,7 @@ You should aim to update the screen at least every 15 seconds.
 If your experiment has period of ‘sleeping’ that is longer than that, you can split the waiting period up:
 
 ```python
-sh.set_pixels(img1)
+sh.set_pixels(image)
 while True:
     # do stuff (in this case, nothing)
     sleep(15)
@@ -68,4 +71,4 @@ while True:
     active_status()
 ```
 
-Please note that altering the light level of the LEDs is not permitted. Do not use `sense.low_light`, `sense.gamma`, `sense.reset_gamma`, or `pisense.hat.screen.gamma` in your submitted program.
+**Note**: You are not allowed to change light level of the LEDs. Do not use `sense.low_light`, `sense.gamma`, `sense.reset_gamma`, or `pisense.hat.screen.gamma` in your submitted program.
