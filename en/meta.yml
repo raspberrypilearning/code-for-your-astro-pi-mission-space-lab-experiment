@@ -14,7 +14,7 @@ steps:
   - title: Recording images using the camera
   - title: Doing more than one thing at a time
   - title: Running your experiment for 3 hours
-  - title: Using the LED display ('Life in space' only)
+  - title: 'Life in space' only: Using the LED display
   - title: Networking and system processes
   - title: Common mistakes
   - title: A big worked example
