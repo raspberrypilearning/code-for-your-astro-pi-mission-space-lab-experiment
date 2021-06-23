@@ -17,7 +17,7 @@ To help with planning, we've put together some useful tips for Phase 2 that will
 
 --- collapse ---
 ---
-title: Tips for planning and running coding sessions (no images)
+title: Tips for planning and running coding sessions
 ---
 
 ### How to approach writing the program for Phase 2 of Mission Space Lab

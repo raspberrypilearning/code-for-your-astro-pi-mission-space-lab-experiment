@@ -1,10 +1,10 @@
 title: Astro Pi Mission Space Lab Phase 2 guide
 hero_image: images/banner.png
 description: Guide for participants of the Mission Space Lab Astro Pi competition 2021-22
-version: 4
+version: 2022.1
 listed: true
 copyedit: true
-last_tested: "2018-06-29"
+last_tested: "2021-06-23"
 steps:
   - title: Introduction
   - title: Getting started
