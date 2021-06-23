@@ -2,7 +2,7 @@
 
 The European Astro Pi Challenge is an ESA Education project run in collaboration with the Raspberry Pi Foundation. Astro Pi Mission Space Lab offers young people the amazing opportunity to conduct scientific investigations in space by writing computer programs that run on Raspberry Pi computers — the Astro Pis — aboard the International Space Station.
 
-![](images/astro-pi-front.png){:width="400px"} ![](images/astro-pi-back.png){:width="400px"}
+![Two views of the Astro Pi, showing the front panel (with some of the sensors) and the camera](images/astro-pi-double.png){:width="800px"}
 
 This guide covers Phase 2 for both Mission Space Lab themes: _Life on Earth_ and _Life in Space_. We want your experiment to run reliably on the ISS, and this guide will help you get started quickly and give you the best chance of running your program without problems.
 
