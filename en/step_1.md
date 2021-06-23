@@ -21,7 +21,7 @@ Most of the information in this guide applies to both 'Life in space' and 'Life 
 title: Notes for 'Life in Space' experiments
 ---
 
-+ Although you can use the camera as part of your experiment (for example, to work out how bright it is on the ISS), you cannot use it to take photos of astronauts, and your program must delete all images at the end of your experiment.
++ Although you can use the camera as part of your experiment (for example, to work out how bright it is on the ISS), you cannot use it to take photos of astronauts and no captured images or videos can remain stored in the experiment folder after the end of the experiment.
 + Your program should display a helpful message or image on the Sense HAT's LED matrix so that nearby astronauts know that an experiment is running. This should change regularly to indicate that everything is running correctly.
 
 --- /collapse ---
@@ -31,7 +31,7 @@ title: Notes for 'Life in Space' experiments
 title: Notes for 'Life on Earth' experiments
 ---
 
-+ You should not use the LED matrix while your experiment is running. The Astro Pi will be covered to prevent stray light from spoiling the images taken from the window.
++ You should not use the LED matrix while your experiment is running. The LED matrix will be disabled and the Astro Pi will be covered to prevent stray light from spoiling the images taken from the window.
 
 --- /collapse ---
 

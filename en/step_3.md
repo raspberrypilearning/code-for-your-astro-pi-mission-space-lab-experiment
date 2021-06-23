@@ -446,7 +446,7 @@ This output shows the ISS is currently over Hamilton, New York:
 
 You should not install additional Python packages or even change the versions of the ones already available on the Desktop Flight OS. If you do, your program may run successfully when you test it in your modified environment but it will _fail_ when tested on the actual Flight OS.
 
-To make sure that you are not using a Python package you are not supposed to, follow the instructions in this guide and check that your code will terminate successfully when executed in a terminal using `python3 main.py`, in an unmodified version of the Desktop Flight OS.
+To make sure that you are not using a Python package you are not supposed to, follow the instructions in this guide and check that your code will terminate successfully, without generating any errors, when executed in a terminal using `python3 main.py`, in an unmodified version of the Desktop Flight OS.
 
 If your experiment requires Python libraries that are not available in the Flight OS, please contact us and we will try to help you find a solution.
 

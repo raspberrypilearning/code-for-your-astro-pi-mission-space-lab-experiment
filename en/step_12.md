@@ -200,3 +200,5 @@ Counter,Date/time,Latitude,Longitude,Temperature,Humidity
 3,2021-02-24 10:47:40.890616,37.309551077336856,7.1032053271899365,27.7018,42.5886
 4,2021-02-24 10:48:11.571371,36.047429941325575,8.879601929060437,27.5894,42.6544
 ```
+
+Note that exception handling in this program is rather crude: all raised exceptions will be caught and logged. This means that such a program is very unlikely to terminate abruptly and display an error. Even if errors are generated and the program fails to achieve its goal, this will only become apparent by checking the log files for errors. When testing your program, make sure you also check any log files it generates.

@@ -25,15 +25,15 @@ sleep(2)
 camera.capture(f"{base_folder}/image.jpg")
 ```
 
-If you’re using the visible light camera on Astro Pi VIS, then your program must make sure that captured images have been deleted by the end of your experiment time:
+If your experiment is for the _'Life in Space'_ theme, then your program must make sure that any captured images have been deleted by the end of your experiment time:
 
 ```python
 (base_folder/"image.jpg").unlink()
 ```
 
-If you are using the infrared camera on Astro Pi IR, then you will get some amazing pictures of the Earth seen from the ISS. Even if your program will process these images and only make use of the extracted data, we recommend that you do not delete all the images (unless your program will generate so many of them that you risk running out of disk space on the Astro Pi). Apart from being a unique souvenir of your mission, the images may also help you with debugging any unexpected issues with your experimental results. Here are some examples of [images captured using the infrared camera on Astro Pi IR](https://www.flickr.com/photos/raspberrypi). If you're going to be processing images (e.g. with the OpenCV Python library), you should test your code on some of these images.
+If your experiment is for the _'Life on Earth'_ theme, then you will get some amazing pictures of the Earth seen from the ISS. Even if your program will process these images and only make use of the extracted data, we recommend that you do not delete all the images (unless your program will generate so many of them that you risk running out of disk space on the Astro Pi). Apart from being a unique souvenir of your mission, the images may also help you with debugging any unexpected issues with your experimental results. Here are some examples of [images captured using the infrared camera on Astro Pi IR](https://www.flickr.com/photos/raspberrypi). If you're going to be processing images (e.g. with the OpenCV Python library), you should test your code on some of these images.
 
-The rest of this step is mainly for 'Life on Earth' experiments. No images from 'Life in space' experiments can be saved.
+The rest of this step is mainly for _'Life on Earth'_ experiments. No images from _'Life in Space'_ experiments can be saved.
 
 ### Location data ('Life on Earth')
 

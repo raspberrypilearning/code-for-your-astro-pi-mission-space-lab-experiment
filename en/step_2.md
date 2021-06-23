@@ -101,6 +101,6 @@ And eventually, the area surrounding the window cannot be seen at all.
 
 ![](images/zz_astropi_1_photo_193.jpg)
 
-You could use these images to train a machine learning algorithm to recognise different types of views. However, please note that there is no guarantee that the location, view, and orientation of Astro Pi IR will be exactly the same when your program runs on the ISS. Therefore, your program should be flexible enough to adapt to any changes.
+You could use these images to train a machine learning algorithm to recognise different types of views. However, please note that there is no guarantee that the location, view, and orientation of the Astro Pi will be exactly the same when your program runs on the ISS. Therefore, your program should be flexible enough to adapt to any changes.
 
 --- /collapse ---

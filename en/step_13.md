@@ -106,7 +106,7 @@ python3 main.py
 
 Your code should run for three hours and then stop.
 
-When it's finished, observe any output files created by your project. Are you expecting image files from the camera? Data logs? Anything else?
+When it's finished, observe any output files created by your project. Are you expecting image files from the camera? Data files? Anything else? Are there reports of errors in your logs?
 
 --- /task ---
 
