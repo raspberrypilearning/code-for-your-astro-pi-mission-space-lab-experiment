@@ -4,18 +4,82 @@ If you have received an official Astro Pi kit from ESA, you have everything you 
 
 ### Assembling the hardware
 
-You may wish to revisit [the videos from Phase 1](https://www.esa.int/Education/AstroPI/European_Astro_Pi_Challenge_2019-20_now_open) to remind yourself of the limitations of the Astro Pi hardware aboard the ISS. We also have the following resources to help you get started with the Sense HAT and Camera Module:
+--- task ---
+Unpack everything from you kit.
 
-[[[rpi-sensehat-attach]]]
+--- /task ---
 
-If you've never used the Sense HAT before, [start with this short project](https://projects.raspberrypi.org/en/projects/getting-started-with-the-sense-hat/), and come back here once you're aware of basic Sense HAT uses.
+--- task ---
+Take the black hexagonal spacer columns from the small bag that comes with the SenseHAT. Use the accompanying screws to connect them to the bottom of the Raspberry Pi 4
 
+![Photo of the Raspberry Pi 4 with attached HAT spacers](images/assembly_spacers.JPG)
+--- /task ---
+
+--- task ---
+Insert the camera cable into the CSI socket on the Raspberry pi.  
 
 [[[rpi-picamera-connect-camera]]]
 
-Note that, because you will be using the Raspberry Pi Camera Module with the Sense HAT, you'll need to thread the camera's ribbon cable through the slot on the Sense HAT before connecting it to the Raspberry Pi.
+![Photo of Raspberry Pi with camera cable attached](images/assembly_cam.JPG)
+--- /task ---
+
+--- task ---
+Take SenseHAT and remove the short header if its attached. 
+
+![Photo of the SenseHAT with small header removed](images/assembly_small_header.JPG)
+--- /task ---
+
+--- task ---
+Line up the tall header with the corresponding holes on the SenseHAT.  
+
+![Photo of tall header lined up with SenseHAT](images/assembly_insert_header.JPG)
+--- /task ---
+
+--- task ---
+Push the header all the way through. Make sure none of the pins are obstructed or not lined up correctly so that they become bent.  
+
+![Photo of tall header inserted through SenseHAT](images/assembly_sh_header.JPG)
+--- /task ---
+
+--- task ---
+Feed the camera cable through the slot on the SenseHAt and then sit the SenseHAT onto the Raspberry Pi. Make sure that all 40 GPIO pins line up with the corresponding holes in the tall header.   
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/VzYGDq0D1mw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+[[[rpi-sensehat-attach]]]
+
+![Photo of SenseHAT fitted on to Raspberry Pi with a tall header and camera cable passed through the slot on the HAT](images/assembly_cam_spacers_sh.JPG)
+--- /task ---
+
+--- task ---
+Use the four remaining black screws to secure the SenseHAT stack to the spacers. 
+
+![Photo of SenseHAT with screws securing it to the spacers](images/assembly_sh_header.JPG)
+--- /task ---
+
+--- task ---
+Now take the PIR and remove the foam pin protector block. 
+
+![Photo of PIR with foam pin protector block removed](images/assembly_PIR.JPG)
+--- /task ---
+
+--- task ---
+Connect three wires to the pins on the PIR. Note the labels on the back of the PIR PCB which indicate the use of each pin: 
+
+GND - which needs to be connected to corresponding ground pin on the Raspberry Pi.
+VCC - which needs to be connected to a 3v3 pin on the Raspberry Pi
+OUT - which should be connected to GPIO pin 12 on the Raspberry Pi.
+
+![Photo of PIR with wires attached to pins](images/assembly_PIR.JPG)
+--- /task ---
+
+--- task ---
+Connect the wires from the PIR to the appropriate GPIO pins on the Raspberry Pi. You can use [the diagrams here](https://www.raspberrypi.org/documentation/usage/gpio/) to help you make sure that you connect the wires to the correct pins. 
+
+![Photo of Raspberry Pi with wires from PIR connected to the right pins](images/assembly_PIR.JPG)
+--- /task ---
+
+If you've never used the Sense HAT before, [start with this short project](https://projects.raspberrypi.org/en/projects/getting-started-with-the-sense-hat/), and come back here once you're aware of basic Sense HAT uses.
 
 If you've never used the Camera Module before, [start with this beginners' project](https://projects.raspberrypi.org/en/projects/getting-started-with-picamera/), and come back here once you've tried using the basic `picamera` Python library functions.
 
