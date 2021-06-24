@@ -144,7 +144,7 @@ Remove the caps from the end of the 6mm lens and screw the lens onto the High Qu
 
 Your Astro Pi kit should now be complete. Insert your SD card, connect to a monitor, keyboard and mouse and finally plug in the USB-C power lead. For more details on using your Raspberry Pi, take a look at [this guide](https://projects.raspberrypi.org/en/projects/raspberry-pi-getting-started).
 
-![Photo of camera cable connected to HQC](images/assembly_all`.JPG)
+![Photo of camera cable connected to HQC](images/assembly_all.JPG)
 
 
 ### Software and your Development Environment
