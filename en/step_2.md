@@ -5,7 +5,7 @@ If you have received an official Astro Pi kit from ESA, you have everything you 
 ### Assembling the hardware
 
 --- task ---
-Unpack everything from you kit.
+Unpack everything from your kit.
 
 --- /task ---
 
@@ -70,14 +70,81 @@ GND - which needs to be connected to corresponding ground pin on the Raspberry P
 VCC - which needs to be connected to a 3v3 pin on the Raspberry Pi
 OUT - which should be connected to GPIO pin 12 on the Raspberry Pi.
 
-![Photo of PIR with wires attached to pins](images/assembly_PIR.JPG)
+![Photo of PIR with wires attached to pins](images/assembly_PIR_wires.JPG)
 --- /task ---
 
 --- task ---
 Connect the wires from the PIR to the appropriate GPIO pins on the Raspberry Pi. You can use [the diagrams here](https://www.raspberrypi.org/documentation/usage/gpio/) to help you make sure that you connect the wires to the correct pins. 
 
-![Photo of Raspberry Pi with wires from PIR connected to the right pins](images/assembly_PIR.JPG)
+![Photo of Raspberry Pi with wires from PIR connected to the right pins](images/assembly_wires.JPG)
 --- /task ---
+
+--- collapse ---
+---
+title: Converting a camera for IR sensitive Life on Earth experiments)
+---
+
+If your Life on Earth experiment requires an IR-sensitive camera (like the one on Astro Pi IR) then you will need to convert the High Quality Camera you received in your kit.
+
+NOTE: This process cannot be reversed or undone once completed. Please ensure that you need the IR sensitive camera before proceeding.
+
+--- task ---
+Remove the two screws from the back of the camera PCB. 
+
+--- /task ---
+
+--- task ---
+Pull the front part of the High Quality Camera sensor away from the PCB. There is a sticky gasket that holds it in place so you may need to twist the part slightly in order to break the seal. 
+
+--- /task ---
+
+--- task ---
+Locate the blue window in the front part of the camera housing that you've just removed from the PCB. Using the blunt end of a pencil, push on this window until it pops out. 
+--- /task ---
+
+--- task ---
+Align and the housing back onto the PCB and reattach with the original screws. Make sure to include the washers!
+--- /task ---
+
+--- task ---
+Take the red dual band pass filter and sit it on top of the High Quality camera so that the writing is facing upwards. 
+
+--- /task ---
+
+--- task ---
+Use the tool provided to gently screw the filter down into the High Quality Camera. Once it reaches the bottom and you feel solid resistance, stop turning. 
+
+--- /task ---
+
+--- /collapse ---
+
+--- task ---
+Insert the other end of the camera cable into the CSI socket on the High Quality Camera. 
+
+![Photo of camera cable connected to HQC](images/assembly_cable.JPG)
+--- /task ---
+
+--- task ---
+Remove the cap from the High Quality Camera. 
+
+![Photo of camera cable connected to HQC](images/assembly_cap.JPG)
+--- /task ---
+
+--- task ---
+Remove the C/CS adapter ring from the High Quality Camera. 
+
+![Photo of camera cable connected to HQC](images/assembly_adapt_cap.JPG)
+--- /task ---
+
+--- task ---
+Remove the caps from the end of the 6mm lens and screw the lens onto the High Quality camera. 
+
+![Photo of camera cable connected to HQC](images/assembly_6mm.JPG)
+--- /task ---
+
+Your Astro Pi kit should now be complete
+
+![Photo of camera cable connected to HQC](images/assembly_all.JPG)
 
 If you've never used the Sense HAT before, [start with this short project](https://projects.raspberrypi.org/en/projects/getting-started-with-the-sense-hat/), and come back here once you're aware of basic Sense HAT uses.
 
