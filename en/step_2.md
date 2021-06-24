@@ -46,8 +46,6 @@ Feed the camera cable through the slot on the SenseHAt and then sit the SenseHAT
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/VzYGDq0D1mw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-[[[rpi-sensehat-attach]]]
-
 ![Photo of SenseHAT fitted on to Raspberry Pi with a tall header and camera cable passed through the slot on the HAT](images/assembly_cam_spacers_sh.JPG)
 --- /task ---
 
