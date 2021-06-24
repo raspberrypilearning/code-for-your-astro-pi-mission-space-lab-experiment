@@ -142,19 +142,10 @@ Remove the caps from the end of the 6mm lens and screw the lens onto the High Qu
 ![Photo of camera cable connected to HQC](images/assembly_6mm.JPG)
 --- /task ---
 
-Your Astro Pi kit should now be complete
+Your Astro Pi kit should now be complete. Insert your SD card, connect to a monitor, keyboard and mouse and finally plug in the USB-C power lead. For more details on using your Raspberry Pi, take a look at [this guide](https://projects.raspberrypi.org/en/projects/raspberry-pi-getting-started).
 
-![Photo of camera cable connected to HQC](images/assembly_all.JPG)
+![Photo of camera cable connected to HQC](images/assembly_all`.JPG)
 
-If you've never used the Sense HAT before, [start with this short project](https://projects.raspberrypi.org/en/projects/getting-started-with-the-sense-hat/), and come back here once you're aware of basic Sense HAT uses.
-
-If you've never used the Camera Module before, [start with this beginners' project](https://projects.raspberrypi.org/en/projects/getting-started-with-picamera/), and come back here once you've tried using the basic `picamera` Python library functions.
-
-Note: The camera sensor in the ESA kit is the same High Quality camera as the one found in the new Astro Pis on the ISS. You can read the [documentation about the HQ camera](https://www.raspberrypi.org/documentation/hardware/camera/), with a lot of detailed technical information also to be found in [the relevant section of the PiCamera library documentation](https://picamera.readthedocs.io/en/release-1.13/fov.html#camera-hardware).
-
-### Performance
-
-The ESA kits for Astro Pi 2020/21 contain Raspberry Pi 4s with 4GB of memory (RAM). They are almost identical to the new Astro Pis on the ISS, except that they have 8GB of memory. This means there should really be very little difference in performance between the computer on which you develop and test your code and the computer where it actually runs, unless your experiment requires a lot of memory.
 
 ### Software and your Development Environment
 
@@ -176,6 +167,16 @@ title: Downloading Operating System images (optional)
 If you want to create additional SD cards to use for Astro Pi, you can download the [Desktop Flight OS image file](http://downloads.raspberrypi.org/AstroPi_latest) used in the ESA kits. After downloading, you can use any software tool to write the image file to your own SD card. See [this guide](https://www.raspberrypi.org/documentation/installation/installing-images/) for instructions on how to do this. 
 
 --- /collapse ---
+
+If you've never used the Sense HAT before, [start with this short project](https://projects.raspberrypi.org/en/projects/getting-started-with-the-sense-hat/), and come back here once you're aware of basic Sense HAT uses.
+
+If you've never used the Camera Module before, [start with this beginners' project](https://projects.raspberrypi.org/en/projects/getting-started-with-picamera/), and come back here once you've tried using the basic `picamera` Python library functions.
+
+Note: The camera sensor in the ESA kit is the same High Quality camera as the one found in the new Astro Pis on the ISS. You can read the [documentation about the HQ camera](https://www.raspberrypi.org/documentation/hardware/camera/), with a lot of detailed technical information also to be found in [the relevant section of the PiCamera library documentation](https://picamera.readthedocs.io/en/release-1.13/fov.html#camera-hardware).
+
+### Performance
+
+The ESA kits for Astro Pi 2020/21 contain Raspberry Pi 4s with 4GB of memory (RAM). They are almost identical to the new Astro Pis on the ISS, except that they have 8GB of memory. This means there should really be very little difference in performance between the computer on which you develop and test your code and the computer where it actually runs, unless your experiment requires a lot of memory.
 
 --- collapse ---
 ---
