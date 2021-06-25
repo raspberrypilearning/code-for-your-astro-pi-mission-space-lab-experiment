@@ -52,7 +52,7 @@ Feed the camera cable through the slot on the SenseHAt and then sit the SenseHAT
 --- task ---
 Use the four remaining black screws to secure the SenseHAT stack to the spacers. 
 
-![Photo of SenseHAT with screws securing it to the spacers](images/assembly_sh_header.JPG)
+![Photo of SenseHAT with screws securing it to the spacers](images/assembly_spacer_top.JPG)
 --- /task ---
 
 --- task ---
@@ -82,7 +82,7 @@ Connect the wires from the PIR to the appropriate GPIO pins on the Raspberry Pi.
 title: Converting a camera for IR sensitive Life on Earth experiments)
 ---
 
-If your Life on Earth experiment requires an IR-sensitive camera (like the one on Astro Pi IR) then you will need to convert the High Quality Camera you received in your kit.
+If your Life on Earth experiment requires an IR-sensitive camera (like the one on Astro Pi IR) then you will need to convert the High Quality Camera sensor you received in your kit.
 
 NOTE: This process cannot be reversed or undone once completed. Please ensure that you need the IR sensitive camera before proceeding.
 
@@ -97,7 +97,7 @@ Pull the front part of the High Quality Camera sensor away from the PCB. There i
 --- /task ---
 
 --- task ---
-Locate the blue window in the front part of the camera housing that you've just removed from the PCB. Using the blunt end of a pencil, push on this window until it pops out. 
+Locate the blue window in the front part of the camera sensor housing that you've just removed from the PCB. Using the blunt end of a pencil, push on this window until it pops out. 
 --- /task ---
 
 --- task ---
@@ -105,37 +105,37 @@ Align and the housing back onto the PCB and reattach with the original screws. M
 --- /task ---
 
 --- task ---
-Take the red dual band pass filter and sit it on top of the High Quality camera so that the writing is facing upwards. 
+Take the red dual band pass filter and sit it on top of the High Quality camera sensor so that the writing is facing upwards. 
 
 --- /task ---
 
 --- task ---
-Use the tool provided to gently screw the filter down into the High Quality Camera. Once it reaches the bottom and you feel solid resistance, stop turning. 
+Use the tool provided to gently screw the filter down into the High Quality Camera sensor. Once it reaches the bottom and you feel solid resistance, stop turning. 
 
 --- /task ---
 
 --- /collapse ---
 
 --- task ---
-Insert the other end of the camera cable into the CSI socket on the High Quality Camera. 
+Insert the other end of the camera cable into the CSI socket on the High Quality Camera sensor. 
 
 ![Photo of camera cable connected to HQC](images/assembly_cable.JPG)
 --- /task ---
 
 --- task ---
-Remove the cap from the High Quality Camera. 
+Remove the cap from the High Quality Camera sensor. 
 
 ![Photo of camera cable connected to HQC](images/assembly_cap.JPG)
 --- /task ---
 
 --- task ---
-Remove the C/CS adapter ring from the High Quality Camera. 
+Remove the C/CS adapter ring from the High Quality Camera sensor. 
 
 ![Photo of camera cable connected to HQC](images/assembly_adapt_cap.JPG)
 --- /task ---
 
 --- task ---
-Remove the caps from the end of the 6mm lens and screw the lens onto the High Quality camera. 
+Remove the caps from the end of the 6mm lens and screw the lens onto the High Quality camera sensor. 
 
 ![Photo of camera cable connected to HQC](images/assembly_6mm.JPG)
 --- /task ---
