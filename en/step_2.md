@@ -77,44 +77,25 @@ Connect the wires from the PIR to the appropriate GPIO pins on the Raspberry Pi.
 ![Photo of Raspberry Pi with wires from PIR connected to the right pins](images/assembly_wires.JPG)
 --- /task ---
 
---- collapse ---
----
-title: Converting a camera for IR sensitive Life on Earth experiments)
----
 
-If your Life on Earth experiment requires an IR-sensitive camera (like the one on Astro Pi IR) then you will need to convert the High Quality Camera sensor you received in your kit.
+#### Converting a camera for IR sensitive Life on Earth experiments)
 
-NOTE: This process cannot be reversed or undone once completed. Please ensure that you need the IR sensitive camera before proceeding.
+The High Quality Camera sensor can detect Infra-Red (IR) light. However the sensor housing contains an IR filter, which is used to greatly reduce the camera’s sensitivity to infrared light.  This is so that the images captured by the High Quality Camera sensor look the same as what we see with our eyes (which are not sensitive to IR light). 
+
+If your Life on Earth experiment requires an IR-sensitive camera (like the one on Astro Pi IR) then you will need to convert the High Quality Camera sensor you received in your kit by removing the IR cut filter. If you are programming a Life in Space experiment, or your Life on Earth experiment requires photos to be taken in the visible light spectrum only, then you should not convert your High Quality Camera sensor. Please skip to the Final Assembly Steps below. 
+
+NOTE: This process cannot be reversed or undone once completed. 
 
 --- task ---
-Remove the two screws from the back of the camera PCB. 
 
+Please ensure that you need the IR sensitive camera before following the [instructions here](https://www.raspberrypi.org/documentation/hardware/camera/hqcam_filter_removal.md)
 --- /task ---
 
 --- task ---
-Pull the front part of the High Quality Camera sensor away from the PCB. There is a sticky gasket that holds it in place so you may need to twist the part slightly in order to break the seal. 
-
+Take the red dual band pass filter and carefully screw it onto the widest end of the 6mm lens.
 --- /task ---
 
---- task ---
-Locate the blue window in the front part of the camera sensor housing that you've just removed from the PCB. Using the blunt end of a pencil, push on this window until it pops out. 
---- /task ---
-
---- task ---
-Align and the housing back onto the PCB and reattach with the original screws. Make sure to include the washers!
---- /task ---
-
---- task ---
-Take the red dual band pass filter and sit it on top of the High Quality camera sensor so that the writing is facing upwards. 
-
---- /task ---
-
---- task ---
-Use the tool provided to gently screw the filter down into the High Quality Camera sensor. Once it reaches the bottom and you feel solid resistance, stop turning. 
-
---- /task ---
-
---- /collapse ---
+#### Final assembly steps 
 
 --- task ---
 Insert the other end of the camera cable into the CSI socket on the High Quality Camera sensor. 
