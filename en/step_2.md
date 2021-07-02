@@ -196,7 +196,7 @@ LibreOffice Calc is a spreadsheet program similar to Microsoft Excel and is inst
 
 #### Images
 
-There is also a sequence of photos taken by the IR camera. The sequence starts at 'night', and so the first few photos are black.
+There is also a sequence of photos taken by the Mark I Astro Pi IR camera. The sequence starts at 'night', and so the first few photos are black.
 
 ![](images/zz_astropi_1_photo_116.jpg)
 

@@ -106,7 +106,7 @@ Instead of using EXIF data, it is possible to overlay text data onto the visible
 
 ### Numbering plans for files
 
-Another cool thing to do with a sequence of images from the ISS is to create a timelapse movie, like the one in the first section of this project. This can be done on a Raspberry Pi with a single command — if the images are saved with sensible file names that include an obvious sequence number. So the naming convention for your image files should be `image_001.jpg`, `image_002.jpg`, etc. Remember not to include spaces in your file names!
+Another cool thing to do with a sequence of images from the ISS is to create a timelapse movie, like the one in the first section of this project. This can be done on a Raspberry Pi with a single command — if the images are saved with sensible file names that include an obvious sequence number. So the naming convention for your image files should be `image_001.jpg`, `image_002.jpg`, etc. Remember not to include spaces and punctuation symbols (except for underscores (`_`) and hyphens (`-`)) in your file names!
 
 ```python
 from time import sleep
@@ -123,10 +123,10 @@ for filename in camera.capture_continuous(f"{base_folder}/image_{counter:03d}.jp
     sleep(300) # wait 5 minutes
 ```
 
-Then, **once you get your images back from the ISS**,  you can use the following command to create a timelapse (you will need to install the `libav-tools` package first).
+Then, **once you get your images back from the ISS**,  you can use the following command to create a 'timelapse' movie. Depending on how frequently you captured images, you may wish to adjust the `-framerate` value to produce a smoother motion effect.
 
 ```bash
-avconv -r 10 -i image%03d.jpg -r 10 -vcodec libx264 -crf 20 -g 15 timelapse.mp4
+ffmpeg -framerate 10 -i %*.jpg -c:v libx264 -crf 17 -pix_fmt yuv420p timelapse.mp4
 ```
 This is definitely a post-experiment processing step. You should not use your three-hour experiment time on the ISS to try to build a timelapse movie!
 
