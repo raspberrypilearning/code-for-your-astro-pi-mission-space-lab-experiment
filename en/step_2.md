@@ -151,7 +151,7 @@ You should start to feel increasing resistance as the filter gets lower. After a
 ![Photo of High Quality Camera sensor with red filter being turned using the tool](images/filter_turning.JPG)
 
 --- /task ---
---- collapse ---
+--- /collapse ---
 
 #### Final assembly steps 
 
