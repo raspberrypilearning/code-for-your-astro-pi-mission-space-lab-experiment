@@ -84,7 +84,13 @@ The High Quality Camera sensor can detect Infra-Red (IR) light. However the sens
 
 If your Life on Earth experiment requires an IR-sensitive camera (like the one on Astro Pi IR) then you will need to convert the High Quality Camera sensor you received in your kit by removing the IR cut filter. If you are programming a Life in Space experiment, or your Life on Earth experiment requires photos to be taken in the visible light spectrum only, then you should not convert your High Quality Camera sensor. Please skip to the Final Assembly Steps below. 
 
-NOTE: This process cannot be reversed or undone once completed. 
+
+--- collapse ---
+---
+title: Converting a camera for IR sensitive experiments
+---
+
+NOTE: This process cannot be reversed or undone once completed.
 
 --- task ---
 
@@ -145,12 +151,8 @@ You should start to feel increasing resistance as the filter gets lower. After a
 ![Photo of High Quality Camera sensor with red filter being turned using the tool](images/filter_turning.JPG)
 
 --- /task ---
+--- collapse ---
 
---- task ---
- 
-Now you can screw the 6mm lens onto the High Quality Camera sensor. You do not need to re-attach the C/CS adapter ring as this is not required for this lens. 
-
---- /task ---
 #### Final assembly steps 
 
 --- task ---
