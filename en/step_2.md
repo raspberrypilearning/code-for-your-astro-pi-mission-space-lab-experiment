@@ -78,7 +78,7 @@ Connect the wires from the PIR to the appropriate GPIO pins on the Raspberry Pi.
 --- /task ---
 
 
-#### Converting a camera for IR sensitive Life on Earth experiments)
+#### Converting a camera for IR sensitive Life on Earth experiments
 
 The High Quality Camera sensor can detect Infra-Red (IR) light. However the sensor housing contains an IR filter, which is used to greatly reduce the camera’s sensitivity to infrared light.  This is so that the images captured by the High Quality Camera sensor look the same as what we see with our eyes (which are not sensitive to IR light). 
 
@@ -91,10 +91,66 @@ NOTE: This process cannot be reversed or undone once completed.
 Please ensure that you need the IR sensitive camera before following the [instructions here](https://www.raspberrypi.org/documentation/hardware/camera/hqcam_filter_removal.md)
 --- /task ---
 
+Take the DB660/850-25.4 red dual band pass filter and install it into the High Quality Camera sensor. 
+
+
 --- task ---
-Take the red dual band pass filter and carefully screw it onto the widest end of the 6mm lens.
+ 
+Make sure the back focus ring is screwed all the way in. 
+![Photo of High Quality Camera sensor with back focus ring screwed all the way in](images/filter_backfocus.JPG)
+
 --- /task ---
 
+--- task ---
+ 
+Unscrew the High Quality Camera sensor lens cap and the C/CS adapter. 
+![Photo of High Quality Camera sensor with C/CS adapter and cap removed](images/filter_caps.JPG)
+
+--- /task ---
+
+--- task ---
+ 
+Take the filter and sit it onto the hole in the centre of the High Quality Camera sensor. 
+
+![Photo of High Quality Camera sensor with red filter sitting on top prior to installing](images/filter_rest.JPG)
+--- /task ---
+
+--- task ---
+ 
+Gently start turning the filter clockwise using just your fingers, so that the filter screws down into the High Quality Camera sensor. Take care not to touch the glass part of the lens and leave greasy fingerprints!
+
+![Photo of High Quality Camera sensor with red filter being turned by hand](images/filter_fingers.JPG)
+
+--- /task ---
+
+--- task ---
+ 
+Take the tool provided with the filter and line up the two knobbly bits at each end with the corresponding dimples in the filter. If you have a 3D printer you might like to print a handle for the tool to make it easier to grip. One of these handles has been printed and sent to the ISS for the astronauts to use when completing the task - but it isn't required. 
+
+![Photo of High Quality Camera sensor showing the filter tool aligned with the filter itself](images/filter_tool_align.JPG)
+--- /task ---
+
+--- task ---
+ 
+Gently continue turning the tool filter using the tool. Take care not to touch the glass part of the lens with the tool - it will scratch it!
+
+![Photo of High Quality Camera sensor with red filter being turned using the tool](images/filter_tool.JPG)
+
+--- /task ---
+
+--- task ---
+ 
+You should start to feel increasing resistance as the filter gets lower. After about 9 full turns, the filter should be as low as it can go and you won't be able to turn it any further. Be careful not to over-tighten. 
+
+![Photo of High Quality Camera sensor with red filter being turned using the tool](images/filter_turning.JPG)
+
+--- /task ---
+
+--- task ---
+ 
+Now you can screw the 6mm lens onto the High Quality Camera sensor. You do not need to re-attach the C/CS adapter ring as this is not required for this lens. 
+
+--- /task ---
 #### Final assembly steps 
 
 --- task ---
