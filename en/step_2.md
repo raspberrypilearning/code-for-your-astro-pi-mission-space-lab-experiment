@@ -97,8 +97,7 @@ NOTE: This process cannot be reversed or undone once completed.
 Please ensure that you need the IR sensitive camera before following the [instructions here](https://www.raspberrypi.org/documentation/hardware/camera/hqcam_filter_removal.md)
 --- /task ---
 
-Take the DB660/850-25.4 red dual band pass filter and install it into the High Quality Camera sensor. 
-
+Now you can add the DB660/850-25.4 red/NIR dual band pass filter. This been designed primarily for NDVI imaging applications. By adding it to the High Quality Camera sensor, only reflected red light (660nm) and reflected near-infrared light (850nm) will be captured by the sensor.  See our NDVI project for more information. 
 
 --- task ---
  
