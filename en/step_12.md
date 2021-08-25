@@ -91,7 +91,7 @@ from pathlib import Path
 from logzero import logger, logfile
 from sense_hat import SenseHat
 from picamera import PiCamera
-from astro_pi import ISS
+from orbit import ISS
 from time import sleep
 from datetime import datetime, timedelta
 import csv

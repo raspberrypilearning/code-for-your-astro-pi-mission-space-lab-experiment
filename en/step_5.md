@@ -10,10 +10,10 @@ title: What happened to the ephem library?
 If your team has participated in previous challenges, you may recall that the `ephem` library was used to calculate the position of the ISS. This library has now been deprecated and replaced by its successor, `skyfield`.
 --- /collapse ---
 
-Up-to-date telemetry data is required in order to accurately compute the position of the ISS (or any other satellite orbiting the Earth). In order to save you the trouble of obtaining and manipulating this data, the Flight OS offers the `astro_pi` Python package, which uses `skyfield` to create an `ISS` object that you can import in your program:
+Up-to-date telemetry data is required in order to accurately compute the position of the ISS (or any other satellite orbiting the Earth). In order to save you the trouble of obtaining and manipulating this data, the Flight OS offers the `orbit` Python package, which uses `skyfield` to create an `ISS` object that you can import in your program:
 
 ```python
-from astro_pi import ISS
+from orbit import ISS
 ```
 
 --- collapse ---
@@ -22,7 +22,7 @@ title: Telemetry data
 ---
 For accurate calculations, `skyfield` requires the most recent two-line element (TLE) set for the ISS. TLE is a data format used to convey sets of orbital elements that describe the orbits of Earth satellites. 
 
-When you import the `ISS` object from the `astro_pi` library, an attempt is made to retrieve the TLE data from a file called `iss.tle` in the `/home/pi` folder. If the file is not present but an internet connection is available, the latest data will be downloaded automatically into the `iss.tle` file, so you don't need to worry about it.
+When you import the `ISS` object from the `orbit` library, an attempt is made to retrieve the TLE data from a file called `iss.tle` in the `/home/pi` folder. If the file is not present but an internet connection is available, the latest data will be downloaded automatically into the `iss.tle` file, so you don't need to worry about it.
 
 However, if your Astro Pi kit has no internet access, then you need to manually download the latest [ISS TLE data](http://www.celestrak.com/NORAD/elements/stations.txt){:target="_blank"}, copy the 3 ISS-related lines into a file called `iss.tle` and then place this file into the `/home/pi` folder. The TLE data will look something like this:
 
@@ -38,7 +38,7 @@ When your code runs on the Space Station, we will make sure that the most accura
 You can use `ISS` just like any other `EarthSatellite` object in `skyfield` (see the [Reference](https://rhodesmill.org/skyfield/api-satellites.html#skyfield.sgp4lib.EarthSatellite) and [Examples](https://rhodesmill.org/skyfield/earth-satellites.html)). For example, this is how to compute the coordinates of the Earth location that is _currently_ directly beneath the ISS:
 
 ```python
-from astro_pi import ISS
+from orbit import ISS
 from skyfield.api import load
 
 # obtain the current time `t`
@@ -53,7 +53,7 @@ print(location)
 If you are not interested in setting or recording the time `t`, then the `ISS` object also offers a convenient `coordinates` method that you can use as an alternative for retrieving the coordinates of the location on Earth that is _currently_ directly beneath the ISS:
 
 ```python
-from astro_pi import ISS
+from orbit import ISS
 location = ISS.coordinates() # equivalent to ISS.at(timescale.now()).subpoint()
 print(location)
 ```
@@ -103,7 +103,7 @@ You can test whether a number is negative by checking if it is less than 0.
 Your code should look like this:
 
 ```python
-from astro_pi import ISS
+from orbit import ISS
 
 location = ISS.coordinates()
 latitude = location.latitude.degrees
@@ -134,7 +134,7 @@ Your code should look like this:
 
 ```python
 from time import sleep
-from astro_pi import ISS
+from orbit import ISS
 from skyfield.api import load
 
 ephemeris = load('de421.bsp')

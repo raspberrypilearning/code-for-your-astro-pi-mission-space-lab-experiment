@@ -46,7 +46,7 @@ In the snippet below, a function called `capture` is called to capture an image,
 The extra complication here is that the degrees value cannot be negative. An extra piece of information must be included for each value — the latitude reference and longitude reference. This simply states whether the point that the coordinate refers to is north or south of the equator (for latitude) and east or west of the Meridian (for longitude). So the example from above would be displayed as (28:16:40 S, 71:35:3 E).
 
 ```python
-from astro_pi import ISS
+from orbit import ISS
 from picamera import PiCamera
 from pathlib import Path
 
