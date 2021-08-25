@@ -60,7 +60,7 @@ camera = PiCamera()
 camera.resolution = (2592, 1944)
 
 for i in range(3*60):
-    camera.capture(f'image{i:3d}')  # take a picture every minute for 3 hours
+    camera.capture(f'image{i:03d}.jpg')  # take a picture every minute for 3 hours
     sleep(60)
 ```
 
@@ -84,13 +84,14 @@ colorzero makes it easy to transition between two colours:
 ```python
 from colorzero import Color
 from sense_hat import SenseHat
+from time import sleep
 
 sense = SenseHat()
 
-start = Color('magenta')
+start = Color('yellow')
 end = Color('cyan')
 
-# slowly and naturally transition the Sense HAT from magenta to cyan
+# slowly transition the Sense HAT from the `start` to the `end` colour
 for color in start.gradient(end, steps=100):
     sense.clear(color.rgb_bytes)
     sleep(0.1)
@@ -107,7 +108,7 @@ for color in start.gradient(end, steps=100):
 title: gpiozero
 ---
 
-GPIO Zero is a simple but powerful GPIO library. While much of its functionality is restricted for the purposes of Mission Space Lab (e.g. access to GPIO pins), some of it can be handy in your experiment, such as the internal device `CPUTemperature`.
+GPIO Zero is a simple but powerful GPIO library. Much of its functionality is restricted for the purposes of Mission Space Lab, e.g. you are not allowed to access any GPIO pins other than GPIO pin 12, where the motion sensor is connected. However, some of its features can be handy in your experiment, such as the internal device `CPUTemperature`.
 
 #### Usage
 
@@ -190,16 +191,16 @@ SciPy is a free and open-source Python library used for scientific computing and
 
 --- collapse ---
 ---
-title: tensorflow
+title: TensorFlow, TensorFlow Lite and PyCoral
 ---
 
-TensorFlow is Google's machine learning framework. Also included are TensorFlow Lite (`tflite`) and the necessary libraries in order the Coral USB Accelerator (Edge TPU).
+TensorFlow is Google's machine learning framework. You will need it if you want to build and train your own models. If you only need to use or re-train existing models for inference, then you can use TensorFlow Lite or, even better, the PyCoral library. The latter is built on top of TensorFlow Lite but has a simpler, higher-level interface and allows you to easily use the Coral USB Accelerator (Edge TPU).
 
 #### Documentation
 
 - [Tensorflow 2.4](https://www.tensorflow.org/versions/r2.4/api_docs/python/tf)
 - [Tensorflow Lite](https://www.tensorflow.org/lite/api_docs/python/tf/lite)
-- [Coral USB Accelerator](https://coral.ai/docs/accelerator/get-started/)
+- [PyCoral](https://coral.ai/docs/edgetpu/tflite-python/)
 --- /collapse ---
 
 --- collapse ---
@@ -212,19 +213,6 @@ title: pandas
 #### Documentation
 
 - [pandas.pydata.org](https://pandas.pydata.org/)
-
---- /collapse ---
-
---- collapse ---
----
-title: geopandas
----
-
-GeoPandas is an open source project to make working with geospatial data in python easier. `geopandas` extends the datatypes used by pandas to allow spatial operations on geometric types.
-
-#### Documentation
-
-- [geopandas.org](https://geopandas.org/)
 
 --- /collapse ---
 
@@ -419,10 +407,13 @@ When used with `skyfield`, `reverse-geocoder` can determine where the ISS curren
 
 ```python
 import reverse_geocoder
-from astro_pi import ISS
+from orbit import ISS
 
-coordinates = (ISS.coordinates().latitude.degrees, ISS.coordinates().longitude.degrees)
-location = reverse_geocoder.search(coordinates)
+coordinates = ISS.coordinates()
+coordinate_pair = (
+    coordinates.latitude.degrees,
+    coordinates.longitude.degrees)
+location = reverse_geocoder.search(coordinate_pair)
 print(location)
 ```
 This output shows the ISS is currently over Hamilton, New York:
