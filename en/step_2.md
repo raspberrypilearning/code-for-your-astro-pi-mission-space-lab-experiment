@@ -24,7 +24,7 @@ Insert the camera cable into the CSI socket on the Raspberry pi.
 --- /task ---
 
 --- task ---
-Take SenseHAT and remove the short header if its attached. 
+Take the SenseHAT and remove the short header if it is attached.
 
 ![Photo of the SenseHAT with small header removed](images/assembly_small_header.JPG)
 --- /task ---
@@ -94,7 +94,7 @@ NOTE: This process cannot be reversed or undone once completed.
 
 --- task ---
 
-Please ensure that you need the IR sensitive camera before following the [instructions here](https://www.raspberrypi.org/documentation/hardware/camera/hqcam_filter_removal.md)
+Please ensure that you need the IR sensitive camera before following the [instructions here](https://www.raspberrypi.org/documentation/accessories/camera.html#raspberry-pi-hq-camera-filter-removal)
 --- /task ---
 
 Now you can add the DB660/850-25.4 red/NIR dual band pass filter. This been designed primarily for NDVI imaging applications. By adding it to the High Quality Camera sensor, only reflected red light (660nm) and reflected near-infrared light (850nm) will be captured by the sensor.  See our NDVI project for more information. 
@@ -208,7 +208,7 @@ If you've never used the Sense HAT before, [start with this short project](https
 
 If you've never used the Camera Module before, [start with this beginners' project](https://projects.raspberrypi.org/en/projects/getting-started-with-picamera/), and come back here once you've tried using the basic `picamera` Python library functions.
 
-Note: The camera sensor in the ESA kit is the same High Quality camera as the one found in the new Astro Pis on the ISS. You can read the [documentation about the HQ camera](https://www.raspberrypi.org/documentation/hardware/camera/), with a lot of detailed technical information also to be found in [the relevant section of the PiCamera library documentation](https://picamera.readthedocs.io/en/release-1.13/fov.html#camera-hardware).
+Note: The camera sensor in the ESA kit is the same High Quality camera as the one found in the new Astro Pis on the ISS. You can read the [documentation about the HQ camera](https://www.raspberrypi.org/documentation/hardware/camera/), with a lot of detailed technical information also to be found in [the relevant section of the PiCamera library documentation](https://picamera.readthedocs.io/en/latest/fov.html#camera-hardware).
 
 ### Performance
 
