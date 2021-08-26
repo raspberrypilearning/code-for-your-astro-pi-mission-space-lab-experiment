@@ -8,6 +8,8 @@ Once you've done that, power the Raspberry Pi back on and take some test photos:
 
 [[[rpi-picamera-take-photo]]]
 
+If you've never used the Camera Module before, [start with this beginners' project](https://projects.raspberrypi.org/en/projects/getting-started-with-picamera/), and come back here once you've tried using the basic `picamera` Python library functions.
+
 The code snippet below shows how to take a picture with the Camera Modules of the Astro Pis using the `picamera` library, and save it to the correct directory. The `picamera` library is very powerful and has [great documentation](https://picamera.readthedocs.io/en/latest/){:target="_blank"}.
 
 ```python

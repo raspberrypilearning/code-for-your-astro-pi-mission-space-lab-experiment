@@ -10,13 +10,17 @@ The Sense HAT used in the Astro Pi hosts a range of sensors that you can retriev
 - Barometric pressure sensor
 - Light and colour sensor
 
+If you've never used the Sense HAT before, [start with this short project](https://projects.raspberrypi.org/en/projects/getting-started-with-the-sense-hat/), and come back here once you're aware of basic Sense HAT uses.
+
 The Astro Pi also includes a Passive Infra-Red (PIR) motion sensor, of the kind used in burglar alarms. It is able to detect whether or not there is an object moving within range of its field of view (e.g. an astronaut) and provides this input data through one of the Raspberry Pi's GPIO pins.
 
 **Note**: You can only use data from the light sensor or the PIR motion sensor for _Life in Space_ experiments. For _Life on Earth_, the Astro Pi is positioned with the camera facing out a window and placed under a black "hood", to avoid reflections. The light sensor and the PIR motion sensor face in the opposite direction from the camera, away from the window, so they are in darkness and under cover.
 
 ### Retrieving sensor data from the Sense HAT
 
-The [Sense HAT documentation](https://pythonhosted.org/sense-hat/) contains sections on how to retrieve data from the [environmental sensors](https://pythonhosted.org/sense-hat/api/#environmental-sensors) (temperature, humidity, pressure, light and colour) and the [Inertial Measurement Unit (IMU)](https://pythonhosted.org/sense-hat/api/#imu-sensor) (acceleration, orientiation).
+The [Sense HAT documentation](https://pythonhosted.org/sense-hat/) contains sections on how to retrieve data from the [environmental sensors](https://pythonhosted.org/sense-hat/api/#environmental-sensors) (temperature, humidity, pressure, light and colour) and the [Inertial Measurement Unit (IMU)](https://pythonhosted.org/sense-hat/api/#imu-sensor) (acceleration, orientiation). You can also explore the wide range of [Sense HAT projects](https://projects.raspberrypi.org/en/projects?hardware%5B%5D=sense-hat) available from the Raspberry Pi Foundation.
+
+Here is a short example on how to obtain a measurements from the colour sensor:
 
 ```python
 from sense_hat import SenseHat
@@ -29,8 +33,6 @@ if light < 64:
 else:
     print('Light')
 ```
-
-You can also explore the wide range of [Sense HAT projects](https://projects.raspberrypi.org/en/projects?hardware%5B%5D=sense-hat) available from the Raspberry Pi Foundation. Make sure not to miss the [Getting Started with the Sense HAT](https://projects.raspberrypi.org/en/projects/getting-started-with-the-sense-hat) guide!
 
 ### Retrieving data from the motion sensor
 
