@@ -203,6 +203,20 @@ Please, **do not perform any upgrades or install any additional packages or Pyth
 
 --- collapse ---
 ---
+title: Accessing the Desktop Flight OS remotely
+---
+
+The Desktop Flight OS runs VNC Server from RealVNC, so you can use the [compatible VNC client](https://www.realvnc.com/en/connect/download/viewer/) to connect to your desktop from another computer.
+
+You can also connect to the Desktop Flight OS using just a browser. On a machine that is connected to the same network as your Astro Pi kit, open up a browser and type `http://astro-pi-kit.local/vnc.html` in the address bar. This should lead you to the noVNC connection page. Click on the "Connect" button, enter `raspberry` as the password and you should see the Flight OS desktop in your browser!
+
+![The Desktop Flight OS accessed remotely through a browser window on an Ubuntu machine](images/noVNC.png)
+
+--- /collapse ---
+
+
+--- collapse ---
+---
 title: Downloading Operating System images (optional)
 ---
 
