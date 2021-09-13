@@ -186,18 +186,18 @@ Your Astro Pi kit should now be complete. Insert your SD card, connect to a moni
 
 #### Performance
 
-The ESA kits for Astro Pi 2020/21 contain Raspberry Pi 4s with 4GB of memory (RAM). They are almost identical to the new Astro Pis on the ISS, except that they have 8GB of memory. This means there should really be very little difference in performance between the computer on which you develop and test your code and the computer where it actually runs, unless your experiment requires a lot of memory.
+The ESA kits for Astro Pi 2020/21 contain Raspberry Pi 4 devices with 4GB of memory (RAM). They are almost identical to the new Astro Pis on the ISS, except that those have 8GB of memory. This means there should be very little difference in performance between the computer on which you develop and test your code and the computer where it actually runs, unless your experiment requires a lot of memory.
 
 
-### Software and your Development Environment
+### Software and your development environment
 
 After assembling your hardware, you will need to set up your development environment. If you received a kit from ESA, it will contain an SD card with the Desktop version of the Flight OS: a custom-built version of the Raspberry Pi Operating System that you will need.
 
-The packages available in the Desktop Flight OS closely match the ones in the actual Flight OS, i.e. the operating system installed on the Astro Pi units on the ISS. However, the Flight OS is a "command-line only" environment that is not really convenient for developing programs and that is why the ESA kits provide a Desktop version that also includes a host of programming tools. Here is a [video tour](https://youtu.be/i57kwOiR7UM) of the 2020 version!
+The packages available in the Desktop Flight OS closely match the ones in the actual Flight OS, the operating system installed on the Astro Pi units on the ISS. However, the Flight OS is a "command-line only" environment that is not really convenient for developing programs and that is why the ESA kits provide a Desktop version that also includes a host of programming tools. Here is a [video tour](https://youtu.be/i57kwOiR7UM) of the 2020 version!
 
-![Screenshot of the Desktop version of the Flight Operating System](images/os-desktop.png)
+![Screenshot of the Desktop version of the Flight Operating System.](images/os-desktop.png)
 
-You will use this environment to _develop_ and _test_ the code for your experiment. Making sure that your program runs successfully in this environment is the best way to ensure that your experiment passes our testing procedure and can run on the Astro Pis on the ISS without any modifications.
+You will use this environment to **develop** and **test** the code for your experiment. Making sure that your program runs successfully in this environment is the best way to ensure that your experiment passes our testing procedure and can run on the Astro Pis on the ISS without any modifications.
 
 Please, **do not perform any upgrades or install any additional packages or Python libraries** in this environment as these will not be available when your experiment runs.
 
@@ -206,11 +206,11 @@ Please, **do not perform any upgrades or install any additional packages or Pyth
 title: Accessing the Desktop Flight OS remotely
 ---
 
-The Desktop Flight OS runs VNC Server from RealVNC, so you can use the [compatible VNC client](https://www.realvnc.com/en/connect/download/viewer/) to connect to your desktop from another computer.
+The Desktop Flight OS runs the VNC Server from RealVNC, so you can use the [compatible VNC client](https://www.realvnc.com/en/connect/download/viewer/) to connect to your desktop from another computer.
 
-You can also connect to the Desktop Flight OS using just a browser. On a machine that is connected to the same network as your Astro Pi kit, open up a browser and type `http://astro-pi-kit.local/vnc.html` in the address bar. This should lead you to the noVNC connection page. Click on the "Connect" button, enter `raspberry` as the password and you should see the Flight OS desktop in your browser!
+You can also connect to the Desktop Flight OS using just a browser. On a machine that is connected to the same network as your Astro Pi kit, open up a browser and type `http://astro-pi-kit.local/vnc.html` in the address bar. This should lead you to the noVNC connection page. Click on the `Connect` button, enter `raspberry` as the password, and you should see the Flight OS desktop in your browser!
 
-![The Desktop Flight OS accessed remotely through a browser window on an Ubuntu machine](images/noVNC.png)
+![The Desktop Flight OS accessed remotely through a browser window on an Ubuntu machine.](images/noVNC.png)
 
 --- /collapse ---
 
@@ -229,7 +229,7 @@ If you want to create additional SD cards to use for Astro Pi, you can download 
 title: Sample data
 ---
 
-The Desktop version of the Flight OS also contains a `Data` folder with sample data from a previous mission which can be used to help test and refine your code. 
+The Desktop version of the Flight OS also contains a `Data` folder with sample data from a previous mission, which can be used to help test and refine your code. 
 
 #### Sensor readings
 
