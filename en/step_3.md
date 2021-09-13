@@ -28,14 +28,14 @@ You can find some information below on what you can use these libraries for and 
 
 --- collapse ---
 ---
-title: skyfield
+title: Skyfield
 ---
 
 #### Usage
 
 Skyfield, the successor to PyEphem, is an astronomy package that computes the positions of stars, planets, and satellites in orbit around the Earth.
 
-In _"Finding the location of the ISS"_, you can find out how to use Skyfield in order to obtain the position of the International Space Station above the Earth.
+In *Finding the location of the ISS*, you can find out how to use Skyfield to obtain the position of the International Space Station above the Earth.
 
 #### Documentation
 
@@ -48,7 +48,7 @@ In _"Finding the location of the ISS"_, you can find out how to use Skyfield in 
 title: picamera
 ---
 
-`picamera` is the Python library for controlling the Raspberry Pi Camera Module. 
+The Python library for controlling the Raspberry Pi camera module is `picamera`. 
 
 #### Usage
 
@@ -60,7 +60,7 @@ camera = PiCamera()
 camera.resolution = (2592, 1944)
 
 for i in range(3*60):
-    camera.capture(f'image_{i:03d}.jpg')  # take a picture every minute for 3 hours
+    camera.capture(f'image_{i:03d}.jpg')  # Take a picture every minute for 3 hours
     sleep(60)
 ```
 
@@ -91,7 +91,7 @@ sense = SenseHat()
 start = Color('yellow')
 end = Color('cyan')
 
-# slowly transition the Sense HAT from the `start` to the `end` colour
+# Slowly transition the Sense HAT from the `start` to the `end` colour
 for color in start.gradient(end, steps=100):
     sense.clear(color.rgb_bytes)
     sleep(0.1)
@@ -108,7 +108,7 @@ for color in start.gradient(end, steps=100):
 title: gpiozero
 ---
 
-GPIO Zero is a simple but powerful GPIO library. Much of its functionality is restricted for the purposes of Mission Space Lab, e.g. you are not allowed to access any GPIO pins other than GPIO pin 12, where the motion sensor is connected. However, some of its features can be handy in your experiment, such as the internal device `CPUTemperature`.
+GPIO Zero is a simple but powerful GPIO library. Much of its functionality is restricted for the purposes of Mission Space Lab; for example, you are not allowed to access any GPIO pins other than GPIO pin 12, where the motion sensor is connected. However, some of its features can be handy in your experiment, such as the internal device `CPUTemperature`.
 
 #### Usage
 
@@ -137,7 +137,7 @@ while True:
 title: GDAL
 ---
 
-The Geospatial Data Abstraction Library is an open-source, cross-platform set of libraries and low-level tools for working with geospatial data in many formats.
+The Geospatial Data Abstraction Library (GDAL) is an open-source, cross-platform set of libraries and low-level tools for working with geospatial data in many formats.
 
 #### Documentation
 
@@ -191,7 +191,7 @@ SciPy is a free and open-source Python library used for scientific computing and
 
 --- collapse ---
 ---
-title: TensorFlow, TensorFlow Lite and PyCoral
+title: TensorFlow, TensorFlow Lite, and PyCoral
 ---
 
 TensorFlow is Google's machine learning framework. You will need it if you want to build and train your own models. If you only need to use or re-train existing models for inference, then you can use TensorFlow Lite or, even better, the PyCoral library. The latter is built on top of TensorFlow Lite but has a simpler, higher-level interface and allows you to easily use the Coral USB Accelerator (Edge TPU).
@@ -242,7 +242,7 @@ logger.error("error")
 
 --- collapse ---
 ---
-title: keras
+title: Keras
 ---
 
 Keras is a high-level neural networks API, and is capable of running on top of TensorFlow.
@@ -435,7 +435,7 @@ This output shows the ISS is currently over Hamilton, New York:
 
 --- /collapse ---
 
-You should not install additional Python packages or even change the versions of the ones already available on the Desktop Flight OS. If you do, your program may run successfully when you test it in your modified environment but it will _fail_ when tested on the actual Flight OS.
+You should not install additional Python packages or even change the versions of the ones already available on the Desktop Flight OS. If you do, your program may run successfully when you test it in your modified environment, but it will **fail** when tested on the actual Flight OS.
 
 To make sure that you are not using a Python package you are not supposed to, follow the instructions in this guide and check that your code will terminate successfully, without generating any errors, when executed in a terminal using `python3 main.py`, in an unmodified version of the Desktop Flight OS.
 
