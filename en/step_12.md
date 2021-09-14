@@ -1,15 +1,15 @@
 ## A big worked example
 
-Here is an example of an Astro Pi Mission Space Lab experiment idea: _The team from CoderDojo Tatooine wants to investigate whether the environment on the ISS is affected by the surface of the Earth it is passing over. Does the ISS get hotter when it passes over a desert, or wetter when it is above the sea?_
+Here is an example of an Astro Pi Mission Space Lab experiment idea: The team from CoderDojo Tatooine wants to investigate whether the environment on the ISS is affected by the surface of the Earth it is passing over. Does the ISS get hotter when it passes over a desert, or wetter when it is above the sea?
 
-This example will serve as a template, to illustrate how you can combine all the elements described so far in this guide in order to plan and write your computer program.
+This example will serve as a template, to illustrate how you can combine all the elements described so far in this guide to plan and write your computer program.
 
 For this particular example, it seems that the program for the experiment should:
-- Take regular measurements of temperature and humidity every 30 seconds, and log the values in a CSV file.
-- Calculate the ISS’s latitude and longitude and log this information in the CSV file.
-- Take a photo using the camera on Astro Pi IR, which is pointing out of a window towards Earth, to gather data on whether cloud cover might also be a factor.
-- Write the latitude and longitude data in the CSV file and also into the EXIF tags of the images, which have sequentially numbered file names.
-- Handle any unexpected errors and log the details.
+- Take regular measurements of temperature and humidity every 30 seconds, and log the values in a CSV file
+- Calculate the ISS’s latitude and longitude and log this information in the CSV file
+- Take a photo using the camera on Astro Pi IR, which is pointing out of a window towards Earth, to gather data on whether cloud cover might also be a factor
+- Write the latitude and longitude data in the CSV file and also into the EXIF tags of the images, which have sequentially numbered file names
+- Handle any unexpected errors and log the details
 
 ### Planning your coding sessions
 
@@ -22,7 +22,7 @@ title: Tips for planning and running coding sessions
 
 ### How to approach writing the program for Phase 2 of Mission Space Lab
 
-+ Read through this guide. Familiarise yourself with the requirements that your program must meet so that it can advance to the next phase and run smoothly on the Astro Pis on the ISS. Read the useful tips provided throughout on how to best develop your program and make the most of your experimental results.
++ Read through this guide. Familiarise yourself with the requirements that your program must meet so that it can advance to the next phase and run smoothly on the Astro Pis on the ISS. Read the useful tips provided throughout on how to best to develop your program and make the most of your experimental results.
 
 ### Work out the key tasks
 
@@ -44,7 +44,7 @@ title: Tips for planning and running coding sessions
 
 ### Create a flow chart
 
-+ Take a fresh sheet of paper or find a clean area on your whiteboard (be sure to copy or take a photo of your first picture before you erase anything). Reconfigure the steps and flow into a more ordered diagram, maybe running clockwise around the paper or starting at the top and working downwards. Try a few different versions and see which one is the most easy to follow. Include a ‘start’ and ‘end’ block to make it very clear where the program begins and finishes. Are there any actions that you need to perform at these stages? The final result is what is called a flow chart: a diagram of all of a program’s tasks, in the right order, that doesn’t contain any actual programming language commands.
++ Take a fresh sheet of paper or find a clean area on your whiteboard (be sure to copy or take a photo of your first picture before you erase anything). Reconfigure the steps and flow into a more ordered diagram, maybe running clockwise around the paper or starting at the top and working downwards. Try a few different versions and see which one is the easiest to follow. Include a ‘start’ and ‘end’ block to make it very clear where the program begins and finishes. Are there any actions that you need to perform at these stages? The final result is what is called a flow chart: a diagram of all of a program’s tasks, in the right order, that doesn’t contain any actual programming language commands.
 
 ![](images/Astro_Pi_Educator_Focus_Graphics_V6d.png)
 
@@ -126,17 +126,17 @@ def capture(camera, image):
     """Use `camera` to capture an `image` file with lat/long EXIF data."""
     location = ISS.coordinates()
 
-    # convert the latitude and longitude to EXIF-appropriate representations
+    # Convert the latitude and longitude to EXIF-appropriate representations
     south, exif_latitude = convert(location.latitude)
     west, exif_longitude = convert(location.longitude)
 
-    # set the EXIF tags specifying the current location
+    # Set the EXIF tags specifying the current location
     camera.exif_tags['GPS.GPSLatitude'] = exif_latitude
     camera.exif_tags['GPS.GPSLatitudeRef'] = "S" if south else "N"
     camera.exif_tags['GPS.GPSLongitude'] = exif_longitude
     camera.exif_tags['GPS.GPSLongitudeRef'] = "W" if west else "E"
 
-    # capture the image
+    # Capture the image
     camera.capture(image)
 
 
@@ -152,21 +152,21 @@ sense = SenseHat()
 cam = PiCamera()
 cam.resolution = (1296, 972)
 
-# initialise the CSV file
+# Initialise the CSV file
 data_file = base_folder/"data.csv"
 create_csv_file(data_file)
 
-# initialise the photo counter
+# Initialise the photo counter
 counter = 1
-# record the start and current time
+# Record the start and current time
 start_time = datetime.now()
 now_time = datetime.now()
-# run a loop for (almost) three hours
+# Run a loop for (almost) three hours
 while (now_time < start_time + timedelta(minutes=178)):
     try:
         humidity = round(sense.humidity, 4)
         temperature = round(sense.temperature, 4)
-        # get coordinates of location on Earth below the ISS
+        # Get coordinates of location on Earth below the ISS
         location = ISS.coordinates()
         # Save the data to the file
         data = (
@@ -178,14 +178,14 @@ while (now_time < start_time + timedelta(minutes=178)):
             humidity,
         )
         add_csv_data(data_file, data)
-        # capture image
+        # Capture image
         image_file = f"{base_folder}/photo_{counter:03d}.jpg"
         capture(cam, image_file)
-        # log event
+        # Log event
         logger.info(f"iteration {counter}")
         counter += 1
         sleep(30)
-        # update the current time
+        # Update the current time
         now_time = datetime.now()
     except Exception as e:
         logger.error(f'{e.__class__.__name__}: {e}')
