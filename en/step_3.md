@@ -48,7 +48,7 @@ In *Finding the location of the ISS*, you can find out how to use Skyfield to ob
 title: picamera
 ---
 
-The Python library for controlling the Raspberry Pi camera module is `picamera`. 
+The Python library for controlling the Raspberry Pi Camera Module is `picamera`. 
 
 #### Usage
 
