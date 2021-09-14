@@ -1,10 +1,10 @@
 ## A big worked example
 
-Here is an example of an Astro Pi Mission Space Lab experiment idea: The team from CoderDojo Tatooine wants to investigate whether the environment on the ISS is affected by the surface of the Earth it is passing over. Does the ISS get hotter when it passes over a desert, or wetter when it is above the sea?
+Here is an example of an Astro Pi Mission Space Lab experiment idea: the team from CoderDojo Tatooine wants to investigate whether the environment on the ISS is affected by the surface of the Earth it is passing over. Does the ISS get hotter when it passes over a desert, or wetter when it is above the sea?
 
 This example will serve as a template, to illustrate how you can combine all the elements described so far in this guide to plan and write your computer program.
 
-For this particular example, it seems that the program for the experiment should:
+For this particular example, the program for the experiment should:
 - Take regular measurements of temperature and humidity every 30 seconds, and log the values in a CSV file
 - Calculate the ISS’s latitude and longitude and log this information in the CSV file
 - Take a photo using the camera on Astro Pi IR, which is pointing out of a window towards Earth, to gather data on whether cloud cover might also be a factor
@@ -44,7 +44,7 @@ title: Tips for planning and running coding sessions
 
 ### Create a flow chart
 
-+ Take a fresh sheet of paper or find a clean area on your whiteboard (be sure to copy or take a photo of your first picture before you erase anything). Reconfigure the steps and flow into a more ordered diagram, maybe running clockwise around the paper or starting at the top and working downwards. Try a few different versions and see which one is the easiest to follow. Include a ‘start’ and ‘end’ block to make it very clear where the program begins and finishes. Are there any actions that you need to perform at these stages? The final result is what is called a flow chart: a diagram of all of a program’s tasks, in the right order, that doesn’t contain any actual programming language commands.
++ Take a fresh sheet of paper or find a clean area on your whiteboard (be sure to copy or take a photo of your first picture before you erase anything). Reconfigure the steps and flow into a more ordered diagram, maybe running clockwise around the paper or starting at the top and working downwards. Try a few different versions and see which one is the easiest to follow. Include a ‘start’ and ‘end’ block to make it very clear where the program begins and finishes. Are there any actions that you need to perform at these stages? The final result is what is called a flow chart: a diagram of all of a program’s tasks, in the right order, but doesn’t contain any actual programming language commands.
 
 ![](images/Astro_Pi_Educator_Focus_Graphics_V6d.png)
 
@@ -66,7 +66,7 @@ title: Tips for planning and running coding sessions
 
 + Remind your team that they cannot install additional Python libraries or access the internet on the Astro Pi computers aboard the ISS, so they should not use any commands that make a web request or look up something from an online source.
 
-+ Encourage each team member or subteam responsible for a specific part of the program to code their section so that works by itself, just like the examples in the coding requirements document. Suggest that they add comments and docstrings as they go along.
++ Encourage each team member or subteam responsible for a specific part of the program to code their section so that it works by itself, just like the examples in the coding requirements document. Suggest that they add comments and docstrings as they go along.
 
 + Get together regularly to discuss progress and work through any major challenges as a group. It is useful to update your pseudocode flow diagram to reflect any changes that your team realise are necessary as they write the actual program.
 
