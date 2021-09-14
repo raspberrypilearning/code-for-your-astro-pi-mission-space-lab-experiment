@@ -64,9 +64,9 @@ Now take the PIR and remove the foam pin protector block.
 --- task ---
 Connect three wires to the pins on the PIR. Note the labels on the back of the PIR PCB, which indicate the use of each pin: 
 
-GND – which needs to be connected to corresponding ground pin on the Raspberry Pi
-VCC – which needs to be connected to a 3V3 pin on the Raspberry Pi
-OUT – which should be connected to GPIO pin 12 on the Raspberry Pi
+- The GND needs to be connected to corresponding ground pin on the Raspberry Pi
+- The VCC needs to be connected to a 3V3 pin on the Raspberry Pi
+- The OUT should be connected to GPIO pin 12 on the Raspberry Pi
 
 ![Photo of PIR with wires attached to pins.](images/assembly_PIR_wires.JPG)
 --- /task ---
@@ -80,7 +80,7 @@ Connect the wires from the PIR to the appropriate GPIO pins on the Raspberry Pi.
 
 #### Converting a camera for IR-sensitive Life on Earth experiments
 
-The high-quality camera sensor can detect infra-red (IR) light. However, the sensor housing contains an IR filter, which is used to greatly reduce the camera’s sensitivity to IR light.  This is so that the images captured by the high-quality camera sensor look the same as what we see with our eyes (which are not sensitive to IR light). 
+The high-quality camera sensor can detect infrared (IR) light. However, the sensor housing contains an IR filter, which is used to greatly reduce the camera’s sensitivity to IR light.  This is so that the images captured by the high-quality camera sensor look the same as what we see with our eyes (which are not sensitive to IR light). 
 
 If your Life on Earth experiment requires an IR-sensitive camera (like the one on Astro Pi IR), then you will need to convert the high-quality camera sensor you received in your kit by removing the IR filter. If you are programming a Life in Space experiment, or your Life on Earth experiment requires photos to be taken in the visible light spectrum only, then you should not convert your high-quality camera sensor. Please skip to the final assembly steps below. 
 
@@ -97,7 +97,7 @@ title: Converting a camera for IR-sensitive experiments
 Please ensure that you need the IR-sensitive camera before following the [instructions here](https://www.raspberrypi.org/documentation/accessories/camera.html#raspberry-pi-hq-camera-filter-removal).
 --- /task ---
 
-Now you can add the DB660/850-25.4 red/NIR dual band pass filter. This been designed primarily for NDVI imaging applications. By adding it to the high-quality camera sensor, only reflected red light (660nm) and reflected near-infrared light (850nm) will be captured by the sensor. See our NDVI project for more information. 
+Now you can add the DB660/850-25.4 red/NIR dual band pass filter. This has been designed primarily for NDVI imaging applications. By adding it to the high-quality camera sensor, only reflected red light (660nm) and reflected near-infrared light (850nm) will be captured by the sensor. See our NDVI project for more information. 
 
 --- task ---
  
