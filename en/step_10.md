@@ -4,9 +4,9 @@ For security reasons, **your program is not allowed to access the network on the
 
 Moreover, your program is not allowed to run another program or any command that you would normally type into the terminal window of the Raspberry Pi, such as `vcgencmd`.
 
-### CPU Temperature
+### CPU temperature
 
-It is common to see people use a subprocess to measure the CPU's temperature. However we recommend using the [CPU Temperature](https://gpiozero.readthedocs.io/en/stable/api_other.html#cputemperature) interface provided by GPIO Zero:
+It is common to see people use a subprocess to measure the CPU's temperature. However, we recommend using the [CPU Temperature](https://gpiozero.readthedocs.io/en/stable/api_other.html#cputemperature) interface provided by GPIO Zero:
 
 ```python
 from gpiozero import CPUTemperature
