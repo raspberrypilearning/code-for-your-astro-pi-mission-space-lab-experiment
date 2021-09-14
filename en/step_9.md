@@ -1,8 +1,8 @@
-## For 'Life in space' experiments only: Using the LED display
+## For Life in Space experiments only: Using the LED display
 
 The LED matrix is the only display available to the Astro Pi computer, which is never connected to a normal monitor or TV screen on the ISS. If nothing is shown on its display for some time, the crew may begin to wonder if the Astro Pi computer has crashed. It will then cost crew time if they need to check it and/or call ground control to report a problem. To avoid this, your code should regularly update the LED matrix in some way, to indicate that your experiment is progressing. 
 
-**Note**: If your experiment is for _'Life on Earth'_, then you should not use the LED matrix. When the Astro Pi is running _'Life on Earth'_ experiments, the LED matrix is disabled and the unit is placed under a black "hood", to prevent reflections and stray light from spoiling the images taken from the ISS window.
+**Note**: If your experiment is for __Life on Earth__, then you should not use the LED matrix. When the Astro Pi is running __Life on Earth__ experiments, the LED matrix is disabled and the unit is placed under a black "hood", to prevent reflections and stray light from spoiling the images taken from the ISS window.
 
 The `sense_hat` library has functions to write messages to the LED matrix or light up individual pixels.
 
@@ -21,7 +21,7 @@ import random
 
 sense = SenseHat()
 
-# Define some colours - keep brightness low
+# Define some colours — keep brightness low
 g = [0,128,0]
 o = [0,0,0]
 
@@ -39,19 +39,19 @@ image = [
 
 # Define a function to update the LED matrix
 def active_status():
-    # a list with all possible rotation values
+    # A list with all possible rotation values
     rotation_values = [0,90,180,270]
-    # pick one at random
+    # Pick one at random
     rotation = random.choice(rotation_values)
-    # set the rotation
+    # Set the rotation
     sense.set_rotation(rotation)
 
 # Display the image
 sense.set_pixels(image)
 while True:
-    # do stuff (in this case, nothing)
+    # Do stuff (in this case, nothing)
     sleep(2)
-    # update the LED matrix
+    # Update the LED matrix
     active_status()
 ```
 
@@ -60,13 +60,13 @@ You should aim to update the screen at least every 15 seconds. If your experimen
 ```python
 sh.set_pixels(image)
 while True:
-    # do stuff (in this case, nothing)
+    # Do stuff (in this case, nothing)
     sleep(15)
-    # update the LED matrix
+    # Update the LED matrix
     active_status()
-    # more doing nothing
+    # More doing nothing
     sleep(15)
-    # update LEDs again
+    # Update LEDs again
     active_status()
 ```
 
