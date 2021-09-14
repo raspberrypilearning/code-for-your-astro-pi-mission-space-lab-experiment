@@ -1,6 +1,6 @@
 ## Recording images using the camera
 
-The first thing to do, if you haven't already, is to connect your camera module to the Raspberry Pi.
+The first thing to do, if you haven't already, is to connect your Camera Module to the Raspberry Pi.
 
 [[[rpi-picamera-connect-camera]]]
 
@@ -8,9 +8,9 @@ Once you've done that, power the Raspberry Pi back on and take some test photos:
 
 [[[rpi-picamera-take-photo]]]
 
-If you've never used the camera module before, [start with this beginners' project](https://projects.raspberrypi.org/en/projects/getting-started-with-picamera/), and come back here once you've tried using the basic `picamera` Python library functions.
+If you've never used the Camera Module before, [start with this beginners' project](https://projects.raspberrypi.org/en/projects/getting-started-with-picamera/), and come back here once you've tried using the basic `picamera` Python library functions.
 
-The code snippet below shows how to take a picture with the camera modules of the Astro Pis using the `picamera` library, and save it to the correct directory. The `picamera` library is very powerful and has [great documentation](https://picamera.readthedocs.io/en/latest/){:target="_blank"}.
+The code snippet below shows how to take a picture with the Camera Modules of the Astro Pis using the `picamera` library, and save it to the correct directory. The `picamera` library is very powerful and has [great documentation](https://picamera.readthedocs.io/en/latest/){:target="_blank"}.
 
 ```python
 from time import sleep
@@ -27,15 +27,15 @@ sleep(2)
 camera.capture(f"{base_folder}/image.jpg")
 ```
 
-If your experiment is for the **Life in Space** theme, then your program must make sure that any captured images have been deleted by the end of your experiment time:
+If your experiment is for the Life in Space theme, then your program must make sure that any captured images have been deleted by the end of your experiment time:
 
 ```python
 (base_folder/"image.jpg").unlink()
 ```
 
-If your experiment is for the **Life on Earth** theme, then you will get some amazing pictures of the Earth seen from the ISS. Even if your program will process these images and only make use of the extracted data, we recommend that you do not delete all the images (unless your program will generate so many of them that you risk running out of disk space on the Astro Pi). Apart from being a unique souvenir of your mission, the images may also help you with debugging any unexpected issues with your experimental results. Here are some examples of [images captured using the infra-red camera on Astro Pi IR](https://www.flickr.com/photos/raspberrypi). If you're going to be processing images (e.g. with the OpenCV Python library), you should test your code on some of these images.
+If your experiment is for the Life on Earth theme, then you will get some amazing pictures of the Earth seen from the ISS. Even if your program will process these images and only make use of the extracted data, we recommend that you do not delete all the images (unless your program will generate so many of them that you risk running out of disk space on the Astro Pi). Apart from being a unique souvenir of your mission, the images may also help you with debugging any unexpected issues with your experimental results. Here are some examples of [images captured using the infra-red camera on Astro Pi IR](https://www.flickr.com/photos/raspberrypi). If you're going to be processing images (e.g. with the OpenCV Python library), you should test your code on some of these images.
 
-The rest of this step is mainly for **Life on Earth** experiments. No images from **Life in Space** experiments can be saved.
+The rest of this step is mainly for Life on Earth experiments. No images from Life in Space experiments can be saved.
 
 ### Location data (Life on Earth)
 
@@ -134,7 +134,7 @@ This is definitely a post-experiment processing step. You should not use your 3-
 
 ### Low-light and night-time photography
 
-Night-time photography using the Astro Pi's camera module is difficult. This is mostly because of the very low chances of your program being run while the ISS is above a bright city without cloud cover. The light sensitivity of the camera is quite good, but it needs to be used with the best software settings for the particular situation, and it is difficult to anticipate what those settings will be and include them in your program. Having the camera adapt to changing light conditions in real time is also tricky, especially when the camera is moving relative to the light source, as is the case for the Astro Pis on the ISS.
+Night-time photography using the Astro Pi's Camera Module is difficult. This is mostly because of the very low chances of your program being run while the ISS is above a bright city without cloud cover. The light sensitivity of the camera is quite good, but it needs to be used with the best software settings for the particular situation, and it is difficult to anticipate what those settings will be and include them in your program. Having the camera adapt to changing light conditions in real time is also tricky, especially when the camera is moving relative to the light source, as is the case for the Astro Pis on the ISS.
 
 ### Size and number of images
 
