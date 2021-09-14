@@ -79,7 +79,7 @@ title: colorzero
 
 #### Usage
 
-colorzero makes it easy to transition between two colours:
+`colorzero` makes it easy to transition between two colours:
 
 ```python
 from colorzero import Color
