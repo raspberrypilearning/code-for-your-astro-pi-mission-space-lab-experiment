@@ -42,7 +42,7 @@ title: Notes for Life on Earth experiments
 title: What you will learn
 ---
 
-You'll learn how to connect the hardware that you'll need to the Raspberry Pi (e.g. the Sense HAT, the camera module, a PIR motion sensor, or the Coral TPU), and how to turn your Mission Space Lab Phase 1 idea into a working experiment by writing a Python program that can run on the ISS Astro Pis.
+You'll learn how to connect the hardware that you'll need to the Raspberry Pi (e.g. the Sense HAT, the Camera Module, a PIR motion sensor, or the Coral TPU), and how to turn your Mission Space Lab Phase 1 idea into a working experiment by writing a Python program that can run on the ISS Astro Pis.
 
 --- /collapse ---
 
@@ -54,8 +54,8 @@ title: What you will need
 
 + A Raspberry Pi 4
 + A Sense HAT
-+ A camera module (if necessary for your experiment)
-+ A PIR motion sensor (if necessary for your experiment)
++ A Camera Module (if necessary for your experiment)
++ A passive infrared (PIR) motion sensor (if necessary for your experiment)
 + A Coral TPU (if necessary for your experiment)
 
 ### Software
