@@ -2,7 +2,7 @@
 
 The LED matrix is the only display available to the Astro Pi computer, which is never connected to a normal monitor or TV screen on the ISS. If nothing is shown on its display for some time, the crew may begin to wonder if the Astro Pi computer has crashed. It will then cost crew time if they need to check it and/or call ground control to report a problem. To avoid this, your code should regularly update the LED matrix in some way, to indicate that your experiment is progressing. 
 
-**Note**: If your experiment is for __Life on Earth__, then you should not use the LED matrix. When the Astro Pi is running __Life on Earth__ experiments, the LED matrix is disabled and the unit is placed under a black "hood", to prevent reflections and stray light from spoiling the images taken from the ISS window.
+**Note**: If your experiment is for __Life on Earth__, then you should not use the LED matrix. When the Astro Pi is running Life on Earth experiments, the LED matrix is disabled and the unit is placed under a black "hood", to prevent reflections and stray light from spoiling the images taken from the ISS window.
 
 The `sense_hat` library has functions to write messages to the LED matrix or light up individual pixels.
 
