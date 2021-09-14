@@ -82,7 +82,7 @@ If you chose the __Life on Earth__ theme, your program should not use the LED ma
 
 --- task ---
 
-Connect the Sense HAT and camera module (if required).
+Connect the Sense HAT and Camera Module (if required).
 
 --- /task ---
 
