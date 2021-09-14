@@ -6,7 +6,7 @@ Before you submit your program, it is vital that you test it on an Astro Pi runn
 
 The packages installed in this special build of the Raspberry Pi OS match the ones on the Flight OS installed on the Astro Pi units on the ISS. It essentially simulates the same setup as on board the ISS, down to the exact package versions. Making sure that your program runs without errors in this environment is the best way to ensure that your experiment passes our testing procedure and can run on the Astro Pis on the ISS without any modifications. 
 
-When we receive your code, we will run it on the actual Flight OS. Hundreds of teams submit programs to the challenge each year and, unfortunately, we do not have the capacity to check for mistakes or debug complex code errors: if your program fails to run without errors when we test it on the Flight OS, your team will not progress to Phase 3 and your code will run on the ISS. 
+When we receive your code, we will run it on the actual Flight OS. Hundreds of teams submit programs to the challenge each year and, unfortunately, we do not have the capacity to check for mistakes or debug complex code errors: if your program fails to run without errors when we test it on the Flight OS, your team will not progress to Phase 3 and your code will not run on the ISS. 
 
 So, to ensure that your entry has the best chance of success, it's important that you test as much as you can. Test your program thoroughly, debug any errors, and check it against the coding requirements. It’s especially important for you to consider any errors that could occur during your program’s run on the on-board Astro Pis’ Flight OS, such as file path errors or overwriting of files.
 
@@ -51,7 +51,7 @@ Your program does not use networking.
 --- /task ---
 
 --- task ---
-If your program employs threads, it does so only by using the `threading` library. Threads are managed carefully, closed cleanly and their use is clearly explained through comments in the code.
+If your program employs threads, it does so only by using the `threading` library. Threads are managed carefully, closed cleanly, and their use is clearly explained through comments in the code.
 --- /task ---
 
 --- task ---
@@ -59,7 +59,7 @@ Your program only saves data in the folder where the main Python file is, as des
 --- /task ---
 
 --- task ---
-Any files that your program creates have names that only include letters, numbers, dots (.), dashes (-) or underscores (_).
+Any files that your program creates have names that only include letters, numbers, dots (.), dashes (-), or underscores (_).
 --- /task ---
 
 --- task ---
@@ -67,22 +67,22 @@ Your program does not use more than 3GB of space to store data.
 --- /task ---
 
 --- task ---
-If you chose the _'Life in Space'_ theme, your program should make sure that no captured images or videos remain stored in the experiment folder after the end of the experiment.
+If you chose the __Life in Space__ theme, your program should make sure that no captured images or videos remain stored in the experiment folder after the end of the experiment.
 --- /task ---
 
 --- task ---
-If you chose the _'Life in Space'_ theme, your program should regularly display messages or images on the LED matrix, to indicate that an experiment is running.
+If you chose the __Life in Space__ theme, your program should regularly display messages or images on the LED matrix, to indicate that an experiment is running.
 --- /task ---
 
 --- task ---
-If you chose the _'Life on Earth'_ theme, your program should not use the LED matrix.
+If you chose the __Life on Earth__ theme, your program should not use the LED matrix.
 --- /task ---
 
 ### Run your code
 
 --- task ---
 
-Connect the Sense HAT and Camera Module (if required).
+Connect the Sense HAT and camera module (if required).
 
 --- /task ---
 
@@ -104,7 +104,7 @@ python3 main.py
 
 --- task ---
 
-Your code should run for three hours and then stop.
+Your code should run for 3 hours and then stop.
 
 When it's finished, observe any output files created by your project. Are you expecting image files from the camera? Data files? Anything else? Are there reports of errors in your logs?
 
