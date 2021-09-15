@@ -35,7 +35,7 @@ title: Skyfield
 
 Skyfield, the successor to PyEphem, is an astronomy package that computes the positions of stars, planets, and satellites in orbit around the Earth.
 
-In *Finding the location of the ISS*, you can find out how to use Skyfield to obtain the position of the International Space Station above the Earth.
+In [*Finding the location of the ISS*](4), you can find out how to use Skyfield to obtain the position of the International Space Station above the Earth.
 
 #### Documentation
 
@@ -181,7 +181,7 @@ camera.capture(output, 'rgb')
 title: SciPy
 ---
 
-SciPy is a free and open-source Python library used for scientific computing and technical computing. SciPy contains modules for optimisation, linear algebra, integration, interpolation, special functions, FFT, signal and image processing, ODE solvers, and other tasks common in science and engineering.
+SciPy is a free and open-source Python library used for scientific computing and technical computing. SciPy contains modules for optimisation, linear algebra, integration, interpolation, special functions, FFT (Fast Fourrier Transform), signal and image processing, ODE (Ordinary Differential Equations) solvers, and other tasks common in science and engineering.
 
 #### Documentation
 
@@ -283,7 +283,7 @@ plt.legend(['Sense HAT temperature sensor', 'Raspberry Pi CPU temperature'], loc
 plt.show()
 ```
 
-![](images/Figure_1.png)
+![The output of the program is a temperature plot generated using matplotlib.](images/Figure_1.png)
 
 #### Documentation
 
@@ -377,7 +377,7 @@ title: scikit-learn
 
 #### Documentation
 
-- [scikit-learn.org](scikit-learn.org/stable/documentation.html)
+- [scikit-learn.org](scikit-learn.org)
 
 --- /collapse ---
 

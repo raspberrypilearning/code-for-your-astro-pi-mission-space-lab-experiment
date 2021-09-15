@@ -30,15 +30,15 @@ title: Tips for planning and running coding sessions
 
 + Use a whiteboard or big sheet of paper to list all of the key tasks that your program will need to perform. You don’t need to worry about the order or the actual functions and commands at this stage — just note down the specific things that need to be achieved. This is what that would look like for the example scenario above:
 
-![](images/Astro_Pi_Educator_Focus_Graphics_V6a.png)
+![The key tasks for the Mission Space Lab experiment idea by the team from CoderDojo Tatooine](images/Astro_Pi_Educator_Focus_Graphics_V6a.png)
 
 + Have a closer look at each task and think about whether it can be split into smaller subtasks. Moreover, are there any actions that can be sensibly combined with one another? Also, see if there are any tasks that need to be repeated.
 
-![](images/Astro_Pi_Educator_Focus_Graphics_V6b.png)
+![Some of the key tasks that involve writing data to a file can be combined together](images/Astro_Pi_Educator_Focus_Graphics_V6b.png)
 
 + Try to put everything into a logical order, using lines to connect the various tasks. It will start to get messy, but that’s good! You will probably discover that there are some obvious repeated tasks. This is a good time to introduce or reinforce the programming concepts of repetition and loops.
 
-![](images/Astro_Pi_Educator_Focus_Graphics_V6c.png)
+![Arrange the key tasks into a logical order](images/Astro_Pi_Educator_Focus_Graphics_V6c.png)
 
 + If there are any repeated tasks, do they appear just once in your diagram, with flow lines passing through many times, or do they fit in in multiple places? Talk with your team about how repeated tasks should only be coded once, so that parts of the program can be reused.
 
@@ -46,7 +46,7 @@ title: Tips for planning and running coding sessions
 
 + Take a fresh sheet of paper or find a clean area on your whiteboard (be sure to copy or take a photo of your first picture before you erase anything). Reconfigure the steps and flow into a more ordered diagram, maybe running clockwise around the paper or starting at the top and working downwards. Try a few different versions and see which one is the easiest to follow. Include a ‘start’ and ‘end’ block to make it very clear where the program begins and finishes. Are there any actions that you need to perform at these stages? The final result is what is called a flow chart: a diagram of all of a program’s tasks, in the right order, but doesn’t contain any actual programming language commands.
 
-![](images/Astro_Pi_Educator_Focus_Graphics_V6d.png)
+![Create a flow chart](images/Astro_Pi_Educator_Focus_Graphics_V6d.png)
 
 + Work through your task list and try to identify any missing pieces. Add any missing functionality into your flow chart.
 
@@ -70,7 +70,7 @@ title: Tips for planning and running coding sessions
 
 + Get together regularly to discuss progress and work through any major challenges as a group. It is useful to update your pseudocode flow diagram to reflect any changes that your team realise are necessary as they write the actual program.
 
-![](images/Astro_Pi_Educator_Focus_Graphics_V6e.png)
+![Update the flow chart to reflect changes that become necessary as the program evolves](images/Astro_Pi_Educator_Focus_Graphics_V6e.png)
 
 + Keep the deadline for submitting your program in mind. If time is running out, are there any parts of your program that can be left out? If you are planning on performing analysis of results in real time, can this instead be done after your program has run, when you’ve got your results back?
 

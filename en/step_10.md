@@ -6,7 +6,7 @@ Moreover, your program is not allowed to run another program or any command that
 
 ### CPU temperature
 
-It is common to see people use a subprocess to measure the CPU's temperature. However, we recommend using the [CPU Temperature](https://gpiozero.readthedocs.io/en/stable/api_other.html#cputemperature) interface provided by GPIO Zero:
+It is common to see people use a subprocess to measure the CPU's temperature. However, we recommend using the [CPU Temperature](https://gpiozero.readthedocs.io/en/stable/api_internal.html#cputemperature) interface provided by GPIO Zero:
 
 ```python
 from gpiozero import CPUTemperature

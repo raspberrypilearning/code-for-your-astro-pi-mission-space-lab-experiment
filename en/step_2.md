@@ -16,7 +16,7 @@ Take the black hexagonal spacer columns from the small bag that comes with the S
 --- /task ---
 
 --- task ---
-Insert the camera cable into the CSI socket on the Raspberry Pi.  
+Insert the camera cable into the CSI (Camera Serial Interface) socket on the Raspberry pi.  
 
 [[[rpi-picamera-connect-camera]]]
 
@@ -62,7 +62,7 @@ Now take the PIR and remove the foam pin protector block.
 --- /task ---
 
 --- task ---
-Connect three wires to the pins on the PIR. Note the labels on the back of the PIR PCB, which indicate the use of each pin: 
+Connect three wires to the pins on the PIR. Note the labels on the back of the PIR circut board which indicate the use of each pin: 
 
 - The GND needs to be connected to corresponding ground pin on the Raspberry Pi
 - The VCC needs to be connected to a 3V3 pin on the Raspberry Pi
@@ -97,7 +97,7 @@ title: Converting a camera for IR-sensitive experiments
 Please ensure that you need the IR-sensitive camera before following the [instructions here](https://www.raspberrypi.org/documentation/accessories/camera.html#raspberry-pi-hq-camera-filter-removal).
 --- /task ---
 
-Now you can add the DB660/850-25.4 red/NIR dual band pass filter. This has been designed primarily for NDVI imaging applications. By adding it to the high-quality camera sensor, only reflected red light (660nm) and reflected near-infrared light (850nm) will be captured by the sensor. See our NDVI project for more information. 
+Now you can add the DB660/850-25.4 red/NIR dual band pass filter. This been designed primarily for NDVI (Normalized Difference Vegetation Index) imaging applications. By adding it to the High Quality Camera sensor, only reflected red light (660nm) and reflected near-infrared light (850nm) will be captured by the sensor.  See our [NDVI project]() for more information. 
 
 --- task ---
  
@@ -157,32 +157,32 @@ You should start to feel increasing resistance as the filter gets lower. After a
 --- task ---
 Insert the other end of the camera cable into the CSI socket on the high-quality camera sensor. 
 
-![Photo of camera cable connected to the high-quality camera.](images/assembly_cable.JPG)
+![Photo of camera cable connected to the High Quality Camera sensor](images/assembly_cable.JPG)
 --- /task ---
 
 --- task ---
 Remove the cap from the high-quality camera sensor. 
 
-![Photo of camera cable connected to the high-quality camera.](images/assembly_cap.JPG)
+![Photo of camera cable connected to the High Quality Camera sensor, with the cap removed](images/assembly_cap.JPG)
 --- /task ---
 
 --- task ---
 Remove the C/CS adapter ring from the high-quality camera sensor. 
 
-![Photo of camera cable connected to the high-quality camera.](images/assembly_adapt_cap.JPG)
+![Photo of camera cable connected to the High Quality Camera sensor, with the cap and C/CS adapter ring removed](images/assembly_adapt_cap.JPG)
 --- /task ---
 
 --- task ---
 Remove the caps from the end of the 6mm lens and screw the lens onto the high-quality camera sensor. 
 
-![Photo of camera cable connected to the high-quality camera.](images/assembly_6mm.JPG)
+![Photo of lens mounted on the High Quality Camera sensor](images/assembly_6mm.JPG)
 --- /task ---
 
 **Note**: The camera sensor in the ESA kit is the same high-quality camera as the one found in the new Astro Pis on the ISS. You can read the [documentation about the HQ camera](https://www.raspberrypi.org/documentation/hardware/camera/), and a lot of detailed technical information can also be found in [the relevant section of the PiCamera library documentation](https://picamera.readthedocs.io/en/latest/fov.html#camera-hardware).
 
 Your Astro Pi kit should now be complete. Insert your SD card, connect to a monitor, keyboard, and mouse and finally plug in the USB-C power lead. For more details on using your Raspberry Pi, take a look at [this guide](https://projects.raspberrypi.org/en/projects/raspberry-pi-getting-started).
 
-![Photo of camera cable connected to the high-quality camera.](images/assembly_all.JPG)
+![Photo of all the components in the ESA Astro Pi kit assembled together](images/assembly_all.JPG)
 
 #### Performance
 
@@ -265,19 +265,19 @@ LibreOffice Calc is a spreadsheet program similar to Microsoft Excel and is inst
 
 There is also a sequence of photos taken by the Mark I Astro Pi IR camera. The sequence starts at 'night', and so the first few photos are black.
 
-![](images/zz_astropi_1_photo_116.jpg)
+![Completely black photo taken during the "night" using a Mark I Astro Pi IR camera](images/zz_astropi_1_photo_116.jpg)
 
 Then, the window gradually appears as light starts to flood in.
 
-![](images/zz_astropi_1_photo_133.jpg)
+![A photo taken at "dawn" using a Mark I Astro Pi IR camera. The Earth is not visible yet and the Astro Pi is reflected on the nadir window](images/zz_astropi_1_photo_133.jpg)
 
 By image 150, the Earth below becomes visible.
 
-![](images/zz_astropi_1_photo_159.jpg)
+![A photo of the Earth becoming visible after "dawn", taken using a Mark I Astro Pi IR camera. The sun is still reflected on the sides of the nadir window.](images/zz_astropi_1_photo_159.jpg)
 
 And eventually, the area surrounding the window cannot be seen at all.
 
-![](images/zz_astropi_1_photo_193.jpg)
+![A photo of the Earth taken using a Mark I Astro Pi IR camera](images/zz_astropi_1_photo_193.jpg)
 
 You could use these images to train a machine learning algorithm to recognise different types of views. However, please note that there is no guarantee that the location, view, and orientation of the Astro Pi will be exactly the same when your program runs on the ISS. Therefore, your program should be flexible enough to adapt to any changes.
 
