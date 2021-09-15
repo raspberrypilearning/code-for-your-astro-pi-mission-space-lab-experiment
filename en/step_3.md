@@ -377,7 +377,7 @@ title: scikit-learn
 
 #### Documentation
 
-- [scikit-learn.org](scikit-learn.org)
+- [scikit-learn.org](https://scikit-learn.org)
 
 --- /collapse ---
 
