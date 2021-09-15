@@ -1,10 +1,10 @@
 title: Astro Pi Mission Space Lab Phase 2 guide
 hero_image: images/banner.png
-description: Guide for participants of the Mission Space Lab Astro Pi competition 2019-20
-version: 4
+description: Guide for participants of the Mission Space Lab Astro Pi competition 2021-22
+version: 2022.1
 listed: true
 copyedit: true
-last_tested: "2018-06-29"
+last_tested: "2021-06-23"
 steps:
   - title: Introduction
   - title: Getting started
@@ -14,7 +14,7 @@ steps:
   - title: Recording images using the camera
   - title: Doing more than one thing at a time
   - title: Running your experiment for 3 hours
-  - title: Using the LED display ('Life in space' only)
+  - title: ('Life in space' only) Using the LED display
   - title: Networking and system processes
   - title: Common mistakes
   - title: A big worked example

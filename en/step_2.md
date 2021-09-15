@@ -1,39 +1,235 @@
 ## Getting started
 
-If you have received an official Astro Pi kit from ESA, you have everything you need to develop and test your Phase 2 program for Mission Space Lab (MSL). If you want to, you could even [create your own Astro Pi flight case](https://projects.raspberrypi.org/en/projects/astro-pi-flight-case), but don't worry, that's not essential, and completion of Mission Space Lab **does not** rely on having the flight case.
+If you have received an official Astro Pi kit from ESA, you have everything you need to develop and test your Phase 2 program for Mission Space Lab (MSL). If you want to, you could even [create your own Astro Pi flight case](https://projects.raspberrypi.org/en/projects/astro-pi-flight-case-mk2), but don't worry, that's not essential, and completion of Mission Space Lab **does not** rely on having the flight case.
 
-The first thing you'll need to do is set up your development environment. If you received a kit from ESA, it will contain two SD cards that contain the two different, custom-built versions of the Raspberry Pi Operating System that you will need.
+### Assembling the hardware
 
-### SD card images
+--- task ---
+Unpack everything from your kit.
 
-The **Desktop version** of the Operating System provides all the facilities of a regular operating system and also includes a host of programming tools. Here is a [video tour](https://youtu.be/i57kwOiR7UM)! Use this version while _developing_ and _testing_ the code for your experiment.
+--- /task ---
 
-![Screenshot of the Desktop version of the Operating System](images/os-desktop.png)
+--- task ---
+Take the black hexagonal spacer columns from the small bag that comes with the Sense HAT. Use the accompanying screws to connect them to the bottom of the Raspberry Pi 4.
 
-The **Flight version** resembles the operating system installed on the Astro Pi units on the ISS. It does not include any X-Windows or GUI applications and is "command line only", so it's not a useful platform to create your program on. However, we very strongly recommend that you use this version for the _final testing_ of your experiment before you submit your entry, to verify that the program that you have written runs without errors. This is the best way to ensure that your experiment passes our testing procedure and can run on the Astro Pis on the ISS without any modifications.
+![Photo of the Raspberry Pi 4 with attached HAT spacers.](images/assembly_spacers.JPG)
+--- /task ---
 
-![Screenshot of the Flight version of the Operating System](images/os-flight.png)
+--- task ---
+Insert the camera cable into the CSI (Camera Serial Interface) socket on the Raspberry pi.  
 
-The packages installed on both the Desktop and Flight versions of the OS match those available on the Astro Pi computers on the ISS. You should not perform any upgrades or install any additional packages or Python libraries as these will not be available when your experiment runs.
+[[[rpi-picamera-connect-camera]]]
+
+![Photo of Raspberry Pi with camera cable attached.](images/assembly_cam.JPG)
+--- /task ---
+
+--- task ---
+Take the Sense HAT and remove the short header if it is attached.
+
+![Photo of the Sense HAT with small header removed.](images/assembly_small_header.JPG)
+--- /task ---
+
+--- task ---
+Line up the tall header with the corresponding holes on the Sense HAT.  
+
+![Photo of tall header lined up with the Sense HAT.](images/assembly_insert_header.JPG)
+--- /task ---
+
+--- task ---
+Push the header all the way through. Make sure none of the pins are obstructed and that they are lined up correctly so that they do not become bent.  
+
+![Photo of tall header inserted through the Sense HAT.](images/assembly_sh_header.JPG)
+--- /task ---
+
+--- task ---
+Feed the camera cable through the slot on the Sense HAT and then sit the Sense HAT onto the Raspberry Pi device. Make sure that all 40 GPIO pins line up with the corresponding holes in the tall header.   
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/VzYGDq0D1mw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+![Photo of a Sense HAT fitted on to a Raspberry Pi device with a tall header and camera cable passed through the slot on the HAT.](images/assembly_cam_spacers_sh.JPG)
+--- /task ---
+
+--- task ---
+Use the four remaining black screws to secure the Sense HAT stack to the spacers. 
+
+![Photo of the Sense HAT with screws securing it to the spacers.](images/assembly_spacer_top.JPG)
+--- /task ---
+
+--- task ---
+Now take the PIR and remove the foam pin protector block. 
+
+![Photo of PIR with foam pin protector block removed.](images/assembly_PIR.JPG)
+--- /task ---
+
+--- task ---
+Connect three wires to the pins on the PIR. Note the labels on the back of the PIR circut board which indicate the use of each pin: 
+
+- The GND needs to be connected to corresponding ground pin on the Raspberry Pi
+- The VCC needs to be connected to a 3V3 pin on the Raspberry Pi
+- The OUT should be connected to GPIO pin 12 on the Raspberry Pi
+
+![Photo of PIR with wires attached to pins.](images/assembly_PIR_wires.JPG)
+--- /task ---
+
+--- task ---
+Connect the wires from the PIR to the appropriate GPIO pins on the Raspberry Pi. You can use [the diagrams here](https://www.raspberrypi.org/documentation/usage/gpio/) to help you make sure that you connect the wires to the correct pins. 
+
+![Photo of a Raspberry Pi with wires from the PIR connected to the correct pins.](images/assembly_wires.JPG)
+--- /task ---
+
+
+#### Converting a camera for IR-sensitive Life on Earth experiments
+
+The high-quality camera sensor can detect infrared (IR) light. However, the sensor housing contains an IR filter, which is used to greatly reduce the camera’s sensitivity to IR light.  This is so that the images captured by the high-quality camera sensor look the same as what we see with our eyes (which are not sensitive to IR light). 
+
+If your Life on Earth experiment requires an IR-sensitive camera (like the one on Astro Pi IR), then you will need to convert the high-quality camera sensor you received in your kit by removing the IR filter. If you are programming a Life in Space experiment, or your Life on Earth experiment requires photos to be taken in the visible light spectrum only, then you should not convert your high-quality camera sensor. Please skip to the final assembly steps below. 
+
+
+--- collapse ---
+---
+title: Converting a camera for IR-sensitive experiments
+---
+
+**Note**: This process cannot be reversed or undone once completed.
+
+--- task ---
+
+Please ensure that you need the IR-sensitive camera before following the [instructions here](https://www.raspberrypi.org/documentation/accessories/camera.html#raspberry-pi-hq-camera-filter-removal).
+--- /task ---
+
+Now you can add the DB660/850-25.4 red/NIR dual band pass filter. This been designed primarily for NDVI (Normalized Difference Vegetation Index) imaging applications. By adding it to the High Quality Camera sensor, only reflected red light (660nm) and reflected near-infrared light (850nm) will be captured by the sensor.  See our [NDVI project](https://projects.raspberrypi.org/en/projects/astropi-ndvi) for more information. 
+
+--- task ---
+ 
+Make sure the back focus ring is screwed all the way in. 
+![Photo of the high-quality camera sensor with the back focus ring screwed all the way in.](images/filter_backfocus.JPG)
+
+--- /task ---
+
+--- task ---
+ 
+Unscrew the high-quality camera sensor lens cap and the C/CS adapter. 
+![Photo of the high-quality camera sensor with C/CS adapter and cap removed.](images/filter_caps.JPG)
+
+--- /task ---
+
+--- task ---
+ 
+Take the filter and sit it onto the hole in the centre of the high-quality camera sensor. 
+
+![Photo of the high-quality camera sensor with the red filter sitting on top prior to installation.](images/filter_rest.JPG)
+--- /task ---
+
+--- task ---
+ 
+Gently start turning the filter clockwise using just your fingers, so that the filter screws down into the high-quality camera sensor. Take care not to touch the glass part of the lens and leave greasy fingerprints!
+
+![Photo of the high-quality camera sensor with the red filter being turned by hand.](images/filter_fingers.JPG)
+
+--- /task ---
+
+--- task ---
+ 
+Take the tool provided with the filter and line up the two knobbly bits at each end with the corresponding dimples in the filter. If you have a 3D printer, you might like to print a handle for the tool to make it easier to grip. One of these handles has been printed and sent to the ISS for the astronauts to use when completing the task — but it isn't required. 
+
+![Photo of the high-quality camera sensor showing the filter tool aligned with the filter itself.](images/filter_tool_align.JPG)
+--- /task ---
+
+--- task ---
+ 
+Continue gently turning the filter using the tool. Take care not to touch the glass part of the lens with the tool — it will scratch it!
+
+![Photo of the high-quality camera sensor with the red filter being turned using the tool.](images/filter_tool.JPG)
+
+--- /task ---
+
+--- task ---
+ 
+You should start to feel increasing resistance as the filter gets lower. After about nine full turns, the filter should be as low as it can go and you won't be able to turn it any further. Be careful not to over-tighten. 
+
+![Photo of the high-quality camera sensor with the red filter being turned using the tool.](images/filter_turning.JPG)
+
+--- /task ---
+--- /collapse ---
+
+#### Final assembly steps 
+
+--- task ---
+Insert the other end of the camera cable into the CSI socket on the high-quality camera sensor. 
+
+![Photo of camera cable connected to the High Quality Camera sensor](images/assembly_cable.JPG)
+--- /task ---
+
+--- task ---
+Remove the cap from the high-quality camera sensor. 
+
+![Photo of camera cable connected to the High Quality Camera sensor, with the cap removed](images/assembly_cap.JPG)
+--- /task ---
+
+--- task ---
+Remove the C/CS adapter ring from the high-quality camera sensor. 
+
+![Photo of camera cable connected to the High Quality Camera sensor, with the cap and C/CS adapter ring removed](images/assembly_adapt_cap.JPG)
+--- /task ---
+
+--- task ---
+Remove the caps from the end of the 6mm lens and screw the lens onto the high-quality camera sensor. 
+
+![Photo of lens mounted on the High Quality Camera sensor](images/assembly_6mm.JPG)
+--- /task ---
+
+**Note**: The camera sensor in the ESA kit is the same high-quality camera as the one found in the new Astro Pis on the ISS. You can read the [documentation about the HQ camera](https://www.raspberrypi.org/documentation/hardware/camera/), and a lot of detailed technical information can also be found in [the relevant section of the PiCamera library documentation](https://picamera.readthedocs.io/en/latest/fov.html#camera-hardware).
+
+Your Astro Pi kit should now be complete. Insert your SD card, connect to a monitor, keyboard, and mouse and finally plug in the USB-C power lead. For more details on using your Raspberry Pi, take a look at [this guide](https://projects.raspberrypi.org/en/projects/raspberry-pi-getting-started).
+
+![Photo of all the components in the ESA Astro Pi kit assembled together](images/assembly_all.JPG)
+
+#### Performance
+
+The ESA kits for Astro Pi 2020/21 contain Raspberry Pi 4 devices with 4GB of memory (RAM). They are almost identical to the new Astro Pis on the ISS, except that those have 8GB of memory. This means there should be very little difference in performance between the computer on which you develop and test your code and the computer where it actually runs, unless your experiment requires a lot of memory.
+
+
+### Software and your development environment
+
+After assembling your hardware, you will need to set up your development environment. If you received a kit from ESA, it will contain an SD card with the Desktop version of the Flight OS: a custom-built version of the Raspberry Pi Operating System that you will need.
+
+The packages available in the Desktop Flight OS closely match the ones in the actual Flight OS, the operating system installed on the Astro Pi units on the ISS. However, the Flight OS is a "command-line only" environment that is not really convenient for developing programs and that is why the ESA kits provide a Desktop version that also includes a host of programming tools. Here is a [video tour](https://youtu.be/i57kwOiR7UM) of the 2020 version!
+
+![Screenshot of the Desktop version of the Flight Operating System.](images/os-desktop.png)
+
+You will use this environment to **develop** and **test** the code for your experiment. Making sure that your program runs successfully in this environment is the best way to ensure that your experiment passes our testing procedure and can run on the Astro Pis on the ISS without any modifications.
+
+Please, **do not perform any upgrades or install any additional packages or Python libraries** in this environment as these will not be available when your experiment runs.
+
+--- collapse ---
+---
+title: Accessing the Desktop Flight OS remotely
+---
+
+The Desktop Flight OS runs the VNC Server from RealVNC, so you can use the [compatible VNC client](https://www.realvnc.com/en/connect/download/viewer/) to connect to your desktop from another computer.
+
+You can also connect to the Desktop Flight OS using just a browser. On a machine that is connected to the same network as your Astro Pi kit, open up a browser and type `http://astro-pi-kit.local/vnc.html` in the address bar. This should lead you to the noVNC connection page. Click on the `Connect` button, enter `raspberry` as the password, and you should see the Flight OS desktop in your browser!
+
+![The Desktop Flight OS accessed remotely through a browser window on an Ubuntu machine.](images/noVNC.png)
+
+--- /collapse ---
+
 
 --- collapse ---
 ---
 title: Downloading Operating System images (optional)
 ---
 
-If you want to create additional SD cards to use for Astro Pi, you can download the OS images (the same ones as in the kits) and install onto your own SD cards.
-
-- Download the [Desktop version](http://downloads.raspberrypi.org/AstroPi_latest) or [Flight version](http://downloads.raspberrypi.org/AstroPi_flight_latest) of the Operating System for the Astro Pi.
-- Once downloaded, you can use any software tool to write the image file to an SD card. See [this guide](https://www.raspberrypi.org/documentation/installation/installing-images/) for instructions on how to do this. Once the image file has been written, safely remove the SD card from your computer. You're now ready to set up your Raspberry Pi.
+If you want to create additional SD cards to use for Astro Pi, you can download the [Desktop Flight OS image file](http://downloads.raspberrypi.org/AstroPi_latest) used in the ESA kits. After downloading, you can use any software tool to write the image file to your own SD card. See [this guide](https://www.raspberrypi.org/documentation/installation/installing-images/) for instructions on how to do this. 
 
 --- /collapse ---
 
 --- collapse ---
 ---
-title: Sample data in the Desktop version
+title: Sample data
 ---
 
-The Desktop version of the OS also contains a `Data` folder with sample data from the 2018–19 mission which can be used to help test and refine your code. 
+The Desktop version of the Flight OS also contains a `Data` folder with sample data from a previous mission, which can be used to help test and refine your code. 
 
 #### Sensor readings
 
@@ -63,53 +259,26 @@ Longitude degrees
 Longitude minutes
 Longitude seconds
 
-LibreOffice Calc is a spreadsheet program similar to Microsoft Excel and is installed on the Desktop operating system. You can use this to look at the data and plot charts.
+LibreOffice Calc is a spreadsheet program similar to Microsoft Excel and is installed on the Desktop Flight OS. You can use this to look at the data and plot charts.
 
 #### Images
 
-There is also a sequence of photos taken by the IR camera. The sequence starts at 'night', and so the first few photos are black.
+There is also a sequence of photos taken by the Mark I Astro Pi IR camera. The sequence starts at 'night', and so the first few photos are black.
 
-![](images/zz_astropi_1_photo_116.jpg)
+![Completely black photo taken during the "night" using a Mark I Astro Pi IR camera](images/zz_astropi_1_photo_116.jpg)
 
 Then, the window gradually appears as light starts to flood in.
 
-![](images/zz_astropi_1_photo_133.jpg)
+![A photo taken at "dawn" using a Mark I Astro Pi IR camera. The Earth is not visible yet and the Astro Pi is reflected on the nadir window](images/zz_astropi_1_photo_133.jpg)
 
 By image 150, the Earth below becomes visible.
 
-![](images/zz_astropi_1_photo_159.jpg)
+![A photo of the Earth becoming visible after "dawn", taken using a Mark I Astro Pi IR camera. The sun is still reflected on the sides of the nadir window.](images/zz_astropi_1_photo_159.jpg)
 
 And eventually, the area surrounding the window cannot be seen at all.
 
-![](images/zz_astropi_1_photo_193.jpg)
+![A photo of the Earth taken using a Mark I Astro Pi IR camera](images/zz_astropi_1_photo_193.jpg)
 
-You could use these images to train a machine learning algorithm to recognise different types of views. However, please note that there is no guarantee that the location, view, and orientation of Astro Pi Izzy will be exactly the same in 2020. Therefore, your program should be flexible enough to adapt to any changes.
+You could use these images to train a machine learning algorithm to recognise different types of views. However, please note that there is no guarantee that the location, view, and orientation of the Astro Pi will be exactly the same when your program runs on the ISS. Therefore, your program should be flexible enough to adapt to any changes.
 
 --- /collapse ---
-
-### Using the hardware
-
-You may wish to revisit [the videos from Phase 1](https://www.esa.int/Education/AstroPI/European_Astro_Pi_Challenge_2019-20_now_open) to remind yourself of the limitations of the Astro Pi hardware aboard the ISS. We also have the following resources to help you get started with the Sense HAT and Camera Module:
-
-[[[rpi-sensehat-attach]]]
-
-If you've never used the Sense HAT before, [start with this short project](https://projects.raspberrypi.org/en/projects/getting-started-with-the-sense-hat/), and come back here once you're aware of basic Sense HAT uses.
-
-
-[[[rpi-picamera-connect-camera]]]
-
-Note that, because you will be using the Raspberry Pi Camera Module with the Sense HAT, you'll need to thread the camera's ribbon cable through the slot on the Sense HAT before connecting it to the Raspberry Pi.
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/VzYGDq0D1mw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-If you've never used the Camera Module before, [start with this beginners' project](https://projects.raspberrypi.org/en/projects/getting-started-with-picamera/), and come back here once you've tried using the basic `picamera` Python library functions.
-
-Note: The cameras on the Astro Pis on the ISS are the V1 Camera Module that was available in 2014. The later V2 Camera Module that you can buy now (and that are included in the ESA kits) has an upgraded sensor that is capable of producing images at resolutions not available on the V1 model. Therefore, you should make sure that the resolution that you specify in your code is available on the V1 Camera Module. You can find more detailed information in [this section of the PiCamera library documentation](https://picamera.readthedocs.io/en/release-1.13/fov.html?highlight=v2#sensor-modes), but examples of typical resolutions that you might wish to use with the V1 Camera Module are:
-
- 2592×1944, 1920×1080, 1296×972, 1296×730, and 640×480
-
-## Performance
-
-The Raspberry Pis in the ESA kits for Astro Pi 2019/20 are Raspberry Pi 3s. However, the Astro Pis currently on the ISS are the older Raspberry Pi model B+. A Raspberry Pi 3 is a newer model, and therefore faster and more powerful than a B+. You should bear this in mind when writing the code for your experiment: some tasks that need a lot of computing power (e.g. they involve complicated mathematics or the processing of lots of data) will run more slowly on the Astro Pis on the ISS than on the Raspberry Pi in your ESA kit. In particular, using Python libraries like `OpenCV` (to process images captured with the Camera Module), or `ephem` (to work out which city the ISS is passing over) will be significantly slower on the Astro Pis.  
-
-The Flight version of the OS contains a few settings that will deliberately limit the performance of the Pi, in order to more accurately mimic the capabilities of the Astro Pis on the ISS.

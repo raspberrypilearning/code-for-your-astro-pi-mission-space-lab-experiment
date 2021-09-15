@@ -8,7 +8,7 @@ Here are some common problems that you should avoid.
 
 ## Do not rely on user input
 
-Your program **should not rely on human input** via the joystick or buttons. The crew will not have time to manually operate the Astro Pis, so your experiment cannot depend on human input. For example, if an experiment needs a button to be pressed by an astronaut to begin, that button press will never happen, and the experiment will not run for three hours. This is also why experiments on the crew, like human reaction speed or memory tests, are not suitable as Mission Space Lab entries.
+Your program **should not rely on human input** via the joystick or buttons. The crew will not have time to manually operate the Astro Pis, so your experiment cannot depend on human input. For example, if an experiment needs a button to be pressed by an astronaut to begin, that button press will never happen, and the experiment will not run. This is also why experiments on the crew, like human reaction speed or memory tests, are not suitable as Mission Space Lab entries.
 
 ## Save data
 
@@ -74,7 +74,7 @@ Traceback (most recent call last):
 ValueError: Pixel elements must be between 0 and 255
 ```
 
-It's important to anticipate all places in your program where a variable may reach a value that would cause problems. For example, if you're using the humidity measurement to determine how red pixels are, make sure that this value can't possibly go outside the range 0 to 255, not just during testing, but in all possible situations:
+It's important to anticipate all the places in your program where a variable may reach a value that would cause problems. For example, if you're using the humidity measurement to determine how red pixels are, make sure that this value can't possibly go outside the range 0 to 255, not just during testing, but in all possible situations:
 
 ```python
 red = int(max(0, min(sh.humidity / 100 * 255, 255)))
