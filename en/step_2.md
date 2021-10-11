@@ -66,7 +66,7 @@ Connect three wires to the pins on the PIR. Note the labels on the back of the P
 
 - The GND needs to be connected to corresponding ground pin on the Raspberry Pi
 - The VCC needs to be connected to a 3V3 pin on the Raspberry Pi
-- The OUT should be connected to GPIO pin 12 on the Raspberry Pi
+- The OUT should be connected to [GPIO pin 12](https://projects.raspberrypi.org/en/projects/physical-computing/1) on the Raspberry Pi
 
 ![Photo of PIR with wires attached to pins.](images/assembly_PIR_wires.JPG)
 --- /task ---
