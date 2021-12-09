@@ -220,7 +220,7 @@ You can also connect to the Desktop Flight OS using just a browser. On a machine
 title: Downloading Operating System images (optional)
 ---
 
-If you want to create additional SD cards to use for Astro Pi, you can download the [Desktop Flight OS image file](http://downloads.raspberrypi.org/AstroPi_latest) used in the ESA kits. After downloading, you can use any software tool to write the image file to your own SD card. See [this guide](https://www.raspberrypi.org/documentation/installation/installing-images/) for instructions on how to do this. 
+If you want to create additional SD cards to use for Astro Pi, you can download the [Desktop Flight OS image file](https://downloads.raspberrypi.org/AstroPi_latest) used in the ESA kits. After downloading, you can use any software tool to write the image file to your own SD card. See [this guide](https://www.raspberrypi.org/documentation/installation/installing-images/) for instructions on how to do this.
 
 --- /collapse ---
 
@@ -229,7 +229,7 @@ If you want to create additional SD cards to use for Astro Pi, you can download 
 title: Sample data
 ---
 
-The Desktop version of the Flight OS also contains a `Data` folder with sample data from a previous mission, which can be used to help test and refine your code. 
+The Desktop version of the Flight OS also contains a `Data` folder with sample data from a previous mission, which can be used to help test and refine your code. You can also download this [sample data](https://rpf.io/ap-sample-data) separately.
 
 #### Sensor readings
 
