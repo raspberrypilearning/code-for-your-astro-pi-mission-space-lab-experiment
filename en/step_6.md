@@ -159,6 +159,8 @@ and type in the value 256:
 
 ![A screenshot of the GPU memory page of the raspi-config menu](images/gpu_mem3.png)
 
+Then select OK, then Finish.
+
 Whichever option you use, you will need to reboot the Raspberry Pi before the changes take effect. The Astro Pi's onboard the ISS already have their GPU memory allocation set to 256MB. 
 
 ### Size and number of images
