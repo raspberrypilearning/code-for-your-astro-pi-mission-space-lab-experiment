@@ -138,8 +138,11 @@ Night-time photography using the Astro Pi's Camera Module is difficult. This is 
 
 ### High resolution photos
 
-The Raspberry Pi High Quality Camera used in the Astro Pis can capture still images with a maximum resolution of 4056 x 3040 pixels. To handle pictures this large, the amount of memeory allocated to the Raspberry Pi's GPU needs to be increased. There are two ways to do this: 
+The Raspberry Pi High Quality Camera used in the Astro Pis can capture still images with a maximum resolution of 4056 x 3040 pixels. To handle pictures this large using the Raspberry Pi 4 that you received in your Astro Pi kit, the amount of memory allocated to the GPU needs to be increased. There are two ways to do this: 
 - You can edit the `/boot/config.txt` file, adding the setting the line `gpu_mem=256`.
+  
+Or
+
 - Set the value by typing: 
   ```bash
   sudo raspi-config
@@ -156,7 +159,7 @@ and type in the value 256:
 
 ![A screenshot of the GPU memory page of the raspi-config menu](images/gpu_mem3.png)
 
-Whichver option you use, you will need to reboot the Raspberry Pi before the changes take effect. 
+Whichever option you use, you will need to reboot the Raspberry Pi before the changes take effect. The Astro Pi's onboard the ISS already have their GPU memory allocation set to 256MB. 
 
 ### Size and number of images
 
