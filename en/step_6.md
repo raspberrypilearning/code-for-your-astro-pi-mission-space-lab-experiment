@@ -136,6 +136,28 @@ This is definitely a post-experiment processing step. You should not use your 3-
 
 Night-time photography using the Astro Pi's Camera Module is difficult. This is mostly because of the very low chances of your program being run while the ISS is above a bright city without cloud cover. The light sensitivity of the camera is quite good, but it needs to be used with the best software settings for the particular situation, and it is difficult to anticipate what those settings will be and include them in your program. Having the camera adapt to changing light conditions in real time is also tricky, especially when the camera is moving relative to the light source, as is the case for the Astro Pis on the ISS.
 
+### High resolution photos
+
+The Raspberry Pi High Quality Camera used in the Astro Pis can capture still images with a maximum resolution of 4056 x 3040 pixels. To handle pictures this large, the amount of memeory allocated to the Raspberry Pi's GPU needs to be increased. There are two ways to do this: 
+- You can edit the `/boot/config.txt` file, adding the setting the line `gpu_mem=256`.
+- Set the value by typing: 
+  ```bash
+  sudo raspi-config
+  ```
+  in a Terminal window. Then select "Performance options":
+
+![A screenshot of the first page of the raspi-config menu](images/gpu_mem1.png)
+
+then select "P2 GPU Memory":
+
+![A screenshot of the Performance Options page of the raspi-config menu](images/gpu_mem2.png)
+
+and type in the value 256:
+
+![A screenshot of the GPU memory page of the raspi-config menu](images/gpu_mem3.png)
+
+Whichver option you use, you will need to reboot the Raspberry Pi before the changes take effect. 
+
 ### Size and number of images
 
 **Don't forget that your experiment is limited to producing 3GB of data**. Make sure that you calculate the maximum amount of space that your measurements, including any saved image files, will take up, and that this does not exceed 3GB. Remember that the size of an image file will depend not only on the resolution, but also on how much detail is in the picture: a photo of a blank white wall will be smaller than a photo of a landscape.  
