@@ -9,9 +9,10 @@ copyedit: true
 last_tested: '2021-06-23'
 steps:
 - title: Introduction
-  completion: engaged
 - title: Getting started
 - title: Writing your program
+  completion:
+  - engaged
 - title: Recording data from your experiment
 - title: Finding the location of the ISS
 - title: Recording images using the camera
@@ -21,5 +22,6 @@ steps:
 - title: Networking and system processes
 - title: Common mistakes
 - title: A big worked example
-  completion: internal
+  completion:
+  - internal
 - title: Test your code
