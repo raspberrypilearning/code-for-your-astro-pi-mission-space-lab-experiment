@@ -124,7 +124,7 @@ The behaviour of your code might differ depending on whether or not the ISS is i
 According to the [documentation](https://rhodesmill.org/skyfield/earth-satellites.html#find-when-a-satellite-is-in-sunlight) you can check whether a satellite is in sunlight at a given point in time by using the `is_sunlit` method.
 ---/hint---
 ---hint---
-You will need to start by loading an **ephemeris**. According to the [documentation](https://rhodesmill.org/skyfield/planets.html), this is a high accuracy table with the position of celestial objects. In this case, the ephemeris is necessary for computing the positions of the Earth and the Sun.
+You will need to start by loading an **ephemeris**. According to the [documentation](https://rhodesmill.org/skyfield/planets.html), this is a high accuracy table with the position of celestial objects. In this case, the ephemeris is necessary for computing the positions of the Earth and the Sun. To save you the trouble of supplying this file yourself, the `de421.bsp` ephemeris file may be imported directly from the Flight OS `orbit` library by executing `from orbit import ephemeris`.
 ---/hint---
 ---hint---
 Remember to use a loop and update the current time within the loop, before computing the position of the ISS.
@@ -134,10 +134,9 @@ Your code should look like this:
 
 ```python
 from time import sleep
-from orbit import ISS
+from orbit import ISS, ephemeris
 from skyfield.api import load
 
-ephemeris = load('de421.bsp')
 timescale = load.timescale()
 
 while True:
