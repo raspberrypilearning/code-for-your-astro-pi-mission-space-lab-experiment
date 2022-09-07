@@ -4,7 +4,7 @@ Now you can start writing the program for your experiment. To do this, you'll ne
 
 ### Python version
 
-All programs for Mission Space Lab must be written in **Python 3**. The version of the Python interpreter currently available on the Flight OS is 3.7.3.
+All programs for Mission Space Lab must be written in **Python 3**. The version of the Python interpreter currently available on the Flight OS is 3.9.2.
 
 ### Your main Python program file
 
@@ -35,7 +35,7 @@ title: Skyfield
 
 Skyfield, the successor to PyEphem, is an astronomy package that computes the positions of stars, planets, and satellites in orbit around the Earth.
 
-In [*Finding the location of the ISS*](4), you can find out how to use Skyfield to obtain the position of the International Space Station above the Earth.
+In [*Finding the location of the ISS*](4), you can find out how to use Skyfield to obtain the position of the International Space Station above the Earth and how to determine whether the ISS is sunlit.
 
 #### Documentation
 
@@ -191,14 +191,13 @@ SciPy is a free and open-source Python library used for scientific computing and
 
 --- collapse ---
 ---
-title: TensorFlow, TensorFlow Lite, and PyCoral
+title: TensorFlow Lite, and PyCoral
 ---
 
-TensorFlow is Google's machine learning framework. You will need it if you want to build and train your own models. If you only need to use or re-train existing models for inference, then you can use TensorFlow Lite or, even better, the PyCoral library. The latter is built on top of TensorFlow Lite but has a simpler, higher-level interface and allows you to easily use the Coral USB Accelerator (Edge TPU).
+TensorFlow Lite or the PyCoral library can be used to use or re-train existing machine-learning models for inference. The latter is built on top of TensorFlow Lite but has a simpler, higher-level interface and allows you to easily use the Coral USB Accelerator (Edge TPU). Note that Tensorflow (as opposed to TensorFlow Lite) is not supported by the AstroPi OS.
 
 #### Documentation
 
-- [Tensorflow 2.4](https://www.tensorflow.org/versions/r2.4/api_docs/python/tf)
 - [Tensorflow Lite](https://www.tensorflow.org/lite/api_docs/python/tf/lite)
 - [PyCoral](https://coral.ai/docs/edgetpu/tflite-python/)
 --- /collapse ---
@@ -237,19 +236,6 @@ logger.error("error")
 #### Documentation
 
 - [logzero.readthedocs.io](https://logzero.readthedocs.io/en/latest/)
-
---- /collapse ---
-
---- collapse ---
----
-title: Keras
----
-
-Keras is a high-level neural networks API, and is capable of running on top of TensorFlow.
-
-#### Documentation
-
-- [keras.io](https://keras.io/)
 
 --- /collapse ---
 
