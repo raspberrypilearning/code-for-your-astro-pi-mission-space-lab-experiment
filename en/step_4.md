@@ -16,6 +16,10 @@ The Astro Pi also includes a passive infrared (PIR) motion sensor, of the kind u
 
 **Note**: You can only use data from the light sensor or the PIR motion sensor for **Life in Space** experiments. For **Life on Earth**, the Astro Pi is positioned with the camera facing out a window and placed under a black "hood", to avoid reflections. The light sensor and the PIR motion sensor face in the opposite direction from the camera, away from the window, so they are in darkness and under cover.
 
+### Limitations of the sensors
+
+Be aware of the limitations of the sensors and the [constraints imposed by them](https://projects.raspberrypi.org/en/projects/experiment-design/1). In particular, be mindful that the temperature and humidity sensors are affected more by the temperature of the CPU than anything else. If you wish to take readings of the ISS environment, you should test the temperature and humidity readings in a controlled (known) environment and come up with a strategy to compensate for this limitation.
+
 ### Retrieving sensor data from the Sense HAT
 
 The [Sense HAT documentation](https://pythonhosted.org/sense-hat/) contains sections on how to retrieve data from the [environmental sensors](https://pythonhosted.org/sense-hat/api/#environmental-sensors) (temperature, humidity, pressure) and the [Inertial Measurement Unit (IMU)](https://pythonhosted.org/sense-hat/api/#imu-sensor) (acceleration, orientiation). Additional documentation is available for interacting with the [light and colour sensor](https://gist.github.com/boukeas/e46ab3558b33d2f554192a9b4265b85f). You can also explore the wide range of [Sense HAT projects](https://projects.raspberrypi.org/en/projects?hardware%5B%5D=sense-hat) available from the Raspberry Pi Foundation.

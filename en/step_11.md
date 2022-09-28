@@ -6,6 +6,10 @@ There are also some experiments that run but do not produce any data for their t
 
 Here are some common problems that you should avoid.
 
+## Don't forget to call your functions
+
+We have seen examples of submissions where the teams have forgotten to call their funciton! Make sure you test your program before submitting it.
+
 ## Do not rely on user input
 
 Your program **should not rely on human input** via the joystick or buttons. The crew will not have time to manually operate the Astro Pis, so your experiment cannot depend on human input. For example, if an experiment needs a button to be pressed by an astronaut to begin, that button press will never happen, and the experiment will not run. This is also why experiments on the crew, like human reaction speed or memory tests, are not suitable as Mission Space Lab entries.
