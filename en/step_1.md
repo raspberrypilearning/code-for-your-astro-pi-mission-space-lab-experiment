@@ -68,13 +68,3 @@ You will need the Desktop version of the Flight Operating System (OS) for the As
 
 --- /collapse ---
 
-### Note to mentors: Collaboration during the coronavirus pandemic
-
-We understand that restrictions in place due to the coronavirus pandemic might negatively impact teams being able to get together to work with their Astro Pi kit. To help teams hold these sessions online and collaborate remotely, we have created lesson plan templates for mentors to use in their sessions:
-
-[First session](https://rpf.io/first-session-spacelab){:target="_blank"}
-[Ongoing sessions](https://rpf.io/ongoing-sessions-spacelab){:target="_blank"}
-
-When collaborating remotely with your team, it is important to ensure that you enforce solid child safeguarding policies and procedures, as well as comply with all local laws. 
-
-We recommend following the Raspberry Pi Foundation's [safeguarding guidelines](https://rpf.io/safeguarding){:target="_blank"} and best practices.
