@@ -1,153 +1,166 @@
-## Finding the location of the ISS
+## Writing your program - recording data and images
 
-Using the Python `skyfield` library, you can calculate the positions of space objects within our solar system. This includes the Sun, the Moon, the planets, and many Earth satellites such as the ISS. You can use the ISS’s current location above the Earth to identify whether the ISS is flying over land or sea, or which country it is passing over.
+In this section we are going to start writing your experiment program, and learn how to record data using the sensors and camera. By the end of this page, you will be able to collect measurements and images to support your hypothesis - neat!
 
---- collapse ---
----
-title: What happened to the ephem library?
----
+To get started, create a file called `main.py`. In this file we will write all our functions to take measurements and capture images.
 
-If your team has participated in previous challenges, you may recall that the `ephem` library was used to calculate the position of the ISS. This library has now been deprecated and replaced by its successor, `skyfield`.
---- /collapse ---
-
-Up-to-date telemetry data is required in order to accurately compute the position of the ISS (or any other satellite orbiting the Earth). To save you the trouble of obtaining and manipulating this data, the Flight OS offers the `orbit` Python package, which uses `skyfield` to create an `ISS` object that you can import in your program:
-
-```python
-from orbit import ISS
-```
+---task---
+Create a file called `main.py`
+---/task---
 
 --- collapse ---
 ---
-title: Telemetry data
+title: Using multiple Python source files
 ---
-For accurate calculations, `skyfield` requires the most recent two-line element (TLE) set for the ISS. TLE is a data format used to convey sets of orbital elements that describe the orbits of Earth satellites. 
 
-When you import the `ISS` object from the `orbit` library, an attempt is made to retrieve the TLE data from a file called `iss.tle` in the `/home/pi` folder. If the file is not present but an internet connection is available, the latest data will be downloaded automatically into the `iss.tle` file, so you don't need to worry about it.
-
-However, if your Astro Pi kit has no internet access, then you need to manually download the latest [ISS TLE data](http://www.celestrak.com/NORAD/elements/stations.txt){:target="_blank"}, copy the three ISS-related lines into a file called `iss.tle`, and then place this file into the `/home/pi` folder. The TLE data will look something like this:
-
-```
-ISS (ZARYA)             
-1 25544U 98067A   21162.24455464  .00001369  00000-0  33046-4 0  9995
-2 25544  51.6454  12.1174 0003601  83.6963  83.5732 15.48975526287678
-```
-
-When your code runs on the Space Station, we will make sure that the most accurate and up-to-date telemetry data will be used.
+Ideally, all of your code should be contained within `main.py`. Don't worry if your experiment is complex and you need to break down your code into individual modules though: additional files are allowed.
 --- /collapse ---
 
-You can use `ISS` just like any other `EarthSatellite` object in `skyfield` (see the [reference](https://rhodesmill.org/skyfield/api-satellites.html#skyfield.sgp4lib.EarthSatellite) and [examples](https://rhodesmill.org/skyfield/earth-satellites.html)). For example, this is how to compute the coordinates of the Earth location that is **currently** directly beneath the ISS:
+## Recording images using the camera
+
+<p style="border-left: solid; border-width:10px; border-color: #0faeb0; background-color: aliceblue; padding: 10px;">
+Check the [Mission Specific Guidelines](https://astro-pi.org/mission-space-lab/guidelines/program-checklist) to make sure you are allowed to use the camera before reading this section.
+</p>
+
+![Photo of a cloudy Earth taken using an AstroPi on the ISS](images/zz_astropi_1_photo_193.jpg)
+
+The Astro Pis on the ISS are equipped with a high-quality camera each so that you can take pictures of Earth - something normally only astronauts can do. Take some time now to read over the [Getting started with picamera](https://projects.raspberrypi.org/en/projects/getting-started-with-picamera/) project to learn how to use the camera.
+
+---task---
+Read through the [Getting started with picamera](https://projects.raspberrypi.org/en/projects/getting-started-with-picamera/) project.
+---/task---
+
+### Choosing camera settings 
+
+<p style="border-left: solid; border-width:10px; border-color: #0faeb0; background-color: aliceblue; padding: 10px;">
+If your team has completed Phase 2 of MSL before please note that the AstroPis may not have exactly the same view as last year as they may be deployed in a different window on the ISS.
+</p>
+
+As you will have noticed by reading the [Getting started with picamera](https://projects.raspberrypi.org/en/projects/getting-started-with-picamera/) project, the [picamera library](https://picamera.readthedocs.io/en/release-1.13/) allows you to set a huge selection of camera settings. When deciding on what settings to use, or whether to leave the settings on automatic, be mindful that you will be taking pictures in a variety of conditions with a range of weather, landscapes, and lighting. Night-time photography using the Astro Pi's Camera Module is particularly difficult: the ISS is travelling so fast that a long exposure time is needed, and this makes the photos come out very blurry in low-light conditions.
+
+--- collapse ---
+---
+title: What camera and lenses are used on the real Astro Pis?
+---
+The camera sensor in the ESA kit is the same high-quality camera as the one found in the new Astro Pis on the ISS. You can read the documentation about the HQ camera [here](https://www.raspberrypi.org/documentation/hardware/camera/), and find a lot of detailed technical information in [the relevant section of the PiCamera library documentation](https://picamera.readthedocs.io/en/latest/fov.html#camera-hardware).
+
+All Life On Earth experiments will use a [5mm Kowa Lens](https://lenses.kowa-usa.com/10mp-jc10m-series/397-lm5jc10m.html), which has a large aperture range. All Life in Space experiments will use the [6mm Raspberry Pi lens](https://uk.farnell.com/raspberry-pi/rpi-6mm-lens/rpi-6mm-wide-angle-lens/dp/3381607). In all experiments the focal length will be set to infinity due to the altitude.
+---/collapse---
+
+## The Astro Pi sensors
+
+The Astro Pi includes a range of easy to use sensors that are ready to use for your experiments:
+
+- Accelerometer
+- Gyroscope
+- Magnetometer
+- Temperature sensor
+- Humidity sensor
+- Barometric pressure sensor
+- Light and colour sensor
+
+All of these sensors are accessed using the Sense HAT, which provides a simple way to take measurements from the environment. Take some time to look at the [Getting started with the Sense HAT](https://projects.raspberrypi.org/en/projects/getting-started-with-the-sense-hat/7) and [Sense HAT data logger](https://projects.raspberrypi.org/en/projects/sense-hat-data-logger/1) projects to learn how to log measurements from these sensors to a csv file.
+
+There is also a PIR (passive infrared) motion sensor on the Astro Pis on the ISS, which can be accessed using the `gpiozero` library to create a `MotionSensor` object attached **specifically** to GPIO pin 12:
 
 ```python
-from orbit import ISS
-from skyfield.api import load
+from gpiozero import MotionSensor
 
-# Obtain the current time `t`
-t = load.timescale().now()
-# Compute where the ISS is at time `t`
-position = ISS.at(t)
-# Compute the coordinates of the Earth location directly beneath the ISS
-location = position.subpoint()
-print(location)
+print("Inititating motion detection")
+pir = MotionSensor(pin=12)
+pir.wait_for_motion()
+print("Motion detected")
+pir.wait_for_no_motion()
 ```
 
-If you are not interested in setting or recording the time `t`, then the `ISS` object also offers a convenient `coordinates` method that you can use as an alternative for retrieving the coordinates of the location on Earth that is **currently** directly beneath the ISS:
+
+You can also use the `gpiozero` to read the CPU temperature: 
 
 ```python
-from orbit import ISS
-location = ISS.coordinates() # Equivalent to ISS.at(timescale.now()).subpoint()
-print(location)
+from gpiozero import CPUTemperature
+
+cpu = CPUTemperature()
+print(cpu.temperature)
 ```
 
-**Note**: The current position of the ISS is an **estimate**, based on the telemetry data and the current time. Therefore, when you are testing your program on Desktop Flight OS, you need to make sure that the system time has been set correctly.
+For more details about the interface for the Sense HAT and gpiozero libraries, make sure to look at the documentation - this is a really useful resource.
 
-Also, `location` is a `GeographicPosition`, so you can refer to the documentation and see [how you can access its individual elements](https://rhodesmill.org/skyfield/api-topos.html#skyfield.toposlib.GeographicPosition):
+--- collapse ---
+---
+title: Sense HAT and gpiozero documentation
+---
+The [Sense HAT documentation](https://pythonhosted.org/sense-hat/) contains sections on how to retrieve data from the [environmental sensors](https://pythonhosted.org/sense-hat/api/#environmental-sensors) (temperature, humidity, pressure) and the [Inertial Measurement Unit (IMU)](https://pythonhosted.org/sense-hat/api/#imu-sensor) (acceleration, orientiation). Additional documentation is available for interacting with the [light and colour sensor](https://gist.github.com/boukeas/e46ab3558b33d2f554192a9b4265b85f). You can also explore the wide range of [Sense HAT projects](https://projects.raspberrypi.org/en/projects?hardware%5B%5D=sense-hat) available from the Raspberry Pi Foundation.
+
+For the PIR sensor, check out the gpiozero [documentation](https://gpiozero.readthedocs.io/en/stable/api_input.html#motionsensor-d-sun-pir), which shows the different ways in which you can interact with the sensor.
+---/collapse ---
+
+## Where to save your data
+
+Your program is going to be stored in a different location when it is deployed on the ISS, so it's really important to avoid using absolute file paths. Use the code below to work out which folder the `main.py` file is currently stored in, which is called the `base_folder`:
 
 ```python
-print(f'Latitude: {location.latitude}')
-print(f'Longitude: {location.longitude}')
-print(f'Elevation: {location.elevation.km}')
+from pathlib import Path
+
+base_folder = Path(__file__).parent.resolve()
 ```
 
-Note that the latitude and longitude are `Angle`s and the elevation is a `Distance`. The documentation describes [how to switch between different `Angle` representations](https://rhodesmill.org/skyfield/api-units.html#skyfield.units.Angle) or [how to express `Distance` in different units](https://rhodesmill.org/skyfield/api-units.html#skyfield.units.Distance): 
+Then you can save your data into a file underneath this `base_folder`:
 
 ```python
-print(f'Lat: {location.latitude.degrees:.1f}, Long: {location.longitude.degrees:.1f}')
+data_file = base_folder / "data.csv"
+
+for i in range(10):
+    with open(data_file, "w", buffering=1) as f:
+        f.write(f"Some data: {i}")
 ```
 
-There are a few different ways of representing latitude and longitude, and it is important to select the appropriate one, especially when working with software and libraries that expect the data to be in a certain format.
+<p style="border-left: solid; border-width:10px; border-color: #0faeb0; background-color: aliceblue; padding: 10px;">
+Make sure to check the [MSL Guidelines Phase 2 checklist](https://astro-pi.org/mission-space-lab/guidelines/program-checklist) for rules on files and filenames.
+</p>
 
-The code above outputs latitude and longitude using the Decimal Degrees (DD) format, where coordinates are written using degrees (°) as the unit of measurement. There are 180° of latitude: 90° north and 90° south of the equator. There are 360° of longitude: 180° east and 180° west of the prime meridian (the zero point of longitude, defined as a point in Greenwich, England). To precisely specify a location, each degree can be reported as a decimal number, e.g. (-28.277777, 71.5841666). 
+### Numbering plans for images and files
 
-Another approach is the degrees:minutes:seconds (DMS) format, where each degree is split into 60 minutes (’) and each minute is divided into 60 seconds (”). For even finer accuracy, fractions of seconds given by a decimal point are used. The **sign** of the angle indicates whether the point that the coordinate refers to is north or south of the equator (for latitude) and east or west of the meridian (for longitude).
-
-```python
-print(f'Lat: {location.latitude.signed_dms()}, Long: {location.longitude.signed_dms()}')
-```
-
-### Example: Which hemisphere?
-
-If you wanted your experiment to run when the ISS is above a particular location on Earth, you could use the values of latitude and longitude to trigger some other action. Remember that the ISS's orbit does not pass over everywhere on Earth, and that more of our planet's surface is water than land. So in your 3-hour experimental window, the chances of passing over a very specific city or location will be low.
-
-To try out how this could be useful in your program, modify the code above so that it will print a message when the ISS is above the southern hemisphere.
-
----hints---
----hint---
-If a location is in the southern hemisphere, it has a negative latitude because it is "below" the equator.
-
----/hint---
----hint---
-You can test whether a number is negative by checking if it is less than 0.
-
----/hint---
----hint---
-Your code should look like this:
-
-```python
-from orbit import ISS
-
-location = ISS.coordinates()
-latitude = location.latitude.degrees
-if latitude < 0:
-    print("In Southern hemisphere")
-else:
-    print("In Northern hemisphere")
-```
----/hint---
----/hints---
-
-### Example: ISS in the sunlight
-
-The behaviour of your code might differ depending on whether or not the ISS is in sunlight. The `skyfield` library makes it very easy to obtain this information for any `EarthSatellite` object. Can you consult the documentation and write a program that displays  every 30 seconds whether or not the ISS is in sunlight?
-
----hints---
----hint---
-According to the [documentation](https://rhodesmill.org/skyfield/earth-satellites.html#find-when-a-satellite-is-in-sunlight) you can check whether a satellite is in sunlight at a given point in time by using the `is_sunlit` method.
----/hint---
----hint---
-You will need to start by loading an **ephemeris**. According to the [documentation](https://rhodesmill.org/skyfield/planets.html), this is a high accuracy table with the position of celestial objects. In this case, the ephemeris is necessary for computing the positions of the Earth and the Sun. To save you the trouble of supplying this file yourself, the `de421.bsp` ephemeris file may be imported directly from the Flight OS `orbit` library by executing `from orbit import ephemeris`.
----/hint---
----hint---
-Remember to use a loop and update the current time within the loop, before computing the position of the ISS.
----/hint---
----hint---
-Your code should look like this:
+Normally, experiments generate one or two `.csv` files, but it is very common to take lots of pictures. When dealing with lots of files of the same type, it's a good idea to follow a naming convention. In the example below, we use an obvious sequence number: `image_001.jpg`, `image_002.jpg`, _etc._, to keep our files organised:
 
 ```python
 from time import sleep
-from orbit import ISS, ephemeris
-from skyfield.api import load
+from picamera import PiCamera
+from pathlib import Path
 
-timescale = load.timescale()
+base_folder = Path(__file__).parent.resolve()
 
-while True:
-    t = timescale.now()
-    if ISS.at(t).is_sunlit(ephemeris):
-        print("In sunlight")
-    else:
-        print("In darkness")
-    sleep(30)
+camera = PiCamera()
+camera.start_preview()
+sleep(2)
+for filename in camera.capture_continuous(f"{base_folder}/image_{counter:03d}.jpg"):
+    print(f'Captured {filename}')
+    sleep(300) # wait 5 minutes
 ```
----/hint---
----/hints---
 
-**Note**: Because of the altitude of the ISS, the sun rises on the ISS slightly earlier than it does on the surface of the Earth below the ISS. Likewise, the sun sets on the ISS slightly later than it does on the surface of the Earth directly below it.
+
+## Your experiment
+
+Having read the [Getting started with the Sense HAT](https://projects.raspberrypi.org/en/projects/getting-started-with-the-sense-hat/7), [Sense HAT data logger](https://projects.raspberrypi.org/en/projects/sense-hat-data-logger/1), and [Getting started with picamera](https://projects.raspberrypi.org/en/projects/getting-started-with-picamera/) projects you are in a good position to start taking your own pictures and measurements.
+
+--- task ---
+Update your `main.py` file to include a function to collect data from the sensors or to capture an image.
+---/task ---
+
+Check out the example below if you need more help.
+
+---collapse---
+---
+title: Measuring temperature and humidity
+---
+
+A team wants to investigate whether the environment on the ISS is affected by the day and night cycle. _Does the ISS get colder at night, or drier in the day?_ To do this, they will first have to collect temperature and humidity data. The function to do this might look like this:
+
+```python
+from sense_hat import SenseHat
+
+sense = SenseHat()
+
+def collect_data(sense):
+    return sense.get_temperature(), sense.get_humidity()
+```
+--- /collapse ---

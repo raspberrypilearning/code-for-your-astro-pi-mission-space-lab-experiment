@@ -2,26 +2,21 @@
 title: Astro Pi Mission Space Lab Phase 2 guide
 hero_image: images/banner.png
 description: Guide for participants of the Mission Space Lab Astro Pi competition
-  2021-22
-version: 2022.1
+  2022-23
+version: 2023.1
 listed: true
 copyedit: true
 last_tested: '2021-06-23'
 steps:
 - title: Introduction
-- title: Getting started
-- title: Writing your program
-  completion:
-  - engaged
-- title: Recording data from your experiment
-- title: Finding the location of the ISS
-- title: Recording images using the camera
-- title: Doing more than one thing at a time
-- title: Running your experiment for 3 hours
-- title: "('Life in space' only) Using the LED display"
-- title: Networking and system processes
-- title: Common mistakes
-- title: A big worked example
-  completion:
-  - internal
-- title: Test your code
+- title: Kit Assembly
+- title: The Kit OS
+- title: Planning your work
+- title: How to record data and images
+- title: Running an experiment for 3 hours
+- title: How to find the location of the ISS
+- title: Machine learning & computer vision
+- title: Bulletproofing your program
+- title: Testing and checking your work
+- title: A complete worked example
+- title: Resources

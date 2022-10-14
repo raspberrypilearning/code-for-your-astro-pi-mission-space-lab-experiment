@@ -1,250 +1,138 @@
-## The Astro Pi sensors
+## Planning Your Work
 
-The Sense HAT used in the Astro Pi hosts a range of sensors that you can retrieve input data from and use for your experiments:
+Teams have often reflected in previous years that they wished they had spent more time in the planning and design stages of their experiment. Being organised should make the most of the opportunity to run your code aboard the ISS, and in this section we've put together some team activities for you to try. Before you start, though, check out this video from last year:
 
-- Accelerometer
-- Gyroscope
-- Magnetometer
-- Temperature sensor
-- Humidity sensor
-- Barometric pressure sensor
-- Light and colour sensor
+<iframe width="560" height="315" src="https://www.youtube.com/embed/owcZeUnSixM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-If you've never used the Sense HAT before, [start with this short project](https://projects.raspberrypi.org/en/projects/getting-started-with-the-sense-hat/), and come back here once you're aware of basic Sense HAT uses.
 
-The Astro Pi also includes a passive infrared (PIR) motion sensor, of the kind used in burglar alarms. It is able to detect whether or not there is an object moving within range of its field of view (e.g. an astronaut) and provides this input data through one of the Raspberry Pi's GPIO pins.
+### 5 questions to get started
 
-**Note**: You can only use data from the light sensor or the PIR motion sensor for **Life in Space** experiments. For **Life on Earth**, the Astro Pi is positioned with the camera facing out a window and placed under a black "hood", to avoid reflections. The light sensor and the PIR motion sensor face in the opposite direction from the camera, away from the window, so they are in darkness and under cover.
+To get started planning your Phase 2, you could meet together as a team and try and answer the questions below. This should help you decide how you are going to work together and set some expectations. Make sure everyone gets a turn to speak.
 
-### Limitations of the sensors
+--- task ---
+Meet together and answer the five questions below.
+--- /task ---
 
-Be aware of the limitations of the sensors and the [constraints imposed by them](https://projects.raspberrypi.org/en/projects/experiment-design/1). In particular, be mindful that the temperature and humidity sensors are affected more by the temperature of the CPU than anything else. If you wish to take readings of the ISS environment, you should test the temperature and humidity readings in a controlled (known) environment and come up with a strategy to compensate for this limitation.
+- _How are you going to make decisions as a team?_ Will you all have a say, or will you elect someone to take charge?
+- _How can you utilise everyone's strengths?_ What is everyone good at, and how can you help each other?
+- _What does everyone want to learn?_ Don't just do what you're good at - try something new!
+- _How much time you do you have?_ Decide when and where you will meet, and how often.
+- _How will you work together?_ Will you work online or mostly in person?
 
-### Retrieving sensor data from the Sense HAT
+### Timeline
 
-The [Sense HAT documentation](https://pythonhosted.org/sense-hat/) contains sections on how to retrieve data from the [environmental sensors](https://pythonhosted.org/sense-hat/api/#environmental-sensors) (temperature, humidity, pressure) and the [Inertial Measurement Unit (IMU)](https://pythonhosted.org/sense-hat/api/#imu-sensor) (acceleration, orientiation). Additional documentation is available for interacting with the [light and colour sensor](https://gist.github.com/boukeas/e46ab3558b33d2f554192a9b4265b85f). You can also explore the wide range of [Sense HAT projects](https://projects.raspberrypi.org/en/projects?hardware%5B%5D=sense-hat) available from the Raspberry Pi Foundation.
+As a team, decide on the ideal date you would like to finish writing your program. Make sure you have enough time to test it fully before submitting it, and to check it against the [requirements checklist](https://astro-pi.org/mission-space-lab/guidelines/program-checklist).
 
-Here is a short example showing how to obtain measurements from the colour sensor:
+![An example timeline](images/timeline.png)
 
-```python
-from sense_hat import SenseHat
+--- task ---
+Create a timeline for your project that includes your ideal finish date and the date at which you will start checking and testing your program.
+--- /task ---
 
-sense = SenseHat()
-sense.color.gain = 16
-light = sense.color.clear
-if light < 64:
-    print('Dark')
-else:
-    print('Light')
-```
+### Identify your measurements
 
-### Retrieving data from the motion sensor
+Once you have answered the 5 questions above and created a rough timeline for your work, you may want to note down the measurements and data you will need to test your hypothesis. If you need help with this, take a look at [this project](https://projects.raspberrypi.org/en/projects/experiment-design) and in particular the [define your measurements](https://projects.raspberrypi.org/en/projects/experiment-design/2) page. 
 
-You can retrieve data from the motion sensor on the Astro Pi by using the `gpiozero` library to
-create a `MotionSensor` object attached **specifically** to GPIO pin 12:
+--- task ---
+Write down the measurements that you will need to take in order to test your hypothesis.
+--- /task ---
 
-Make sure you take a look at the [documentation](https://gpiozero.readthedocs.io/en/stable/api_input.html#motionsensor-d-sun-pir) to find out about the different ways in which you can interact with the motion sensor.
+<p style="border-left: solid; border-width:10px; border-color: #0faeb0; background-color: aliceblue; padding: 10px;">
+This step will really help you to make sure the outputs of your program are useful for later stages of MSL, and that you remain focused throughout stage 2!
+</p>
 
-```python
-from gpiozero import MotionSensor
+--- collapse ---
+---
+title: Limitations of the sensors
+---
 
-print("Inititating motion detection")
-pir = MotionSensor(pin=12)
-pir.wait_for_motion()
-print("Motion detected")
-pir.wait_for_no_motion()
-```
+Be aware of the limitations of the sensors and their constraints. In particular, be mindful that the temperature and humidity sensors are affected more by the temperature of the CPU than anything else. If you would like to take readings of the ISS environment, it's advisable that you test the temperature and humidity readings in a controlled (known) environment and come up with a strategy to compensate for this limitation.
 
-**Note**: You should make sure your program only uses GPIO pin 12. Attaching a `MotionSensor` object to any other pin simply won't work. Attempting to manipulate other GPIO pins may lead to a malfunction or damage to your hardware.
+---/collapse ---
 
-## Recording sensor data in files
+### Do some research
 
-The experiment data that your program collects from the sensors needs to be stored in files. One very common way of doing that is using CSV files. These are regular text files where the data is arranged as comma-separated values: rows of data with each individual value separated from its neighbours with a comma.
+There are lots of resources on how to use the Astro Pi hardware on the [projects.raspberrypi.org](https://projects.raspberrypi.org) website. To make the most of your opportunity we recommend you complete either of the pathways below, depending on the nature of your experiment:
 
-For example, here is a snippet from a CSV file where the date, time, humidity, and temperature has been recorded in roughly one-minute intervals. Note that CSV files typically include a header with the names of the columns.
+- [Life in Space pathway](https://projects.raspberrypi.org/en/pathways/life-in-space)
+- [Life on Earth pathway](https://projects.raspberrypi.org/en/pathways/life-on-earth)
 
-```
-Date, Time, Humidity, Temperature
-05/05/2018, 10:23:56, 45.60, 21.05
-05/05/2018, 10:24:58, 45.62, 21.10
-05/05/2018, 10:25:57, 45.68, 21.10
-05/05/2018, 10:26:58, 45.72, 21.13
-```
+--- task ---
+Pick a project pathway to look at and create a plan to study it as a team
+--- /task ---
 
-Such a file would be named something like `data.csv`, with the `.csv` extension indicating the type of the file.
+You don't need to just restrict yourself to the projects site though! You could use a search engine to try and find examples of other teams working on a similar idea, to find more data for a machine learning experiment, or to engage with real scientific literature.
 
-**Note**: Normally, experiments generate one or two `.csv` files. If your program generates a considerable number of data files (e.g. more than five) over the course of the experiment, then that's an indication of a logical error or simply a wrong approach and it will most likely not advance to the next phase.
+Check out the [Resources section](11) for more inspiration.
 
-### Directory structure and file names
+### Work out the key program tasks visually
+Once you have a good idea of what you are trying to achieve with your program, the next step is to work out the tasks that the program will need to do. We recommend doing this visually using pen and paper, or a whiteboard, or online using a tool like [Miro](https://miro.com).
 
-You should make no assumptions about where your program will be stored when it is deployed on the ISS, especially given that the directory structure in the actual Flight OS is different than from the Desktop version. Your program must **never** use absolute folder paths, that is, it must not refer to specific folders such as `/home/pi` or `/home/pi/Desktop`. Instead, your main Python program should use the code below to work out at runtime which folder it is currently stored in, i.e. the `base_folder`:
+--- task ---
+List all of the key tasks that your program will need to perform. You don’t need to worry about the order or the actual functions and commands at this stage — just note down the specific things that need to be achieved like in the image below.
+--- /task ---
 
-```python
-from pathlib import Path
+![Example key tasks for a Mission Space Lab experiment](images/Astro_Pi_Educator_Focus_Graphics_V6a.png)
 
-base_folder = Path(__file__).parent.resolve()
-```
+--- task ---
+Have a closer look at each task and think about whether it can be split into smaller subtasks. Check to see if there are any actions that can be combined with one another, or if there are any tasks that need to be repeated.
+--- /task ---
 
-All files created by your program **must** be saved under this `base_folder`, i.e. under the same folder where the main Python file itself will be stored when running on the Astro Pis on the ISS. 
+![Example refinement of the key tasks for a Mission Space Lab experiment, showing how the ke tasks that involve writing data to a file can be combined together](images/Astro_Pi_Educator_Focus_Graphics_V6b.png)
 
-In addition, any files that your program creates should have sensible, informative names. Only use letters, numbers, dots (.), hyphens (-), or underscores (\_) in your file names. No other characters are allowed. **Do not use spaces** in file names, because they can cause problems when files are transferred between computers.
+--- task ---
+Try to put everything into a logical order, using lines to connect the various tasks. It will start to get messy, but you will probably discover that there are some obvious repeated tasks - these tasks are probably going to be written as functions that you will reuse.
+--- /task ---
 
-### Recording data to a CSV file
+![Arrange the key tasks into a logical order](images/Astro_Pi_Educator_Focus_Graphics_V6c.png)
 
-To easily create and write to a CSV file, we recommend using `csv`, which is included in the Python standard library. Here is a simple example that involves specifying the name of the data file, opening it with write permissions, and adding a single header row before iteratively writing an additional row of sensor data every 60 seconds.
+<p style="border-left: solid; border-width:10px; border-color: #0faeb0; background-color: aliceblue; padding: 10px;">
+If you have been using a whiteboard or pen and paper, don't forget to take a photo of your work to save it for later!
+</p>
 
-```python
-import csv
-from sense_hat import SenseHat
-from datetime import datetime
-from pathlib import Path
-from time import sleep
-
-sense = SenseHat()
-
-base_folder = Path(__file__).parent.resolve()
-data_file = base_folder/'data.csv'
-
-with open(data_file, 'w', buffering=1) as f:
-    writer = csv.writer(f)
-    header = ("Date/time", "Temperature", "Humidity")
-    writer.writerow(header)
-    for i in range(10):
-        row = (datetime.now(), sense.temperature, sense.humidity)
-        writer.writerow(row)
-        sleep(60)
-```
-
-It's important to log the timestamp along with your data points, so that you know when the measurement was taken, how long between each measurement, and at what point things happened. You can also retrospectively calculate the ISS position using a timestamp with `skyfield`.
-
-**Note**: The `buffering=1` argument used in the `open` function is **essential**. It makes sure that the output generated by the program is written to the data file **line-by-line**. Otherwise, the default would be for the generated output to be accumulated in a **buffer** in memory and only written to the data file in large chunks (for efficiency). Every year there are teams that receive empty data files because their program is interrupted when it reaches the 3-hour mark and the data in the buffer is lost before it is **flushed** to a file. Another alternative would be to use `f.flush()` after writing each row.
-
-How could you modify the code above to also record barometric pressure readings from the Sense HAT?
-
----hints---
----hint---
-You can take pressure readings using `sense.pressure`.
----/hint---
----hint---
-Add pressure to the header row.
----/hint---
----hint---
-Add the pressure reading into the line that uses `csv` to write the data to your file.
----/hint---
----hint---
-Your program should look like this:
-```python
-import csv
-from sense_hat import SenseHat
-from datetime import datetime
-from pathlib import Path
-from time import sleep
-
-sense = SenseHat()
-
-base_folder = Path(__file__).parent.resolve()
-data_file = base_folder/'data.csv'
-
-with open(data_file, 'w', buffering=1) as f:
-    writer = csv.writer(f)
-    header = ("Date/time", "Temperature", "Humidity", "Pressure")
-    writer.writerow(header)
-    for i in range(10):
-        row = (datetime.now(), sense.temperature, sense.humidity, sense.pressure)
-        writer.writerow(row)
-        sleep(60)
-```
----/hint---
----/hints---
-
-You might prefer to close your file each time you add a new row of sensor data and then open it again for the next row. This is less efficient, but closing the file is another way of making sure that the generated data has been saved, so none of it will be lost in the event your program ends prematurely. 
-
-You could use separate functions for creating the data file (with its header row) and writing individual rows:
-
-```python
-import csv
-from sense_hat import SenseHat
-from datetime import datetime
-from pathlib import Path
-from time import sleep
-
-def create_csv(data_file):
-    with open(data_file, 'w') as f:
-        writer = csv.writer(f)
-        header = ("Date/time", "Temperature", "Humidity")
-        writer.writerow(header)
-
-def add_csv_data(data_file, data):
-    with open(data_file, 'a') as f:
-        writer = csv.writer(f)
-        writer.writerow(data)
-
-sense = SenseHat()
-
-base_folder = Path(__file__).parent.resolve()
-data_file = base_folder/'data.csv'
-
-create_csv(data_file)
-for i in range(10):
-    row = (datetime.now(), sense.temperature, sense.humidity)
-    add_csv_data(data_file, row)
-    sleep(60)
-```
-
-**Note**: The first time you write to a file, you must open it with `w` (write mode). If you want to add data to it later, you must use `a` (append mode).
-
-### Data storage quota
-
-**Your experiment is allowed to produce a maximum of 3GB of data**. So make sure that you calculate the maximum amount of storage space that your experiment's recorded data, including any photos, will take up, and that this does not exceed 3GB. 
-
-## Logging with logzero
-
-The `logzero` Python library makes it easy to log notes about what's going on in your program. If you got back your experiment data only to find lots of missing data with no explanation, you wouldn't be able to find out what happened. Instead, log as much information about what happens in your program. Log every loop iteration, log every time an important function is called, and if you have conditionals in your program, log which route the program went (`if` or `else`).
-
-Here's a basic example of how logzero can be used to keep track of loop iterations:
-
-```python
-from logzero import logger, logfile
-from pathlib import Path
-from time import sleep
-
-base_folder = Path(__file__).parent.resolve()
-logfile(base_folder/"events.log")
-
-for i in range(10):
-    logger.info(f"Loop number {i+1} started")
-    ...
-    sleep(60)
-```
-
-The two main types of log entry you can use are `logger.info()` to log information, and `logger.error()` when you experience an unexpected error or handle an exception. There's also `logger.warning()` and `logger.debug()`.
-
-For example, if you had a function to detect night or dark from photos, you could log this information too:
-
-```python
-for i in range(10):
-    if night_or_dark() == 'night':
-        logger.info('night - wait 60 seconds')
-        sleep(60)
-    else:
-        ...
-```
-
-If you want to handle an exception, but log that you did so, you can use `logger.error`:
-
-```python
-try:
-    do_something()
- except Exception as e:
-    logger.error(f'{e.__class__.__name__}: {e})')
-```
-
-For example, dividing by zero in `do_something` would create the following log entry:
-
-```
-[E 190423 00:04:16 test:9] ZeroDivisionError: division by zero
-```
-
-Your program would continue without crashing, but rather than seeing no log entry, you see that an error occurred at this time.
-
-**Note**: You can (and should) use **both** the `csv` library (for recording experiment data) and the `logzero` library (for logging important events that take place during your experiment).
+### Draw a flow chart
+
+Using your notes from the previous step, try and refine the tasks into a [flow chart](https://simple.wikipedia.org/wiki/Flow_chart), which is a diagram of all of a program’s tasks, in the right order, but doesn’t contain any actual programming language commands. To do this you can follow these steps:
+
+- Identify the natural order of the tasks and try and use arrows to connect them in a sequence to create a 'flow' along the page, zig-zagging a bit like a [snakes and ladders board](https://upload.wikimedia.org/wikipedia/en/b/ba/Cnl03.jpg).
+- Identify any decisions that the program needs to make and check that all outcomes are catered for.
+- Include a ‘start’ and ‘end’ block to make it very clear where the program begins and finishes.
+
+A flow chart for a typical experiment might look something like this:
+
+![Create a flow chart](images/Astro_Pi_Educator_Focus_Graphics_V6d.png)
+
+--- task ---
+Create a flow chart of your program using the help above.
+--- /task ---
+
+### Consider 'What if' scenarios
+
+An important aspect of programming and design is making sure you are ready for when things go wrong. Most experiments will have a main loop that runs repeatedly over the 3-hour period. An unexpected error encountered in this loop could be disastrous if it causes the program to stop or stall and prevent further data collection. So, think of some ‘what if’ scenarios. For example, if you’re reading data from a sensor, what will happen if it gives you an unexpected result? Will your program cope with this? How are you dealing with hardware errors? 
+
+--- task ---
+Identify points in your flowchart where errors might occur and add new blocks to cater for them.
+--- /task ---
+
+### Assign tasks to members of the team
+
+After finishing your flowchart it is a good idea to review it altogether and double check that there is no unnecessary work and that you're satisfied that the final result will help you test your hypothesis. Once you're satisfied, assign tasks by following the steps below.
+
++ Give descriptive names to each task block.
++ Assign responsibility for each block to different members of the team, keeping in mind their experience and desires.
++ Remember that someone needs to be responsible for the scaffold of the final program that will contain the various function calls in the right order.
+
+You may want to use a project management tool to keep track of your tasks. Something as simple as [Google Keep](https://www.google.com/keep/) could work, or you could use a [Trello](https://www.trello.com) or [Monday.com](https://www.monday.com) board. 
+
+![Update to the flow chart to reflect changes that become necessary as the program evolves](images/Astro_Pi_Educator_Focus_Graphics_V6e.png)
+
+--- task ---
+Assign tasks to each member of your team.
+--- /task ---
+
+Whatever method you choose to track your work, make sure to schedule a time to meet regularly to discuss progress and work through any major challenges as a group. It can be useful to update your pseudocode flow diagram to reflect any changes that your team realise are necessary as they write the actual program!
+
+## Get coding!
+
+Now that you have a much better idea of what your experiment program is going to do, it's time to get coding! Continue reading for specific guidance on how to write your program.
+
