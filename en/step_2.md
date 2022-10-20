@@ -180,20 +180,23 @@ Remove the caps from the end of the 6mm lens and screw the lens onto the high-qu
 
 **Note**: The camera sensor in the ESA kit is the same high-quality camera as the one found in the new Astro Pis on the ISS. You can read the [documentation about the HQ camera](https://www.raspberrypi.org/documentation/hardware/camera/), and a lot of detailed technical information can also be found in [the relevant section of the PiCamera library documentation](https://picamera.readthedocs.io/en/latest/fov.html#camera-hardware).
 
-Your Astro Pi kit should now be complete. Insert your SD card, connect to a monitor, keyboard, and mouse and finally plug in the USB-C power lead. For more details on using your Raspberry Pi, take a look at [this guide](https://projects.raspberrypi.org/en/projects/raspberry-pi-getting-started).
+Your Astro Pi kit should now be complete. Insert your SD card, connect to a monitor, keyboard, and mouse and finally plug in the USB-C power lead. When you power up your Astro Pi, you will be invited to accept the ESA Licence Agreement as shown in the image below. 
+
+![Screenshot of the ESA Licence Agreement page](images/esa_licence_accept.png)
+
+Once you have accepted the licence agreement, you will be asked to create a new username and password, to set the system time and language settings, and to connect to a WiFi network. For more details on setting up your Raspberry Pi, take a look at [this guide](https://projects.raspberrypi.org/en/projects/raspberry-pi-getting-started/4).
+
 
 ![Photo of all the components in the ESA Astro Pi kit assembled together](images/assembly_all.JPG)
 
 #### Performance
 
-The ESA kits for Astro Pi 2020/21 contain Raspberry Pi 4 devices with 4GB of memory (RAM). They are almost identical to the new Astro Pis on the ISS, except that those have 8GB of memory. This means there should be very little difference in performance between the computer on which you develop and test your code and the computer where it actually runs, unless your experiment requires a lot of memory.
+The ESA kits for Astro Pi 2022/23 contain Raspberry Pi 4 devices with 4GB of memory (RAM). They are almost identical to the new Astro Pis on the ISS, except that those have 8GB of memory. This means there should be very little difference in performance between the computer on which you develop and test your code and the computer where it actually runs, unless your experiment requires a lot of memory.
 
 
 ### Software and your development environment
 
 After assembling your hardware, you will need to set up your development environment. If you received a kit from ESA, it will contain an SD card with the Desktop version of the Flight OS: a custom-built version of the Raspberry Pi Operating System that you will need.
-
-The packages available in the Desktop Flight OS closely match the ones in the actual Flight OS, the operating system installed on the Astro Pi units on the ISS. However, the Flight OS is a "command-line only" environment that is not really convenient for developing programs and that is why the ESA kits provide a Desktop version that also includes a host of programming tools. Here is a [video tour](https://youtu.be/i57kwOiR7UM) of the 2020 version!
 
 ![Screenshot of the Desktop version of the Flight Operating System.](images/os-desktop.png)
 
@@ -206,9 +209,23 @@ Please, **do not perform any upgrades or install any additional packages or Pyth
 title: Accessing the Desktop Flight OS remotely
 ---
 
-The Desktop Flight OS runs the VNC Server from RealVNC, so you can use the [compatible VNC client](https://www.realvnc.com/en/connect/download/viewer/) to connect to your desktop from another computer.
+The Desktop Flight OS can be configured so that you are able to connect to it
+from another desktop. To do this, you will need to 1. install a [compatible VNC client](https://www.realvnc.com/en/connect/download/viewer/) on the other desktop and 2. enable
+VNC on the Astro Pi itself by entering the commands below.
 
-You can also connect to the Desktop Flight OS using just a browser. On a machine that is connected to the same network as your Astro Pi kit, open up a browser and type `http://astro-pi-kit.local/vnc.html` in the address bar. This should lead you to the noVNC connection page. Click on the `Connect` button, enter `raspberry` as the password, and you should see the Flight OS desktop in your browser!
+The default password to connect via VNC is `raspberry` but you are *highly encouraged* to change this using `vncpasswd -service` before enabling VNC.
+
+```bash
+sudo raspi-config nonint do_vnc 0 && \
+  systemctl enable novnc && \
+  systemctl start novnc && \
+  systemctl unmask avahi-daemon && \
+  systemctl enable avahi-daemon && \
+  systemctl start avahi-daemon
+```
+
+You can also connect to the Desktop Flight OS using just a browser, albeit less-securely. On a machine that is connected to the same network as your Astro Pi kit, open up a browser and type `https://astro-pi-kit.local/vnc.html` in the address bar. 
+You will have to tell your browser to trust your unique Astro Pi SSL certificate to continue (e.g. on Chrome, type `thisisunsafe` while the browser tab has focus), but once you have done so you will be lead to the noVNC connection page. Click on the `Connect` button, enter the password you set in `vncpasswd`, and you should see the Flight OS desktop in your browser!
 
 ![The Desktop Flight OS accessed remotely through a browser window on an Ubuntu machine.](images/noVNC.png)
 
@@ -233,52 +250,38 @@ The Desktop version of the Flight OS also contains a `Data` folder with sample d
 
 #### Sensor readings
 
-There is a comma-separated values (CSV) file with 3 hours worth of data from all of the Sense HAT sensors. The columns in this file are in this order:
+There is a comma-separated values (CSV) file with 24 hours worth of data from all of the Sense HAT sensors. The columns in this file are in the order of this table:
 
-Date
-Time
-Humidity
-Temperature
-Pressure
-Pitch (as measured by gyroscope)
-Roll (as measured by gyroscope)
-Yaw (as measured by gyroscope)
-Pitch (as measured by accelerometer)
-Roll (as measured by accelerometer)
-Yaw (as measured by accelerometer)
-Raw accelerometer X value
-Raw accelerometer Y value
-Raw accelerometer Z value
-Raw magnetometer X value
-Raw magnetometer Y value
-Raw magnetometer Z value
-Latitude degrees
-Latitude minutes
-Latitude seconds
-Longitude degrees
-Longitude minutes
-Longitude seconds
+| Header | Description |
+| ---    | --- |
+| Date/Time | the date and time the measurements were taken. |
+| Latitude | an angle partly describing where over the Earth the measurements were taken. |
+| Longitude | an angle partly describing where over the Earth the measurements were taken. |
+| Temperature | the current temperature in degrees Celsius from the humidity sensor. |
+| Humidity | the percentage of relative humidity from the humidity sensor. |
+| Pressure | the pressure in Millibars from the pressure sensor. |
+| Compass | the angle North from the magnetometer in degrees. |
+| MagX | the raw x axis magnetometer data in microteslas (µT). |
+| MagY | the raw y axis magnetometer data in microteslas (µT). |
+| MagZ | the raw z axis magnetometer data in microteslas (µT). | 
+| Pitch | a component of the current orientation from the gyroscope in radians. |
+| Roll | a component of the current orientation from the gyroscope in radians. |
+| Yaw | a component of the current orientation from the gyroscope in radians. |
+| AccelX | the raw x axis accelerometer data in Gs. |
+| AccelY | the raw y axis accelerometer data in Gs. |
+| AccelZ | the raw z axis accelerometer data in Gs. | 
+| R | the amount of incident red light, scaled to 0-256. | 
+| G | the amount of incident green light, scaled to 0-256. | 
+| B | the amount of incident blue light, scaled to 0-256. | 
+| C |  the amount of incident clear light, scaled to 0-256. | 
+| Motion | a boolean signalling whether motion was detected by the PIR sensor. | 
 
 LibreOffice Calc is a spreadsheet program similar to Microsoft Excel and is installed on the Desktop Flight OS. You can use this to look at the data and plot charts.
 
 #### Images
 
-There is also a sequence of photos taken by the Mark I Astro Pi IR camera. The sequence starts at 'night', and so the first few photos are black.
+There is also a sample of photos taken by the Mark II Astro Pi IR and Vis cameras in the `Data` folder.
 
-![Completely black photo taken during the "night" using a Mark I Astro Pi IR camera](images/zz_astropi_1_photo_116.jpg)
-
-Then, the window gradually appears as light starts to flood in.
-
-![A photo taken at "dawn" using a Mark I Astro Pi IR camera. The Earth is not visible yet and the Astro Pi is reflected on the nadir window](images/zz_astropi_1_photo_133.jpg)
-
-By image 150, the Earth below becomes visible.
-
-![A photo of the Earth becoming visible after "dawn", taken using a Mark I Astro Pi IR camera. The sun is still reflected on the sides of the nadir window.](images/zz_astropi_1_photo_159.jpg)
-
-And eventually, the area surrounding the window cannot be seen at all.
-
-![A photo of the Earth taken using a Mark I Astro Pi IR camera](images/zz_astropi_1_photo_193.jpg)
-
-You could use these images to train a machine learning algorithm to recognise different types of views. However, please note that there is no guarantee that the location, view, and orientation of the Astro Pi will be exactly the same when your program runs on the ISS. Therefore, your program should be flexible enough to adapt to any changes.
+You could use these images to train a machine learning algorithm to recognise different types of views, for example. However, please note that there is no guarantee that the location, view, and orientation of the Astro Pi will be exactly the same when your program runs on the ISS. Therefore, your program should be flexible enough to adapt to any changes.
 
 --- /collapse ---

@@ -2,14 +2,6 @@
 
 Using the Python `skyfield` library, you can calculate the positions of space objects within our solar system. This includes the Sun, the Moon, the planets, and many Earth satellites such as the ISS. You can use the ISS’s current location above the Earth to identify whether the ISS is flying over land or sea, or which country it is passing over.
 
---- collapse ---
----
-title: What happened to the ephem library?
----
-
-If your team has participated in previous challenges, you may recall that the `ephem` library was used to calculate the position of the ISS. This library has now been deprecated and replaced by its successor, `skyfield`.
---- /collapse ---
-
 Up-to-date telemetry data is required in order to accurately compute the position of the ISS (or any other satellite orbiting the Earth). To save you the trouble of obtaining and manipulating this data, the Flight OS offers the `orbit` Python package, which uses `skyfield` to create an `ISS` object that you can import in your program:
 
 ```python
@@ -22,9 +14,9 @@ title: Telemetry data
 ---
 For accurate calculations, `skyfield` requires the most recent two-line element (TLE) set for the ISS. TLE is a data format used to convey sets of orbital elements that describe the orbits of Earth satellites. 
 
-When you import the `ISS` object from the `orbit` library, an attempt is made to retrieve the TLE data from a file called `iss.tle` in the `/home/pi` folder. If the file is not present but an internet connection is available, the latest data will be downloaded automatically into the `iss.tle` file, so you don't need to worry about it.
+When you import the `ISS` object from the `orbit` library, an attempt is made to retrieve the TLE data from a file called `iss.tle` in the home folder. If the file is not present but an internet connection is available, the latest data will be downloaded automatically into the `iss.tle` file, so you don't need to worry about it.
 
-However, if your Astro Pi kit has no internet access, then you need to manually download the latest [ISS TLE data](http://www.celestrak.com/NORAD/elements/stations.txt){:target="_blank"}, copy the three ISS-related lines into a file called `iss.tle`, and then place this file into the `/home/pi` folder. The TLE data will look something like this:
+However, if your Astro Pi kit has no internet access, then you need to manually download the latest [ISS TLE data](http://www.celestrak.com/NORAD/elements/stations.txt){:target="_blank"}, copy the three ISS-related lines into a file called `iss.tle`, and then place this file into your home folder. The TLE data will look something like this:
 
 ```
 ISS (ZARYA)             
