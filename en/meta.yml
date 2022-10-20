@@ -22,6 +22,7 @@ steps:
 - title: Running your experiment for 3 hours
 - title: "('Life in space' only) Using the LED display"
 - title: Networking and system processes
+- title: Machine Learning with the Coral dongle
 - title: Common mistakes
 - title: A big worked example
   completion:
