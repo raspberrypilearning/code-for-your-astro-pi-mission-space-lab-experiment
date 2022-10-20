@@ -1,141 +1,145 @@
-## Recording images using the camera
+## Finding the location of the ISS
 
-The first thing to do, if you haven't already, is to connect your Camera Module to the Raspberry Pi.
+Using the Python `skyfield` library, you can calculate the positions of space objects within our solar system. This includes the Sun, the Moon, the planets, and many Earth satellites such as the ISS. You can use the ISS’s current location above the Earth to identify whether the ISS is flying over land or sea, or which country it is passing over.
 
-[[[rpi-picamera-connect-camera]]]
-
-Once you've done that, power the Raspberry Pi back on and take some test photos:
-
-[[[rpi-picamera-take-photo]]]
-
-If you've never used the Camera Module before, [start with this beginners' project](https://projects.raspberrypi.org/en/projects/getting-started-with-picamera/), and come back here once you've tried using the basic `picamera` Python library functions.
-
-The code snippet below shows how to take a picture with the Camera Modules of the Astro Pis using the `picamera` library, and save it to the correct directory. The `picamera` library is very powerful and has [great documentation](https://picamera.readthedocs.io/en/latest/){:target="_blank"}.
-
-```python
-from time import sleep
-from picamera import PiCamera
-from pathlib import Path
-
-base_folder = Path(__file__).parent.resolve()
-
-camera = PiCamera()
-camera.resolution = (1296,972)
-camera.start_preview()
-# Camera warm-up time
-sleep(2)
-camera.capture(f"{base_folder}/image.jpg")
-```
-
-If your experiment is for the Life in Space theme, then your program must make sure that any captured images have been deleted by the end of your experiment time:
-
-```python
-(base_folder/"image.jpg").unlink()
-```
-
-If your experiment is for the Life on Earth theme, then you will get some amazing pictures of the Earth seen from the ISS. Even if your program will process these images and only make use of the extracted data, we recommend that you do not delete all the images (unless your program will generate so many of them that you risk running out of disk space on the Astro Pi). Apart from being a unique souvenir of your mission, the images may also help you with debugging any unexpected issues with your experimental results. Here are some examples of [images captured using the infrared camera on Astro Pi IR](https://www.flickr.com/photos/raspberrypi). If you're going to be processing images (e.g. with the OpenCV Python library), you should test your code on some of these images.
-
-The rest of this step is mainly for Life on Earth experiments. No images from Life in Space experiments can be saved.
-
-### Location data (Life on Earth)
-
-Being able to take photographs of the Earth from a window on the ISS is something that normally only astronauts can do. We recommend that you record the position of the Space Station for any images that you capture. You can do this by logging the latitude and longitude in a CSV file along with the corresponding file name of the image.
-
-A better method is to add the location information into EXIF fields within each image file itself. This **metadata** is 'attached' to the image file and does not need the accompanying CSV data file. 
-
-In the snippet below, a function called `capture` is called to capture an image, after setting the EXIF data to the current latitude and longitude. The coordinates in the EXIF data of images are stored using a variant of the degrees:minutes:seconds (DMS) format, and you can see how the `convert` function takes the data returned `ISS.coordinates()` and converts it into a format suitable for storing as EXIF data. Using functions to perform these tasks keeps the program tidy.
-
-The extra complication here is that the degrees value cannot be negative. An extra piece of information must be included for each value — the latitude reference and longitude reference. This simply states whether the point that the coordinate refers to is north or south of the equator (for latitude) and east or west of the meridian (for longitude). So the example from above would be displayed as (28:16:40 S, 71:35:3 E).
+Up-to-date telemetry data is required in order to accurately compute the position of the ISS (or any other satellite orbiting the Earth). To save you the trouble of obtaining and manipulating this data, the Flight OS offers the `orbit` Python package, which uses `skyfield` to create an `ISS` object that you can import in your program:
 
 ```python
 from orbit import ISS
-from picamera import PiCamera
-from pathlib import Path
-
-def convert(angle):
-    """
-    Convert a `skyfield` Angle to an EXIF-appropriate 
-    representation (rationals)
-    e.g. 98° 34' 58.7 to "98/1,34/1,587/10"
-
-    Return a tuple containing a boolean and the converted angle,
-    with the boolean indicating if the angle is negative.
-    """
-    sign, degrees, minutes, seconds = angle.signed_dms()
-    exif_angle = f'{degrees:.0f}/1,{minutes:.0f}/1,{seconds*10:.0f}/10'
-    return sign < 0, exif_angle
-
-def capture(camera, image):
-    """Use `camera` to capture an `image` file with lat/long EXIF data."""
-    point = ISS.coordinates()
-
-    # Convert the latitude and longitude to EXIF-appropriate representations
-    south, exif_latitude = convert(point.latitude)
-    west, exif_longitude = convert(point.longitude)
-    
-    # Set the EXIF tags specifying the current location
-    camera.exif_tags['GPS.GPSLatitude'] = exif_latitude
-    camera.exif_tags['GPS.GPSLatitudeRef'] = "S" if south else "N"
-    camera.exif_tags['GPS.GPSLongitude'] = exif_longitude
-    camera.exif_tags['GPS.GPSLongitudeRef'] = "W" if west else "E"
-
-    # Capture the image
-    camera.capture(image)
-
-cam = PiCamera()
-cam.resolution = (1296,972)
-
-base_folder = Path(__file__).parent.resolve()
-capture(cam, f"{base_folder}/gps1.jpg")
 ```
 
 --- collapse ---
 ---
-title: Locating images on a map
+title: Telemetry data
 ---
+For accurate calculations, `skyfield` requires the most recent two-line element (TLE) set for the ISS. TLE is a data format used to convey sets of orbital elements that describe the orbits of Earth satellites. 
 
-When coordinate information is included in the EXIF metadata of your captured images, you can use software such as DigiKam (included in the Desktop Flight OS) or an online service to automatically locate the position where the image was taken on a map.
+When you import the `ISS` object from the `orbit` library, an attempt is made to retrieve the TLE data from a file called `iss.tle` in the home folder. If the file is not present but an internet connection is available, the latest data will be downloaded automatically into the `iss.tle` file, so you don't need to worry about it.
 
-You can also extract the coordinates from the EXIF metadata of an image programmatically. For example, the image below is part of the sample data included in the Desktop Flight OS. Using the `exif` Python library, you can find out that the image was taken at the coordinates 35°24'20.0"N 112°10'46.2"W. 
+However, if your Astro Pi kit has no internet access, then you need to manually download the latest [ISS TLE data](http://www.celestrak.com/NORAD/elements/stations.txt){:target="_blank"}, copy the three ISS-related lines into a file called `iss.tle`, and then place this file into your home folder. The TLE data will look something like this:
 
-![](images/zz_astropi_1_photo_387.jpg)
+```
+ISS (ZARYA)             
+1 25544U 98067A   21162.24455464  .00001369  00000-0  33046-4 0  9995
+2 25544  51.6454  12.1174 0003601  83.6963  83.5732 15.48975526287678
+```
 
-It turns out this is the Grand Canyon, with Lake Mead at the top left!
-
+When your code runs on the Space Station, we will make sure that the most accurate and up-to-date telemetry data will be used.
 --- /collapse ---
 
-Instead of using EXIF data, it is possible to overlay text data onto the visible image itself, like a watermark. However, there is always a risk that this will obscure a useful part of the picture, and can confuse code that looks at the brightness of pixels within the image. In addition, these overlays cannot easily be removed. Unlike the EXIF method, it also does not make it easy to automatically process images based on metadata, or search for images based on the location at which they were taken. Therefore, we recommend that you do not use the watermarking method to record the latitude and longitude, and instead use EXIF data.
+You can use `ISS` just like any other `EarthSatellite` object in `skyfield` (see the [reference](https://rhodesmill.org/skyfield/api-satellites.html#skyfield.sgp4lib.EarthSatellite) and [examples](https://rhodesmill.org/skyfield/earth-satellites.html)). For example, this is how to compute the coordinates of the Earth location that is **currently** directly beneath the ISS:
 
-### Numbering plans for files
+```python
+from orbit import ISS
+from skyfield.api import load
 
-Another cool thing to do with a sequence of images from the ISS is to create a timelapse movie, like the one in the first section of this project. This can be done on a Raspberry Pi with a single command — if the images are saved with sensible file names that include an obvious sequence number. So the naming convention for your image files should be `image_001.jpg`, `image_002.jpg`, etc. Remember not to include spaces and punctuation symbols (except for underscores (`_`) and hyphens (`-`)) in your file names!
+# Obtain the current time `t`
+t = load.timescale().now()
+# Compute where the ISS is at time `t`
+position = ISS.at(t)
+# Compute the coordinates of the Earth location directly beneath the ISS
+location = position.subpoint()
+print(location)
+```
+
+If you are not interested in setting or recording the time `t`, then the `ISS` object also offers a convenient `coordinates` method that you can use as an alternative for retrieving the coordinates of the location on Earth that is **currently** directly beneath the ISS:
+
+```python
+from orbit import ISS
+location = ISS.coordinates() # Equivalent to ISS.at(timescale.now()).subpoint()
+print(location)
+```
+
+**Note**: The current position of the ISS is an **estimate**, based on the telemetry data and the current time. Therefore, when you are testing your program on Desktop Flight OS, you need to make sure that the system time has been set correctly.
+
+Also, `location` is a `GeographicPosition`, so you can refer to the documentation and see [how you can access its individual elements](https://rhodesmill.org/skyfield/api-topos.html#skyfield.toposlib.GeographicPosition):
+
+```python
+print(f'Latitude: {location.latitude}')
+print(f'Longitude: {location.longitude}')
+print(f'Elevation: {location.elevation.km}')
+```
+
+Note that the latitude and longitude are `Angle`s and the elevation is a `Distance`. The documentation describes [how to switch between different `Angle` representations](https://rhodesmill.org/skyfield/api-units.html#skyfield.units.Angle) or [how to express `Distance` in different units](https://rhodesmill.org/skyfield/api-units.html#skyfield.units.Distance): 
+
+```python
+print(f'Lat: {location.latitude.degrees:.1f}, Long: {location.longitude.degrees:.1f}')
+```
+
+There are a few different ways of representing latitude and longitude, and it is important to select the appropriate one, especially when working with software and libraries that expect the data to be in a certain format.
+
+The code above outputs latitude and longitude using the Decimal Degrees (DD) format, where coordinates are written using degrees (°) as the unit of measurement. There are 180° of latitude: 90° north and 90° south of the equator. There are 360° of longitude: 180° east and 180° west of the prime meridian (the zero point of longitude, defined as a point in Greenwich, England). To precisely specify a location, each degree can be reported as a decimal number, e.g. (-28.277777, 71.5841666). 
+
+Another approach is the degrees:minutes:seconds (DMS) format, where each degree is split into 60 minutes (’) and each minute is divided into 60 seconds (”). For even finer accuracy, fractions of seconds given by a decimal point are used. The **sign** of the angle indicates whether the point that the coordinate refers to is north or south of the equator (for latitude) and east or west of the meridian (for longitude).
+
+```python
+print(f'Lat: {location.latitude.signed_dms()}, Long: {location.longitude.signed_dms()}')
+```
+
+### Example: Which hemisphere?
+
+If you wanted your experiment to run when the ISS is above a particular location on Earth, you could use the values of latitude and longitude to trigger some other action. Remember that the ISS's orbit does not pass over everywhere on Earth, and that more of our planet's surface is water than land. So in your 3-hour experimental window, the chances of passing over a very specific city or location will be low.
+
+To try out how this could be useful in your program, modify the code above so that it will print a message when the ISS is above the southern hemisphere.
+
+---hints---
+---hint---
+If a location is in the southern hemisphere, it has a negative latitude because it is "below" the equator.
+
+---/hint---
+---hint---
+You can test whether a number is negative by checking if it is less than 0.
+
+---/hint---
+---hint---
+Your code should look like this:
+
+```python
+from orbit import ISS
+
+location = ISS.coordinates()
+latitude = location.latitude.degrees
+if latitude < 0:
+    print("In Southern hemisphere")
+else:
+    print("In Northern hemisphere")
+```
+---/hint---
+---/hints---
+
+### Example: ISS in the sunlight
+
+The behaviour of your code might differ depending on whether or not the ISS is in sunlight. The `skyfield` library makes it very easy to obtain this information for any `EarthSatellite` object. Can you consult the documentation and write a program that displays  every 30 seconds whether or not the ISS is in sunlight?
+
+---hints---
+---hint---
+According to the [documentation](https://rhodesmill.org/skyfield/earth-satellites.html#find-when-a-satellite-is-in-sunlight) you can check whether a satellite is in sunlight at a given point in time by using the `is_sunlit` method.
+---/hint---
+---hint---
+You will need to start by loading an **ephemeris**. According to the [documentation](https://rhodesmill.org/skyfield/planets.html), this is a high accuracy table with the position of celestial objects. In this case, the ephemeris is necessary for computing the positions of the Earth and the Sun. To save you the trouble of supplying this file yourself, the `de421.bsp` ephemeris file may be imported directly from the Flight OS `orbit` library by executing `from orbit import ephemeris`.
+---/hint---
+---hint---
+Remember to use a loop and update the current time within the loop, before computing the position of the ISS.
+---/hint---
+---hint---
+Your code should look like this:
 
 ```python
 from time import sleep
-from picamera import PiCamera
-from pathlib import Path
+from orbit import ISS, ephemeris
+from skyfield.api import load
 
-base_folder = Path(__file__).parent.resolve()
+timescale = load.timescale()
 
-camera = PiCamera()
-camera.start_preview()
-sleep(2)
-for filename in camera.capture_continuous(f"{base_folder}/image_{counter:03d}.jpg"):
-    print(f'Captured {filename}')
-    sleep(300) # wait 5 minutes
+while True:
+    t = timescale.now()
+    if ISS.at(t).is_sunlit(ephemeris):
+        print("In sunlight")
+    else:
+        print("In darkness")
+    sleep(30)
 ```
+---/hint---
+---/hints---
 
-Then, **once you get your images back from the ISS**,  you can use the following command to create a 'timelapse' movie. Depending on how frequently you captured images, you may wish to adjust the `-framerate` value to produce a smoother motion effect.
-
-```bash
-ffmpeg -framerate 10 -i %*.jpg -c:v libx264 -crf 17 -pix_fmt yuv420p timelapse.mp4
-```
-This is definitely a post-experiment processing step. You should not use your 3-hour experiment time on the ISS to try to build a timelapse movie!
-
-### Low-light and night-time photography
-
-Night-time photography using the Astro Pi's Camera Module is difficult. This is mostly because of the very low chances of your program being run while the ISS is above a bright city without cloud cover. The light sensitivity of the camera is quite good, but it needs to be used with the best software settings for the particular situation, and it is difficult to anticipate what those settings will be and include them in your program. Having the camera adapt to changing light conditions in real time is also tricky, especially when the camera is moving relative to the light source, as is the case for the Astro Pis on the ISS.
-
-### Size and number of images
-
-**Don't forget that your experiment is limited to producing 3GB of data**. Make sure that you calculate the maximum amount of space that your measurements, including any saved image files, will take up, and that this does not exceed 3GB. Remember that the size of an image file will depend not only on the resolution, but also on how much detail is in the picture: a photo of a blank white wall will be smaller than a photo of a landscape.  
+**Note**: Because of the altitude of the ISS, the sun rises on the ISS slightly earlier than it does on the surface of the Earth below the ISS. Likewise, the sun sets on the ISS slightly later than it does on the surface of the Earth directly below it.
