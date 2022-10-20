@@ -1,6 +1,6 @@
-## Getting started
+## Kit Assembly
 
-If you have received an official Astro Pi kit from ESA, you have everything you need to develop and test your Phase 2 program for Mission Space Lab (MSL). If you want to, you could even [create your own Astro Pi flight case](https://projects.raspberrypi.org/en/projects/astro-pi-flight-case-mk2), but don't worry, that's not essential, and completion of Mission Space Lab **does not** rely on having the flight case.
+In your official Astro Pi kit from ESA, you have everything you need to develop and test your Phase 2 program for Mission Space Lab! If you want to, you could even [create your own Astro Pi flight case](https://projects.raspberrypi.org/en/projects/astro-pi-flight-case-mk2), but don't worry, that's not essential, and completion of Mission Space Lab **does not** rely on having the flight case.
 
 ### Assembling the hardware
 

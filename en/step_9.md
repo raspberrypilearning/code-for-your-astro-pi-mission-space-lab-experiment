@@ -1,73 +1,26 @@
-## For Life in Space experiments only: Using the LED display
+## Running your experiment for 3 hours
 
-The LED matrix is the only display available to the Astro Pi computer, which is never connected to a normal monitor or TV screen on the ISS. If nothing is shown on its display for some time, the crew may begin to wonder if the Astro Pi computer has crashed. It will then cost crew time if they need to check it and/or call ground control to report a problem. To avoid this, your code should regularly update the LED matrix in some way, to indicate that your experiment is progressing. 
+Your experiment will be allocated 180 minutes of runtime on the ISS. Therefore, your code should run for no more than this 3-hour period and should gracefully shut down any activity (e.g. close the camera, close any open files, clear the LED matrix). After 3 hours, your code will be terminated automatically by the Astro Pi, but this may cause data to be lost or recorded incorrectly, so you should not rely on this to stop your program.
 
-**Note**: If your experiment is for __Life on Earth__, then you should not use the LED matrix. When the Astro Pi is running Life on Earth experiments, the LED matrix is disabled and the unit is placed under a black "hood", to prevent reflections and stray light from spoiling the images taken from the ISS window.
+One way to stop your program after a specific length of time is using the `datetime` Python library. This library makes it easy to work with times and compare them. Doing so without the library is not always straightforward: it's easy to get it wrong using normal mathematics. For example, it's simple to work out the difference in time between 10:30 and 10:50 (subtract 30 from 50), but slightly more complicated when you have 10:44 and 11:17 (add (60 - 44) to 17). Things become even trickier if the two times are split across two days (for example, the difference in minutes between 23:07 on Monday 31 May and 11:43 on Tuesday 1 June). The `datetime` library makes this type of operation much simpler by allowing you to create `datetime` objects that you can simply add to or subtract from each other.  
 
-The `sense_hat` library has functions to write messages to the LED matrix or light up individual pixels.
-
-[[[rpi-sensehat-single-pixel]]]
-
-These are blocking functions. In other words, nothing else can happen while these tasks are being performed. So if you were using `show_message` to display a very long string of text, that would occupy valuable mission time. Therefore, you should keep any introductory messages at the start of your program to less than 15 seconds from the start of the program.
-
-You could, of course, use a program thread to perform some other task in the background while graphics are displayed on the LED matrix. However, as mentioned in the 'Doing more than one thing at a time' section earlier, you should avoid using threads unless they are absolutely essential for your experiment.
-
-The LED matrix can produce very bright colourful images. However, remember that the ISS is a working environment: you should avoid too much flashing or flickering that may be a distraction to the astronauts.
+By recording and storing the time at the start of your experiment, you can then repeatedly check to see if the current time is greater than that start time plus a certain number of minutes, seconds, or hours. This difference is known as a `timedelta`.  
 
 ```python
-from sense_hat import SenseHat
+from datetime import datetime, timedelta
 from time import sleep
-import random
 
-sense = SenseHat()
-
-# Define some colours — keep brightness low
-g = [0,128,0]
-o = [0,0,0]
-
-# Define a simple image
-image = [
-    g,g,g,g,g,g,g,g,
-    o,g,o,o,o,o,g,o,
-    o,o,g,o,o,g,o,o,
-    o,o,o,g,g,o,o,o,
-    o,o,o,g,g,o,o,o,
-    o,o,g,g,g,g,o,o,
-    o,g,g,g,g,g,g,o,
-    g,g,g,g,g,g,g,g,
-]
-
-# Define a function to update the LED matrix
-def active_status():
-    # A list with all possible rotation values
-    rotation_values = [0,90,180,270]
-    # Pick one at random
-    rotation = random.choice(rotation_values)
-    # Set the rotation
-    sense.set_rotation(rotation)
-
-# Display the image
-sense.set_pixels(image)
-while True:
-    # Do stuff (in this case, nothing)
-    sleep(2)
-    # Update the LED matrix
-    active_status()
+# Create a `datetime` variable to store the start time
+start_time = datetime.now()
+# Create a `datetime` variable to store the current time
+# (these will be almost the same at the start)
+now_time = datetime.now()
+# Run a loop for 2 minutes
+while (now_time < start_time + timedelta(minutes=2)):
+    print("Doing stuff")
+    sleep(1)
+    # Update the current time
+    now_time = datetime.now()
 ```
 
-You should aim to update the screen at least every 15 seconds. If your experiment has period of ‘sleeping’ that is longer than that, you can split the waiting period up:
-
-```python
-sh.set_pixels(image)
-while True:
-    # Do stuff (in this case, nothing)
-    sleep(15)
-    # Update the LED matrix
-    active_status()
-    # More doing nothing
-    sleep(15)
-    # Update LEDs again
-    active_status()
-```
-
-**Note**: You are not allowed to change the light level of the LEDs. Do not use `sense.low_light`, `sense.gamma`, `sense.reset_gamma`, or `pisense.hat.screen.gamma` in your submitted program.
+**Note:** When deciding on the runtime for your code, make sure you take into account how long it takes for your loop to complete a cycle. So if you want to make use of the full 3-hour (180-minute) experiment slot available, but each loop through your code takes 6 minutes to complete, then your `timedelta` should be `180-6 = 174` minutes, to ensure that your code finishes __before__ the 3 hours have elapsed.

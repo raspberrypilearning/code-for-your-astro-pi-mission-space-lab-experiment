@@ -8,6 +8,8 @@ This guide covers Phase 2 for both Mission Space Lab themes: **Life on Earth** a
 
 Even if you’ve entered the Astro Pi competition before, please make sure that you read and follow this guide, as many things have changed in comparison to previous years.
 
+Welcome! This guide is aimed at mentors, but some pages are very good for young people to look at!
+
 ### What you will make
 
 The guide includes information on assembling your kit, writing the code for your experiment, and testing your program. It also includes essential details about what is and isn’t possible with the Astro Pi hardware and software.
