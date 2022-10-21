@@ -32,10 +32,6 @@ Then, we will put on the Sense Hat. Finally, we'll finish by connecting the came
 Unpack everything from your kit and make a note of whether your box includes the camera module, a Coral TPU dongle, or a PIR motion sensor.
 --- /task ---
 
---- collapse ---
----
-title: My box includes a camera module
----
 --- task ---
 Insert the camera cable into the CSI (Camera Serial Interface) socket on the Raspberry pi.  
 
@@ -43,10 +39,6 @@ Insert the camera cable into the CSI (Camera Serial Interface) socket on the Ras
 
 ![Photo of Raspberry Pi with camera cable attached.](images/assembly_cam.JPG)
 --- /task ---
-
---- /collapse ---
-
-
 
 --- task ---
 Take the black hexagonal spacer columns from the small bag that comes with the Sense HAT. Use the accompanying screws to connect them to the bottom of the Raspberry Pi 4.
