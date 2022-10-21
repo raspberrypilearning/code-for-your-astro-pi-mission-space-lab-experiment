@@ -1,20 +1,41 @@
 ## Kit Assembly
 
-In your official Astro Pi kit from ESA, you have everything you need to develop and test your Phase 2 program for Mission Space Lab!
+In this step we are going to build a real Astro Pi using the official Astro Pi kit you received from ESA. We understand that building your Astro Pi can be intimidating, which is why we have created the handy guide & checklist below for you to follow!
+
+--- collapse ---
+---
+title: What's in the box?
+---
+It may be small but your kit box really packs a punch!
+Your official Astro Pi kit includes:
++ A Raspberry Pi 4
++ A Sense HAT
++ A power cable
++ A 16GB SD card
+
+If your experiment needs it, you may also have any of the following in your box:
++ A Camera Module
++ A passive infrared (PIR) motion sensor
++ A Coral TPU dongle
+
+If you want to, you can [make a 3D-printed flight case](https://projects.raspberrypi.org/en/projects/astro-pi-flight-case-mk2){:target="_blank"}, and use this to even more closely simulate the ISS environment for more realistic testing. However, you don't need one to take part in Mission Space Lab. 
+
+--- /collapse ---
 
 ### Assembling the hardware
 
---- task ---
-Unpack everything from your kit.
+We are going to build the Astro Pi together! We will start by connecting
+the Camera "ribbon" cable to the Raspberry Pi, if you were supplied with a camera.
+Then, we will put on the Sense Hat. Finally, we'll finish by connecting the camera module and the PIR sensor, if you have them.
 
+--- task ---
+Unpack everything from your kit and make a note of whether your box includes the camera module, a Coral TPU dongle, or a PIR motion sensor.
 --- /task ---
 
---- task ---
-Take the black hexagonal spacer columns from the small bag that comes with the Sense HAT. Use the accompanying screws to connect them to the bottom of the Raspberry Pi 4.
-
-![Photo of the Raspberry Pi 4 with attached HAT spacers.](images/assembly_spacers.JPG)
---- /task ---
-
+--- collapse ---
+---
+title: My box includes a camera module
+---
 --- task ---
 Insert the camera cable into the CSI (Camera Serial Interface) socket on the Raspberry pi.  
 
@@ -22,6 +43,17 @@ Insert the camera cable into the CSI (Camera Serial Interface) socket on the Ras
 
 ![Photo of Raspberry Pi with camera cable attached.](images/assembly_cam.JPG)
 --- /task ---
+
+--- /collapse ---
+
+
+
+--- task ---
+Take the black hexagonal spacer columns from the small bag that comes with the Sense HAT. Use the accompanying screws to connect them to the bottom of the Raspberry Pi 4.
+
+![Photo of the Raspberry Pi 4 with attached HAT spacers.](images/assembly_spacers.JPG)
+--- /task ---
+
 
 --- task ---
 Take the Sense HAT and remove the short header if it is attached.

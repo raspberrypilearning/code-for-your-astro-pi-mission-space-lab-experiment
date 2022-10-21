@@ -12,10 +12,6 @@ Don't know about Mission Space Lab? Don't panic! Head over to the [Astro Pi webs
 
 You will build your very own Astro Pi and write a Python program using the Raspberry Pi hardware to gather data to support or reject your experiment hypotheses. You will learn how to test your program to give it the best chance of running successfully aboard the International Space Station (ISS)!
 
-### Guidelines & Pre-Submission Checklist
-
-In order to have your program run aboard the ISS it's really important that you read the [guidelines on the Astro Pi website](https://astro-pi.org/mission-space-lab/guidelines) and that you look over the [Phase 2 program checklist](https://astro-pi.org/mission-space-lab/guidelines/program-checklist) before submitting your work. Bear in mind that there are some differences in what you are allowed to do depending on if your experiment theme is "Life On Earth" or a "Life In Space". 
-
 ![The Earth, as photographed by a Mission Space Lab experiment on the ISS in 2021.](images/astrocmp-2021.gif)
 
 ### What you will learn
@@ -28,27 +24,14 @@ By reading this guide you will learn:
   * how to save data captured from the sensors and the camera
 * You will also learn about the various restrictions placed on programs running aboard the ISS, and how best to navigate them.
 
+## Guidelines & Pre-Submission Checklist
+
+In order to have your program run aboard the ISS it's really important that you read the [guidelines on the Astro Pi website](https://astro-pi.org/mission-space-lab/guidelines) and that you look over the [Phase 2 program checklist](https://astro-pi.org/mission-space-lab/guidelines/program-checklist) before submitting your work. Bear in mind that there are some differences in what you are allowed to do depending on if your experiment theme is "Life On Earth" or a "Life In Space".
+
 --- collapse ---
 ---
-title: What you will need
+title: Notes for mentors
 ---
-### Hardware
-
-+ A Raspberry Pi 4
-+ A Sense HAT
-
-If necessary, you may also have been sent:
-+ A Camera Module
-+ A passive infrared (PIR) motion sensor
-+ A Coral TPU
-
-### Software
-
-The SD card supplied contains the Desktop version of the Flight Operating System (OS) for the Astro Pi, called the Kit OS. This is a custom build of the Desktop Raspberry Pi Operating System, which includes all the software libraries present on the Astro Pi units on the ISS. Learn more on the Kit OS page.
-
-### Additional resources
-
-+ If you want to, you can [make a 3D-printed flight case](https://projects.raspberrypi.org/en/projects/astro-pi-flight-case-mk2){:target="_blank"}, and use this to even more closely simulate the ISS environment for more realistic testing. However, this is not a requirement, and you can take part in Mission Space Lab without building a replica flight case.
-
+This guide is designed so that it can also be read by young people. In particular,
+each of the "How to" pattern sections could be used as an activity for your young people.
 --- /collapse ---
-
