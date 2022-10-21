@@ -1,5 +1,11 @@
 ## The Kit OS
 
+Your Astro Pi kit should now be complete. Insert your SD card, connect to a monitor, keyboard, and mouse and finally plug in the USB-C power lead. When you power up your Astro Pi, you will be invited to accept the ESA Licence Agreement as shown in the image below. 
+
+![Screenshot of the ESA Licence Agreement page](images/esa_licence_accept.png)
+
+Once you have accepted the licence agreement, you will be asked to create a new username and password, to set the system time and language settings, and to connect to a WiFi network. For more details on setting up your Raspberry Pi, take a look at [this guide](https://projects.raspberrypi.org/en/projects/raspberry-pi-getting-started/4).
+
 The SD card in your kit box has the Kit OS installed on it. The Kit OS is a special version of the Bullseye Raspberry Pi Desktop OS that contains the same programming libraries as the Astro Pi units that are on the International Space Station. We recommend that you avoid installing software onto your OS as it may affect your chances of success....
 
 ![Screenshot of the Desktop version of the Flight Operating System.](images/os-desktop.png)

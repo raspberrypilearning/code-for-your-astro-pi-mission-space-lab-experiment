@@ -1,52 +1,32 @@
 ## Introduction
 
-The European Astro Pi Challenge is an ESA Education project run in collaboration with the Raspberry Pi Foundation. Astro Pi Mission Space Lab offers young people the amazing opportunity to conduct scientific investigations in space by writing computer programs that run on Raspberry Pi computers — the Astro Pis — aboard the International Space Station (ISS).
+In this project, you will learn how to turn your Phase 1 experiment idea into a real experiment that can be run on your own Astro Pi hardware and on the Internation Space Station (ISS)!
 
-![Two views of the Astro Pi, showing the front panel (with some of the sensors) and the camera.](images/astro-pi-double.png){:width="800px"}
+<p style="border-left: solid; border-width:10px; border-color: #0faeb0; background-color: aliceblue; padding: 10px;">
+Don't know about Mission Space Lab? Don't panic! Head over to the [Astro Pi website](https://astro-pi.org/mission-space-lab/) for more information and to sign up for next year!
+</p>
 
-This guide covers Phase 2 for both Mission Space Lab themes: **Life on Earth** and **Life in Space**. We want your experiment to run reliably on the ISS, and this guide will help you get started quickly and give you the best chance of running your program without problems.
-
-Even if you’ve entered the Astro Pi competition before, please make sure that you read and follow this guide, as many things have changed in comparison to previous years.
-
-Welcome! This guide is aimed at mentors, but some pages are very good for young people to look at!
+![Two views of the Astro Pi, showing the front panel (with some of the sensors) and the camera.](images/astro-pi-double.png){:width="800px"
 
 ### What you will make
 
-The guide includes information on assembling your kit, writing the code for your experiment, and testing your program. It also includes essential details about what is and isn’t possible with the Astro Pi hardware and software.
+You will build your very own Astro Pi and write a Python program using the Raspberry Pi hardware to gather data to support or reject your experiment hypotheses. You will learn how to test your program to give it the best chance of running successfully aboard the International Space Station (ISS)!
 
-There are certain reasonable **requirements** that your entry needs to meet in order to progress to the next phase. You will find them clearly explained throughout the guide and also in the last step, as a checklist. There are also **suggestions** or best practices that you should follow, to ensure that your program scores highly during the judging process and can run easily on the ISS without requiring modifications. If you think you need to do things differently, please get in touch **before** submitting your entry.
+### Guidelines & Pre-Submission Checklist
 
-Most of the information in this guide applies to both Life in Space and Life on Earth experiments, however, there are a few differences that you need to consider depending on the theme that you have chosen.
-
---- collapse ---
----
-title: Notes for Life in Space experiments
----
-
-+ Although you can use the camera as part of your experiment (for example, to work out how bright it is on the ISS), you cannot use it to take photos of astronauts and no captured images or videos can remain stored in the experiment folder after the end of the experiment.
-+ Your program should display a helpful message or image on the Sense HAT's LED matrix so that nearby astronauts know that an experiment is running. This should change regularly to indicate that everything is running correctly.
-
---- /collapse ---
-
---- collapse ---
----
-title: Notes for Life on Earth experiments
----
-
-+ You should not use the LED matrix while your experiment is running. The LED matrix will be disabled and the Astro Pi will be covered to prevent stray light from spoiling the images taken from the window.
-
---- /collapse ---
+In order to have your program run aboard the ISS it's really important that you read the [guidelines on the Astro Pi website](https://astro-pi.org/mission-space-lab/guidelines) and that you look over the [Phase 2 program checklist](https://astro-pi.org/mission-space-lab/guidelines/program-checklist) before submitting your work. Bear in mind that there are some differences in what you are allowed to do depending on if your experiment theme is "Life On Earth" or a "Life In Space". 
 
 ![The Earth, as photographed by a Mission Space Lab experiment on the ISS in 2021.](images/astrocmp-2021.gif)
 
---- collapse ---
----
-title: What you will learn
----
+### What you will learn
 
-You'll learn how to connect the hardware that you'll need to the Raspberry Pi (e.g. the Sense HAT, the Camera Module, a PIR motion sensor, or the Coral TPU), and how to turn your Mission Space Lab Phase 1 idea into a working experiment by writing a Python program that can run on the ISS Astro Pis.
-
---- /collapse ---
+By reading this guide you will learn:
+* how to build an Astro Pi and how to use it
+* how to write a Python program that meets the constraints imposed from working on the ISS . In particular, you'll learn about which Python libraries are available aboard the ISS, as well as some common Python use-cases including:
+  * how to run your program for 3 hours
+  * how to find the location of the ISS
+  * how to save data captured from the sensors and the camera
+* You will also learn about the various restrictions placed on programs running aboard the ISS, and how best to navigate them.
 
 --- collapse ---
 ---
@@ -56,13 +36,15 @@ title: What you will need
 
 + A Raspberry Pi 4
 + A Sense HAT
-+ A Camera Module (if necessary for your experiment)
-+ A passive infrared (PIR) motion sensor (if necessary for your experiment)
-+ A Coral TPU (if necessary for your experiment)
+
+If necessary, you may also have been sent:
++ A Camera Module
++ A passive infrared (PIR) motion sensor
++ A Coral TPU
 
 ### Software
 
-You will need the Desktop version of the Flight Operating System (OS) for the Astro Pi. This is a custom build of the Desktop Raspberry Pi Operating System, which includes all the software libraries present on the Astro Pi units on the ISS.
+The SD card supplied contains the Desktop version of the Flight Operating System (OS) for the Astro Pi, called the Kit OS. This is a custom build of the Desktop Raspberry Pi Operating System, which includes all the software libraries present on the Astro Pi units on the ISS. Learn more on the Kit OS page.
 
 ### Additional resources
 

@@ -12,7 +12,7 @@ steps:
 - title: Kit Assembly
 - title: The Kit OS
 - title: Planning your work
-- title: Writing your program
+- title: Python libraries
   completion:
   - engaged
 - title: Recording data from your experiment
