@@ -6,7 +6,7 @@ In this project, you will learn how to turn your Phase 1 experiment idea into a 
 Don't know about Mission Space Lab? Don't panic! Head over to the [Astro Pi website](https://astro-pi.org/mission-space-lab/) for more information and to sign up for next year!
 </p>
 
-![Two views of the Astro Pi, showing the front panel (with some of the sensors) and the camera.](images/astro-pi-double.png){:width="800px"
+![Two views of the Astro Pi, showing the front panel (with some of the sensors) and the camera.](images/astro-pi-double.png)
 
 ### What you will make
 
