@@ -6,8 +6,7 @@ In this step we are going to build a real Astro Pi using the official Astro Pi k
 ---
 title: What's in the box?
 ---
-It may be small but your kit box really packs a punch!
-Your official Astro Pi kit includes:
+It may be small but your kit box really packs a punch! Your official Astro Pi kit includes:
 + A Raspberry Pi 4
 + A Sense HAT
 + A power cable
@@ -24,21 +23,21 @@ If you want to, you can [make a 3D-printed flight case](https://projects.raspber
 
 ### Assembling the hardware
 
-We are going to build the Astro Pi together! We will start by connecting
-the Camera "ribbon" cable to the Raspberry Pi, if you were supplied with a camera.
-Then, we will put on the Sense Hat. Finally, we'll finish by connecting the camera module and the PIR sensor, if you have them.
+We are going to build the Astro Pi together! We will start by connecting the Camera "ribbon" cable to the Raspberry Pi, if you were supplied with a camera. Then, we will put on the Sense Hat. Finally, we'll finish by connecting the camera module and the PIR sensor, if you have them.
 
 --- task ---
 Unpack everything from your kit and make a note of whether your box includes the camera module, a Coral TPU dongle, or a PIR motion sensor.
 --- /task ---
 
 --- task ---
-Insert the camera cable into the CSI (Camera Serial Interface) socket on the Raspberry pi.  
+If you have a camera, insert the camera ribbon cable into the CSI (Camera Serial Interface) socket on the Raspberry pi.  
 
 [[[rpi-picamera-connect-camera]]]
 
 ![Photo of Raspberry Pi with camera cable attached.](images/assembly_cam.JPG)
 --- /task ---
+Now we will assemble the Sense Hat, which will roughly look like this
+![Animation of the Sense Hat assembly](images/animated_sense_hat.gif)
 
 --- task ---
 Take the black hexagonal spacer columns from the small bag that comes with the Sense HAT. Use the accompanying screws to connect them to the bottom of the Raspberry Pi 4.
