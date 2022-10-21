@@ -25,25 +25,26 @@ If you want to, you can [make a 3D-printed flight case](https://projects.raspber
 
 We are going to build the Astro Pi together! We will start by connecting the Camera "ribbon" cable to the Raspberry Pi, if you were supplied with a camera. Then, we will put on the Sense Hat. Finally, we'll finish by connecting the camera module and the PIR sensor, if you have them.
 
---- collapse ---
----
-title: I have a Camera
----
-
 --- task ---
 Unpack everything from your kit and make a note of whether your box includes the camera module, a Coral TPU dongle, or a PIR motion sensor.
 --- /task ---
 
---- /collapse ---
+--- collapse ---
+---
+title: Optional step: my box contains a camera
+---
 
 --- task ---
-If you have a camera, insert the camera ribbon cable into the CSI (Camera Serial Interface) socket on the Raspberry pi.  
+Insert the camera ribbon cable into the CSI (Camera Serial Interface) socket on the Raspberry pi.  
 
 [[[rpi-picamera-connect-camera]]]
 
 ![Photo of Raspberry Pi with camera cable attached.](images/assembly_cam.JPG)
 --- /task ---
-Now we will assemble the Sense Hat, which will roughly look like this
+
+--- /collapse ---
+
+We are going to assemble the Sense Hat, which will look like this:
 ![Animation of the Sense Hat assembly](images/animated_sense_hat.gif)
 
 --- task ---
@@ -51,7 +52,6 @@ Take the black hexagonal spacer columns from the small bag that comes with the S
 
 ![Photo of the Raspberry Pi 4 with attached HAT spacers.](images/assembly_spacers.JPG)
 --- /task ---
-
 
 --- task ---
 Take the Sense HAT and remove the short header if it is attached.
@@ -71,6 +71,11 @@ Push the header all the way through. Make sure none of the pins are obstructed a
 ![Photo of tall header inserted through the Sense HAT.](images/assembly_sh_header.JPG)
 --- /task ---
 
+--- collapse ---
+---
+title: My box contains a camera
+---
+
 --- task ---
 Feed the camera cable through the slot on the Sense HAT and then sit the Sense HAT onto the Raspberry Pi device. Make sure that all 40 GPIO pins line up with the corresponding holes in the tall header.   
 
@@ -79,11 +84,18 @@ Feed the camera cable through the slot on the Sense HAT and then sit the Sense H
 ![Photo of a Sense HAT fitted on to a Raspberry Pi device with a tall header and camera cable passed through the slot on the HAT.](images/assembly_cam_spacers_sh.JPG)
 --- /task ---
 
+--- /collapse ---
+
 --- task ---
 Use the four remaining black screws to secure the Sense HAT stack to the spacers. 
 
 ![Photo of the Sense HAT with screws securing it to the spacers.](images/assembly_spacer_top.JPG)
 --- /task ---
+
+--- collapse ---
+---
+title: My box contains a PIR sensor
+---
 
 --- task ---
 Now take the PIR and remove the foam pin protector block. 
@@ -107,6 +119,19 @@ Connect the wires from the PIR to the appropriate GPIO pins on the Raspberry Pi.
 ![Photo of a Raspberry Pi with wires from the PIR connected to the correct pins.](images/assembly_wires.JPG)
 --- /task ---
 
+--- /collapse ---
+
+--- collapse ---
+---
+title: My box contains a Coral TPU
+---
+
+-- task ---
+Insert the USB-C cable into the Coral dongle and the other end
+into any USB-3 port §b
+--- /task ---
+
+--- /collapse ---
 
 #### Converting a camera for IR-sensitive Life on Earth experiments
 
