@@ -41,12 +41,12 @@ If you want to, you can [make a 3D-printed flight case](https://projects.raspber
 
 --- /collapse ---
 
-### Assembling the hardware
+## Method
 
-Now we are going to build the Astro Pi using everything inside the kit box! We will start by connecting the Camera "ribbon" cable to the Raspberry Pi, if you were supplied with a camera. Then, we will put on the Sense Hat. Finally, we'll finish by connecting the camera module and the PIR sensor, if you have them.
+We will start by connecting the Camera "ribbon" cable to the Raspberry Pi, if you were supplied with a camera. Then, we will put on the Sense Hat. Finally, we'll finish by connecting the camera module and the PIR sensor, if you have them.
 
 --- task ---
-Unpack everything from your kit and make a note of whether your box includes the camera module, a Coral TPU dongle, or a PIR motion sensor.
+1. Unpack everything from your kit and make a note of whether your box includes the camera module, a Coral TPU dongle, or a PIR motion sensor.
 --- /task ---
 
 --- collapse ---
@@ -55,7 +55,7 @@ title: Optional step - my box contains a camera
 ---
 
 --- task ---
-Insert the camera ribbon cable into the CSI (Camera Serial Interface) socket on the Raspberry pi.  
+1a. Insert the camera ribbon cable into the CSI (Camera Serial Interface) socket on the Raspberry pi.  
 
 ![Photo of Raspberry Pi with camera cable attached.](images/assembly_cam.JPG)
 --- /task ---
@@ -68,25 +68,25 @@ We are going to assemble the Sense Hat, which will roughly look like this:
 ![Animation of the Sense Hat assembly](images/animated_sense_hat.gif)
 
 --- task ---
-Take the black hexagonal spacer columns from the small bag that comes with the Sense HAT. Use the accompanying screws to connect them to the bottom of the Raspberry Pi 4.
+2. Take the black hexagonal spacer columns from the small bag that comes with the Sense HAT. Use the accompanying screws to connect them to the bottom of the Raspberry Pi 4.
 
 ![Photo of the Raspberry Pi 4 with attached HAT spacers.](images/assembly_spacers.JPG)
 --- /task ---
 
 --- task ---
-Take the Sense HAT and remove the short header if it is attached.
+3. Take the Sense HAT and remove the short header if it is attached.
 
 ![Photo of the Sense HAT with small header removed.](images/assembly_small_header.JPG)
 --- /task ---
 
 --- task ---
-Line up the tall header with the corresponding holes on the Sense HAT.  
+4. Line up the tall header with the corresponding holes on the Sense HAT.  
 
 ![Photo of tall header lined up with the Sense HAT.](images/assembly_insert_header.JPG)
 --- /task ---
 
 --- task ---
-Push the header all the way through. Make sure none of the pins are obstructed and that they are lined up correctly so that they do not become bent.  
+5. Push the header all the way through. Make sure none of the pins are obstructed and that they are lined up correctly so that they do not become bent.  
 
 ![Photo of tall header inserted through the Sense HAT.](images/assembly_sh_header.JPG)
 --- /task ---
@@ -96,7 +96,7 @@ Push the header all the way through. Make sure none of the pins are obstructed a
 title: Optional step - My box contains a camera
 ---
 --- task ---
-Feed the camera cable through the slot on the Sense HAT and then sit the Sense HAT onto the Raspberry Pi device. Make sure that all 40 GPIO pins line up with the corresponding holes in the tall header.   
+5a. Feed the camera cable through the slot on the Sense HAT and then sit the Sense HAT onto the Raspberry Pi device. Make sure that all 40 GPIO pins line up with the corresponding holes in the tall header.   
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/VzYGDq0D1mw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -105,5 +105,6 @@ Feed the camera cable through the slot on the Sense HAT and then sit the Sense H
 
 --- /collapse ---
 
-[] a checkbox???
+<div class="c-project-task"><input class="c-project-task__checkbox" type="checkbox"> <div class="c-project-task__body"><p>Click me if you have a camera</p></div></div>
+
 
