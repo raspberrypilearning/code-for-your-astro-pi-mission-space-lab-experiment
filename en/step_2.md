@@ -50,7 +50,7 @@ Unpack everything from your kit and make a note of whether your box includes the
 
 --- collapse ---
 ---
-title: Optional step: my box contains a camera
+title: Optional step - my box contains a camera
 ---
 
 --- task ---
@@ -62,5 +62,3 @@ Insert the camera ribbon cable into the CSI (Camera Serial Interface) socket on 
 
 --- /collapse ---
 
-
-[[[rpi-picamera-connect-camera]]]
