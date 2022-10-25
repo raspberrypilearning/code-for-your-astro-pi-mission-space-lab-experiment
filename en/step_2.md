@@ -105,10 +105,4 @@ title: Optional step - My box contains a camera
 
 --- /collapse ---
 
-<div class="c-project-task">
-  <input class="c-project-task__checkbox" type="checkbox">
-  <div class="c-project-task__body">
-    <p>Click me if you have a camera</p>
-  </div>
-</div>
-
+<input class="c-project-task__checkbox" type="checkbox">
