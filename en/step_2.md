@@ -19,6 +19,7 @@ It may be small but your kit box really packs a punch! Your official Astro Pi ki
 
 
 If your experiment uses the camera, you will also have:
+
 | 1x HQ Camera Module | 1x 6mm Camera Lense |
 |:--------:|:-------:|
 | ![HQ Camera module](images/camera-module-vector.png) | ![6mm Camera Lense](images/6mm-lens-vector.png) |
