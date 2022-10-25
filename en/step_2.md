@@ -26,9 +26,9 @@ If your experiment uses the camera, you will also have:
 
 and if you will be using infra-red photography, your kit will also include:
 
-| 1x red optical filter | 1x allen key (3mm) |
+| 1x red optical filter | 1x allen key (1.5mm) |
 |:--------:|:-------:|
-| 1x red optical filter | ![allen key](images/allen-key-vector.png) |
+| ![Red and IR optical filter](images/midopt-filter-vector.png) | ![allen key](images/allen-key-vector.png) |
 
 If your experiment detects movement or involves machine-learning at runtime, you may also have some of the following in your box:
 
