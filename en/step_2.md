@@ -93,7 +93,7 @@ Push the header all the way through. Make sure none of the pins are obstructed a
 
 --- collapse ---
 ---
-title: My box contains a camera
+title: Optional step - My box contains a camera
 ---
 --- task ---
 Feed the camera cable through the slot on the Sense HAT and then sit the Sense HAT onto the Raspberry Pi device. Make sure that all 40 GPIO pins line up with the corresponding holes in the tall header.   
@@ -104,4 +104,6 @@ Feed the camera cable through the slot on the Sense HAT and then sit the Sense H
 --- /task ---
 
 --- /collapse ---
+
+[] a checkbox???
 
