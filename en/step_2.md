@@ -1,6 +1,6 @@
 ## Kit Assembly
 
-In this step we are going to build a real Astro Pi using the official Astro Pi kit you received from ESA. We understand that building your Astro Pi can be intimidating, which is why we have created the handy guide & checklist below for you to follow!
+In this step we are going to build a real Astro Pi using the official kit you received from ESA. We understand that building your Astro Pi can be intimidating, which is why we have created the checklist below for you to follow!
 
 --- collapse ---
 ---
@@ -64,7 +64,7 @@ Insert the camera ribbon cable into the CSI (Camera Serial Interface) socket on 
 
 [[[rpi-picamera-connect-camera]]]
 
-We are going to assemble the Sense Hat, which will look like this:
+We are going to assemble the Sense Hat, which will roughly look like this:
 ![Animation of the Sense Hat assembly](images/animated_sense_hat.gif)
 
 --- task ---
@@ -90,3 +90,18 @@ Push the header all the way through. Make sure none of the pins are obstructed a
 
 ![Photo of tall header inserted through the Sense HAT.](images/assembly_sh_header.JPG)
 --- /task ---
+
+--- collapse ---
+---
+title: My box contains a camera
+---
+--- task ---
+Feed the camera cable through the slot on the Sense HAT and then sit the Sense HAT onto the Raspberry Pi device. Make sure that all 40 GPIO pins line up with the corresponding holes in the tall header.   
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/VzYGDq0D1mw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+![Photo of a Sense HAT fitted on to a Raspberry Pi device with a tall header and camera cable passed through the slot on the HAT.](images/assembly_cam_spacers_sh.JPG)
+--- /task ---
+
+--- /collapse ---
+
