@@ -36,6 +36,7 @@ If your experiment detects movement or involves machine-learning at runtime, you
 |:--------:|:-------:|:--------:|:--------:|
 | ![PIR sensor](images/pir-vector.png) | ![female-female jumper wires](images/jumper-female-to-female-vector.png) | ![Coral USB Accelerator](images/coral-vector.png) | ![USB cable](images/usb-cable-vector.png) |
 
+
 If you want to, you can [make a 3D-printed flight case](https://projects.raspberrypi.org/en/projects/astro-pi-flight-case-mk2){:target="_blank"}, and use this to even more closely simulate the ISS environment for more realistic testing. However, you don't need one to take part in Mission Space Lab. 
 
 --- /collapse ---
@@ -59,6 +60,8 @@ Insert the camera ribbon cable into the CSI (Camera Serial Interface) socket on 
 
 ![Photo of Raspberry Pi with camera cable attached.](images/assembly_cam.JPG)
 --- /task ---
+
+[[[rpi-picamera-connect-camera]]]
 
 --- /collapse ---
 
