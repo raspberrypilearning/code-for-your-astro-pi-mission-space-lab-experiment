@@ -40,3 +40,26 @@ If you want to, you can [make a 3D-printed flight case](https://projects.raspber
 
 --- /collapse ---
 
+### Assembling the hardware
+
+Now we are going to build the Astro Pi using everything inside the kit box! We will start by connecting the Camera "ribbon" cable to the Raspberry Pi, if you were supplied with a camera. Then, we will put on the Sense Hat. Finally, we'll finish by connecting the camera module and the PIR sensor, if you have them.
+
+--- task ---
+Unpack everything from your kit and make a note of whether your box includes the camera module, a Coral TPU dongle, or a PIR motion sensor.
+--- /task ---
+
+--- collapse ---
+---
+title: Optional step: my box contains a camera
+---
+
+--- task ---
+Insert the camera ribbon cable into the CSI (Camera Serial Interface) socket on the Raspberry pi.  
+
+[[[rpi-picamera-connect-camera]]]
+
+![Photo of Raspberry Pi with camera cable attached.](images/assembly_cam.JPG)
+--- /task ---
+
+--- /collapse ---
+
