@@ -56,10 +56,11 @@ title: Optional step: my box contains a camera
 --- task ---
 Insert the camera ribbon cable into the CSI (Camera Serial Interface) socket on the Raspberry pi.  
 
-[[[rpi-picamera-connect-camera]]]
 
 ![Photo of Raspberry Pi with camera cable attached.](images/assembly_cam.JPG)
 --- /task ---
 
 --- /collapse ---
 
+
+[[[rpi-picamera-connect-camera]]]
