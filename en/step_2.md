@@ -13,22 +13,23 @@ It may be small but your kit box really packs a punch! Your official Astro Pi ki
 | ![Raspberry Pi 4](images/raspberry-pi-vector.png) | ![PSU](images/pi-power-supply-vector.png) | ![A 16GB SD card](images/sd-card-vector.png) | ![HDMI Cable](images/hdmi-cable.png) |
 
 
-| A Sense HAT (V2) | Tall header pins | 
+| 1x Sense HAT (V2) | 1x Tall header pins | 
 |:--------:|:-------:|
-| ![Sense Hat](images/sense-hat-vector.png) | Tall header pins |
+| ![Sense Hat](images/sense-hat-vector.png) | ![Tall header pins](images/tallHeaderPins.png) |
 
 
 If your experiment uses the camera, you will also have:
-| 1x HQ Camera Module | 1x6mm Camera Lense |
+| 1x HQ Camera Module | 1x 6mm Camera Lense |
 |:--------:|:-------:|
 | ![HQ Camera module](images/camera-module-vector.png) | ![6mm Camera Lense](images/6mm-lens-vector.png) |
 
 and if you will be using infra-red photography, your kit will also include:
-| 1x red optical filter | 1x allen key |
-|:--------:|:-------:|
-| 1x red optical filter | 1x allen key |
 
-If your experiment needs it, you may also have the following in your box:
+| 1x red optical filter | 1x allen key (3mm) |
+|:--------:|:-------:|
+| 1x red optical filter | ![allen key](images/allen-key-vector.png) |
+
+If your experiment detects movement or involves machine-learning at runtime, you may also have some of the following in your box:
 
 | A passive infrared (PIR) motion sensor | 3x female-female jumper wires | A [Coral USB Accelerator](https://coral.ai/products/accelerator) | 1x USB-C to USB-A cable |
 |:--------:|:-------:|:--------:|:--------:|
