@@ -123,6 +123,7 @@ title: Optional step - My box contains a camera
     const steps = document.querySelectorAll('.camera_step');
     console.log("Found: ");
     console.log(steps);
+    console.log(event);
     console.log(event.checked);
     if (event.checked) {
       // show the camera_step class
