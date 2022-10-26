@@ -117,20 +117,44 @@ title: Optional step - My box contains a camera
 
 </div>
 
+<style>
+  /* This hides the Camera steps by default */
+  .camera_step {
+    display: none;
+  }
+  .pir_step {
+    display: none;
+  }
+  .coral_step {
+    display: none;
+  }
+</style>
+
 <script type="text/javascript">
-  const cameraCheckbox = document.getElementById('hasCamera');
-  cameraCheckbox.addEventListener('change', (event) => {
-    const steps = document.querySelectorAll('.camera_step');
-    console.log("Found: ");
-    console.log(steps);
-    console.log(event);
-    console.log(event.checked);
-    if (event.target.checked) {
-      // show the camera_step class
-      steps.forEach((step) => step.style.display = "block");
-    } else {
-      // hide
-      steps.forEach((step) => step.style.display = "none");
+  function getToggleDisplay(css_class) {
+    return (event) => {
+      const steps = document.querySelectorAll(css_class);
+      if (event.target.checked) {
+        // show the camera_step class
+        steps.forEach((step) => step.style.display = "block");
+      } else {
+        // hide
+        steps.forEach((step) => step.style.display = "none");
+      }
     }
-  });
+  }
+
+
+  const checkboxes = ["hasCamera"];
+  const cssClasses = [".camera_step"];
+
+  //const checkboxes = ["hasCamera", "hasPir", "hasCoral"];
+  //const cssClasses = [".camera_step", ".pir_step", ".coral_step"];
+
+  for (let i = 0; i < checkboxes.length; i++) { 
+    const checkbox = document.getElementById(checkboxes[i]);
+    const cssClass = cssClasses[i];
+    checkbox.addEventListener('change', getToggleDisplay(cssClass));
+  }
+
 </script>
