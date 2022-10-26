@@ -125,7 +125,7 @@ title: Optional step - My box contains a camera
     console.log(steps);
     console.log(event);
     console.log(event.checked);
-    if (event.checked) {
+    if (event.target.checked) {
       // show the camera_step class
       steps.forEach((step) => step.style.display = "block");
     } else {
