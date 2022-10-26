@@ -48,7 +48,7 @@ We will start by connecting the Camera "ribbon" cable to the Raspberry Pi, if yo
 --- task ---
 1. Unpack everything from your kit and make a note of whether your box includes the camera module, a Coral TPU dongle, or a PIR motion sensor.
 
-- My box contains a camera <input type="checkbox" id="hasCamera">
+- My box contains a camera <input type="checkbox" id="hasCamera" onChange="handleCameraChange(event)">
 - My box contains a PIR sensor <input type="checkbox" id="hasPir">
 - My box contains a Coral dongle <input type="checkbox" id="hasCoral">
 --- /task ---
@@ -116,4 +116,17 @@ title: Optional step - My box contains a camera
 --- /collapse ---
 
 </div>
+
+<script type="text/javascript">
+  function handleCameraChange(event) {
+    const steps = document.querySelectorAll('.camera_step');
+    if (event.checked) {
+      # show the camera_step class.
+      steps.forEach((step) => step.style.display = "block");
+    } else {
+      # hide
+      steps.forEach((step) => step.style.display = "none");
+    }
+  }
+</script>
 
