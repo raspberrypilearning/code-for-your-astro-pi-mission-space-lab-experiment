@@ -49,6 +49,9 @@ We will start by connecting the Camera "ribbon" cable to the Raspberry Pi, if yo
 Unpack everything from your kit and make a note of whether your box includes the camera module, a Coral TPU dongle, or a PIR motion sensor using the checkboxes below. This will show or hide the relevant assembly instructions accordingly.
 
 - My box contains a camera <input type="checkbox" id="hasCamera">
+<div class="camera_step">
+  - My box contains an infrared sensor <input type="checkbox" id="hasInfrared">
+</div>
 - My box contains a PIR sensor <input type="checkbox" id="hasPir">
 - My box contains a Coral dongle <input type="checkbox" id="hasCoral">
 --- /task ---
@@ -144,15 +147,25 @@ Connect the wires from the PIR to the appropriate GPIO pins on the Raspberry Pi.
 
 --- task ---
 Insert the USB-C cable into the Coral dongle and the other end
-into any USB-3 port §b
+into any (blue) USB-3 port.
 --- /task ---
 
 </div>
 
+<div class="infrared_step">
+
+--- task ---
+This is an infrared step
+--- /task ---
+
+</div>
 
 <style>
   /* This hides the Camera steps by default */
   .camera_step {
+    display: none;
+  }
+  .infrared_step {
     display: none;
   }
   .pir_step {
@@ -177,8 +190,8 @@ into any USB-3 port §b
     }
   }
 
-  const checkboxes = ["hasCamera", "hasPir", "hasCoral"];
-  const cssClasses = [".camera_step", ".pir_step", ".coral_step"];
+  const checkboxes = ["hasCamera", "hasInfrared", "hasPir", "hasCoral"];
+  const cssClasses = [".camera_step", ".infrared_step", ".pir_step", ".coral_step"];
 
   for (let i = 0; i < checkboxes.length; i++) { 
     const checkbox = document.getElementById(checkboxes[i]);
