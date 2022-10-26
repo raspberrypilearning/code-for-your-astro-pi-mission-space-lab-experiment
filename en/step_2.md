@@ -108,4 +108,5 @@ title: Optional step - My box contains a camera
 <div>
   <p>Click this if you have a camera</p>
   <input class="c-project-task__checkbox" type="checkbox">
+  <input type="checkbox">
 </div>
