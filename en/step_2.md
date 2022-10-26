@@ -47,6 +47,10 @@ We will start by connecting the Camera "ribbon" cable to the Raspberry Pi, if yo
 
 --- task ---
 1. Unpack everything from your kit and make a note of whether your box includes the camera module, a Coral TPU dongle, or a PIR motion sensor.
+
+- I have received a camera <input type="checkbox">
+- I have received a PIR sensor <input type="checkbox">
+- I have received a Coral dongle <input type="checkbox">
 --- /task ---
 
 --- collapse ---
@@ -105,10 +109,3 @@ title: Optional step - My box contains a camera
 
 --- /collapse ---
 
-<div>
-  Click this if you have a camera
-  <input class="c-project-task__checkbox" type="checkbox">
-  - I have received a camera <input type="checkbox">
-  - I have received a PIR sensor <input type="checkbox">
-  - I have received a Coral dongle <input type="checkbox">
-</div>
