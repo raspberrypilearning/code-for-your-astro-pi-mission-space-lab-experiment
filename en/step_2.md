@@ -169,8 +169,8 @@ Connect the wires from the PIR to the appropriate GPIO pins on the Raspberry Pi.
   }
 
 
-  const checkboxes = ["hasCamera"];
-  const cssClasses = [".camera_step"];
+  const checkboxes = ["hasCamera", "hasPir"];
+  const cssClasses = [".camera_step", ".pir_step"];
 
   //const checkboxes = ["hasCamera", "hasPir", "hasCoral"];
   //const cssClasses = [".camera_step", ".pir_step", ".coral_step"];
