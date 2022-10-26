@@ -1,6 +1,6 @@
 ## Kit Assembly
 
-In this step we are going to build a real Astro Pi using the official kit you received from ESA. We understand that building your Astro Pi can be intimidating, which is why we have created the checklist below for you to follow!
+In this step we are going to build a real Astro Pi using the official kit you received from ESA. We understand that building your Astro Pi can be intimidating, which is why we have created the checklist below for you to follow! But before starting the assembly, let's familiarise ourselves with what's in the box...
 
 --- collapse ---
 ---
@@ -43,8 +43,6 @@ If you want to, you can [make a 3D-printed flight case](https://projects.raspber
 
 ## Method
 
-We will start by connecting the Camera "ribbon" cable to the Raspberry Pi, if you were supplied with a camera. Then, we will put on the Sense Hat. Finally, we'll finish by connecting the camera module and the PIR sensor, if you have them.
-
 --- task ---
 Unpack everything from your kit and make a note of whether your box includes the camera module, a Coral TPU dongle, or a PIR motion sensor using the checkboxes below. This will show or hide the relevant assembly instructions accordingly.
 
@@ -58,19 +56,33 @@ Unpack everything from your kit and make a note of whether your box includes the
 </div>
 --- /task ---
 
+--- task --- 
+Place the Raspberry Pi 4 on a flat surface, end make sure it is turned off
+with nothing plugged in.
+--- /task ---
+
 <div class="camera_step">
 
+### Camera Assembly
+
 --- task ---
-Insert the camera ribbon cable into the CSI (Camera Serial Interface) socket on the Raspberry pi.  
+To start assembling the camera, find the CSI (Camera Serial Interface) on the Raspberry Pi and gently pull the edges of the port's plastic cap.
+![Diagram showing the location of the Camera Serial Interface on a Raspberry Pi 4](images/pi4-camera-port-vector.png)
+--- /task ---
+
+--- task ---
+![Animation of the camera install process](images/connect-camera.gif)
+Insert the camera ribbon cable into the CSI socket Raspberry Pi, making sure theconnectors at the bottom of the ribbon cable are facing the contacts in the port.
+Then, push the plastic clip back into place.
 
 ![Photo of Raspberry Pi with camera cable attached.](images/assembly_cam.JPG)
 --- /task ---
 
-[[[rpi-picamera-connect-camera]]]
-
 </div>
 
-We are going to assemble the Sense Hat, which will roughly look like this:
+### Attaching the Sense Hat
+
+We are going to assemble the Sense HAT now.
 ![Animation of the Sense Hat assembly](images/animated_sense_hat.gif)
 
 --- task ---
@@ -80,7 +92,7 @@ Take the black hexagonal spacer columns from the small bag that comes with the S
 --- /task ---
 
 --- task ---
-Take the Sense HAT and remove the short header if it is attached.
+Find the Sense HAT and remove the short header if it is attached.
 
 ![Photo of the Sense HAT with small header removed.](images/assembly_small_header.JPG)
 --- /task ---
@@ -92,7 +104,7 @@ Line up the tall header with the corresponding holes on the Sense HAT.
 --- /task ---
 
 --- task ---
-Push the header all the way through. Make sure none of the pins are obstructed and that they are lined up correctly so that they do not become bent.  
+Push the tall header all the way through, making sure none of the pins are obstructed and that they are lined up correctly so that they do not become bent.  
 
 ![Photo of tall header inserted through the Sense HAT.](images/assembly_sh_header.JPG)
 --- /task ---
@@ -100,7 +112,9 @@ Push the header all the way through. Make sure none of the pins are obstructed a
 <div class="camera_step">
 
 --- task ---
-Feed the camera cable through the slot on the Sense HAT and then sit the Sense HAT onto the Raspberry Pi device. Make sure that all 40 GPIO pins line up with the corresponding holes in the tall header.   
+TODO check these instructions - do we need to mention dismantling the ribbon cable from the board?
+Sit the Sense HAT onto the Raspberry Pi device <div class="camera_step">and feed the camera ribbon cable through</div>.
+Make sure that all 40 GPIO pins line up with the corresponding holes in the tall header.   
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/VzYGDq0D1mw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -119,26 +133,33 @@ Use the four remaining black screws to secure the Sense HAT stack to the spacers
 
 <div class="pir_step">
 
-LINK: https://projects.raspberrypi.org/en/projects/physical-computing/11
+### PIR Motion sensor
+
+Halfway there! Now we are going to assemble the PIR sensor.
 
 --- task ---
-Now take the PIR and remove the foam pin protector block. 
+Take the PIR and remove the foam pin protector block. 
 
 ![Photo of PIR with foam pin protector block removed.](images/assembly_PIR.JPG)
 --- /task ---
 
 --- task ---
-Connect three wires to the pins on the PIR. Note the labels on the back of the PIR circut board which indicate the use of each pin: 
+Take a moment to familiarise yourself with the layout of the Raspberry Pi pins [here](https://pinout.xyz). There are a lot of different types of pins but the diagram is actually not too hard to navigate: notice that the odd-numbered pins are on the left, the even-numbered pins are on the right, and that the pin number increases by 2 each time we go down a row. 
 
-- The GND needs to be connected to corresponding ground pin on the Raspberry Pi
-- The VCC needs to be connected to a 3V3 pin on the Raspberry Pi
-- The OUT should be connected to [GPIO pin 12](https://projects.raspberrypi.org/en/projects/physical-computing/1) on the Raspberry Pi
+![Diagram of the Raspberry Pi headers](images/rpi4-headers-vector.png)
 
+Similarly, take a moment to look at the PIR sensor. Do you see the labels GND, VCC, and OUT?
 ![Photo of PIR with wires attached to pins.](images/assembly_PIR_wires.JPG)
 --- /task ---
 
 --- task ---
-Connect the wires from the PIR to the appropriate GPIO pins on the Raspberry Pi. You can use [the diagrams here](https://www.raspberrypi.org/documentation/usage/gpio/) to help you make sure that you connect the wires to the correct pins. 
+Now we are going to connect each pin on the PIR sensor to an appropriate pin on the Raspberry Pi using the three female-female jumper wires provided in the kit. Don't worry if you make a mistake - as long as you don't switch the power on you can try again any time!
+
+- Connect the GND pin on the PIR sensor to pin 6 (GND) on the Raspberry Pi
+- Connect the VCC pin on the PIR sensor to pin 2 (5V) on the Raspberry Pi
+- Connect the OUT pin should be connected to pin 32 (GPIO 12)
+
+TODO: update the photo below because it's using pin 1 instead of pin 2.
 
 ![Photo of a Raspberry Pi with wires from the PIR connected to the correct pins.](images/assembly_wires.JPG)
 --- /task ---
@@ -147,20 +168,129 @@ Connect the wires from the PIR to the appropriate GPIO pins on the Raspberry Pi.
 
 <div class="coral_step">
 
+### Setting up the Coral Machine Learning accelerator
+
 --- task ---
-Insert the USB-C cable into the Coral dongle and the other end
-into any (blue) USB-3 port.
+![Diagram showing the location of the USB 3 ports on the Raspberry Pi](images/rpi4-usb3-vector.png)
+Good news - the Coral dongle requires no assembly! 
+Simply locate the USB-C cable and plug it into the dongle, and then plug the other end into any of the blue USB (USB 3) ports.
+
+TODO: add photo
 --- /task ---
 
 </div>
 
 <div class="infrared_step">
 
+### Converting the camera to use infrared
+
+If your Life on Earth experiment requires an infrared-sensitive (IR-sensitive) camera - for example, you are doing a NDVI (Normalized Difference Vegetation Index) experiment - then you will need to convert your camera using the steps below.
+
+<p style="border-left: solid; border-width:10px; border-color: #fa1111; background-color: #f56c6c; padding: 10px;">
+**Note**: If you are programming a Life in Space experiment, or your Life on Earth experiment requires photos to be taken in the visible light spectrum only, then please don't convert your high-quality camera sensor as you can't reverse/undo it later!
+</p>
+
+--- collapse ---
+---
+title: How does it work?
+---
+The high-quality camera sensor can detect infrared (IR) light. However, the sensor housing contains an IR filter, which is used to greatly reduce the camera’s sensitivity to IR light.  This is so that the images captured by the high-quality camera sensor look the same as what we see with our eyes (which are not sensitive to IR light). By removing this filter we allow the IR light to pass through along with visible light.
+
+In the next steps we will replace the built-in filter with a separate red filter which allows only reflected red light (660nm) and reflected near-infrared light (850nm) through to the sensor.  See our [NDVI (Normalized Difference Vegetation Index) project](https://projects.raspberrypi.org/en/projects/astropi-ndvi) for more information. 
+
+--- /collapse ---
+
 --- task ---
-This is an infrared step
+Remove the built-in infrared filter from the high-quality camera by following the [instructions here](https://www.raspberrypi.org/documentation/accessories/camera.html#raspberry-pi-hq-camera-filter-removal).
+--- /task ---
+
+--- task ---
+ 
+Make sure the back focus ring is screwed all the way in. 
+![Photo of the high-quality camera sensor with the back focus ring screwed all the way in.](images/filter_backfocus.JPG)
+
+--- /task ---
+
+--- task ---
+ 
+Unscrew the high-quality camera sensor lens cap and the C/CS adapter. 
+![Photo of the high-quality camera sensor with C/CS adapter and cap removed.](images/filter_caps.JPG)
+
+--- /task ---
+
+--- task ---
+ 
+Take the filter and sit it onto the hole in the centre of the high-quality camera sensor. 
+
+![Photo of the high-quality camera sensor with the red filter sitting on top prior to installation.](images/filter_rest.JPG)
+--- /task ---
+
+--- task ---
+ 
+Gently start turning the filter clockwise using just your fingers, so that the filter screws down into the high-quality camera sensor. Take care not to touch the glass part of the lens and leave greasy fingerprints!
+
+![Photo of the high-quality camera sensor with the red filter being turned by hand.](images/filter_fingers.JPG)
+
+--- /task ---
+
+--- task ---
+ 
+Take the tool provided with the filter and line up the two knobbly bits at each end with the corresponding dimples in the filter. If you have a 3D printer, you might like to print a handle for the tool to make it easier to grip. One of these handles has been printed and sent to the ISS for the astronauts to use when completing the task — but it isn't required. 
+
+![Photo of the high-quality camera sensor showing the filter tool aligned with the filter itself.](images/filter_tool_align.JPG)
+--- /task ---
+
+--- task ---
+ 
+Continue gently turning the filter using the tool. Take care not to touch the glass part of the lens with the tool — it will scratch it!
+
+![Photo of the high-quality camera sensor with the red filter being turned using the tool.](images/filter_tool.JPG)
+
+--- /task ---
+
+--- task ---
+ 
+You should start to feel increasing resistance as the filter gets lower. After about nine full turns, the filter should be as low as it can go and you won't be able to turn it any further. Be careful not to over-tighten. 
+
+![Photo of the high-quality camera sensor with the red filter being turned using the tool.](images/filter_turning.JPG)
+
 --- /task ---
 
 </div>
+
+### Final assembly steps
+
+<div class="camera_step">
+
+--- task ---
+Insert the other end of the camera cable into the CSI socket on the high-quality camera sensor. 
+
+![Photo of camera cable connected to the High Quality Camera sensor](images/assembly_cable.JPG)
+--- /task ---
+
+--- task ---
+Remove the cap from the high-quality camera sensor. 
+
+![Photo of camera cable connected to the High Quality Camera sensor, with the cap removed](images/assembly_cap.JPG)
+--- /task ---
+
+--- task ---
+Remove the C/CS adapter ring from the high-quality camera sensor. 
+
+![Photo of camera cable connected to the High Quality Camera sensor, with the cap and C/CS adapter ring removed](images/assembly_adapt_cap.JPG)
+--- /task ---
+
+--- task ---
+Remove the caps from the end of the 6mm lens and screw the lens onto the high-quality camera sensor. 
+
+![Photo of lens mounted on the High Quality Camera sensor](images/assembly_6mm.JPG)
+--- /task ---
+
+</div>
+
+The final thing to do is to insert the SD card into the slot TODO
+Insert the peripherals (keyboard, mouse, display), power
+
 
 <style>
   /* This hides the Camera steps by default */
