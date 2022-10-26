@@ -48,12 +48,14 @@ We will start by connecting the Camera "ribbon" cable to the Raspberry Pi, if yo
 --- task ---
 Unpack everything from your kit and make a note of whether your box includes the camera module, a Coral TPU dongle, or a PIR motion sensor using the checkboxes below. This will show or hide the relevant assembly instructions accordingly.
 
+<div id="checkbox_div">
 - My box contains a camera <input type="checkbox" id="hasCamera">
 <div class="camera_step">
   - My box contains an infrared sensor <input type="checkbox" id="hasInfrared">
 </div>
 - My box contains a PIR sensor <input type="checkbox" id="hasPir">
 - My box contains a Coral dongle <input type="checkbox" id="hasCoral">
+</div>
 --- /task ---
 
 <div class="camera_step">
@@ -174,6 +176,11 @@ This is an infrared step
   .coral_step {
     display: none;
   }
+
+  .checkbox_div ul {
+    margin-bottom: 0;
+  }
+
 </style>
 
 <script type="text/javascript">
