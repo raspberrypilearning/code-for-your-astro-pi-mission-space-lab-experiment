@@ -48,10 +48,12 @@ We will start by connecting the Camera "ribbon" cable to the Raspberry Pi, if yo
 --- task ---
 1. Unpack everything from your kit and make a note of whether your box includes the camera module, a Coral TPU dongle, or a PIR motion sensor.
 
-- I have received a camera <input type="checkbox">
-- I have received a PIR sensor <input type="checkbox">
-- I have received a Coral dongle <input type="checkbox">
+- My box contains a camera <input type="checkbox" id="hasCamera">
+- My box contains a PIR sensor <input type="checkbox" id="hasPir">
+- My box contains a Coral dongle <input type="checkbox" id="hasCoral">
 --- /task ---
+
+<div class="camera_step">
 
 --- collapse ---
 ---
@@ -67,6 +69,8 @@ title: Optional step - my box contains a camera
 --- /collapse ---
 
 [[[rpi-picamera-connect-camera]]]
+
+</div>
 
 We are going to assemble the Sense Hat, which will roughly look like this:
 ![Animation of the Sense Hat assembly](images/animated_sense_hat.gif)
@@ -95,6 +99,8 @@ We are going to assemble the Sense Hat, which will roughly look like this:
 ![Photo of tall header inserted through the Sense HAT.](images/assembly_sh_header.JPG)
 --- /task ---
 
+<div class="camera_step">
+
 --- collapse ---
 ---
 title: Optional step - My box contains a camera
@@ -108,4 +114,6 @@ title: Optional step - My box contains a camera
 --- /task ---
 
 --- /collapse ---
+
+</div>
 
