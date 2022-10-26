@@ -142,7 +142,7 @@ Connect the wires from the PIR to the appropriate GPIO pins on the Raspberry Pi.
 
 <div class="coral_step">
 
--- task ---
+--- task ---
 Insert the USB-C cable into the Coral dongle and the other end
 into any USB-3 port §b
 --- /task ---
