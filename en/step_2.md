@@ -43,8 +43,8 @@ If you want to, you can [make a 3D-printed flight case](https://projects.raspber
 
 ## Method
 
---- task ---
-Unpack everything from your kit and make a note of whether your box includes the camera module, a Coral TPU dongle, or a PIR motion sensor using the checkboxes below. This will show or hide the relevant assembly instructions accordingly.
+Before getting started, familiarise yourself with what's in the box and unpack everything.
+To customise these instructions, make a note of whether your box includes the camera module, a Coral TPU dongle, or a PIR motion sensor using the checkboxes below. This will show or hide the relevant assembly instructions accordingly.
 
 <div id="checkbox_div">
 - My box contains a camera <input type="checkbox" id="hasCamera">
@@ -54,7 +54,6 @@ Unpack everything from your kit and make a note of whether your box includes the
 - My box contains a PIR sensor <input type="checkbox" id="hasPir">
 - My box contains a Coral dongle <input type="checkbox" id="hasCoral">
 </div>
---- /task ---
 
 --- task --- 
 Place the Raspberry Pi 4 on a flat surface, end make sure it is turned off
@@ -72,6 +71,7 @@ To start assembling the camera, find the CSI (Camera Serial Interface) on the Ra
 
 --- task ---
 ![Animation of the camera install process](images/connect-camera.gif)
+TODO-decide if the gif appropriate if the ribbon cable is not attached to the board?
 Insert the camera ribbon cable into the CSI socket Raspberry Pi, making sure theconnectors at the bottom of the ribbon cable are facing the contacts in the port.
 Then, push the plastic clip back into place.
 
@@ -258,9 +258,10 @@ You should start to feel increasing resistance as the filter gets lower. After a
 
 </div>
 
-### Final assembly steps
 
 <div class="camera_step">
+
+### Finishing the camera assembly
 
 --- task ---
 Insert the other end of the camera cable into the CSI socket on the high-quality camera sensor. 
@@ -288,8 +289,33 @@ Remove the caps from the end of the 6mm lens and screw the lens onto the high-qu
 
 </div>
 
-The final thing to do is to insert the SD card into the slot TODO
-Insert the peripherals (keyboard, mouse, display), power
+
+### Final assembly steps
+
+You're almost there! There are only a few steps left!
+
+--- task ---
+Connect your keyboard and mouse into the two (black) USB-2 ports.
+--- /task ---
+
+--- task ---
+Connect the little micro-HDMI cable into the HDMI 1 port of the Raspberry Pi
+and connect the other end into whatever screen you will be using.
+--- /task ---
+
+--- task ---
+Insert the SD card into the SD port - make sure you put it in the right way!
+--- /task ---
+
+--- task ---
+Finally, connect the USB-C power cable into the Raspberry Pi and watch it boot up!
+--- /task ---
+
+Congratulations, you have made an Astro Pi! 🚀
+
+## Videos
+
+TODO find out where to put the videos
 
 
 <style>
