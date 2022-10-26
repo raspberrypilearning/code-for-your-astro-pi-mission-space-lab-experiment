@@ -108,5 +108,9 @@ title: Optional step - My box contains a camera
 <div>
   <p>Click this if you have a camera</p>
   <input class="c-project-task__checkbox" type="checkbox">
-  <input type="checkbox">
+  <ul>
+    <li>I have received a camera <input type="checkbox"></li>
+    <li>I have received a PIR sensor <input type="checkbox"></li>
+    <li>I have received a Coral dongle <input type="checkbox"></li>
+  /ul>
 </div>
