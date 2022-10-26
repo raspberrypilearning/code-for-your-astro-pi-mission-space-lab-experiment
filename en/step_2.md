@@ -46,7 +46,7 @@ If you want to, you can [make a 3D-printed flight case](https://projects.raspber
 We will start by connecting the Camera "ribbon" cable to the Raspberry Pi, if you were supplied with a camera. Then, we will put on the Sense Hat. Finally, we'll finish by connecting the camera module and the PIR sensor, if you have them.
 
 --- task ---
-Unpack everything from your kit and make a note of whether your box includes the camera module, a Coral TPU dongle, or a PIR motion sensor using the checkboxes below.
+Unpack everything from your kit and make a note of whether your box includes the camera module, a Coral TPU dongle, or a PIR motion sensor using the checkboxes below. This will show or hide the relevant assembly instructions accordingly.
 
 - My box contains a camera <input type="checkbox" id="hasCamera">
 - My box contains a PIR sensor <input type="checkbox" id="hasPir">
@@ -140,6 +140,13 @@ Connect the wires from the PIR to the appropriate GPIO pins on the Raspberry Pi.
 
 </div>
 
+<div class="coral_step">
+-- task ---
+Insert the USB-C cable into the Coral dongle and the other end
+into any USB-3 port §b
+--- /task ---
+</div>
+
 
 <style>
   /* This hides the Camera steps by default */
@@ -168,12 +175,8 @@ Connect the wires from the PIR to the appropriate GPIO pins on the Raspberry Pi.
     }
   }
 
-
-  const checkboxes = ["hasCamera", "hasPir"];
-  const cssClasses = [".camera_step", ".pir_step"];
-
-  //const checkboxes = ["hasCamera", "hasPir", "hasCoral"];
-  //const cssClasses = [".camera_step", ".pir_step", ".coral_step"];
+  const checkboxes = ["hasCamera", "hasPir", "hasCoral"];
+  const cssClasses = [".camera_step", ".pir_step", ".coral_step"];
 
   for (let i = 0; i < checkboxes.length; i++) { 
     const checkbox = document.getElementById(checkboxes[i]);
