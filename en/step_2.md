@@ -119,7 +119,7 @@ title: Optional step - My box contains a camera
 
 <script type="text/javascript">
   const cameraCheckbox = document.getElementById('hasCamera');
-  checkbox.addEventListener('change', (event) => {
+  cameraCheckbox.addEventListener('change', (event) => {
     const steps = document.querySelectorAll('.camera_step');
     if (event.checked) {
       // show the camera_step class
