@@ -177,7 +177,7 @@ This is an infrared step
     display: none;
   }
 
-  .checkbox_div ul {
+  #checkbox_div ul {
     margin-bottom: 0;
   }
 
