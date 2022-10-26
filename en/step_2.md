@@ -122,10 +122,10 @@ title: Optional step - My box contains a camera
   checkbox.addEventListener('change', (event) => {
     const steps = document.querySelectorAll('.camera_step');
     if (event.checked) {
-      # show the camera_step class
+      // show the camera_step class
       steps.forEach((step) => step.style.display = "block");
     } else {
-      # hide
+      // hide
       steps.forEach((step) => step.style.display = "none");
     }
   });
