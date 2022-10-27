@@ -17,6 +17,8 @@ It may be small but your kit box really packs a punch! Your official Astro Pi ki
 |:--------:|:-------:|
 | ![Sense Hat](images/sense-hat-vector.png) | ![Tall header pins](images/tallHeaderPins.png) |
 
+TODO tall header pins are only if there is a PIR sensor
+TODO add the spacers and the regular headers?
 
 If your experiment uses the camera, you will also have:
 
@@ -43,8 +45,7 @@ If you want to, you can [make a 3D-printed flight case](https://projects.raspber
 
 ## Method
 
-Before getting started, familiarise yourself with what's in the box and unpack everything.
-To customise these instructions, make a note of whether your box includes the camera module, a Coral TPU dongle, or a PIR motion sensor using the checkboxes below. This will show or hide the relevant assembly instructions accordingly.
+Before getting started, familiarise yourself with what's in the box and unpack everything. Make a note of whether your box includes the camera module, a Coral TPU dongle, or a PIR motion sensor using the checkboxes below. This will show or hide the relevant assembly instructions accordingly.
 
 <div id="checkbox_div">
 - My box contains a camera <input type="checkbox" id="hasCamera">
@@ -60,30 +61,26 @@ Place the Raspberry Pi 4 on a flat surface, end make sure it is turned off
 with nothing plugged in.
 --- /task ---
 
-<div class="camera_step">
-
-### Camera Assembly
-
---- task ---
-To start assembling the camera, find the CSI (Camera Serial Interface) on the Raspberry Pi and gently pull the edges of the port's plastic cap.
-![Diagram showing the location of the Camera Serial Interface on a Raspberry Pi 4](images/pi4-camera-port-vector.png)
---- /task ---
-
---- task ---
-![Animation of the camera install process](images/connect-camera.gif)
-TODO-decide if the gif appropriate if the ribbon cable is not attached to the board?
-Insert the camera ribbon cable into the CSI socket Raspberry Pi, making sure theconnectors at the bottom of the ribbon cable are facing the contacts in the port.
-Then, push the plastic clip back into place.
-
-![Photo of Raspberry Pi with camera cable attached.](images/assembly_cam.JPG)
---- /task ---
-
-</div>
 
 ### Attaching the Sense Hat
 
-We are going to assemble the Sense HAT now.
+We are going to start by assembling the Sense HAT.
 ![Animation of the Sense Hat assembly](images/animated_sense_hat.gif)
+
+--- task ---
+Find the Sense HAT and the small bag that comes with it that includes some screws and spacers, as well as a regular GPIO header.
+Remove the small circular sticker on the top of the Sense HAT if it's on there.
+
+![Photo of the Sense HAT with small header removed.](images/assembly_small_header.JPG)
+--- /task ---
+
+<div class="pir_step">
+
+--- task ---
+In a separate bag, locate the tall GPIO header. We will use this header instead of the regular header to allow enough space for the PIR sensor.
+--- /task ---
+
+</div>
 
 --- task ---
 Take the black hexagonal spacer columns from the small bag that comes with the Sense HAT. Use the accompanying screws to connect them to the bottom of the Raspberry Pi 4.
@@ -92,19 +89,13 @@ Take the black hexagonal spacer columns from the small bag that comes with the S
 --- /task ---
 
 --- task ---
-Find the Sense HAT and remove the short header if it is attached.
-
-![Photo of the Sense HAT with small header removed.](images/assembly_small_header.JPG)
---- /task ---
-
---- task ---
-Line up the tall header with the corresponding holes on the Sense HAT.  
+Line up the <div class="pir_step">tall</div> header with the corresponding holes on the bottom of the Sense HAT.  
 
 ![Photo of tall header lined up with the Sense HAT.](images/assembly_insert_header.JPG)
 --- /task ---
 
 --- task ---
-Push the tall header all the way through, making sure none of the pins are obstructed and that they are lined up correctly so that they do not become bent.  
+Push the <div class="pir_step">tall</div> header all the way through, making sure none of the pins are obstructed and that they are lined up correctly so that they do not become bent.  
 
 ![Photo of tall header inserted through the Sense HAT.](images/assembly_sh_header.JPG)
 --- /task ---
@@ -112,18 +103,35 @@ Push the tall header all the way through, making sure none of the pins are obstr
 <div class="camera_step">
 
 --- task ---
-TODO check these instructions - do we need to mention dismantling the ribbon cable from the board?
-Sit the Sense HAT onto the Raspberry Pi device <div class="camera_step">and feed the camera ribbon cable through</div>.
-Make sure that all 40 GPIO pins line up with the corresponding holes in the tall header.   
+With the Raspberry Pi High Quality Cable and connector cable unboxed, take the connector cable and feed it through the gap in the Sense HAT. The silver side of the connector cable should face the LED matrix and not the blue side.
+TODO photo needed...
+--- /task ---
+
+--- task ---
+Find the CSI (Camera Serial Interface) port on the Raspberry Pi and gently pull the edges of the port's plastic cap.
+![Diagram showing the location of the Camera Serial Interface on a Raspberry Pi 4](images/pi4-camera-port-vector.png)
+--- /task ---
+
+--- task ---
+![Animation of the camera install process](images/connect-camera.gif)
+Insert the camera ribbon cable into the Raspberry Pi CSI socket, making sure the connectors at the bottom of the ribbon cable are facing the contacts in the port. There should be 1 or 2mm of silver still remaining when the cable has been put in corectly.
+Then, push the plastic clip back into place.
+
+![Photo of Raspberry Pi with camera cable attached.](images/assembly_cam.JPG)
+--- /task ---
+
+</div>
+
+--- task ---
+Place the Sense HAT onto the Raspberry Pi and line up the 40 GPIO pins line up with the corresponding holes in the header.   
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/VzYGDq0D1mw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 <br>
 
+TODO this photo is not applicable to everyone now because it has a camera - change
 ![Photo of a Sense HAT fitted on to a Raspberry Pi device with a tall header and camera cable passed through the slot on the HAT.](images/assembly_cam_spacers_sh.JPG)
 --- /task ---
-
-</div>
 
 --- task ---
 Use the four remaining black screws to secure the Sense HAT stack to the spacers. 
@@ -134,8 +142,6 @@ Use the four remaining black screws to secure the Sense HAT stack to the spacers
 <div class="pir_step">
 
 ### PIR Motion sensor
-
-Halfway there! Now we are going to assemble the PIR sensor.
 
 --- task ---
 Take the PIR and remove the foam pin protector block. 
@@ -155,11 +161,11 @@ Similarly, take a moment to look at the PIR sensor. Do you see the labels GND, V
 --- task ---
 Now we are going to connect each pin on the PIR sensor to an appropriate pin on the Raspberry Pi using the three female-female jumper wires provided in the kit. Don't worry if you make a mistake - as long as you don't switch the power on you can try again any time!
 
+- Connect the VCC pin on the PIR sensor to pin 1 (3V3) on the Raspberry Pi
 - Connect the GND pin on the PIR sensor to pin 6 (GND) on the Raspberry Pi
-- Connect the VCC pin on the PIR sensor to pin 2 (5V) on the Raspberry Pi
 - Connect the OUT pin should be connected to pin 32 (GPIO 12)
 
-TODO: update the photo below because it's using pin 1 instead of pin 2.
+**Note**: Your jumper wires may be a different colour to the ones in the photos - the colour doesn't matter, don't worry!
 
 ![Photo of a Raspberry Pi with wires from the PIR connected to the correct pins.](images/assembly_wires.JPG)
 --- /task ---
@@ -264,13 +270,13 @@ You should start to feel increasing resistance as the filter gets lower. After a
 ### Finishing the camera assembly
 
 --- task ---
-Insert the other end of the camera cable into the CSI socket on the high-quality camera sensor. 
+Remove the caps from the narrower end of the 6mm lens 
 
-![Photo of camera cable connected to the High Quality Camera sensor](images/assembly_cable.JPG)
+TODO need a photo
 --- /task ---
 
 --- task ---
-Remove the cap from the high-quality camera sensor. 
+Remove the protective cap from the high-quality camera sensor. 
 
 ![Photo of camera cable connected to the High Quality Camera sensor, with the cap removed](images/assembly_cap.JPG)
 --- /task ---
@@ -281,8 +287,9 @@ Remove the C/CS adapter ring from the high-quality camera sensor.
 ![Photo of camera cable connected to the High Quality Camera sensor, with the cap and C/CS adapter ring removed](images/assembly_adapt_cap.JPG)
 --- /task ---
 
+
 --- task ---
-Remove the caps from the end of the 6mm lens and screw the lens onto the high-quality camera sensor. 
+Screw the 6mm lens onto the high-quality camera sensor. 
 
 ![Photo of lens mounted on the High Quality Camera sensor](images/assembly_6mm.JPG)
 --- /task ---
@@ -292,7 +299,7 @@ Remove the caps from the end of the 6mm lens and screw the lens onto the high-qu
 
 ### Final assembly steps
 
-You're almost there! There are only a few steps left!
+Finish your Astro Pi with these steps!
 
 --- task ---
 Connect your keyboard and mouse into the two (black) USB-2 ports.
@@ -304,11 +311,12 @@ and connect the other end into whatever screen you will be using.
 --- /task ---
 
 --- task ---
-Insert the SD card into the SD port - make sure you put it in the right way!
+The SD card comes in a large adapter, so remove it from the adapter and insert it into the SD port on the bottom of the Raspberry Pi - make sure you put it in the right way!
 --- /task ---
 
 --- task ---
 Finally, connect the USB-C power cable into the Raspberry Pi and watch it boot up!
+Lift off!
 --- /task ---
 
 Congratulations, you have made an Astro Pi! 🚀
