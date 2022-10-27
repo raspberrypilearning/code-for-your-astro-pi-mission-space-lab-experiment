@@ -115,7 +115,7 @@ Find the CSI (Camera Serial Interface) port on the Raspberry Pi and gently pull 
 --- /task ---
 
 --- task ---
-![Animation of the camera install process](images/connect-camera.gif)
+![Animation of a part of the camera install process](images/connect-camera.gif)
 Insert the camera ribbon cable into the Raspberry Pi CSI socket, making sure the connectors at the bottom of the ribbon cable are facing the contacts in the port. There should be 1 or 2mm of silver still remaining when the cable has been put in corectly.
 Then, push the plastic clip back into place.
 
