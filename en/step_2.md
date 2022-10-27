@@ -74,6 +74,12 @@ Remove the small circular sticker on the top of the Sense HAT if it's on there.
 ![Photo of the Sense HAT with small header removed.](images/assembly_small_header.JPG)
 --- /task ---
 
+--- task ---
+Take the black hexagonal spacer columns from the small bag that comes with the Sense HAT. Use the accompanying screws to connect them to the bottom of the Raspberry Pi 4.
+
+![Photo of the Raspberry Pi 4 with attached HAT spacers.](images/assembly_spacers.JPG)
+--- /task ---
+
 <div class="pir_step">
 
 --- task ---
@@ -83,13 +89,7 @@ In a separate bag, locate the tall GPIO header. We will use this header instead 
 </div>
 
 --- task ---
-Take the black hexagonal spacer columns from the small bag that comes with the Sense HAT. Use the accompanying screws to connect them to the bottom of the Raspberry Pi 4.
-
-![Photo of the Raspberry Pi 4 with attached HAT spacers.](images/assembly_spacers.JPG)
---- /task ---
-
---- task ---
-Line up the <div class="pir_step">tall</div> header with the corresponding holes on the bottom of the Sense HAT.  
+Line up the header with the corresponding holes on the bottom of the Sense HAT.  
 
 ![Photo of tall header lined up with the Sense HAT.](images/assembly_insert_header.JPG)
 --- /task ---
