@@ -12,15 +12,11 @@ It may be small but your kit box really packs a punch! Your official Astro Pi ki
 |:--------:|:-------:|:--------:|:--------:|
 | ![Raspberry Pi 4](images/raspberry-pi-vector.png){:width="250px" :height="150px"} | ![PSU](images/pi-power-supply-vector.png) | ![A 16GB SD card](images/sd-card-vector.png) | ![HDMI Cable](images/hdmi-cable.png) |
 
-
-| 1x Sense HAT (V2) | 1x Tall header pins | 
+| 1x Sense HAT (V2) | Bag of spacers, screws, and a GPIO header
 |:--------:|:-------:|
-| ![Sense Hat](images/sense-hat-vector.png) | ![Tall header pins](images/tallHeaderPins.png) |
+| ![Sense Hat](images/sense-hat-vector.png) | ![Sense Hat bag contents - spaces, screws, and a GPIO header](images/spacers_screws_gpio_header.png) |
 
-TODO tall header pins are only if there is a PIR sensor
-TODO add the spacers and the regular headers?
-
-If your experiment uses the camera, you will also have:
+If your experiment involves using the camera, you will also have:
 
 | 1x HQ Camera Module | 1x 6mm Camera Lense |
 |:--------:|:-------:|
@@ -32,12 +28,17 @@ and if you will be using infra-red photography, your kit will also include:
 |:--------:|:-------:|
 | ![Red and IR optical filter](images/midopt-filter-vector.png) | ![allen key](images/allen-key-vector.png) |
 
-If your experiment detects movement or involves machine-learning at runtime, you may also have some of the following in your box:
+If your experiment involves detecting movement, your kit will include:
 
-| A passive infrared (PIR) motion sensor | 3x female-female jumper wires | A [Coral USB Accelerator](https://coral.ai/products/accelerator) | 1x USB-C to USB-A cable |
-|:--------:|:-------:|:--------:|:--------:|
-| ![PIR sensor](images/pir-vector.png) | ![female-female jumper wires](images/jumper-female-to-female-vector.png) | ![Coral USB Accelerator](images/coral-vector.png) | ![USB cable](images/usb-cable-vector.png) |
+| A passive infrared (PIR) motion sensor | 3x female-female jumper wires | 1x Tall header pins |
+|:--------:|:-------:|:--------:|
+| ![PIR sensor](images/pir-vector.png) | ![female-female jumper wires](images/jumper-female-to-female-vector.png) | ![Tall header pins](images/tallHeaderPins.png) |
 
+If your experiment involves machine-learning at runtime, you will also have the following in your box:
+
+| A [Coral USB Accelerator](https://coral.ai/products/accelerator) | 1x USB-C to USB-A cable |
+|:--------:|:-------:|
+| ![Coral USB Accelerator](images/coral-vector.png) | ![USB cable](images/usb-cable-vector.png) |
 
 If you want to, you can [make a 3D-printed flight case](https://projects.raspberrypi.org/en/projects/astro-pi-flight-case-mk2){:target="_blank"}, and use this to even more closely simulate the ISS environment for more realistic testing. However, you don't need one to take part in Mission Space Lab. 
 
@@ -60,7 +61,6 @@ Before getting started, familiarise yourself with what's in the box and unpack e
 Place the Raspberry Pi 4 on a flat surface, end make sure it is turned off
 with nothing plugged in.
 --- /task ---
-
 
 ### Attaching the Sense Hat
 
@@ -197,13 +197,6 @@ TODO: add photo
  
 Make sure the back focus ring is screwed all the way in. 
 ![Photo of the high-quality camera sensor with the back focus ring screwed all the way in.](images/filter_backfocus.JPG)
-
---- /task ---
-
---- task ---
- 
-Unscrew the protective high-quality camera sensor lens cap and the C/CS adapter. 
-![Photo of the high-quality camera sensor with C/CS adapter and cap removed.](images/filter_caps.JPG)
 
 --- /task ---
 
