@@ -95,7 +95,7 @@ Line up the header with the corresponding holes on the bottom of the Sense HAT.
 --- /task ---
 
 --- task ---
-Push the <div class="pir_step">tall</div> header all the way through, making sure none of the pins are obstructed and that they are lined up correctly so that they do not become bent.  
+Push the header all the way through, making sure none of the pins are obstructed and that they are lined up correctly so that they do not become bent.  
 
 ![Photo of tall header inserted through the Sense HAT.](images/assembly_sh_header.JPG)
 --- /task ---
@@ -125,7 +125,6 @@ Then, push the plastic clip back into place.
 --- task ---
 Place the Sense HAT onto the Raspberry Pi and line up the 40 GPIO pins line up with the corresponding holes in the header.   
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/VzYGDq0D1mw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 <br>
 
@@ -186,6 +185,36 @@ TODO: add photo
 
 </div>
 
+### Finishing the camera assembly
+
+<div class="camera_step">
+
+--- task ---
+ 
+Make sure the back focus ring is screwed all the way in. 
+![Photo of the high-quality camera sensor with the back focus ring screwed all the way in.](images/filter_backfocus.JPG)
+
+--- /task ---
+
+--- task ---
+ 
+Unscrew the protective high-quality camera sensor lens cap and the C/CS adapter. 
+![Photo of the high-quality camera sensor with C/CS adapter and cap removed.](images/filter_caps.JPG)
+
+--- /task ---
+
+--- task ---
+Remove the protective cap from the high-quality camera sensor. 
+
+![Photo of camera cable connected to the High Quality Camera sensor, with the cap removed](images/assembly_cap.JPG)
+--- /task ---
+
+--- task ---
+Remove the C/CS adapter ring from the high-quality camera sensor. 
+
+![Photo of camera cable connected to the High Quality Camera sensor, with the cap and C/CS adapter ring removed](images/assembly_adapt_cap.JPG)
+--- /task ---
+
 <div class="infrared_step">
 
 ### Converting the camera to use infrared
@@ -210,23 +239,10 @@ In the next steps we will replace the built-in filter with a separate red filter
 Remove the built-in infrared filter from the high-quality camera by following the [instructions here](https://www.raspberrypi.org/documentation/accessories/camera.html#raspberry-pi-hq-camera-filter-removal).
 --- /task ---
 
---- task ---
- 
-Make sure the back focus ring is screwed all the way in. 
-![Photo of the high-quality camera sensor with the back focus ring screwed all the way in.](images/filter_backfocus.JPG)
-
---- /task ---
 
 --- task ---
  
-Unscrew the high-quality camera sensor lens cap and the C/CS adapter. 
-![Photo of the high-quality camera sensor with C/CS adapter and cap removed.](images/filter_caps.JPG)
-
---- /task ---
-
---- task ---
- 
-Take the filter and sit it onto the hole in the centre of the high-quality camera sensor. 
+Take the MIDOP filter and sit it onto the hole in the centre of the high-quality camera sensor. 
 
 ![Photo of the high-quality camera sensor with the red filter sitting on top prior to installation.](images/filter_rest.JPG)
 --- /task ---
@@ -264,29 +280,11 @@ You should start to feel increasing resistance as the filter gets lower. After a
 
 </div>
 
-
-<div class="camera_step">
-
-### Finishing the camera assembly
-
 --- task ---
 Remove the caps from the narrower end of the 6mm lens 
 
 TODO need a photo
 --- /task ---
-
---- task ---
-Remove the protective cap from the high-quality camera sensor. 
-
-![Photo of camera cable connected to the High Quality Camera sensor, with the cap removed](images/assembly_cap.JPG)
---- /task ---
-
---- task ---
-Remove the C/CS adapter ring from the high-quality camera sensor. 
-
-![Photo of camera cable connected to the High Quality Camera sensor, with the cap and C/CS adapter ring removed](images/assembly_adapt_cap.JPG)
---- /task ---
-
 
 --- task ---
 Screw the 6mm lens onto the high-quality camera sensor. 
@@ -325,6 +323,7 @@ Congratulations, you have made an Astro Pi! 🚀
 
 TODO find out where to put the videos
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/VzYGDq0D1mw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 <style>
   /* This hides the Camera steps by default */
