@@ -45,7 +45,7 @@ If you want to, you can [make a 3D-printed flight case](https://projects.raspber
 
 ## Method
 
-Before getting started, familiarise yourself with what's in the box and unpack everything. Make a note of whether your box includes the camera module, a Coral TPU dongle, or a PIR motion sensor using the checkboxes below. This will show or hide the relevant assembly instructions accordingly.
+Before getting started, familiarise yourself with what's in the box and unpack everything. Make a note of whether your box includes the camera module, a Coral TPU accelerator, or a PIR motion sensor using the checkboxes below. This will show or hide the relevant assembly instructions accordingly.
 
 <div id="checkbox_div">
 - My box contains a camera <input type="checkbox" id="hasCamera">
@@ -53,7 +53,7 @@ Before getting started, familiarise yourself with what's in the box and unpack e
   - My box contains an infrared sensor <input type="checkbox" id="hasInfrared">
 </div>
 - My box contains a PIR sensor <input type="checkbox" id="hasPir">
-- My box contains a Coral dongle <input type="checkbox" id="hasCoral">
+- My box contains a Coral accelerator <input type="checkbox" id="hasCoral">
 </div>
 
 --- task --- 
@@ -84,6 +84,8 @@ Take the black hexagonal spacer columns from the small bag that comes with the S
 
 --- task ---
 In a separate bag, locate the tall GPIO header. We will use this header instead of the regular header to allow enough space for the PIR sensor.
+
+![Photo of the tall GPIO header](images/tall_header_pins.png)
 --- /task ---
 
 </div>
@@ -160,6 +162,8 @@ Similarly, take a moment to look at the PIR sensor. Do you see the labels GND, V
 --- task ---
 Now we are going to connect each pin on the PIR sensor to an appropriate pin on the Raspberry Pi using the three female-female jumper wires provided in the kit. Don't worry if you make a mistake - as long as you don't switch the power on you can try again any time!
 
+![Diagram of the PIR wiring](images/pir_wiring-vector.png)
+
 - Connect the VCC pin on the PIR sensor to pin 1 (3V3) on the Raspberry Pi
 - Connect the GND pin on the PIR sensor to pin 6 (GND) on the Raspberry Pi
 - Connect the OUT pin should be connected to pin 32 (GPIO 12)
@@ -177,8 +181,8 @@ Now we are going to connect each pin on the PIR sensor to an appropriate pin on 
 
 --- task ---
 ![Diagram showing the location of the USB 3 ports on the Raspberry Pi](images/rpi4-usb3-vector.png)
-Good news - the Coral dongle requires no assembly! 
-Simply locate the USB-C cable and plug it into the dongle, and then plug the other end into any of the blue USB (USB 3) ports.
+Good news - the Coral accelerator requires no assembly! 
+Simply locate the USB-C cable and plug it into the accelerator, and then plug the other end into any of the blue USB (USB 3) ports.
 
 TODO: add photo
 --- /task ---
