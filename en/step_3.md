@@ -50,6 +50,7 @@ title: Optional - Downloading a fresh version of the Kit OS
 ---
 
 If you want to create additional SD cards to use for Astro Pi, or if you accidentally installed something, you can download the [Desktop Flight OS image file](https://downloads.raspberrypi.org/AstroPi_latest) used in the ESA kits. After downloading, you can use any software tool to write the image file to your own SD card. See [this guide](https://www.raspberrypi.org/documentation/installation/installing-images/) for instructions on how to do this.
+
 --- /collapse ---
 
 </p>
