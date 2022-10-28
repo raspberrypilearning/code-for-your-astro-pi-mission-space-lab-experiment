@@ -1,37 +1,42 @@
 ## The Kit OS
 
-Your Astro Pi kit should now be complete. Insert your SD card, connect to a monitor, keyboard, and mouse and finally plug in the USB-C power lead. When you power up your Astro Pi, you will be invited to accept the ESA Licence Agreement as shown in the image below. 
+### Setting up your OS
+
+When you power on your Astro Pi for the first time you will be invited to accept the ESA License Agreement, as shown in the below.
 
 ![Screenshot of the ESA Licence Agreement page](images/esa_licence_accept.png)
 
-Once you have accepted the licence agreement, you will be asked to create a new username and password, to set the system time and language settings, and to connect to a WiFi network. For more details on setting up your Raspberry Pi, take a look at [this guide](https://projects.raspberrypi.org/en/projects/raspberry-pi-getting-started/4).
+Once you have accepted the licence agreement, you will be asked to create a new username and password, to set the system time and language settings, and to connect to a WiFi network. For more help on setting up your Raspberry Pi, take a look at [this guide](https://projects.raspberrypi.org/en/projects/raspberry-pi-getting-started/4).
 
-The SD card in your kit box has the Kit OS installed on it. The Kit OS is a special version of the Bullseye Raspberry Pi Desktop OS that contains the same programming libraries as the Astro Pi units that are on the International Space Station. We recommend that you avoid installing software onto your OS as it may affect your chances of success....
+After you have completed these steps, the Astro Pi will reboot itself, and you will be ready to start using the Kit OS! This is a special version of the Raspberry Pi Desktop OS (Bullseye 32 bit) that contains the same programming libraries as the Astro Pi units that are on the International Space Station.  It includes everything you need to get started, and to **develop** and **test** your experiment
 
 ![Screenshot of the Desktop version of the Flight Operating System.](images/os-desktop.png)
 
-You will use this environment to **develop** and **test** the code for your experiment. Making sure that your program runs successfully in this environment is the best way to ensure that your experiment passes our testing procedure and can run on the Astro Pis on the ISS without any modifications.
+<p style="border-left: solid; border-width:10px; border-color: #fa1111; background-color: #f56c6c; padding: 10px;">
+**Note**: Be careful about installing new software on your Kit OS, as it will make it more likely your experiment won't run successfully on the Astro Pis aboard the ISS.
+</p>
 
-Please, **do not perform any upgrades or install any additional packages or Python libraries** in this environment as these will not be available when your experiment runs.
+Let's take a tour of the OS!
+
+
+Making sure that your program runs successfully in this environment is the best way to ensure that your experiment passes our testing procedure and can run on the Astro Pis on the ISS without any modifications.
 
 --- collapse ---
 ---
-title: Accessing the Desktop Flight OS remotely
+title: Optional setup - Accessing the Desktop Flight OS remotely
 ---
 
-The Kit OS can be configured so that you are able to connect to it
-from another desktop. To do this, you will need to 1. install a [compatible VNC client](https://www.realvnc.com/en/connect/download/viewer/) on the other desktop and 2. enable
-VNC on the Astro Pi itself by entering the commands below.
+The Kit OS can be configured so that you are able to connect to it from another desktop. To do this, you will need to install a [compatible VNC client](https://www.realvnc.com/en/connect/download/viewer/) on the other desktop, and then enable VNC on the Astro Pi itself by entering the commands below.
 
 The default password to connect via VNC is `raspberry` but you are *highly encouraged* to change this using `vncpasswd -service` before enabling VNC.
 
 ```bash
-sudo raspi-config nonint do_vnc 0 && \
-  systemctl enable novnc && \
-  systemctl start novnc && \
-  systemctl unmask avahi-daemon && \
-  systemctl enable avahi-daemon && \
-  systemctl start avahi-daemon
+sudo raspi-config nonint do_vnc 0
+sudo systemctl enable novnc
+sudo systemctl start novnc
+sudo systemctl unmask avahi-daemon
+sudo systemctl enable avahi-daemon
+sudo systemctl start avahi-daemon
 ```
 
 You can also connect to the Desktop Flight OS using just a browser, albeit less-securely. On a machine that is connected to the same network as your Astro Pi kit, open up a browser and type `https://astro-pi-kit.local/vnc.html` in the address bar. 
