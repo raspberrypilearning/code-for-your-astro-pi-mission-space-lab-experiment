@@ -72,12 +72,36 @@ Making sure that your program runs successfully in this environment is the best 
 
 ### Applications
 
-There are a lot of applications that are installed in the Kit OS - take a moment to explore the start menu. You should see:
+There are a lot of applications that are installed in the Kit OS - take a moment to explore the start menu in the top-left corner. Can you find the following applications?
 
-Thonny
-Visual Studio Code
-Terminal
+--- collapse ---
+---
+title: Thonny
+---
+Thonny is a Python IDE (Integrated Development Environment), and is easy to use to get started writing your program.
+--- /collapse ---
 
-### Libraries
+--- collapse ---
+---
+title: Visual Studio Code
+---
+Visual Studio Code is a text editor and can be used to write programs in many programming languages, including Python. It isn't quite as beginner-friendly as Thonny, but you could also use this to write your program.
+--- /collapse ---
 
-TODOt
+--- collapse ---
+---
+title: Chromium
+---
+Chromium is the default web-browser on Raspberry Pi OS - use it to get help preparing your experiment!
+--- /collapse ---
+
+--- collapse ---
+---
+title: Terminal
+---
+Terminal is an application that you can use to automate almost any task on your computer. To get started, type `python3` to open up a python interpreter.
+--- /collapse ---
+
+### Python Libraries
+
+The Kit OS also includes a lot of Python libraries (dependencies) pre-installed, to help you complete many common tasks. Find out all about them on the next page.
