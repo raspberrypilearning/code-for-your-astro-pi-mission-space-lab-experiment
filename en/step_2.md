@@ -69,7 +69,7 @@ We are going to start by assembling the Sense HAT.
 
 --- task ---
 Find the Sense HAT and the small bag that comes with it that includes some screws and spacers, as well as a regular GPIO header.
-Remove the small circular sticker on the top of the Sense HAT if it's on there.
+Remove any stickers on the top of the Sense HAT.
 
 ![Photo of the Sense HAT with small header removed.](images/assembly_small_header.JPG)
 --- /task ---
@@ -134,6 +134,7 @@ TODO this photo is not applicable to everyone now because it has a camera - chan
 --- task ---
 Use the four remaining black screws to secure the Sense HAT stack to the spacers. 
 
+TODO this photo not applicable to people without Camera
 ![Photo of the Sense HAT with screws securing it to the spacers.](images/assembly_spacer_top.JPG)
 --- /task ---
 
@@ -150,11 +151,11 @@ Take the PIR and remove the foam pin protector block.
 --- /task ---
 
 --- task ---
-Take a moment to familiarise yourself with the layout of the Raspberry Pi pins [here](https://pinout.xyz). There are a lot of different types of pins but the diagram is actually not too hard to navigate: notice that the odd-numbered pins are on the left, the even-numbered pins are on the right, and that the pin number increases by 2 each time we go down a row. 
+Take a moment to familiarise yourself with the [layout of the Raspberry Pi pins](https://pinout.xyz). There are a lot of different types of pins but the diagram is actually not too hard to navigate: notice that the odd-numbered pins are on the left, the even-numbered pins are on the right, and that the pin number increases by 2 each time we go down a row. 
 
 ![Diagram of the Raspberry Pi headers](images/rpi4-headers-vector.png)
 
-Similarly, take a moment to look at the PIR sensor. Do you see the labels GND, VCC, and OUT?
+Also take a moment to look at the PIR sensor. Do you see the labels GND, VCC, and OUT?
 
 ![Photo of PIR with wires attached to pins.](images/assembly_PIR_wires.JPG)
 --- /task ---
@@ -301,7 +302,7 @@ Congratulations! Now you have a complete infrared-sensitive camera!
 
 ### Final assembly steps
 
-Finish your Astro Pi with these steps!
+You're almost done, finish your Astro Pi with these steps!
 
 --- task ---
 Connect your keyboard and mouse into the two (black) USB 2 ports.
@@ -327,10 +328,11 @@ Finally, connect the USB-C power cable into the Raspberry Pi and watch it boot u
 --- /task ---
 
 Congratulations, you have made an Astro Pi! 🚀
+Continue to the next stage to learn about the Operating System, the Kit OS.
 
 ## Videos
 
-TODO find out where to put the videos
+TODO find out where to host the videos
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/VzYGDq0D1mw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
