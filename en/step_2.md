@@ -294,6 +294,8 @@ Screw the 6mm lens onto the high-quality camera sensor.
 ![Photo of lens mounted on the High Quality Camera sensor](images/assembly_6mm.JPG)
 --- /task ---
 
+Congratulations! Now you have a complete infrared-sensitive camera!
+
 </div>
 
 
@@ -302,7 +304,8 @@ Screw the 6mm lens onto the high-quality camera sensor.
 Finish your Astro Pi with these steps!
 
 --- task ---
-Connect your keyboard and mouse into the two (black) USB-2 ports.
+Connect your keyboard and mouse into the two (black) USB 2 ports.
+![Diagram showing the location of the USB 2 ports on a Raspberry Pi](images/rpi4-usb2-vector.png)
 --- /task ---
 
 --- task ---
