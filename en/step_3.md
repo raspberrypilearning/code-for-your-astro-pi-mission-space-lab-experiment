@@ -42,7 +42,9 @@ You will have to tell your browser to trust your unique Astro Pi SSL certificate
 <p style="border-left: solid; border-width:10px; border-color: #fa1111; background-color: #f56c6c; padding: 10px;">
 **Note**: Be careful about installing new software on your Kit OS, as it will make it more likely your experiment won't run successfully on the Astro Pis aboard the ISS.
 
-But, if you have accidentally installed anything, you can always redownload and reinstall the Kit OS and start again!
+But, if you have accidentally installed anything, you can always redownload and reinstall the Kit OS and start again
+
+</p>
 
 --- collapse ---
 ---
@@ -52,8 +54,6 @@ title: Optional - Downloading a fresh version of the Kit OS
 If you want to create additional SD cards to use for Astro Pi, or if you accidentally installed something, you can download the [Desktop Flight OS image file](https://downloads.raspberrypi.org/AstroPi_latest) used in the ESA kits. After downloading, you can use any software tool to write the image file to your own SD card. See [this guide](https://www.raspberrypi.org/documentation/installation/installing-images/) for instructions on how to do this.
 
 --- /collapse ---
-
-</p>
 
 Now it's time to take a tour of the OS!
 
