@@ -4,7 +4,7 @@
 
 When you power on your Astro Pi for the first time you will be invited to accept the ESA License Agreement, as shown below.
 
-![Screenshot of the ESA Licence Agreement page](images/esa_licence_accept2.png)
+![Screenshot of the ESA Licence Agreement page](images/esa_licence_accept.jpg)
 
 Once you have accepted the licence agreement, you will be asked to create a new username and password, to set the system time and language settings, and to connect to a WiFi network. For more help on setting up your Raspberry Pi, take a look at [this guide](https://projects.raspberrypi.org/en/projects/raspberry-pi-getting-started/4).
 
