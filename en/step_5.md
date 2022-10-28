@@ -1,430 +1,250 @@
-## Writing your program
+## The Astro Pi sensors
 
-Now you can start writing the program for your experiment. To do this, you'll need to plan your coding sessions, understand the best way to write the program for your experiment, and ensure that it will work on the Astro Pis on the ISS. 
+The Sense HAT used in the Astro Pi hosts a range of sensors that you can retrieve input data from and use for your experiments:
 
-### Python version
+- Accelerometer
+- Gyroscope
+- Magnetometer
+- Temperature sensor
+- Humidity sensor
+- Barometric pressure sensor
+- Light and colour sensor
 
-All programs for Mission Space Lab must be written in **Python 3**. The version of the Python interpreter currently available on the Flight OS is 3.9.2.
+If you've never used the Sense HAT before, [start with this short project](https://projects.raspberrypi.org/en/projects/getting-started-with-the-sense-hat/), and come back here once you're aware of basic Sense HAT uses.
 
-### Your main Python program file
+The Astro Pi also includes a passive infrared (PIR) motion sensor, of the kind used in burglar alarms. It is able to detect whether or not there is an object moving within range of its field of view (e.g. an astronaut) and provides this input data through one of the Raspberry Pi's GPIO pins.
 
-When you submit your MSL experiment, your main Python program file should be called `main.py`.
+**Note**: You can only use data from the light sensor or the PIR motion sensor for **Life in Space** experiments. For **Life on Earth**, the Astro Pi is positioned with the camera facing out a window and placed under a black "hood", to avoid reflections. The light sensor and the PIR motion sensor face in the opposite direction from the camera, away from the window, so they are in darkness and under cover.
 
-Ideally, all of your code should be contained within this file. However, if your experiment is complex and you need to break down your code in individual modules, then additional files are allowed.
+### Limitations of the sensors
 
-### Documenting your code
+Be aware of the limitations of the sensors and the [constraints imposed by them](https://projects.raspberrypi.org/en/projects/experiment-design/1). In particular, be mindful that the temperature and humidity sensors are affected more by the temperature of the CPU than anything else. If you wish to take readings of the ISS environment, you should test the temperature and humidity readings in a controlled (known) environment and come up with a strategy to compensate for this limitation.
 
-When you've created a useful piece of software and you want to share it with other people, a crucial step is creating documentation that helps people understand what the program does, how it works, and how they can use it. This is especially important for your MSL experiment, because it should be obvious from your program how you will achieve your experiment's aims and objectives.
+### Retrieving sensor data from the Sense HAT
 
-This [project](https://projects.raspberrypi.org/en/projects/documenting-your-code) shows you the recommended way to add useful comments to your program.
+The [Sense HAT documentation](https://pythonhosted.org/sense-hat/) contains sections on how to retrieve data from the [environmental sensors](https://pythonhosted.org/sense-hat/api/#environmental-sensors) (temperature, humidity, pressure) and the [Inertial Measurement Unit (IMU)](https://pythonhosted.org/sense-hat/api/#imu-sensor) (acceleration, orientiation). Additional documentation is available for interacting with the [light and colour sensor](https://gist.github.com/boukeas/e46ab3558b33d2f554192a9b4265b85f). You can also explore the wide range of [Sense HAT projects](https://projects.raspberrypi.org/en/projects?hardware%5B%5D=sense-hat) available from the Raspberry Pi Foundation.
 
-**Note**: Any attempt to hide, or make it difficult to understand, what a piece of code is doing will result in disqualification. And of course, there should be no bad language or rudeness in your code.
-
-### Python libraries
-
-The Astro Pi Flight OS offers a collection of Python libraries that can be used for your experiment, in addition to the ones that are available by default. The same libraries have also been installed on the Desktop Flight OS, so that the environment that you will use for developing and testing your code will match the one on the ISS as closely as possible (down to the same package versions). 
-
-You can find some information below on what you can use these libraries for and where you can find the relevant documentation.
-
---- collapse ---
----
-title: Skyfield
----
-
-#### Usage
-
-Skyfield, the successor to PyEphem, is an astronomy package that computes the positions of stars, planets, and satellites in orbit around the Earth.
-
-In [*Finding the location of the ISS*](4), you can find out how to use Skyfield to obtain the position of the International Space Station above the Earth and how to determine whether the ISS is sunlit.
-
-#### Documentation
-
-- [rhodesmill.org/skyfield](https://rhodesmill.org/skyfield/)
-
---- /collapse ---
-
---- collapse ---
----
-title: picamera
----
-
-The Python library for controlling the Raspberry Pi Camera Module is `picamera`. 
-
-#### Usage
+Here is a short example showing how to obtain measurements from the colour sensor:
 
 ```python
-from picamera import PiCamera
+from sense_hat import SenseHat
+
+sense = SenseHat()
+sense.color.gain = 16
+light = sense.color.clear
+if light < 64:
+    print('Dark')
+else:
+    print('Light')
+```
+
+### Retrieving data from the motion sensor
+
+You can retrieve data from the motion sensor on the Astro Pi by using the `gpiozero` library to
+create a `MotionSensor` object attached **specifically** to GPIO pin 12:
+
+Make sure you take a look at the [documentation](https://gpiozero.readthedocs.io/en/stable/api_input.html#motionsensor-d-sun-pir) to find out about the different ways in which you can interact with the motion sensor.
+
+```python
+from gpiozero import MotionSensor
+
+print("Inititating motion detection")
+pir = MotionSensor(pin=12)
+pir.wait_for_motion()
+print("Motion detected")
+pir.wait_for_no_motion()
+```
+
+**Note**: You should make sure your program only uses GPIO pin 12. Attaching a `MotionSensor` object to any other pin simply won't work. Attempting to manipulate other GPIO pins may lead to a malfunction or damage to your hardware.
+
+## Recording sensor data in files
+
+The experiment data that your program collects from the sensors needs to be stored in files. One very common way of doing that is using CSV files. These are regular text files where the data is arranged as comma-separated values: rows of data with each individual value separated from its neighbours with a comma.
+
+For example, here is a snippet from a CSV file where the date, time, humidity, and temperature has been recorded in roughly one-minute intervals. Note that CSV files typically include a header with the names of the columns.
+
+```
+Date, Time, Humidity, Temperature
+05/05/2018, 10:23:56, 45.60, 21.05
+05/05/2018, 10:24:58, 45.62, 21.10
+05/05/2018, 10:25:57, 45.68, 21.10
+05/05/2018, 10:26:58, 45.72, 21.13
+```
+
+Such a file would be named something like `data.csv`, with the `.csv` extension indicating the type of the file.
+
+**Note**: Normally, experiments generate one or two `.csv` files. If your program generates a considerable number of data files (e.g. more than five) over the course of the experiment, then that's an indication of a logical error or simply a wrong approach and it will most likely not advance to the next phase.
+
+### Directory structure and file names
+
+You should make no assumptions about where your program will be stored when it is deployed on the ISS, especially given that the directory structure in the actual Flight OS is different than from the Desktop version. Your program must **never** use absolute folder paths, that is, it must not refer to specific folders such as `/home/pi` or `/home/pi/Desktop`. Instead, your main Python program should use the code below to work out at runtime which folder it is currently stored in, i.e. the `base_folder`:
+
+```python
+from pathlib import Path
+
+base_folder = Path(__file__).parent.resolve()
+```
+
+All files created by your program **must** be saved under this `base_folder`, i.e. under the same folder where the main Python file itself will be stored when running on the Astro Pis on the ISS. 
+
+In addition, any files that your program creates should have sensible, informative names. Only use letters, numbers, dots (.), hyphens (-), or underscores (\_) in your file names. No other characters are allowed. **Do not use spaces** in file names, because they can cause problems when files are transferred between computers.
+
+### Recording data to a CSV file
+
+To easily create and write to a CSV file, we recommend using `csv`, which is included in the Python standard library. Here is a simple example that involves specifying the name of the data file, opening it with write permissions, and adding a single header row before iteratively writing an additional row of sensor data every 60 seconds.
+
+```python
+import csv
+from sense_hat import SenseHat
+from datetime import datetime
+from pathlib import Path
 from time import sleep
 
-camera = PiCamera()
-camera.resolution = (2592, 1944)
+sense = SenseHat()
 
-for i in range(3*60):
-    camera.capture(f'image_{i:03d}.jpg')  # Take a picture every minute for 3 hours
+base_folder = Path(__file__).parent.resolve()
+data_file = base_folder/'data.csv'
+
+with open(data_file, 'w', buffering=1) as f:
+    writer = csv.writer(f)
+    header = ("Date/time", "Temperature", "Humidity")
+    writer.writerow(header)
+    for i in range(10):
+        row = (datetime.now(), sense.temperature, sense.humidity)
+        writer.writerow(row)
+        sleep(60)
+```
+
+It's important to log the timestamp along with your data points, so that you know when the measurement was taken, how long between each measurement, and at what point things happened. You can also retrospectively calculate the ISS position using a timestamp with `skyfield`.
+
+**Note**: The `buffering=1` argument used in the `open` function is **essential**. It makes sure that the output generated by the program is written to the data file **line-by-line**. Otherwise, the default would be for the generated output to be accumulated in a **buffer** in memory and only written to the data file in large chunks (for efficiency). Every year there are teams that receive empty data files because their program is interrupted when it reaches the 3-hour mark and the data in the buffer is lost before it is **flushed** to a file. Another alternative would be to use `f.flush()` after writing each row.
+
+How could you modify the code above to also record barometric pressure readings from the Sense HAT?
+
+---hints---
+---hint---
+You can take pressure readings using `sense.pressure`.
+---/hint---
+---hint---
+Add pressure to the header row.
+---/hint---
+---hint---
+Add the pressure reading into the line that uses `csv` to write the data to your file.
+---/hint---
+---hint---
+Your program should look like this:
+```python
+import csv
+from sense_hat import SenseHat
+from datetime import datetime
+from pathlib import Path
+from time import sleep
+
+sense = SenseHat()
+
+base_folder = Path(__file__).parent.resolve()
+data_file = base_folder/'data.csv'
+
+with open(data_file, 'w', buffering=1) as f:
+    writer = csv.writer(f)
+    header = ("Date/time", "Temperature", "Humidity", "Pressure")
+    writer.writerow(header)
+    for i in range(10):
+        row = (datetime.now(), sense.temperature, sense.humidity, sense.pressure)
+        writer.writerow(row)
+        sleep(60)
+```
+---/hint---
+---/hints---
+
+You might prefer to close your file each time you add a new row of sensor data and then open it again for the next row. This is less efficient, but closing the file is another way of making sure that the generated data has been saved, so none of it will be lost in the event your program ends prematurely. 
+
+You could use separate functions for creating the data file (with its header row) and writing individual rows:
+
+```python
+import csv
+from sense_hat import SenseHat
+from datetime import datetime
+from pathlib import Path
+from time import sleep
+
+def create_csv(data_file):
+    with open(data_file, 'w') as f:
+        writer = csv.writer(f)
+        header = ("Date/time", "Temperature", "Humidity")
+        writer.writerow(header)
+
+def add_csv_data(data_file, data):
+    with open(data_file, 'a') as f:
+        writer = csv.writer(f)
+        writer.writerow(data)
+
+sense = SenseHat()
+
+base_folder = Path(__file__).parent.resolve()
+data_file = base_folder/'data.csv'
+
+create_csv(data_file)
+for i in range(10):
+    row = (datetime.now(), sense.temperature, sense.humidity)
+    add_csv_data(data_file, row)
     sleep(60)
 ```
 
-#### Documentation
+**Note**: The first time you write to a file, you must open it with `w` (write mode). If you want to add data to it later, you must use `a` (append mode).
 
-- [picamera.readthedocs.io](https://picamera.readthedocs.io)
+### Data storage quota
 
---- /collapse ---
+**Your experiment is allowed to produce a maximum of 3GB of data**. So make sure that you calculate the maximum amount of storage space that your experiment's recorded data, including any photos, will take up, and that this does not exceed 3GB. 
 
---- collapse ---
----
-title: colorzero
----
+## Logging with logzero
 
-`colorzero` is a colour manipulation library that aims to be simple to use and Pythonic in nature.
+The `logzero` Python library makes it easy to log notes about what's going on in your program. If you got back your experiment data only to find lots of missing data with no explanation, you wouldn't be able to find out what happened. Instead, log as much information about what happens in your program. Log every loop iteration, log every time an important function is called, and if you have conditionals in your program, log which route the program went (`if` or `else`).
 
-#### Usage
-
-`colorzero` makes it easy to transition between two colours:
+Here's a basic example of how logzero can be used to keep track of loop iterations:
 
 ```python
-from colorzero import Color
-from sense_hat import SenseHat
+from logzero import logger, logfile
+from pathlib import Path
 from time import sleep
 
-sense = SenseHat()
+base_folder = Path(__file__).parent.resolve()
+logfile(base_folder/"events.log")
 
-start = Color('yellow')
-end = Color('cyan')
-
-# Slowly transition the Sense HAT from the `start` to the `end` colour
-for color in start.gradient(end, steps=100):
-    sense.clear(color.rgb_bytes)
-    sleep(0.1)
+for i in range(10):
+    logger.info(f"Loop number {i+1} started")
+    ...
+    sleep(60)
 ```
 
-#### Documentation
+The two main types of log entry you can use are `logger.info()` to log information, and `logger.error()` when you experience an unexpected error or handle an exception. There's also `logger.warning()` and `logger.debug()`.
 
-- [colorzero.readthedocs.io](https://colorzero.readthedocs.io)
-
---- /collapse ---
-
---- collapse ---
----
-title: gpiozero
----
-
-GPIO Zero is a simple but powerful GPIO library. Much of its functionality is restricted for the purposes of Mission Space Lab; for example, you are not allowed to access any GPIO pins other than GPIO pin 12, where the motion sensor is connected. However, some of its features can be handy in your experiment, such as the internal device `CPUTemperature`.
-
-#### Usage
-
-Compare the Raspberry Pi's CPU temperature to the Sense HAT's temperature reading:
+For example, if you had a function to detect night or dark from photos, you could log this information too:
 
 ```python
-from sense_hat import SenseHat
-from gpiozero import CPUTemperature
-
-sense = SenseHat()
-cpu = CPUTemperature()
-
-while True:
-    print(f'CPU: {cpu.temperature}')
-    print(f'Sense HAT: {sense.temperature}')
+for i in range(10):
+    if night_or_dark() == 'night':
+        logger.info('night - wait 60 seconds')
+        sleep(60)
+    else:
+        ...
 ```
 
-#### Documentation
-
-- [gpiozero.readthedocs.io](https://gpiozero.readthedocs.io)
-
---- /collapse ---
-
---- collapse ---
----
-title: GDAL
----
-
-The Geospatial Data Abstraction Library (GDAL) is an open-source, cross-platform set of libraries and low-level tools for working with geospatial data in many formats.
-
-#### Documentation
-
-- [pypi.org/project/GDAL](https://pypi.org/project/GDAL/)
-
---- /collapse ---
-
---- collapse ---
----
-title: numpy
----
-
-`numpy` is a general-purpose array-processing package designed to efficiently manipulate large multidimensional arrays of arbitrary records without sacrificing too much speed for small multidimensional arrays.
-
-#### Usage
-
-`numpy` is particularly handy for capturing camera data for manipulation:
+If you want to handle an exception, but log that you did so, you can use `logger.error`:
 
 ```python
-from picamera import PiCamera
-from time import sleep
-import numpy as np
-
-camera = PiCamera()
-
-camera.resolution = (320, 240)
-camera.framerate = 24
-output = np.empty((240, 320, 3), dtype=np.uint8)
-sleep(2)
-camera.capture(output, 'rgb')
+try:
+    do_something()
+ except Exception as e:
+    logger.error(f'{e.__class__.__name__}: {e})')
 ```
 
-#### Documentation
-
-- [docs.scipy.org/doc](https://docs.scipy.org/doc/)
-
---- /collapse ---
-
---- collapse ---
----
-title: SciPy
----
-
-SciPy is a free and open-source Python library used for scientific computing and technical computing. SciPy contains modules for optimisation, linear algebra, integration, interpolation, special functions, FFT (Fast Fourrier Transform), signal and image processing, ODE (Ordinary Differential Equations) solvers, and other tasks common in science and engineering.
-
-#### Documentation
-
-- [docs.scipy.org/doc](https://docs.scipy.org/doc/)
-
---- /collapse ---
-
---- collapse ---
----
-title: TensorFlow Lite, and PyCoral
----
-
-TensorFlow Lite or the PyCoral library can be used to use or re-train existing machine-learning models for inference. The latter is built on top of TensorFlow Lite but has a simpler, higher-level interface and allows you to easily use the Coral USB Accelerator (Edge TPU). Note that Tensorflow (as opposed to TensorFlow Lite) is not supported by the AstroPi OS.
-
-#### Documentation
-
-- [Tensorflow Lite](https://www.tensorflow.org/lite/api_docs/python/tf/lite)
-- [PyCoral](https://coral.ai/docs/edgetpu/tflite-python/)
---- /collapse ---
-
---- collapse ---
----
-title: pandas
----
-
-`pandas` is an open-source library providing high-performance, easy-to-use data structures and data analysis tools.
-
-#### Documentation
-
-- [pandas.pydata.org](https://pandas.pydata.org/)
-
---- /collapse ---
-
---- collapse ---
----
-title: logzero
----
-
-`logzero` makes Python logging easier.
-
-#### Usage
-
-```python
-from logzero import logger
-
-logger.debug("hello")
-logger.info("info")
-logger.warning("warning")
-logger.error("error")
-```
-
-#### Documentation
-
-- [logzero.readthedocs.io](https://logzero.readthedocs.io/en/latest/)
-
---- /collapse ---
-
---- collapse ---
----
-title: matplotlib
----
-
-`matplotlib` is a 2D plotting library that produces publication-quality figures in a variety of hard copy formats and interactive environments.
-
-#### Usage
-
-```python
-from sense_hat import SenseHat
-from gpiozero import CPUTemperature
-import matplotlib.pyplot as plt
-from time import sleep
-
-sense = SenseHat()
-cpu = CPUTemperature()
-
-st, ct = [], []
-for i in range(100):
-    st.append(sense.temperature)
-    ct.append(cpu.temperature)
-    sleep(1)
-
-plt.plot(st)
-plt.plot(ct)
-plt.legend(['Sense HAT temperature sensor', 'Raspberry Pi CPU temperature'], loc='upper left')
-plt.show()
-```
-
-![The output of the program is a temperature plot generated using matplotlib.](images/Figure_1.png)
-
-#### Documentation
-
-- [matplotlib.org](https://matplotlib.org/)
-
---- /collapse ---
-
---- collapse ---
----
-title: pisense
----
-
-`pisense` is an alternative interface to the Raspberry Pi Sense HAT. The major difference to `sense_hat` is that in `pisense` the various components of the Sense HAT (the screen, the joystick, the environment sensors, etc.) are each represented by separate classes that can be used individually or by the main class that comprises them all.
-
-The screen has a few more tricks including support for any fonts that PIL supports, representation as a numpy array (which makes scrolling by assigning slices of a larger image very simple), and several rudimentary animation functions. The joystick, and all sensors, have an iterable interface too.
-
-#### Usage
-
-```python
-from pisense import SenseHAT, array
-from colorzero import Color
-
-hat = SenseHAT(emulate=True)
-hat.screen.clear()
-
-B = Color('black')
-r = Color('red')
-w = Color('white')
-b = Color('blue')
-
-black_line = [B, B, B, B, B, B, B, B]
-flag_line = [B, b, b, w, w, r, r, B]
-flag = array(black_line * 2 + flag_line * 4 + black_line * 2)
-
-hat.screen.fade_to(flag)
-```
-
-#### Documentation
-
-- [pisense.readthedocs.io](https://pisense.readthedocs.io/en/latest/)
-
---- /collapse ---
-
---- collapse ---
----
-title: Pillow
----
-
-Pillow is an image processing library. It provides extensive file format support, an efficient internal representation, and fairly powerful image processing capabilities.
-
-The core image library is designed for fast access to data stored in a few basic pixel formats. It should provide a solid foundation for a general image processing tool.
-
-#### Documentation
-
-- [pillow.readthedocs.io](https://pillow.readthedocs.io/)
-
---- /collapse ---
-
---- collapse ---
----
-title: opencv
----
-
-`opencv` is an open-source computer vision library. The Astro Pi units specifically have the `opencv-contrib-python-headless` package installed, which includes all of `opencv` plus additional modules (listed in the [opencv docs](https://docs.opencv.org/master/)), and excludes all GUI functionality.
-
-#### Documentation
-
-- [docs.opencv.org](https://docs.opencv.org/4.4.0/)
-
---- /collapse ---
-
---- collapse ---
----
-title: exif
----
-
-`exif` allows you to read and modify image EXIF metadata using Python.
-
-#### Documentation
-
-- [pypi.org/project/exif](https://pypi.org/project/exif/)
-
---- /collapse ---
-
---- collapse ---
----
-title: scikit-learn
----
-
-`scikit-learn` is a set of simple and efficient tools for data mining and data analysis that are accessible to everybody, and reusable in various contexts. It's designed to interoperate with `numpy`, `scipy`, and `matplotlib`.
-
-#### Documentation
-
-- [scikit-learn.org](https://scikit-learn.org)
-
---- /collapse ---
-
---- collapse ---
----
-title: scikit-image
----
-
-`scikit-image` is an open-source image processing library. It includes algorithms for segmentation, geometric transformations, colour space manipulation, analysis, filtering, morphology, feature detection, and more.
-
-#### Documentation
-
-- [scikit-image.org](https://scikit-image.org/)
-
---- /collapse ---
-
---- collapse ---
----
-title: reverse-geocoder
----
-
-`reverse-geocoder` takes a latitude/longitude coordinate and returns the nearest town/city.
-
-#### Usage
-
-When used with `skyfield`, `reverse-geocoder` can determine where the ISS currently is:
-
-```python
-import reverse_geocoder
-from orbit import ISS
-
-coordinates = ISS.coordinates()
-coordinate_pair = (
-    coordinates.latitude.degrees,
-    coordinates.longitude.degrees)
-location = reverse_geocoder.search(coordinate_pair)
-print(location)
-```
-This output shows the ISS is currently over Hamilton, New York:
+For example, dividing by zero in `do_something` would create the following log entry:
 
 ```
-[OrderedDict([
-    ('lat', '42.82701'), 
-    ('lon', '-75.54462'), 
-    ('name', 'Hamilton'), 
-    ('admin1', 'New York'), 
-    ('admin2', 'Madison County'), 
-    ('cc', 'US')
-])]
+[E 190423 00:04:16 test:9] ZeroDivisionError: division by zero
 ```
 
-#### Documentation
+Your program would continue without crashing, but rather than seeing no log entry, you see that an error occurred at this time.
 
-- [github.com/thampiman/reverse-geocoder](https://github.com/thampiman/reverse-geocoder)
-
---- /collapse ---
-
-You should not install additional Python packages or even change the versions of the ones already available on the Desktop Flight OS. If you do, your program may run successfully when you test it in your modified environment, but it will **fail** when tested on the actual Flight OS.
-
-To make sure that you are not using a Python package you are not supposed to, follow the instructions in this guide and check that your code will terminate successfully, without generating any errors, when executed in a terminal using `python3 main.py`, in an unmodified version of the Desktop Flight OS.
-
-If your experiment requires Python libraries that are not available in the Flight OS, please contact us and we will try to help you find a solution.
-
-Note that some Python libraries may include functions that perform a web request to look up some information or return a value that is dependent on time or location. Even though they may be very useful, these are not permitted (see the 'Networking' section of this guide).
+**Note**: You can (and should) use **both** the `csv` library (for recording experiment data) and the `logzero` library (for logging important events that take place during your experiment).

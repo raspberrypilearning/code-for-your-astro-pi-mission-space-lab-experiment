@@ -11,10 +11,9 @@ steps:
 - title: Introduction
 - title: Kit Assembly
 - title: The Kit OS
-- title: Planning your work
-- title: Python libraries
   completion:
   - engaged
+- title: Planning your work
 - title: Recording data from your experiment
 - title: Finding the location of the ISS
 - title: Recording images using the camera
