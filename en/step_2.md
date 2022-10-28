@@ -127,9 +127,6 @@ Then, push the plastic clip back into place.
 --- task ---
 Place the Sense HAT onto the Raspberry Pi and line up the 40 GPIO pins line up with the corresponding holes in the header.   
 
-
-<br>
-
 TODO this photo is not applicable to everyone now because it has a camera - change
 ![Photo of a Sense HAT fitted on to a Raspberry Pi device with a tall header and camera cable passed through the slot on the HAT.](images/assembly_cam_spacers_sh.JPG)
 --- /task ---
@@ -139,6 +136,8 @@ Use the four remaining black screws to secure the Sense HAT stack to the spacers
 
 ![Photo of the Sense HAT with screws securing it to the spacers.](images/assembly_spacer_top.JPG)
 --- /task ---
+
+We've finished putting the Sense HAT on! On to the next step!
 
 <div class="pir_step">
 
@@ -156,6 +155,7 @@ Take a moment to familiarise yourself with the layout of the Raspberry Pi pins [
 ![Diagram of the Raspberry Pi headers](images/rpi4-headers-vector.png)
 
 Similarly, take a moment to look at the PIR sensor. Do you see the labels GND, VCC, and OUT?
+
 ![Photo of PIR with wires attached to pins.](images/assembly_PIR_wires.JPG)
 --- /task ---
 
@@ -173,6 +173,7 @@ Now we are going to connect each pin on the PIR sensor to an appropriate pin on 
 ![Photo of a Raspberry Pi with wires from the PIR connected to the correct pins.](images/assembly_wires.JPG)
 --- /task ---
 
+You've just finished assembling the PIR sensor - great work!
 </div>
 
 <div class="coral_step">
@@ -184,18 +185,20 @@ Now we are going to connect each pin on the PIR sensor to an appropriate pin on 
 Good news - the Coral accelerator requires no assembly! 
 Simply locate the USB-C cable and plug it into the accelerator, and then plug the other end into any of the blue USB (USB 3) ports.
 
-TODO: add photo
+![Photo of the Coral accelerator with the USB-C cable inserted](images/coral_usb_c_inserted.jpg)
+
+![Photo of the Raspberry Pi with the Coral USB inserted into a USB 3 port](images/coral_usb_inserted.jpg)
 --- /task ---
 
 </div>
 
-### Finishing the camera assembly
+### Camera assembly
 
 <div class="camera_step">
 
 --- task ---
  
-Make sure the back focus ring is screwed all the way in. 
+Find the high quality camera board and check that the back focus ring is screwed all the way in. 
 ![Photo of the high-quality camera sensor with the back focus ring screwed all the way in.](images/filter_backfocus.JPG)
 
 --- /task ---
@@ -224,7 +227,7 @@ If your Life on Earth experiment requires an infrared-sensitive (IR-sensitive) c
 
 --- collapse ---
 ---
-title: How does it work?
+title: How does the infrared camera work?
 ---
 The high-quality camera sensor can detect infrared (IR) light. However, the sensor housing contains an IR filter, which is used to greatly reduce the camera’s sensitivity to IR light.  This is so that the images captured by the high-quality camera sensor look the same as what we see with our eyes (which are not sensitive to IR light). By removing this filter we allow the IR light to pass through along with visible light.
 
@@ -233,7 +236,9 @@ In the next steps we will replace the built-in filter with a separate red filter
 --- /collapse ---
 
 --- task ---
-Remove the built-in infrared filter from the high-quality camera by following the [instructions here](https://www.raspberrypi.org/documentation/accessories/camera.html#raspberry-pi-hq-camera-filter-removal).
+Remove the built-in infrared filter from the high-quality camera by following the [instructions here](https://www.raspberrypi.org/documentation/accessories/camera.html#raspberry-pi-hq-camera-filter-removal). You will need to use the 1.5mm allen key.
+
+Here is a video of the process: TODO upload / reshoot / edit https://drive.google.com/file/d/1HNMEnRWQf_qhmPMszu5IwRgZftBtba7R/view?usp=sharing
 --- /task ---
 
 
@@ -278,9 +283,9 @@ You should start to feel increasing resistance as the filter gets lower. After a
 </div>
 
 --- task ---
-Remove the caps from the narrower end of the 6mm lens 
+Remove the cap from the narrower end of the 6mm lens 
 
-TODO need a photo
+![Photo of the 6mm lens with the cap removed from the narrower end](images/6mm_narrow_cap_removed.png)
 --- /task ---
 
 --- task ---
@@ -301,17 +306,21 @@ Connect your keyboard and mouse into the two (black) USB-2 ports.
 --- /task ---
 
 --- task ---
-Connect the little micro-HDMI cable into the HDMI 1 port of the Raspberry Pi
-and connect the other end into whatever screen you will be using.
+Connect the little micro-HDMI cable into the HDMI 1 port of the Raspberry Pi and connect the other end into your screen.
+![Photo of a micro-HDMI cable connected to the Raspberry Pi](images/hdmi_cable_inserted.png)
 --- /task ---
 
 --- task ---
+![Photo of a micro SD card inside an SD card adapter](images/sd_card_adapter.png)
+
 The SD card comes in a large adapter, so remove it from the adapter and insert it into the SD port on the bottom of the Raspberry Pi - make sure you put it in the right way!
+
+![Photo of a micro SD card inserted into a Raspberry Pi](images/sd_card_inserted.png)
 --- /task ---
 
 --- task ---
 Finally, connect the USB-C power cable into the Raspberry Pi and watch it boot up!
-Lift off!
+![Photo of the power cable inserted into a Raspberry Pi](images/power_cable_inserted.png)
 --- /task ---
 
 Congratulations, you have made an Astro Pi! 🚀
