@@ -1,6 +1,6 @@
 ## Running your experiment for 3 hours
 
-Your experiment will be allocated 180 minutes of runtime on the ISS. Therefore, your code should run for no more than this 3-hour period and should gracefully shut down any activity (e.g. close the camera, close any open files, clear the LED matrix). On this page we will write some Python code to solve this problem!
+Each experiment gets allocated 180 minutes of runtime on the ISS. MaTherefore, your code should run for no more than this 3-hour period and should gracefully shut down any activity (e.g. close the camera, close any open files, clear the LED matrix). On this page we will write some Python code to solve this problem!
 
 ### The datetime library
 
@@ -8,7 +8,6 @@ One way to stop your program after a specific length of time is using the `datet
 
 By recording and storing the time at the start of your experiment, you can then repeatedly check to see if the current time is greater than that start time plus a certain number of minutes, seconds, or hours. This difference is known as a `timedelta`. Can you think of how you would use the `timedelta` library to write a function that prints "Hello from the ISS!" every second, for 2 minutes?
 
----hints---
 ---hint---
 ```python
 from datetime import datetime, timedelta
@@ -27,7 +26,6 @@ while (now_time < start_time + timedelta(minutes=2)):
     now_time = datetime.now()
 ```
 ---/hint---
----/hints---
 
 If we put some of the code being looped into its own function:
 
@@ -38,7 +36,6 @@ def action_to_repeat():
 ```
 can you alter the original loop to use this function, and to make it reusable for different durations?
 
----hints---
 ---hint---
 To reuse code, you might want to consider putting the whole `while` loop inside its own function. Remember, you can pass functions as values to a function in Python
 ---/hint---
@@ -71,7 +68,6 @@ def run_for(time_delta, action):
 
 ```
 ---/hint---
----/hints---
 
 ## Example
 

@@ -1,8 +1,6 @@
 ## Planning Your Work
 
-In this section we are going to think about how to plan your work. In previous years, teams have often reflected that they wished they had spent more time in the planning stages of their experiment. Being organised should help make the most of the opportunity to run your code aboard the ISS.
-
-To help with designing your phase 2 program, we've put together the following activity for you to try:
+Teams have often reflected in previous years that they wished they had spent more time in the planning and design stages of their experiment. Being organised should make the most of the opportunity to run your code aboard the ISS, and in this section we've put together the following activity for you to try:
 
 ### 5 questions to get started
 
@@ -18,18 +16,22 @@ To get started planning your Phase 2, you could meet together as a team and try 
 
 As a team, decide on the ideal date you would like to finish writing your program. Make sure you have enough time to test it fully before submitting it, and to check it against the [requirements checklist](https://astro-pi.org/mission-space-lab/guidelines/program-checklist).
 
+![An example timeline](images/timeline.png)
+
+<div style="border-left: solid; border-width: 10px; border-color: #0faeb0; background-color: alice-blue; padding: 10px">
 ### Identify your measurements
 
 Once you answered the 5 questions above and created a rough timeline for your work, the next step is to note down the measurements and data you will need to test your hypothesis. If you need help with this, take a look at [this project](https://projects.raspberrypi.org/en/projects/experiment-design) and in particular the [define your measurements](https://projects.raspberrypi.org/en/projects/experiment-design/2) page. 
+</div>
 
 ### Work out the key program tasks visually
 Once you have a good idea of what you are trying to achieve with your program, the next step is to work out the tasks that the program will need to do. We recommend doing this visually using pen and paper, or a whiteboard, or online using a tool like [miro](https://miro.com).
 
-- List all of the key tasks that your program will need to perform. You don’t need to worry about the order or the actual functions and commands at this stage — just note down the specific things that need to be achieved. See the image below for an example.
+- List all of the key tasks that your program will need to perform. You don’t need to worry about the order or the actual functions and commands at this stage — just note down the specific things that need to be achieved like in the image below.
 
 ![The key tasks for the Mission Space Lab experiment idea by the team from CoderDojo Tatooine](images/Astro_Pi_Educator_Focus_Graphics_V6a.png)
 
-- Have a closer look at each task and think about whether it can be split into smaller subtasks. Additionally, check to see if there are any actions that can be combined with one another, or if there are any tasks that need to be repeated.
+- Have a closer look at each task and think about whether it can be split into smaller subtasks. Check to see if there are any actions that can be combined with one another, or if there are any tasks that need to be repeated.
 
 ![Some of the key tasks that involve writing data to a file can be combined together](images/Astro_Pi_Educator_Focus_Graphics_V6b.png)
 
