@@ -13,17 +13,17 @@ steps:
 - title: The Kit OS
   completion:
   - engaged
-- title: Planning your work
-- title: Recording data from your experiment
-- title: Finding the location of the ISS
-- title: Recording images using the camera
-- title: Doing more than one thing at a time
-- title: Running your experiment for 3 hours
-- title: "('Life in space' only) Using the LED display"
-- title: Networking and system processes
-- title: Machine Learning with the Coral dongle
-- title: Common mistakes
-- title: A big worked example
-  completion:
-  - internal
-- title: Test your code
+  #- title: Planning your work
+  #- title: How to run your experiment for 3 hours
+  #- title: How to record data from your experiment
+  #- title: How to find the location of the ISS
+  #- title: How to record images using the camera
+  #- title: Doing more than one thing at a time
+  #- title: "('Life in space' only) Using the LED display"
+  #- title: Networking and system processes
+  #- title: Machine Learning with the Coral dongle
+  #- title: Common mistakes
+  #- title: A big worked example
+  #  completion:
+  #  - internal
+  #- title: Test your code
