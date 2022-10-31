@@ -426,3 +426,83 @@ title: opencv
 
 --- /collapse ---
 
+--- collapse ---
+---
+title: exif
+---
+
+`exif` allows you to read and modify image EXIF metadata using Python. You may want to use it to embed GPS data into any images you take, or to [analyse photos taken aboard the ISS](https://projects.raspberrypi.org/en/projects/astropi-iss-speed/1).
+
+#### Documentation
+
+- [pypi.org/project/exif](https://pypi.org/project/exif/)
+
+--- /collapse ---
+
+--- collapse ---
+---
+title: scikit-learn
+---
+
+`scikit-learn` is a set of simple and efficient tools for data mining and data analysis that are accessible to everybody, and reusable in various contexts. It's designed to interoperate with `numpy`, `scipy`, and `matplotlib`.
+
+#### Documentation
+
+- [scikit-learn.org](https://scikit-learn.org)
+
+--- /collapse ---
+
+--- collapse ---
+---
+title: scikit-image
+---
+
+`scikit-image` is an open-source image processing library. It includes algorithms for segmentation, geometric transformations, colour space manipulation, analysis, filtering, morphology, feature detection, and more.
+
+#### Documentation
+
+- [scikit-image.org](https://scikit-image.org/)
+
+--- /collapse ---
+
+--- collapse ---
+---
+title: reverse-geocoder
+---
+
+`reverse-geocoder` takes a latitude/longitude coordinate and returns the nearest town/city.
+
+#### Usage
+
+When used with `skyfield`, `reverse-geocoder` can determine where the ISS currently is:
+
+```python
+import reverse_geocoder
+from orbit import ISS
+
+coordinates = ISS.coordinates()
+coordinate_pair = (
+    coordinates.latitude.degrees,
+    coordinates.longitude.degrees)
+location = reverse_geocoder.search(coordinate_pair)
+print(location)
+```
+This output shows the ISS is currently over Hamilton, New York:
+
+```
+[OrderedDict([
+    ('lat', '42.82701'), 
+    ('lon', '-75.54462'), 
+    ('name', 'Hamilton'), 
+    ('admin1', 'New York'), 
+    ('admin2', 'Madison County'), 
+    ('cc', 'US')
+])]
+```
+
+#### Documentation
+
+- [github.com/thampiman/reverse-geocoder](https://github.com/thampiman/reverse-geocoder)
+
+--- /collapse ---
+
