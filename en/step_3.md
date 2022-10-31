@@ -565,3 +565,16 @@ hat.screen.fade_to(flag)
 
 --- /collapse ---
 
+## Next steps
+
+This concludes our brief tour of the Kit OS! As you've seen, there are a lot of applications and libraries to become familiar with. Have no fear: with a good plan of action you will become comfortable with these programs and learn how to use them in your own experiment! In the next step, you will learn about how to plan this stage of your experiment.
+
+
+Now that you are aware of the libraries
+You should not install additional Python packages or even change the versions of the ones already available on the Desktop Flight OS. If you do, your program may run successfully when you test it in your modified environment, but it will **fail** when tested on the actual Flight OS.
+
+To make sure that you are not using a Python package you are not supposed to, follow the instructions in this guide and check that your code will terminate successfully, without generating any errors, when executed in a terminal using `python3 main.py`, in an unmodified version of the Desktop Flight OS.
+
+If your experiment requires Python libraries that are not available in the Flight OS, please contact us and we will try to help you find a solution.
+
+Note that some Python libraries may include functions that perform a web request to look up some information or return a value that is dependent on time or location. Even though they may be very useful, these are not permitted (see the 'Networking' section of this guide).
