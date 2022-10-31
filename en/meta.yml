@@ -10,7 +10,7 @@ last_tested: '2021-06-23'
 steps:
 - title: Introduction
 - title: Kit Assembly
-  #- title: The Kit OS
+- title: The Kit OS
   #  completion:
   #  - engaged
   #- title: Planning your work
