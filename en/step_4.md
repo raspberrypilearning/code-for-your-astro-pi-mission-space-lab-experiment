@@ -18,11 +18,13 @@ As a team, decide on the ideal date you would like to finish writing your progra
 
 ![An example timeline](images/timeline.png)
 
-<div style="border-left: solid; border-width: 10px; border-color: #0faeb0; background-color: alice-blue; padding: 10px">
 ### Identify your measurements
 
-Once you answered the 5 questions above and created a rough timeline for your work, the next step is to note down the measurements and data you will need to test your hypothesis. If you need help with this, take a look at [this project](https://projects.raspberrypi.org/en/projects/experiment-design) and in particular the [define your measurements](https://projects.raspberrypi.org/en/projects/experiment-design/2) page. 
-</div>
+Once you have answered the 5 questions above and created a rough timeline for your work, the next step is to note down the measurements and data you will need to test your hypothesis. If you need help with this, take a look at [this project](https://projects.raspberrypi.org/en/projects/experiment-design) and in particular the [define your measurements](https://projects.raspberrypi.org/en/projects/experiment-design/2) page. 
+
+<p style="border-left: solid; border-width:10px; border-color: #0faeb0; background-color: aliceblue; padding: 10px;">
+This step will really help you to make sure the outputs of your program are useful for later stages of MSL, and that you remain focused throughout stage 2!
+</p>
 
 ### Work out the key program tasks visually
 Once you have a good idea of what you are trying to achieve with your program, the next step is to work out the tasks that the program will need to do. We recommend doing this visually using pen and paper, or a whiteboard, or online using a tool like [miro](https://miro.com).
