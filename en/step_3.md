@@ -506,3 +506,27 @@ This output shows the ISS is currently over Hamilton, New York:
 
 --- /collapse ---
 
+--- collapse ---
+---
+title: sense_hat
+---
+
+The `sense_hat` library is the main library used to collect data using the Astro Pi Sense HAT. Look at [this project](https://projects.raspberrypi.org/en/projects/getting-started-with-the-sense-hat) to get started. 
+
+#### Usage
+
+You can log the humidity to the display using the code below:
+
+```python
+from sense_hat import SenseHat
+sense = SenseHat()
+sense.show_message(sense.get_humidity())
+```
+
+#### Documentation
+
+- [https://pythonhosted.org/sense-hat/](https://pythonhosted.org/sense-hat/)
+- [Additional documentation for the colour sensor](https://gist.github.com/boukeas/e46ab3558b33d2f554192a9b4265b85f)
+
+--- /collapse ---
+
