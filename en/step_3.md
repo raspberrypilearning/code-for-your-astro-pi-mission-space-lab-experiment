@@ -510,7 +510,6 @@ This output shows the ISS is currently over Hamilton, New York:
 ---
 title: sense_hat
 ---
-
 The `sense_hat` library is the main library used to collect data using the Astro Pi Sense HAT. Look at [this project](https://projects.raspberrypi.org/en/projects/getting-started-with-the-sense-hat) to get started. 
 
 #### Usage
@@ -527,6 +526,42 @@ sense.show_message(sense.get_humidity())
 
 - [https://pythonhosted.org/sense-hat/](https://pythonhosted.org/sense-hat/)
 - [Additional documentation for the colour sensor](https://gist.github.com/boukeas/e46ab3558b33d2f554192a9b4265b85f)
+
+--- /collapse ---
+
+--- collapse ---
+---
+title: pisense
+---
+
+`pisense` is an alternative interface to the Raspberry Pi Sense HAT. The major difference to `sense_hat` is that in `pisense` the various components of the Sense HAT (the screen, the joystick, the environment sensors, etc.) are each represented by separate classes that can be used individually or by the main class that comprises them all.
+
+The screen has a few more tricks including support for any fonts that PIL supports, representation as a numpy array (which makes scrolling by assigning slices of a larger image very simple), and several rudimentary animation functions. The joystick, and all sensors, have an iterable interface too.
+
+#### Usage
+
+```python
+from pisense import SenseHAT, array
+from colorzero import Color
+
+hat = SenseHAT(emulate=True)
+hat.screen.clear()
+
+B = Color('black')
+r = Color('red')
+w = Color('white')
+b = Color('blue')
+
+black_line = [B, B, B, B, B, B, B, B]
+flag_line = [B, b, b, w, w, r, r, B]
+flag = array(black_line * 2 + flag_line * 4 + black_line * 2)
+
+hat.screen.fade_to(flag)
+```
+
+#### Documentation
+
+- [pisense.readthedocs.io](https://pisense.readthedocs.io/en/latest/)
 
 --- /collapse ---
 
