@@ -123,6 +123,7 @@ The Kit OS comes with Python version 3.9.2 and many additional Python _libraries
 
 <p style="border-left: solid; border-width:10px; border-color: #ff8f00; background-color: #d17500; padding: 10px;">
 Because the ISS is a very secure environment, these are the only libraries that you will be allowed to use in your experiment if it runs on the Astro Pis on board. Please [contact us](mailto:enquiries@astro-pi.org) if you think anything is missing or have any suggestions!
+</p>
 
 ### Python libraries
 
