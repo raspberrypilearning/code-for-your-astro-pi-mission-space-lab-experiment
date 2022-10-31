@@ -1,4 +1,5 @@
 ## Planning Your Work
+
 In this section we are going to think about how to plan your work. In previous years, teams have often reflected that they wished they had spent more time in the planning stages of their experiment. Being organised should help make the most of the opportunity to run your code aboard the ISS.
 
 To help with designing your phase 2 program, we've put together the following activity for you to try:
