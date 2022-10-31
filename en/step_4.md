@@ -1,64 +1,75 @@
 ## Planning Your Work
+In this section we are going to think about how to plan your work. In previous years, teams have often reflected that they wished they had spent more time in the planning stages of their experiment. Being organised should help make the most of the opportunity to run your code aboard the ISS.
 
-To help with planning, we've put together some useful tips for Phase 2 that will facilitate your team's coding.
+To help with designing your phase 2 program, we've put together the following activity for you to try:
 
-### How to approach writing the program for Phase 2 of Mission Space Lab
+### 5 questions to get started
 
-+ Read through this guide. Familiarise yourself with the requirements that your program must meet so that it can advance to the next phase and run smoothly on the Astro Pis on the ISS. Read the useful tips provided throughout on how to best to develop your program and make the most of your experimental results.
+To get started planning your Phase 2, you could meet together as a team and try and answer the questions below. This should help you decide how you are going to work together and set some expectations. Make sure everyone gets a turn to speak!
 
-### Work out the key tasks
+- _How are you going to make decisions as a team?_ Will you all have a say, or will you elect someone to take charge?
+- _How can you utilise everyone's strengths?_ What is everyone good at, and how can you help each other?
+- _What does everyone want to learn?_ Don't just do what you're good at - try something new!
+- _How much time you do you have?_ Decide when and where you will meet, and how often.
+- _How will you work together?_ Will you work online or mostly in person?
 
-+ Get your team together and start to map out the rough outline of how your program will work. You could do this as a group and have everyone call out their ideas, or all team members could work individually and then get together to compare results.
+### Timeline
 
-+ Use a whiteboard or big sheet of paper to list all of the key tasks that your program will need to perform. You don’t need to worry about the order or the actual functions and commands at this stage — just note down the specific things that need to be achieved. This is what that would look like for the example scenario above:
+As a team, decide on the ideal date you would like to finish writing your program. Make sure you have enough time to test it fully before submitting it, and to check it against the [requirements checklist](https://astro-pi.org/mission-space-lab/guidelines/program-checklist).
+
+### Identify your measurements
+
+Once you answered the 5 questions above and created a rough timeline for your work, the next step is to note down the measurements and data you will need to test your hypothesis. If you need help with this, take a look at [this project](https://projects.raspberrypi.org/en/projects/experiment-design) and in particular the [define your measurements](https://projects.raspberrypi.org/en/projects/experiment-design/2) page. 
+
+### Work out the key program tasks visually
+Once you have a good idea of what you are trying to achieve with your program, the next step is to work out the tasks that the program will need to do. We recommend doing this visually using pen and paper, or a whiteboard, or online using a tool like [miro](https://miro.com).
+
+- List all of the key tasks that your program will need to perform. You don’t need to worry about the order or the actual functions and commands at this stage — just note down the specific things that need to be achieved. See the image below for an example.
 
 ![The key tasks for the Mission Space Lab experiment idea by the team from CoderDojo Tatooine](images/Astro_Pi_Educator_Focus_Graphics_V6a.png)
 
-+ Have a closer look at each task and think about whether it can be split into smaller subtasks. Moreover, are there any actions that can be sensibly combined with one another? Also, see if there are any tasks that need to be repeated.
+- Have a closer look at each task and think about whether it can be split into smaller subtasks. Additionally, check to see if there are any actions that can be combined with one another, or if there are any tasks that need to be repeated.
 
 ![Some of the key tasks that involve writing data to a file can be combined together](images/Astro_Pi_Educator_Focus_Graphics_V6b.png)
 
-+ Try to put everything into a logical order, using lines to connect the various tasks. It will start to get messy, but that’s good! You will probably discover that there are some obvious repeated tasks. This is a good time to introduce or reinforce the programming concepts of repetition and loops.
+- Try to put everything into a logical order, using lines to connect the various tasks. It will start to get messy, but you will probably discover that there are some obvious repeated tasks - these tasks are probably going to be written as functions that you will reuse.
 
 ![Arrange the key tasks into a logical order](images/Astro_Pi_Educator_Focus_Graphics_V6c.png)
 
-+ If there are any repeated tasks, do they appear just once in your diagram, with flow lines passing through many times, or do they fit in in multiple places? Talk with your team about how repeated tasks should only be coded once, so that parts of the program can be reused.
+<p style="border-left: solid; border-width:10px; border-color: #0faeb0; background-color: aliceblue; padding: 10px;">
+If you have been using a whiteboard or pen and paper, don't forget to take a photo of your work to save it for later!
+</p>
 
-### Create a flow chart
+### Draw a flow chart
 
-+ Take a fresh sheet of paper or find a clean area on your whiteboard (be sure to copy or take a photo of your first picture before you erase anything). Reconfigure the steps and flow into a more ordered diagram, maybe running clockwise around the paper or starting at the top and working downwards. Try a few different versions and see which one is the easiest to follow. Include a ‘start’ and ‘end’ block to make it very clear where the program begins and finishes. Are there any actions that you need to perform at these stages? The final result is what is called a flow chart: a diagram of all of a program’s tasks, in the right order, but doesn’t contain any actual programming language commands.
+Using your notes from the previous step, try and refine the tasks into a [flow chart](https://simple.wikipedia.org/wiki/Flow_chart), which is a diagram of all of a program’s tasks, in the right order, but doesn’t contain any actual programming language commands.
+
+- Identify the natural order of the tasks and try and use arrows to connect them in a sequence to create a 'flow' along the page, zig-zagging a bit like a [snakes and ladders board](https://upload.wikimedia.org/wikipedia/en/b/ba/Cnl03.jpg).
+- Identify any decisions that the program needs to make and check that all outcomes are catered for.
+- Include a ‘start’ and ‘end’ block to make it very clear where the program begins and finishes.
+
+A flow chart for a typical experiment might look something like this:
 
 ![Create a flow chart](images/Astro_Pi_Educator_Focus_Graphics_V6d.png)
 
-+ Work through your task list and try to identify any missing pieces. Add any missing functionality into your flow chart.
+### Consider 'What if' scenarios
 
-+ You should also think about where in your program you should be looking to handle exceptions and errors. Most experiments will have a main loop that runs repeatedly over the 3-hour period. An unexpected error encountered in this loop could be disastrous if it causes the program to stop or stall and prevent further data collection. So, think of some ‘what if’ scenarios. For example, if you’re reading data from a sensor, what will happen if it gives you an unexpected result? Will your program cope with this? How are you dealing with hardware errors?
+An important aspect of programming and design is making sure you are ready for when things go wrong. Most experiments will have a main loop that runs repeatedly over the 3-hour period. An unexpected error encountered in this loop could be disastrous if it causes the program to stop or stall and prevent further data collection. So, think of some ‘what if’ scenarios. For example, if you’re reading data from a sensor, what will happen if it gives you an unexpected result? Will your program cope with this? How are you dealing with hardware errors? 
++ Identify points in your flowchart where errors might occur and add blocks to cater for them.
 
 ### Assign tasks to members of the team
 
+After finishing your flowchart it is a good idea to review it altogether and double check that there is no unnecessary work and that you're satisfied that the final result will help you test your hypothesis. Once you're satisfied, assign tasks by following the steps below.
+
 + Give descriptive names to each task block.
-
-+ Assign responsibility for each block to different members of the team. Try to think about the individual team members’ experience levels and programming ability and allocate tasks accordingly. Depending on the number of people in your team and the complexity of your program, it may be sensible to have more than one person allocated to a specific block or function.
-
++ Assign responsibility for each block to different members of the team, keeping in mind their experience and desires.
 + Remember that someone needs to be responsible for the scaffold of the final program that will contain the various function calls in the right order.
 
-### Get coding!
-
-+ You will probably discover that some functions are really easy to create using the recommended Python libraries, perhaps even with only a single line. Others will be more complex, and we have included some useful code snippets in the coding requirements document (e.g. for adding latitude and longitude information to the EXIF data of a photo) that you can copy into your project. To design more complicated functions, if needed, you can use the same pseudocode approach that you used with the program as a whole.
-
-+ Remind your team that they cannot install additional Python libraries or access the internet on the Astro Pi computers aboard the ISS, so they should not use any commands that make a web request or look up something from an online source.
-
-+ Encourage each team member or subteam responsible for a specific part of the program to code their section so that it works by itself, just like the examples in the coding requirements document. Suggest that they add comments and docstrings as they go along.
-
-+ Get together regularly to discuss progress and work through any major challenges as a group. It is useful to update your pseudocode flow diagram to reflect any changes that your team realise are necessary as they write the actual program.
+You may want to use a project management tool to keep track of your tasks. Something as simple as [Google Keep](https://www.google.com/keep/) could work, or you could use a [Trello](https://www.trello.com) or [Monday.com](https://www.monday.com) board. 
+Whichever method you choose to track your work, make sure to create time to meet regularly to discuss progress and work through any major challenges as a group. It can be useful to update your pseudocode flow diagram to reflect any changes that your team realise are necessary as they write the actual program!
 
 ![Update the flow chart to reflect changes that become necessary as the program evolves](images/Astro_Pi_Educator_Focus_Graphics_V6e.png)
 
-+ Keep the deadline for submitting your program in mind. If time is running out, are there any parts of your program that can be left out? If you are planning on performing analysis of results in real time, can this instead be done after your program has run, when you’ve got your results back?
+## Get coding!
 
-### Test your program
-
-+ Don’t forget to test your program in the Desktop version of the Flight OS: open a terminal, type `python3 main.py` and make sure your program terminates after 3 hours without generating any errors (including any exceptions that may have been caught and recorded in the log). 
-+ Check that the data and images captured by your program match what you would expect. 
-+ Make sure you go through the requirements checklist in the last step of this guide. 
-
+Now that you have a much better idea of what your experiment program is going to do, it's time to get coding! Continue reading this guide for help on writing the program 'scaffolding' code, and other tips and tricks.
