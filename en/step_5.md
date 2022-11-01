@@ -18,7 +18,8 @@ The Astro Pi includes a range of easy to use sensors that are ready to use for y
 - Barometric pressure sensor
 - Light and colour sensor
 
-All of these sensors are accessed using the Sense HAT, which provides a simple way to take measurements from the environment. Take some time to [look at this project](https://projects.raspberrypi.org/en/projects/sense-hat-data-logger/1) to learn how to log measurements from these sensors to a csv file.
+All of these sensors are accessed using the Sense HAT, which provides a simple way to take measurements from the environment. Take some time to look at the 
+[Getting started with the Sense HAT](https://projects.raspberrypi.org/en/projects/getting-started-with-the-sense-hat/7) and [Sense HAT data logger](https://projects.raspberrypi.org/en/projects/sense-hat-data-logger/1) projects to learn how to log measurements from these sensors to a csv file.
 
 There is also a PIR (passive infrared) motion sensor on the Astro Pis on the ISS, which can be accessed using the `gpiozero` library to create a `MotionSensor` object attached **specifically** to GPIO pin 12: 
 
@@ -32,8 +33,6 @@ print("Motion detected")
 pir.wait_for_no_motion()
 ```
 
-To learn more, start with [this project](https://projects.raspberrypi.org/en/projects/getting-started-with-the-sense-hat/7), and look at the library documentation.
-
 --- collapse ---
 ---
 title: Documentation
@@ -43,12 +42,13 @@ The [Sense HAT documentation](https://pythonhosted.org/sense-hat/) contains sect
 For the PIR sensor, check out the gpiozero [documentation](https://gpiozero.readthedocs.io/en/stable/api_input.html#motionsensor-d-sun-pir), which shows the different ways in which you can interact with the sensor.
 ---/collapse---
 
+
 ## Recording images using the camera
 
 The Astro Pis on the ISS are equipped with a high-quality camera each so that you can take pictures of Earth - something normally only astronauts can do! Take some time now to read over the [Getting started with picamera](https://projects.raspberrypi.org/en/projects/getting-started-with-picamera/) project, to learn how to use it.
 
 <p style="border-left: solid; border-width:10px; border-color: #0faeb0; background-color: aliceblue; padding: 10px;">
-Check the Mission Specific Guideline to make sure you are allowed to use the camera!
+Check the [Mission Specific Guidelines](https://astro-pi.org/mission-space-lab/guidelines/program-checklist) to make sure you are allowed to use the camera!
 </p>
 
 --- collapse ---
@@ -108,14 +108,15 @@ When coordinate information is included in the EXIF metadata of your captured im
 
 ### Low-light and night-time photography
 
-Night-time photography using the Astro Pi's Camera Module is difficult: the ISS is travelling so fast that a long exposure time is needed, and this makes the photos come out very blurry in low-light conditions. There is a very low chances of your program being run while the ISS is above a bright city without cloud cover. The light sensitivity of the camera is quite good, but it needs to be used with the best software settings for the particular situation, and it is difficult to anticipate what those settings will be and include them in your program. Having the camera adapt to changing light conditions in real time is also tricky, especially when the camera is moving relative to the light source, as is the case for the Astro Pis on the ISS.
+Night-time photography using the Astro Pi's Camera Module is difficult: the ISS is travelling so fast that a long exposure time is needed, and this makes the photos come out very blurry in low-light conditions. There is a very low chances of your program being run while the ISS is above a bright city without cloud cover. 
 
-## Example
 
-The team from CoderDojo Tatooine wants to investigate whether the environment on the ISS is affected by the surface of the Earth it is passing over. Does the ISS get hotter when it passes over a desert, or wetter when it is above the sea?
+## An example
 
-To do this, they will have to collect temperature and humidity data. They write a function called `collect_data` to do this, that returns a tuple 
+The team from CoderDojo Tatooine wants to investigate whether the environment on the ISS is affected by the day and night cycle. Does the ISS get colder at night, or drier in the day? To do this, they will have to collect temperature and humidity data. Can you write a funciton called `collect_data` to do this?
 
+---hints---
+---hint---
 ```python
 from sense_hat import SenseHat
 
@@ -123,7 +124,7 @@ def collect_data():
     sense = SenseHat()
     return sense.get_temperature(), sense.get_humidity()
 ```
+---/hint---
+---/hints---
 
-
-##
-
+Now to test their hypothesis they will also need to know whether it is night or day on the ISS. They could decide to use the camera and the `capture` function, but there is a simpler way - head to the next section to find out!
