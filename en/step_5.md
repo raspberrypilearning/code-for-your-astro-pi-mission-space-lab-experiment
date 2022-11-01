@@ -11,20 +11,16 @@ Create a file called `main.py`
 ## Recording images using the camera
 
 <p style="border-left: solid; border-width:10px; border-color: #0faeb0; background-color: aliceblue; padding: 10px;">
-Check the [Mission Specific Guidelines](https://astro-pi.org/mission-space-lab/guidelines/program-checklist) to make sure you are allowed to use the camera!
+Check the [Mission Specific Guidelines](https://astro-pi.org/mission-space-lab/guidelines/program-checklist) to make sure you are allowed to use the camera before reading this section!
 </p>
 
 The Astro Pis on the ISS are equipped with a high-quality camera each so that you can take pictures of Earth - something normally only astronauts can do! Take some time now to read over the [Getting started with picamera](https://projects.raspberrypi.org/en/projects/getting-started-with-picamera/) project, to learn how to use it.
 
 ---task---
-Read the [Getting started with picamera](https://projects.raspberrypi.org/en/projects/getting-started-with-picamera/) project, to learn how to use it.
+Read through the [Getting started with picamera](https://projects.raspberrypi.org/en/projects/getting-started-with-picamera/) project.
 ---/task---
 
-Now it's your turn! Can you use the linked examples to create a function to capture images in your `main.py` file? 
-
----task---
-Write a function to capture images and save it in your `main.py` file.
----/task---
+As you will have noticed by reading the [Getting started with picamera](https://projects.raspberrypi.org/en/projects/getting-started-with-picamera/) project, there are a lot of settings to choose from! Reading the [picamera documentation](https://picamera.readthedocs.io/en/release-1.13/) can really help you make sense of it all.
 
 --- collapse ---
 ---
@@ -33,6 +29,13 @@ title: Choosing camera settings
 The `picamera` library allows you to choose a selection of camera settings. 
 When choosing which settings to use, or whether to leave the settings on automatic, be aware that you will be taking pictures in a variety of conditions with a range of weather, landscapes, and lighting! Night-time photography using the Astro Pi's Camera Module is particularly difficult: the ISS is travelling so fast that a long exposure time is needed, and this makes the photos come out very blurry in low-light conditions. 
 --- /collapse---
+
+Now it's your turn! Can you use the linked examples to create a function to capture images in your `main.py` file? 
+
+---task---
+Write a function to capture images and save it in your `main.py` file.
+---/task---
+
 
 ## The Astro Pi sensors
 
@@ -63,20 +66,16 @@ pir.wait_for_no_motion()
 
 For more details about the interface for the Sense HAT and PIR sensors, make sure to look at the documentation - this is a really useful resource!
 
---- task ---
+--- collapse ---
 ---
 title: Visit the documentation pages
 ---
 The [Sense HAT documentation](https://pythonhosted.org/sense-hat/) contains sections on how to retrieve data from the [environmental sensors](https://pythonhosted.org/sense-hat/api/#environmental-sensors) (temperature, humidity, pressure) and the [Inertial Measurement Unit (IMU)](https://pythonhosted.org/sense-hat/api/#imu-sensor) (acceleration, orientiation). Additional documentation is available for interacting with the [light and colour sensor](https://gist.github.com/boukeas/e46ab3558b33d2f554192a9b4265b85f). You can also explore the wide range of [Sense HAT projects](https://projects.raspberrypi.org/en/projects?hardware%5B%5D=sense-hat) available from the Raspberry Pi Foundation.
 
 For the PIR sensor, check out the gpiozero [documentation](https://gpiozero.readthedocs.io/en/stable/api_input.html#motionsensor-d-sun-pir), which shows the different ways in which you can interact with the sensor.
----/task---
+---/collapse ---
 
-Having read the documenation you should be in a good position to start making your own measurements! Check out the example below if you need more help.
-
----task---
-Write a function that collects the data you need from the Sense HAT or PIR sensors. Don't forget to look at the documentation and projects for help!
----/task---
+Having read the [Getting started with the Sense HAT](https://projects.raspberrypi.org/en/projects/getting-started-with-the-sense-hat/7) and [Sense HAT data logger](https://projects.raspberrypi.org/en/projects/sense-hat-data-logger/1) projects you should be in a good position to start making your own measurements! Check out the example below if you need more help.
 
 ---collapse---
 ---
@@ -95,4 +94,8 @@ def collect_data():
     return sense.get_temperature(), sense.get_humidity()
 ```
 --- /collapse ---
+
+---task---
+Write a function that collects the data you need from the Sense HAT or PIR sensors. Don't forget to look at the documentation and projects for help!
+---/task---
 
