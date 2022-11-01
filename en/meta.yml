@@ -12,8 +12,9 @@ steps:
 - title: Kit Assembly
 - title: The Kit OS
 - title: Planning your work
-- title: How to run your experiment for 3 hours
-- title: How to record data and images
+- title: Writing your program - how to record data and images
+#- title: How to run your experiment for 3 hours
+#- title: How to structure your program
   #- title: How to record images using the camera
   #- title: How to find the location of the ISS
 #- title: Machine Learning with the Coral dongle

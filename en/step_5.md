@@ -1,105 +1,129 @@
-## Running your experiment for 3 hours
+## Writing your program - recording data and images
 
-Each experiment gets allocated 180 minutes of runtime on the ISS. MaTherefore, your code should run for no more than this 3-hour period and should gracefully shut down any activity (e.g. close the camera, close any open files, clear the LED matrix). On this page we will write some Python code to solve this problem!
+In this section we are going to start writing your experiment program, and learn how to record data using the sensors and camera! By the end of this page, you will be able to collect measurements and images to support your hypotheses - neat!
 
-### The datetime library
+--- task ---
+To get started, create a file called `main.py`:
+--- /task ---
 
-One way to stop your program after a specific length of time is using the `datetime` Python library. This library makes it easy to work with times and compare them. Doing so without the library is not always straightforward: it's easy to get it wrong using normal mathematics. For example, it's simple to work out the difference in time between 10:30 and 10:50 (subtract 30 from 50), but slightly more complicated when you have 10:44 and 11:17 (add (60 - 44) to 17). Things become even trickier if the two times are split across two days (for example, the difference in minutes between 23:07 on Monday 31 May and 11:43 on Tuesday 1 June). The `datetime` library makes this type of operation much simpler by allowing you to create `datetime` objects that you can simply add to or subtract from each other.  
+### The Astro Pi sensors
 
-By recording and storing the time at the start of your experiment, you can then repeatedly check to see if the current time is greater than that start time plus a certain number of minutes, seconds, or hours. This difference is known as a `timedelta`. Can you think of how you would use the `timedelta` library to write a function that prints "Hello from the ISS!" every second, for 2 minutes?
+The Astro Pi includes a range of easy to use sensors that are ready to use for your experiments:
 
----hints---
----hint---
+- Accelerometer
+- Gyroscope
+- Magnetometer
+- Temperature sensor
+- Humidity sensor
+- Barometric pressure sensor
+- Light and colour sensor
+
+All of these sensors are accessed using the Sense HAT, which provides a simple way to take measurements from the environment. Take some time to [look at this project](https://projects.raspberrypi.org/en/projects/sense-hat-data-logger/1) to learn how to log measurements from these sensors to a csv file.
+
+There is also a PIR (passive infrared) motion sensor on the Astro Pis on the ISS, which can be accessed using the `gpiozero` library to create a `MotionSensor` object attached **specifically** to GPIO pin 12: 
+
 ```python
-from datetime import datetime, timedelta
-from time import sleep
+from gpiozero import MotionSensor
 
-# Create a `datetime` variable to store the start time
-start_time = datetime.now()
-# Create a `datetime` variable to store the current time
-# (these will be almost the same at the start)
-now_time = datetime.now()
-# Run a loop for 2 minutes
-while (now_time < start_time + timedelta(minutes=2)):
-    print("Doing stuff")
-    sleep(1)
-    # Update the current time
-    now_time = datetime.now()
+print("Inititating motion detection")
+pir = MotionSensor(pin=12)
+pir.wait_for_motion()
+print("Motion detected")
+pir.wait_for_no_motion()
 ```
----/hint---
----/hints---
 
-If we put some of the code being looped into its own function:
+To learn more, start with [this project](https://projects.raspberrypi.org/en/projects/getting-started-with-the-sense-hat/7), and look at the library documentation.
+
+--- collapse ---
+---
+title: Documentation
+---
+The [Sense HAT documentation](https://pythonhosted.org/sense-hat/) contains sections on how to retrieve data from the [environmental sensors](https://pythonhosted.org/sense-hat/api/#environmental-sensors) (temperature, humidity, pressure) and the [Inertial Measurement Unit (IMU)](https://pythonhosted.org/sense-hat/api/#imu-sensor) (acceleration, orientiation). Additional documentation is available for interacting with the [light and colour sensor](https://gist.github.com/boukeas/e46ab3558b33d2f554192a9b4265b85f). You can also explore the wide range of [Sense HAT projects](https://projects.raspberrypi.org/en/projects?hardware%5B%5D=sense-hat) available from the Raspberry Pi Foundation.
+
+For the PIR sensor, check out the gpiozero [documentation](https://gpiozero.readthedocs.io/en/stable/api_input.html#motionsensor-d-sun-pir), which shows the different ways in which you can interact with the sensor.
+---/collapse---
+
+## Recording images using the camera
+
+The Astro Pis on the ISS are equipped with a high-quality camera each so that you can take pictures of Earth - something normally only astronauts can do! Take some time now to read over the [Getting started with picamera](https://projects.raspberrypi.org/en/projects/getting-started-with-picamera/) project, to learn how to use it.
+
+<p style="border-left: solid; border-width:10px; border-color: #0faeb0; background-color: aliceblue; padding: 10px;">
+Check the Mission Specific Guideline to make sure you are allowed to use the camera!
+</p>
+
+--- collapse ---
+---
+title: Capturing location data
+---
+It is very useful to record the position of the Space Station for any images that you capture. You can do this by attaching **metadata** to the image file itself using the `exif` library.
+
+In the snippet below, a function called `capture` is called to capture an image, after setting the EXIF data to the current latitude and longitude. The coordinates in the EXIF data of images are stored using a variant of the degrees:minutes:seconds (DMS) format, and you can see how the `convert` function takes the data returned `ISS.coordinates()` and converts it into a format suitable for storing as EXIF data. Using functions to perform these tasks keeps the program tidy.
 
 ```python
-def action_to_repeat():
-    print("Doing stuff")
-    sleep(1)
-```
-can you alter the original loop to use this function, and to make it reusable for different durations?
+from orbit import ISS
+from picamera import PiCamera
+from pathlib import Path
 
----hints---
----hint---
-To reuse code, you might want to consider putting the whole `while` loop inside its own function. Remember, you can pass functions as values to a function in Python
----/hint---
----hint---
-```python
-from datetime import datetime, timedelta
-from time import sleep
-
-def run_for(time_delta, action):
+def convert(angle):
     """
-    Repeats an action/function until the timedelta
-    has elapsed
+    Convert a `skyfield` Angle to an EXIF-appropriate 
+    representation (positive rationals)
+    e.g. 98° 34' 58.7 to "98/1,34/1,587/10"
+
+    Return a tuple containing a boolean and the converted angle,
+    with the boolean indicating if the angle is negative.
+    """
+    sign, degrees, minutes, seconds = angle.signed_dms()
+    exif_angle = f'{degrees:.0f}/1,{minutes:.0f}/1,{seconds*10:.0f}/10'
+    return sign < 0, exif_angle
+
+def capture(camera, image):
+    """Use `camera` to capture an `image` file with lat/long EXIF data."""
+    point = ISS.coordinates()
+
+    # Convert the latitude and longitude to EXIF-appropriate representations
+    south, exif_latitude = convert(point.latitude)
+    west, exif_longitude = convert(point.longitude)
     
-    :param time_delta: The timedelta to wait for
-    :type timedelta
-    :param: The action/function to repeat
-    :type function
-    """
-    # Create a `datetime` variable to store the start time
-    start_time = datetime.now()
-    # Create a `datetime` variable to store the current time
-    # (these will be almost the same at the start)
-    now_time = datetime.now()
-    # Run a loop for time minutes
-    while (now_time < start_time + time_delta):
-        # Do the action
-	action()
-        # Update the current time
-        now_time = datetime.now()
+    # Set the EXIF tags specifying the current location
+    camera.exif_tags['GPS.GPSLatitude'] = exif_latitude
+    camera.exif_tags['GPS.GPSLatitudeRef'] = "S" if south else "N"
+    camera.exif_tags['GPS.GPSLongitude'] = exif_longitude
+    camera.exif_tags['GPS.GPSLongitudeRef'] = "W" if west else "E"
 
+    # Capture the image
+    camera.capture(image)
+
+cam = PiCamera()
+cam.resolution = (1296,972)
+
+base_folder = Path(__file__).parent.resolve()
+capture(cam, f"{base_folder}/gps1.jpg")
 ```
----/hint---
----/hints---
+![A photo taken from the ISS of the Grand Canyon](images/zz_astropi_1_photo_387.jpg)
+
+When coordinate information is included in the EXIF metadata of your captured images, you can use software such as [DigiKam](https://www.digikam.org/about/) (included in the Desktop Flight OS) or an online service to automatically locate the position where the image was taken on a map. Alternatively, you can extract the coordinates from the image using the `exif` library.
+
+--- /collapse ---
+
+### Low-light and night-time photography
+
+Night-time photography using the Astro Pi's Camera Module is difficult: the ISS is travelling so fast that a long exposure time is needed, and this makes the photos come out very blurry in low-light conditions. There is a very low chances of your program being run while the ISS is above a bright city without cloud cover. The light sensitivity of the camera is quite good, but it needs to be used with the best software settings for the particular situation, and it is difficult to anticipate what those settings will be and include them in your program. Having the camera adapt to changing light conditions in real time is also tricky, especially when the camera is moving relative to the light source, as is the case for the Astro Pis on the ISS.
 
 ## Example
 
 The team from CoderDojo Tatooine wants to investigate whether the environment on the ISS is affected by the surface of the Earth it is passing over. Does the ISS get hotter when it passes over a desert, or wetter when it is above the sea?
 
-To do this, they will repeatedly collect temperature and humidity data for 180 minutes. If the function that collects data once is called `collect_data_once` and is defined in another, then their code might look like this:
+To do this, they will have to collect temperature and humidity data. They write a function called `collect_data` to do this, that returns a tuple 
 
 ```python
-from datetime import datetime, timedelta
-from time import sleep
-from .another_file import collect_data_once
+from sense_hat import SenseHat
 
-# Create a `datetime` variable to store the start time
-start_time = datetime.now()
-# Create a `datetime` variable to store the current time
-# (these will be almost the same at the start)
-now_time = datetime.now()
-# Run a loop for 178 minutes
-while (now_time < start_time + timedelta(minutes=178)):
-    collect_data_once()
-    # Update the current time
-    now_time = datetime.now()
+def collect_data():
+    sense = SenseHat()
+    return sense.get_temperature(), sense.get_humidity()
 ```
 
-<p style="border-left: solid; border-width:10px; border-color: #0faeb0; background-color: aliceblue; padding: 10px;">
-**Note:** When deciding on the runtime for your code, make sure you take into account how long it takes for your loop to complete a cycle. So if you want to make use of the full 3-hour (180-minute) experiment slot available, but each loop through your code takes 6 minutes to complete, then your `timedelta` should be `180-6 = 174` minutes, to ensure that your code finishes __before__ the 3 hours have elapsed.
-</p>
 
-## Next
+##
 
-On the next page we will look at how to take and store measurements, and also how the `collect_data_once` function could be defined.
