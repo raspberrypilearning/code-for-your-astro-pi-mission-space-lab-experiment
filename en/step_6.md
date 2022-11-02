@@ -50,34 +50,35 @@ print(location)
 
 --- /collapse ---
 
-If you need to, you can access the individual elements of the locaiton, using the [`GeographicPosition` API](https://rhodesmill.org/skyfield/api-topos.html#skyfield.toposlib.GeographicPosition)
+If you need to, you can access the individual elements of the location, using the [`GeographicPosition` API](https://rhodesmill.org/skyfield/api-topos.html#skyfield.toposlib.GeographicPosition)
 
 ```python
 print(f'Latitude: {location.latitude}')
 print(f'Longitude: {location.longitude}')
 print(f'Elevation: {location.elevation.km}')
 ```
+Note that the latitude and longitude are `Angle`s and the elevation is a `Distance`. The documentation describes [how to switch between different `Angle` representations](https://rhodesmill.org/skyfield/api-units.html#skyfield.units.Angle) or [how to express `Distance` in different units](https://rhodesmill.org/skyfield/api-units.html#skyfield.units.Distance): 
 
 --- collapse ---
 ---
-title: A note about units
+title: Latitude and longitude
 ---
 
-Note that the latitude and longitude are `Angle`s and the elevation is a `Distance`. The documentation describes [how to switch between different `Angle` representations](https://rhodesmill.org/skyfield/api-units.html#skyfield.units.Angle) or [how to express `Distance` in different units](https://rhodesmill.org/skyfield/api-units.html#skyfield.units.Distance): 
+There are a few different ways of representing latitude and longitude, and it is important to select the appropriate one, especially when working with software and libraries that expect the data to be in a certain format.
 
+#### Decimal Degrees format 
 ```python
 print(f'Lat: {location.latitude.degrees:.1f}, Long: {location.longitude.degrees:.1f}')
 ```
 
-There are a few different ways of representing latitude and longitude, and it is important to select the appropriate one, especially when working with software and libraries that expect the data to be in a certain format.
+The code above outputs latitude and longitude values in the Decimal Degrees (DD) format, where coordinates are written using degrees (°) as the unit of measurement. There are 180° of latitude: 90° north and 90° south of the equator. There are 360° of longitude: 180° east and 180° west of the prime meridian (the zero point of longitude, defined as a point in Greenwich, England). To precisely specify a location, each degree can be reported as a decimal number, e.g. (-28.277777, 71.5841666). 
 
-The code above outputs latitude and longitude using the Decimal Degrees (DD) format, where coordinates are written using degrees (°) as the unit of measurement. There are 180° of latitude: 90° north and 90° south of the equator. There are 360° of longitude: 180° east and 180° west of the prime meridian (the zero point of longitude, defined as a point in Greenwich, England). To precisely specify a location, each degree can be reported as a decimal number, e.g. (-28.277777, 71.5841666). 
-
-Another approach is the degrees:minutes:seconds (DMS) format, where each degree is split into 60 minutes (’) and each minute is divided into 60 seconds (”). For even finer accuracy, fractions of seconds given by a decimal point are used. The **sign** of the angle indicates whether the point that the coordinate refers to is north or south of the equator (for latitude) and east or west of the meridian (for longitude).
+#### Degrees minutes seconds
 
 ```python
 print(f'Lat: {location.latitude.signed_dms()}, Long: {location.longitude.signed_dms()}')
 ```
+Another approach is the degrees:minutes:seconds (DMS) format, where each degree is split into 60 minutes (’) and each minute is divided into 60 seconds (”). For even finer accuracy, fractions of seconds given by a decimal point are used. The **sign** of the angle indicates whether the point that the coordinate refers to is north or south of the equator (for latitude) and east or west of the meridian (for longitude).
 
 ---/collapse---
 
