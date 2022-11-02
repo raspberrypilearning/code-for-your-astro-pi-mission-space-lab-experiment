@@ -29,7 +29,7 @@ ISS (ZARYA)
 When you import the `ISS` object from the `orbit` library, an attempt is made to retrieve the TLE data from a file called `iss.tle` in the home folder. If the file is not present but an internet connection is available, the latest data will be downloaded automatically into the `iss.tle` file, so you don't need to worry about it. However, if your Astro Pi kit has no internet access, then you need to manually download the latest [ISS TLE data](http://www.celestrak.com/NORAD/elements/stations.txt), copy the three ISS-related lines into a file called `iss.tle`, and then place this file into your home folder. 
 
 The `ISS` object is implemented as a skyfield `EarthSatellite` object 
-(see the [reference](https://rhodesmill.org/skyfield/api-satellites.html#skyfield.sgp4lib.EarthSatellite) and examples). For example, this is how to compute the coordinates of the Earth location that is currently directly beneath the ISS:
+(see the [reference](https://rhodesmill.org/skyfield/api-satellites.html#skyfield.sgp4lib.EarthSatellite) and [examples](https://rhodesmill.org/skyfield/earth-satellites.html)). For example, this is how to compute the coordinates of the Earth location that is currently directly beneath the ISS:
 
 ```python
 from orbit import ISS
@@ -61,10 +61,14 @@ Note that the latitude and longitude are `Angle`s and the elevation is a `Distan
 
 --- collapse ---
 ---
-title: Latitude and longitude
+title: What are latitude and longitude?
 ---
 
-There are a few different ways of representing latitude and longitude, and it is important to select the appropriate one, especially when working with software and libraries that expect the data to be in a certain format.
+Latitude and longitude are a system of lines used to describe the location of anywhere on Earth. Latitude measures the distance north or south of the equator, while longitude measures the distance west or east of the equator. In the diagram below, latitude lines are horizontal and longitude lines are vertical.
+
+![Diagram of latitudinal and longitudinal lines](images/latitude-longitude.png)
+
+There are a couple of different ways of expressing latitude and longitude which are useful to be aware of:
 
 #### Decimal Degrees format 
 ```python
