@@ -25,13 +25,28 @@ while (now_time < start_time + timedelta(minutes=2)):
     now_time = datetime.now()
 ```
 
-Instead of printing "Hello from the ISS" we can use a function we wrote in the previous step to collect data or capture an image. Can you alter the original loop to use this function, and to make it reusable for different durations?
+Instead of calling the print function we can use call any function, including a function to collect data or capture an image. Can you alter the code above to make it reusable for any function, so that you can use it in your own program?
 
----hints---
----hint---
-To reuse code, you might want to consider putting the whole `while` loop inside its own function. Remember, you can pass functions as values to a function in Python
----/hint---
----hint---
+--- collapse ---
+---
+title: Solution
+---
+Remember that in Python you can pass functions as values:
+
+```python
+def say_hello():
+    return "Hello world"
+action = say_hello
+```
+`say_hello` without the `()` refers to the function itself, and does not call it.
+Here we assign the function itself to a variable `action`, and we can call this variable later to get the result of the function: 
+
+```python
+action()
+```
+
+We use this idea of passing functions as variables to modify the while loop so that it acccepts any function:
+
 ```python
 from datetime import datetime, timedelta
 from time import sleep
@@ -54,43 +69,22 @@ def run_for(time_delta, action):
     # Run a loop for time minutes
     while (now_time < start_time + time_delta):
         # Do the action
-	action()
+        action()
         # Update the current time
         now_time = datetime.now()
 
 ```
----/hint---
----/hints---
+---/collapse ---
 
-### Example
+## Your experiment
 
-The team from CoderDojo Tatooine wants to investigate whether the environment on the ISS is affected by the surface of the Earth it is passing over. Does the ISS get hotter when it passes over a desert, or wetter when it is above the sea?
+Can you modify your `main.py` to use the code above, so that it runs for just under 3 hours?
 
-To do this, they will repeatedly collect temperature and humidity data for 180 minutes. If the function that collects data once is called `collect_data_once` and is defined in another, then their code might look like this:
-
-```python
-from datetime import datetime, timedelta
-from time import sleep
-from .another_file import collect_data_once
-
-# Create a `datetime` variable to store the start time
-start_time = datetime.now()
-# Create a `datetime` variable to store the current time
-# (these will be almost the same at the start)
-now_time = datetime.now()
-# Run a loop for 178 minutes
-while (now_time < start_time + timedelta(minutes=178)):
-    collect_data_once()
-    # Update the current time
-    now_time = datetime.now()
-```
+--- task ---
+Modify your `main.py` program to run for 179 minutes.
+--- /task ---
 
 <p style="border-left: solid; border-width:10px; border-color: #0faeb0; background-color: aliceblue; padding: 10px;">
 **Note:** When deciding on the runtime for your code, make sure you take into account how long it takes for your loop to complete a cycle. So if you want to make use of the full 3-hour (180-minute) experiment slot available, but each loop through your code takes 6 minutes to complete, then your `timedelta` should be `180-6 = 174` minutes, to ensure that your code finishes __before__ the 3 hours have elapsed.
 </p>
-
-### Error handling
-
-TODO
-Can you alter the loop code to catch specific errors?
 

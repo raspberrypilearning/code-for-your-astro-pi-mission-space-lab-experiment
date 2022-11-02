@@ -26,6 +26,19 @@ Once you have answered the 5 questions above and created a rough timeline for yo
 This step will really help you to make sure the outputs of your program are useful for later stages of MSL, and that you remain focused throughout stage 2!
 </p>
 
+### Do some research
+
+There are lots of resources on how to use the Astro Pi hardware on the [projects.raspberrypi.org](https://projects.raspberrypi.org) website. To make the most of your opportunity we recommend you complete either of the pathways below, depending on the nature of your experiment:
+
+- [Life in Space pathway](https://projects.raspberrypi.org/en/pathways/life-in-space)
+- [Life on Earth pathway](https://projects.raspberrypi.org/en/pathways/life-on-earth)
+
+--- task ---
+Pick a project pathway to look at and create a plan to studiy it as a team
+--- / task ---
+
+You don't need to just restrict yourself to the projects site though! You could use a search engine to try and find examples of other teams working on a similar idea, to find more data for a machine learning experiment, or to engage with real scientific literature.
+
 ### Work out the key program tasks visually
 Once you have a good idea of what you are trying to achieve with your program, the next step is to work out the tasks that the program will need to do. We recommend doing this visually using pen and paper, or a whiteboard, or online using a tool like [miro](https://miro.com).
 
@@ -77,4 +90,4 @@ Whichever method you choose to track your work, make sure to create time to meet
 
 ## Get coding!
 
-Now that you have a much better idea of what your experiment program is going to do, it's time to get coding! Continue reading this guide for help on writing the program 'scaffolding' code, and other tips and tricks.
+Now that you have a much better idea of what your experiment program is going to do, it's time to get coding! Continue reading for specific guidance on how to write aspects of your program.
