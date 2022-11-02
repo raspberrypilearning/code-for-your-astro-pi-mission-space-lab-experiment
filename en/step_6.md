@@ -4,12 +4,10 @@ In this section we are going to modify our `main.py` so that it will run and sto
 
 #### The datetime library
 
-One way to stop your program after a specific length of time is using the `datetime` Python library. This library makes it easy to work with times and compare them. Doing so without the library is not always straightforward: it's easy to get it wrong using normal mathematics. For example, it's simple to work out the difference in time between 10:30 and 10:50 (subtract 30 from 50), but slightly more complicated when you have 10:44 and 11:17 (add (60 - 44) to 17). Things become even trickier if the two times are split across two days (for example, the difference in minutes between 23:07 on Monday 31 May and 11:43 on Tuesday 1 June). The `datetime` library makes this type of operation much simpler by allowing you to create `datetime` objects that you can simply add to or subtract from each other.  
+One way to stop a Python program after a specific length of time is using the `datetime` Python library. This library makes it easy to work with times and compare them. Doing so without the library is not always straightforward: it's easy to get it wrong using normal mathematics. For example, it's simple to work out the difference in time between 10:30 and 10:50 (subtract 30 from 50), but slightly more complicated when you have 10:44 and 11:17 (add (60 - 44) to 17). Things become even trickier if the two times are split across two days (for example, the difference in minutes between 23:07 on Monday 31 May and 11:43 on Tuesday 1 June). The `datetime` library makes this type of operation much simpler by allowing you to create `datetime` objects that you can simply add to or subtract from each other.  
 
-By recording and storing the time at the start of your experiment, you can then repeatedly check to see if the current time is greater than that start time plus a certain number of minutes, seconds, or hours. This difference is known as a `timedelta`. Can you think of how you would use the `timedelta` library to write a function that prints "Hello from the ISS!" every second, for 2 minutes?
+By recording and storing the time at the start of your experiment, you can then check repeatedly to see if the current time is greater than that start time plus a certain number of minutes, seconds, or hours. In the program below this is used to print "Hello from the ISS" every second for 2 minutes:
 
----hints---
----hint---
 ```python
 from datetime import datetime, timedelta
 from time import sleep
@@ -21,22 +19,13 @@ start_time = datetime.now()
 now_time = datetime.now()
 # Run a loop for 2 minutes
 while (now_time < start_time + timedelta(minutes=2)):
-    print("Doing stuff")
+    print("Hello from the ISS")
     sleep(1)
     # Update the current time
     now_time = datetime.now()
 ```
----/hint---
----/hints---
 
-If we put some of the code being looped into its own function:
-
-```python
-def action_to_repeat():
-    print("Doing stuff")
-    sleep(1)
-```
-can you alter the original loop to use this function, and to make it reusable for different durations?
+Instead of printing "Hello from the ISS" we can use a function we wrote in the previous step to collect data or capture an image. Can you alter the original loop to use this function, and to make it reusable for different durations?
 
 ---hints---
 ---hint---
