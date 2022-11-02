@@ -34,8 +34,8 @@ There are lots of resources on how to use the Astro Pi hardware on the [projects
 - [Life on Earth pathway](https://projects.raspberrypi.org/en/pathways/life-on-earth)
 
 --- task ---
-Pick a project pathway to look at and create a plan to studiy it as a team
---- / task ---
+Pick a project pathway to look at and create a plan to study it as a team
+--- /task ---
 
 You don't need to just restrict yourself to the projects site though! You could use a search engine to try and find examples of other teams working on a similar idea, to find more data for a machine learning experiment, or to engage with real scientific literature.
 
