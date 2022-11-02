@@ -2,7 +2,7 @@
 
 In this section we are going to start writing your experiment program, and learn how to record data using the sensors and camera! By the end of this page, you will be able to collect measurements and images to support your hypotheses - neat!
 
-To get started, create a file called `main.py`. In this file we will write our functions to take measurements and capture images. Continue reading to find out more!
+To get started, create a file called `main.py`. In this file we will write our functions to take measurements and capture images.
 
 ---task---
 Create a file called `main.py`
@@ -20,22 +20,7 @@ The Astro Pis on the ISS are equipped with a high-quality camera each so that yo
 Read through the [Getting started with picamera](https://projects.raspberrypi.org/en/projects/getting-started-with-picamera/) project.
 ---/task---
 
-As you will have noticed by reading the [Getting started with picamera](https://projects.raspberrypi.org/en/projects/getting-started-with-picamera/) project, there are a lot of settings to choose from! Reading the [picamera documentation](https://picamera.readthedocs.io/en/release-1.13/) can really help you make sense of it all.
-
---- collapse ---
----
-title: Choosing camera settings
----
-The `picamera` library allows you to choose a selection of camera settings. 
-When choosing which settings to use, or whether to leave the settings on automatic, be aware that you will be taking pictures in a variety of conditions with a range of weather, landscapes, and lighting! Night-time photography using the Astro Pi's Camera Module is particularly difficult: the ISS is travelling so fast that a long exposure time is needed, and this makes the photos come out very blurry in low-light conditions. 
---- /collapse---
-
-Now it's your turn! Can you use the linked examples to create a function to capture images in your `main.py` file? 
-
----task---
-Write a function to capture images and save it in your `main.py` file.
----/task---
-
+As you will have noticed by reading the [Getting started with picamera](https://projects.raspberrypi.org/en/projects/getting-started-with-picamera/) project, the [`picamera` library](https://picamera.readthedocs.io/en/release-1.13/) allows you to set a huge selection of camera settings! When choosing which settings to use, or whether to leave the settings on automatic, be aware that you will be taking pictures in a variety of conditions with a range of weather, landscapes, and lighting! Night-time photography using the Astro Pi's Camera Module is particularly difficult: the ISS is travelling so fast that a long exposure time is needed, and this makes the photos come out very blurry in low-light conditions.g
 
 ## The Astro Pi sensors
 
@@ -49,10 +34,10 @@ The Astro Pi includes a range of easy to use sensors that are ready to use for y
 - Barometric pressure sensor
 - Light and colour sensor
 
-All of these sensors are accessed using the Sense HAT, which provides a simple way to take measurements from the environment. Take some time to look at the 
+All of these sensors are accessed using the Sense HAT, which provides a simple way to take measurements from the environment. Take some time to look at theg
 [Getting started with the Sense HAT](https://projects.raspberrypi.org/en/projects/getting-started-with-the-sense-hat/7) and [Sense HAT data logger](https://projects.raspberrypi.org/en/projects/sense-hat-data-logger/1) projects to learn how to log measurements from these sensors to a csv file.
 
-There is also a PIR (passive infrared) motion sensor on the Astro Pis on the ISS, which can be accessed using the `gpiozero` library to create a `MotionSensor` object attached **specifically** to GPIO pin 12: 
+There is also a PIR (passive infrared) motion sensor on the Astro Pis on the ISS, which can be accessed using the `gpiozero` library to create a `MotionSensor` object attached **specifically** to GPIO pin 12:g
 
 ```python
 from gpiozero import MotionSensor
@@ -82,7 +67,7 @@ Having read the [Getting started with the Sense HAT](https://projects.raspberryp
 title: An example
 ---
 
-The team from CoderDojo Tatooine wants to investigate whether the environment on the ISS is affected by the day and night cycle. Does the ISS get colder at night, or drier in the day? To do this, they will first have to collect temperature and humidity data. 
+The team from CoderDojo Tatooine wants to investigate whether the environment on the ISS is affected by the day and night cycle. Does the ISS get colder at night, or drier in the day? To do this, they will first have to collect temperature and humidity data.g
 
 Fortunately, their team have visited the [Sense HAT documentation](https://pythonhosted.org/sense-hat/), and particularly the [API page](https://pythonhosted.org/sense-hat/api/), and have found the relevant explanations:
 
@@ -94,8 +79,4 @@ def collect_data():
     return sense.get_temperature(), sense.get_humidity()
 ```
 --- /collapse ---
-
----task---
-Write a function that collects the data you need from the Sense HAT or PIR sensors. Don't forget to look at the documentation and projects for help!
----/task---
 
