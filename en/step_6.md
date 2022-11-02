@@ -50,14 +50,14 @@ print(location)
 
 --- /collapse ---
 
-If you need to, you can access the individual elements of the location, using the [`GeographicPosition` API](https://rhodesmill.org/skyfield/api-topos.html#skyfield.toposlib.GeographicPosition)
+If you need to, you can access the individual elements of the location, using the [`GeographicPosition` API](https://rhodesmill.org/skyfield/api-topos.html#skyfield.toposlib.GeographicPosition).
 
 ```python
 print(f'Latitude: {location.latitude}')
 print(f'Longitude: {location.longitude}')
 print(f'Elevation: {location.elevation.km}')
 ```
-Note that the latitude and longitude are `Angle`s and the elevation is a `Distance`. The documentation describes [how to switch between different `Angle` representations](https://rhodesmill.org/skyfield/api-units.html#skyfield.units.Angle) or [how to express `Distance` in different units](https://rhodesmill.org/skyfield/api-units.html#skyfield.units.Distance): 
+Note that the latitude and longitude are `Angle`s and the elevation is a `Distance`. The documentation describes [how to switch between different Angle representations](https://rhodesmill.org/skyfield/api-units.html#skyfield.units.Angle) or [how to express Distance in different units](https://rhodesmill.org/skyfield/api-units.html#skyfield.units.Distance): 
 
 --- collapse ---
 ---
@@ -86,80 +86,8 @@ Another approach is the degrees:minutes:seconds (DMS) format, where each degree 
 
 ---/collapse---
 
-### Example: Which hemisphere?
+### Capturing location data
 
-If you wanted your experiment to run when the ISS is above a particular location on Earth, you could use the values of latitude and longitude to trigger some other action. Remember that the ISS's orbit does not pass over everywhere on Earth, and that more of our planet's surface is water than land. So in your 3-hour experimental window, the chances of passing over a very specific city or location will be low.
-
-To try out how this could be useful in your program, modify the code above so that it will print a message when the ISS is above the southern hemisphere.
-
----hints---
----hint---
-If a location is in the southern hemisphere, it has a negative latitude because it is "below" the equator.
-
----/hint---
----hint---
-You can test whether a number is negative by checking if it is less than 0.
-
----/hint---
----hint---
-Your code should look like this:
-
-```python
-from orbit import ISS
-
-location = ISS.coordinates()
-latitude = location.latitude.degrees
-if latitude < 0:
-    print("In Southern hemisphere")
-else:
-    print("In Northern hemisphere")
-```
----/hint---
----/hints---
-
-### Example: ISS in the sunlight
-
-The behaviour of your code might differ depending on whether or not the ISS is in sunlight. The `skyfield` library makes it very easy to obtain this information for any `EarthSatellite` object. Can you consult the documentation and write a program that displays  every 30 seconds whether or not the ISS is in sunlight?
-
----hints---
----hint---
-According to the [documentation](https://rhodesmill.org/skyfield/earth-satellites.html#find-when-a-satellite-is-in-sunlight) you can check whether a satellite is in sunlight at a given point in time by using the `is_sunlit` method.
----/hint---
----hint---
-You will need to start by loading an **ephemeris**. According to the [documentation](https://rhodesmill.org/skyfield/planets.html), this is a high accuracy table with the position of celestial objects. In this case, the ephemeris is necessary for computing the positions of the Earth and the Sun. To save you the trouble of supplying this file yourself, the `de421.bsp` ephemeris file may be imported directly from the Flight OS `orbit` library by executing `from orbit import ephemeris`.
----/hint---
----hint---
-Remember to use a loop and update the current time within the loop, before computing the position of the ISS.
----/hint---
----hint---
-Your code should look like this:
-
-```python
-from time import sleep
-from orbit import ISS, ephemeris
-from skyfield.api import load
-
-timescale = load.timescale()
-
-while True:
-    t = timescale.now()
-    if ISS.at(t).is_sunlit(ephemeris):
-        print("In sunlight")
-    else:
-        print("In darkness")
-    sleep(30)
-```
----/hint---
----/hints---
-
-**Note**: Because of the altitude of the ISS, the sun rises on the ISS slightly earlier than it does on the surface of the Earth below the ISS. Likewise, the sun sets on the ISS slightly later than it does on the surface of the Earth directly below it.
-
-
-
---- collapse ---
----
-title: Capturing location data
----
 It is very useful to record the position of the Space Station for any images that you capture. You can do this by attaching **metadata** to the image file itself using the `exif` library.
 
 In the snippet below, a function called `capture` is called to capture an image, after setting the EXIF data to the current latitude and longitude. The coordinates in the EXIF data of images are stored using a variant of the degrees:minutes:seconds (DMS) format, and you can see how the `convert` function takes the data returned `ISS.coordinates()` and converts it into a format suitable for storing as EXIF data. Using functions to perform these tasks keeps the program tidy.
@@ -205,9 +133,53 @@ cam.resolution = (1296,972)
 base_folder = Path(__file__).parent.resolve()
 capture(cam, f"{base_folder}/gps1.jpg")
 ```
+
+--- collapse ---
+---
+title: Finding the location of an image
+---
 ![A photo taken from the ISS of the Grand Canyon](images/zz_astropi_1_photo_387.jpg)
 
 When coordinate information is included in the EXIF metadata of your captured images, you can use software such as [DigiKam](https://www.digikam.org/about/) (included in the Desktop Flight OS) or an online service to automatically locate the position where the image was taken on a map. Alternatively, you can extract the coordinates from the image using the `exif` library.
 
 --- /collapse ---
+
+### Example: ISS in the sunlight
+
+The behaviour of your code might differ depending on whether or not the ISS is in sunlight. The `skyfield` library makes it very easy to obtain this information for any `EarthSatellite` object. Can you consult the documentation and write a program that displays  every 30 seconds whether or not the ISS is in sunlight?
+
+---hints---
+---hint---
+According to the [documentation](https://rhodesmill.org/skyfield/earth-satellites.html#find-when-a-satellite-is-in-sunlight) you can check whether a satellite is in sunlight at a given point in time by using the `is_sunlit` method.
+---/hint---
+---hint---
+You will need to start by loading an **ephemeris**. According to the [documentation](https://rhodesmill.org/skyfield/planets.html), this is a high accuracy table with the position of celestial objects. In this case, the ephemeris is necessary for computing the positions of the Earth and the Sun. To save you the trouble of supplying this file yourself, the `de421.bsp` ephemeris file may be imported directly from the Flight OS `orbit` library by executing `from orbit import ephemeris`.
+---/hint---
+---hint---
+Remember to use a loop and update the current time within the loop, before computing the position of the ISS.
+---/hint---
+---hint---
+Your code should look like this:
+
+```python
+from time import sleep
+from orbit import ISS, ephemeris
+from skyfield.api import load
+
+timescale = load.timescale()
+
+while True:
+    t = timescale.now()
+    if ISS.at(t).is_sunlit(ephemeris):
+        print("In sunlight")
+    else:
+        print("In darkness")
+    sleep(30)
+```
+---/hint---
+---/hints---
+
+**Note**: Because of the altitude of the ISS, the sun rises on the ISS slightly earlier than it does on the surface of the Earth below the ISS. Likewise, the sun sets on the ISS slightly later than it does on the surface of the Earth directly below it.
+
+
 
