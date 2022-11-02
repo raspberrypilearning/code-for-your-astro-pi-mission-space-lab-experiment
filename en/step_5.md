@@ -117,7 +117,7 @@ Check out the example below if you need more help.
 
 ---collapse---
 ---
-title: An example
+title: Measuring temperature and humidity
 ---
 
 The team from CoderDojo Numenor wants to investigate whether the environment on the ISS is affected by the day and night cycle. Does the ISS get colder at night, or drier in the day? To do this, they will first have to collect temperature and humidity data.
@@ -132,4 +132,3 @@ def collect_data():
     return sense.get_temperature(), sense.get_humidity()
 ```
 --- /collapse ---
-
