@@ -2,25 +2,23 @@
 
 For many experiments it's really useful to be able to calculate the location of the ISS. Knowing this can help you work out where in the world the ISS is flying over, or to determine if the Earth and ISS is sunlit, or even allow you to alter your program logic to react to this information!
 
-### The `orbit` library
+### The orbit library
 
-The easiest way to find the location of the ISS is to use the `orbit` Python library, which internally uses the `skyfield` library to create an `ISS` object that you can import in your program:
+The easiest way to find the location of the ISS is to use the `orbit` Python library. You can import this library and use the `coordinates` function to work out where on Earth the ISS is flying over:
+
+
 
 ```python
 from orbit import ISS
+location = ISS.coordinates()
+print(location)
 ```
 
 ---collapse---
 ---
 title: How does it work?
 ---
-Using the Python `skyfield` library, you can calculate the positions of space objects within our solar system. This includes the Sun, the Moon, the planets, and many Earth satellites such as the ISS. You can use the ISS’s current location above the Earth to identify whether the ISS is flying over land or sea, or which country it is passing over.
-
-For accurate calculations, `skyfield` requires the most recent two-line element (TLE) set for the ISS. TLE is a data format used to convey sets of orbital elements that describe the orbits of Earth satellites. 
-
-When you import the `ISS` object from the `orbit` library, an attempt is made to retrieve the TLE data from a file called `iss.tle` in the home folder. If the file is not present but an internet connection is available, the latest data will be downloaded automatically into the `iss.tle` file, so you don't need to worry about it.
-
-However, if your Astro Pi kit has no internet access, then you need to manually download the latest [ISS TLE data](http://www.celestrak.com/NORAD/elements/stations.txt){:target="_blank"}, copy the three ISS-related lines into a file called `iss.tle`, and then place this file into your home folder. The TLE data will look something like this:
+The `orbit` library internally uses the [skyfield](https://rhodesmill.org/skyfield/) library.  Skyfield is a Python library that allows you to calculate the positions of space objects within our solar system. For accurate calculations, `skyfield` requires the most recent two-line element (TLE) set for the ISS. TLE is a data format used to convey sets of orbital elements that describe the orbits of Earth satellites, and looks something look something like this:
 
 ```
 ISS (ZARYA)             
@@ -28,10 +26,10 @@ ISS (ZARYA)
 2 25544  51.6454  12.1174 0003601  83.6963  83.5732 15.48975526287678
 ```
 
-When your code runs on the Space Station, we will make sure that the most accurate and up-to-date telemetry data will be used.
---- /collapse ---
+When you import the `ISS` object from the `orbit` library, an attempt is made to retrieve the TLE data from a file called `iss.tle` in the home folder. If the file is not present but an internet connection is available, the latest data will be downloaded automatically into the `iss.tle` file, so you don't need to worry about it. However, if your Astro Pi kit has no internet access, then you need to manually download the latest [ISS TLE data](http://www.celestrak.com/NORAD/elements/stations.txt), copy the three ISS-related lines into a file called `iss.tle`, and then place this file into your home folder. 
 
-You can use `ISS` just like any other `EarthSatellite` object in `skyfield` (see the [reference](https://rhodesmill.org/skyfield/api-satellites.html#skyfield.sgp4lib.EarthSatellite) and [examples](https://rhodesmill.org/skyfield/earth-satellites.html)). For example, this is how to compute the coordinates of the Earth location that is **currently** directly beneath the ISS:
+The `ISS` object is implemented as a skyfield `EarthSatellite` object 
+(see the [reference](https://rhodesmill.org/skyfield/api-satellites.html#skyfield.sgp4lib.EarthSatellite) and examples). For example, this is how to compute the coordinates of the Earth location that is currently directly beneath the ISS:
 
 ```python
 from orbit import ISS
@@ -46,26 +44,24 @@ location = position.subpoint()
 print(location)
 ```
 
-
-If you are not interested in setting or recording the time `t`, then the `ISS` object also offers a convenient `coordinates` method that you can use as an alternative for retrieving the coordinates of the location on Earth that is **currently** directly beneath the ISS:
-
-```python
-from orbit import ISS
-location = ISS.coordinates() # Equivalent to ISS.at(timescale.now()).subpoint()
-print(location)
-```
-
 <div style="border-left: solid; border-width:10px; border-color: #0faeb0; background-color: aliceblue; padding: 10px;">
 **Note**: The current position of the ISS is an **estimate**, based on the telemetry data and the current time. Therefore, when you are testing your program on Desktop Flight OS, you need to make sure that the system time has been set correctly.
 </div>
 
-Also, `location` is a `GeographicPosition`, so you can refer to the documentation and see [how you can access its individual elements](https://rhodesmill.org/skyfield/api-topos.html#skyfield.toposlib.GeographicPosition):
+--- /collapse ---
+
+If you need to, you can access the individual elements of the locaiton, using the [`GeographicPosition` API](https://rhodesmill.org/skyfield/api-topos.html#skyfield.toposlib.GeographicPosition)
 
 ```python
 print(f'Latitude: {location.latitude}')
 print(f'Longitude: {location.longitude}')
 print(f'Elevation: {location.elevation.km}')
 ```
+
+--- collapse ---
+---
+title: A note about units
+---
 
 Note that the latitude and longitude are `Angle`s and the elevation is a `Distance`. The documentation describes [how to switch between different `Angle` representations](https://rhodesmill.org/skyfield/api-units.html#skyfield.units.Angle) or [how to express `Distance` in different units](https://rhodesmill.org/skyfield/api-units.html#skyfield.units.Distance): 
 
@@ -82,6 +78,8 @@ Another approach is the degrees:minutes:seconds (DMS) format, where each degree 
 ```python
 print(f'Lat: {location.latitude.signed_dms()}, Long: {location.longitude.signed_dms()}')
 ```
+
+---/collapse---
 
 ### Example: Which hemisphere?
 
