@@ -6,8 +6,6 @@ For many experiments it's really useful to be able to calculate the location of 
 
 The easiest way to find the location of the ISS is to use the `orbit` Python library. You can import this library and use the `coordinates` function to work out where on Earth the ISS is flying over:
 
-
-
 ```python
 from orbit import ISS
 location = ISS.coordinates()
@@ -146,40 +144,32 @@ When coordinate information is included in the EXIF metadata of your captured im
 
 ### Example: ISS in the sunlight
 
-The behaviour of your code might differ depending on whether or not the ISS is in sunlight. The `skyfield` library makes it very easy to obtain this information for any `EarthSatellite` object. Can you consult the documentation and write a program that displays  every 30 seconds whether or not the ISS is in sunlight?
-
----hints---
----hint---
-According to the [documentation](https://rhodesmill.org/skyfield/earth-satellites.html#find-when-a-satellite-is-in-sunlight) you can check whether a satellite is in sunlight at a given point in time by using the `is_sunlit` method.
----/hint---
----hint---
-You will need to start by loading an **ephemeris**. According to the [documentation](https://rhodesmill.org/skyfield/planets.html), this is a high accuracy table with the position of celestial objects. In this case, the ephemeris is necessary for computing the positions of the Earth and the Sun. To save you the trouble of supplying this file yourself, the `de421.bsp` ephemeris file may be imported directly from the Flight OS `orbit` library by executing `from orbit import ephemeris`.
----/hint---
----hint---
-Remember to use a loop and update the current time within the loop, before computing the position of the ISS.
----/hint---
----hint---
-Your code should look like this:
+The behaviour of your code might differ depending on whether or not the ISS is in sunlight.
+The `skyfield` library includes an `is_sunlit` method (documentation [here](https://rhodesmill.org/skyfield/earth-satellites.html#find-when-a-satellite-is-in-sunlight)) which you can use with an "ephemeris" table to calculate whether the ISS is sunlit at a specific time:
 
 ```python
-from time import sleep
 from orbit import ISS, ephemeris
 from skyfield.api import load
 
 timescale = load.timescale()
-
-while True:
-    t = timescale.now()
-    if ISS.at(t).is_sunlit(ephemeris):
-        print("In sunlight")
-    else:
-        print("In darkness")
-    sleep(30)
+t = timescale.now()
+if ISS.at(t).is_sunlit(ephemeris):
+    print("In sunlight")
+else:
+    print("In darkness")
 ```
----/hint---
----/hints---
 
-**Note**: Because of the altitude of the ISS, the sun rises on the ISS slightly earlier than it does on the surface of the Earth below the ISS. Likewise, the sun sets on the ISS slightly later than it does on the surface of the Earth directly below it.
+--- collapse ---
+---
+title: What is an ephemeris?
+---
+An ephemeris is a high accuracy table of the position of celestial objects. In this case, it is needed to compute the positions of the Earth and the Sun at a specific point in time. 
+
+The `orbit` library makes it easy to import an ephemeris - all you have to do is put `from orbit import ephemeris` and use pass the `ephemeris` object to `is_sunlit`. In the background, `orbit` will download an ephemeris (`de421.bsp`) to your home folder. If you don't have internet access on your Raspberry Pi you will need to do this yourself by saving [this file](https://naif.jpl.nasa.gov/pub/naif/generic_kernels/spk/planets/a_old_versions/de421.bsp) on another computer and put it in your home folder manually. Fortunately these files never change so you only need to do this once!
+---/collapse ---
 
 
+<p style="border-left: solid; border-width:10px; border-color: #0faeb0; background-color: aliceblue; padding: 10px;">
+The `is_sunlit` method is a good approximation but it is not 100% reliable: remember that because of the altitude of the ISS the sun rises on the ISS slightly earlier than it does on the surface of the Earth below the ISS. Similarly, the sun sets on the ISS slightly later than it does on the surface of the Earth directly below it. 
+</p>
 
