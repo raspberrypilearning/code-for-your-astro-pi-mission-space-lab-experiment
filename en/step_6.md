@@ -46,9 +46,6 @@ location = position.subpoint()
 print(location)
 ```
 
----task---
-Can you find out the position of the ISS in 2 minutes time?
----/task---
 
 If you are not interested in setting or recording the time `t`, then the `ISS` object also offers a convenient `coordinates` method that you can use as an alternative for retrieving the coordinates of the location on Earth that is **currently** directly beneath the ISS:
 
