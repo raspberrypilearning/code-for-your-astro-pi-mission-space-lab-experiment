@@ -80,3 +80,46 @@ def collect_data():
 ```
 --- /collapse ---
 
+## Where to save your data
+
+You should make no assumptions about where your program will be stored when it is deployed on the ISS because the directory structure in the actual Flight OS is different than from the Kit OS version. Use the code below to work out which folder the `main.py` file is currently stored in, i.e. the `base_folder`:
+
+```python
+from pathlib import Path
+
+base_folder = Path(__file__).parent.resolve()
+```
+
+Then you can save your data into a file underneath this `base_folder`:
+
+```python
+data_file = base_folder / "data.csv"
+
+for i in range(10):
+    with open(data_file, "w", buffering=1) as f:
+        f.write(f"Some data: {i}")
+```
+
+<p style="border-left: solid; border-width:10px; border-color: #0faeb0; background-color: aliceblue; padding: 10px;">
+Make sure to check the MSL Guidelines for rules on files and filenames!
+</p>
+
+### Numbering plans for images and files
+
+Normally, experiments generate one or two `.csv` files, but it is very common to take lots of pictures. When dealing with lots of files of the same type, it's a good idea to follow a naming convention. In the example below, we use an obvious sequence number: `image_001.jpg`, `image_002.jpg`, _etc._ to keep our files organised
+
+```python
+from time import sleep
+from picamera import PiCamera
+from pathlib import Path
+
+base_folder = Path(__file__).parent.resolve()
+
+camera = PiCamera()
+camera.start_preview()
+sleep(2)
+for filename in camera.capture_continuous(f"{base_folder}/image_{counter:03d}.jpg"):
+    print(f'Captured {filename}')
+    sleep(300) # wait 5 minutes
+```
+
