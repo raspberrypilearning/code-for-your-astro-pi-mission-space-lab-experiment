@@ -1,16 +1,15 @@
-## Networking and system processes
+## Resources
 
-For security reasons, **your program is not allowed to access the network on the ISS**. It should not attempt to open a socket, access the internet, or make a network connection of any kind. This includes local network connections back to the Astro Pi itself. As part of testing your program, you should disable wireless connectivity and unplug the Ethernet cable from your Raspberry Pi to make sure that your experiment runs successfully without an internet connection.
+There are a wealth of resources available to help you succeed! 
 
-Moreover, your program is not allowed to run another program or any command that you would normally type into the terminal window of the Raspberry Pi, such as `vcgencmd`.
+Here are a few resources to wet your appetite:
 
-### CPU temperature
+- For a Life In Space experiment a great resource is the [Life In Space pathway](https://projects.raspberrypi.org/en/pathways/life-in-space). This includes projects to help you [get started with the Sense HAT](https://projects.raspberrypi.org/en/projects/getting-started-with-the-sense-hat/3) and [collecting data](https://projects.raspberrypi.org/en/projects/sense-hat-data-logger/4), and [designing your experiment](https://projects.raspberrypi.org/en/projects/experiment-design/3).
+- For a Life On Earth experiment there is a [separate pathway](https://projects.raspberrypi.org/en/pathways/life-on-earth) that includes projects to help you [use the camera](https://projects.raspberrypi.org/en/projects/getting-started-with-picamera/6) and even [calculate the speed of the ISS using computer vision](https://projects.raspberrypi.org/en/projects/astropi-iss-speed/5).
+- NDVI experiments will find the [NDVI project](https://projects.raspberrypi.org/en/projects/astropi-ndvi) very helpful
+- Machine learning experiments will find the [image classification project](https://projects.raspberrypi.org/en/projects/image-id-coral) an excellent guide to get rolling.
 
-It is common to see people use a subprocess to measure the CPU's temperature. However, we recommend using the [CPU Temperature](https://gpiozero.readthedocs.io/en/stable/api_internal.html#cputemperature) interface provided by GPIO Zero:
 
-```python
-from gpiozero import CPUTemperature
-
-cpu = CPUTemperature()
-print(cpu.temperature)
-```
+<p style="border-left: solid; border-width:10px; border-color: #0faeb0; background-color: aliceblue; padding: 10px;">
+Links to the documentation for each library are available in section (3) if you need specific information
+</p>

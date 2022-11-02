@@ -1,26 +1,131 @@
-## Running your experiment for 3 hours
+## Test and checking your program 
 
-Your experiment will be allocated 180 minutes of runtime on the ISS. Therefore, your code should run for no more than this 3-hour period and should gracefully shut down any activity (e.g. close the camera, close any open files, clear the LED matrix). After 3 hours, your code will be terminated automatically by the Astro Pi, but this may cause data to be lost or recorded incorrectly, so you should not rely on this to stop your program.
+Once you've finished writing your program, its vital that you check that it meets the guidelines and test it using the KitOS. Taking time to check your program against the guidelinesand making sure that it runs without errors is the best way to ensure that your experiment passes our testing procedure and can run on the Astro Pis on the ISS!
 
-One way to stop your program after a specific length of time is using the `datetime` Python library. This library makes it easy to work with times and compare them. Doing so without the library is not always straightforward: it's easy to get it wrong using normal mathematics. For example, it's simple to work out the difference in time between 10:30 and 10:50 (subtract 30 from 50), but slightly more complicated when you have 10:44 and 11:17 (add (60 - 44) to 17). Things become even trickier if the two times are split across two days (for example, the difference in minutes between 23:07 on Monday 31 May and 11:43 on Tuesday 1 June). The `datetime` library makes this type of operation much simpler by allowing you to create `datetime` objects that you can simply add to or subtract from each other.  
+--- task ---
+Check your program against the [Mission Space Lab guidelines phase 2 checklist](https://astro-pi.org/mission-space-lab/guidelines/program-checklist).
+--- /task ---
 
-By recording and storing the time at the start of your experiment, you can then repeatedly check to see if the current time is greater than that start time plus a certain number of minutes, seconds, or hours. This difference is known as a `timedelta`.  
+In addition to this checklist, we have made a list of common mistakes for you to avoid:
 
-```python
-from datetime import datetime, timedelta
-from time import sleep
+--- collapse ---
+---
+title:User input
+---
 
-# Create a `datetime` variable to store the start time
-start_time = datetime.now()
-# Create a `datetime` variable to store the current time
-# (these will be almost the same at the start)
-now_time = datetime.now()
-# Run a loop for 2 minutes
-while (now_time < start_time + timedelta(minutes=2)):
-    print("Doing stuff")
-    sleep(1)
-    # Update the current time
-    now_time = datetime.now()
+Your program **should not rely on human input** via the joystick or buttons. The crew will not have time to manually operate the Astro Pis, so your experiment cannot depend on human input. For example, if an experiment needs a button to be pressed by an astronaut to begin, that button press will never happen, and the experiment will not run. This is also why experiments on the crew, like human reaction speed or memory tests, are not suitable as Mission Space Lab entries.
+
+---/collapse ---
+
+--- collapse ---
+---
+title: Inappropriate use of the Sense HAT LED matrix and camera
+---
+
+It is a requirement for all Life in Space submissions to regularly use the LED matrix. If you need help with this, check out [this project](https://projects.raspberrypi.org/en/projects/getting-started-with-the-sense-hat/3). By constrast, Life on Earth experiments are not allowed to use the LED matrix at all - make sure you know what type of experiment you are running and check the mission specific rules!
+
+---/collapse---
+
+---collapse---
+---
+title: Poor documentation
+---
+TODO
+---/collapse---
+
+---collapse---
+---
+title: Use of absolute file paths
+---
+
+Make sure that you don’t use any specific paths for your data files. Use the __file__ variable as described in (4).
+
+---/collapse---
+
+---collapse---
+---
+title: Not saving data immediately
+---
+
+Make sure that any experimental data is written to a file as soon as it is recorded. Avoid saving data to an internal list or dictionary as you go along and then writing it all to a file at the end of the experiment, because if your experiment ends abruptly due to an error or because it exceeds the 3-hour time limit, you won't get any data. To save data immediately, call the `flush` method on a file object.
+
+---/collapse---
+
+---collapse---
+---
+title: Running out of space
+---
+
+Your program is limited to producing 3GB of data. Make sure that you calculate the maximum amount of space that your measurements, including any saved image files, will take up, and that this does not exceed 3GB. Remember that the size of an image file will depend not only on the resolution, but also on how much detail is in the picture: a photo of a blank white wall will be smaller than a photo of a landscape. Test your program in a variety of lighting and atmostpheric conditions if possible to get a good idea of how much space it will use.
+
+---/collapse---
+
+---collapse---
+---
+title: Forgetting to call your function
+---
+
+We've seen cases where teams have written a function only to forget to call it in their `main.py` - how frustrating!
+
+---/collapse---
+
+---collapse---
+---
+title: Saving into directories that don't exist
+---
+
+A number of teams want to organise their data into directories such as `data`, `images`, _etc._, This in and of of itself is a really good thing, but it's easy to forget to make these directories! 
+
+---/collapse ---
+
+---collapse---
+---
+title: Trying to access the internet
+---
+For security reasons, **your program is not allowed to access the network on the ISS**. It should not attempt to open a socket, access the internet, or make a network connection of any kind. This includes local network connections back to the Astro Pi itself. As part of testing your program, you should disable wireless connectivity and unplug the Ethernet cable from your Raspberry Pi to make sure that your experiment runs successfully without an internet connection.
+---/collapse---
+
+---collapse---
+---
+title: Trying to run another program
+---
+In addition to not being able to use any networking, your program is not allowed to run another program or any command that you would normally type into the terminal window of the Raspberry Pi, such as `vcgencmd`.
+---/collapse ---
+
+---collapse---
+---
+title: Multiple threads
+---
+
+If you need to do more than one thing at a time, you can use a multi-threaded process. There are a number of Python libraries that allow this type of multitasking to be included in your code. However, to do this on the Astro Pis, you're only permitted to use the `threading` library.
+
+**Only use the `threading` library if absolutely necessary** for your experiment. Managing threads can be tricky, and as your experiment will be run as part of a sequence of programs, we need to make sure that the previous one has ended smoothly before starting the next. Rogue threads can run amok and hog system resources, and so must be avoided. If you do use threads in your code, you should make sure that they are all managed carefully and closed cleanly at the end of your experiment. You should additionally make sure that comments in your code clearly explain how this is achieved.
+
+---/collapse ---
+
+--- task ---
+Review your program again - can you spot any of the common mistakes in your program?
+---/task ---
+
+## Testing your program
+
+Having checked your program against the guidelines and reviewed it for common mistakes, you are ready to test it using the KitOS! Doing this gives your entry the best chance of success and confidence that it will work aboard the ISS. When Astro Pi Mission Control receive your program it will be tested on an actual Flight OS. Hundreds of teams submit programs to the challenge each year and, unfortunately, there is not enough time to check for mistakes or debug complex code errors: if your program fails to run without errors when we test it on the Flight OS, your team will not progress to Phase 3 and your code will not run on the ISS. 
+
+So, to ensure that your entry has the best chance of success, it's important that you test your program thoroughly, debug any errors, and check it against the coding requirements! It’s especially important for you to consider any errors that could occur during your program’s run on the on-board Astro Pis’ Flight OS, such as file path errors or overwriting of files.
+
+<p style="border-left: solid; border-width:10px; border-color: #0faeb0; background-color: aliceblue; padding: 10px;">
+If you have installed any additional software on your KitOS we recommend that you reflash your SD card with the KitOS again. Instructions for doing this are in (3).
+</p>
+
+To test your program, disconnect your Raspberry Pi from the internet, navigate to your project folder and run it directly with the following command:
+
+```bash
+python3 main.py
 ```
+Your code should run for 3 hours and then stop.
 
-**Note:** When deciding on the runtime for your code, make sure you take into account how long it takes for your loop to complete a cycle. So if you want to make use of the full 3-hour (180-minute) experiment slot available, but each loop through your code takes 6 minutes to complete, then your `timedelta` should be `180-6 = 174` minutes, to ensure that your code finishes __before__ the 3 hours have elapsed.
+When it's finished, observe any output files created by your project. Are you expecting image files from the camera? Data files? Anything else? Are there reports of errors in your logs?
+
+If you see any errors, or the experiment doesn't do what you expected it to, you'll need to address this before you submit your code to ensure that you have a chance of reaching the final judging round.
+
+Instead, if everything you went well, congratulations you are ready to submit your program! 

@@ -51,7 +51,17 @@ print("Motion detected")
 pir.wait_for_no_motion()
 ```
 
-For more details about the interface for the Sense HAT and PIR sensors, make sure to look at the documentation - this is a really useful resource!
+
+You can also use the `gpiozero` to read the CPU temperature: 
+
+```python
+from gpiozero import CPUTemperature
+
+cpu = CPUTemperature()
+print(cpu.temperature)
+```
+
+For more details about the interface for the Sense HAT and gpiozero libraries, make sure to look at the documentation - this is a really useful resource!
 
 --- collapse ---
 ---

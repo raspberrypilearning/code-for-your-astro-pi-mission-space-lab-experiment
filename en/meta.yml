@@ -12,18 +12,11 @@ steps:
 - title: Kit Assembly
 - title: The Kit OS
 - title: Planning your work
-- title: Writing your program - how to record data and images
-- title: Writing your program - how to run your experiment for 3 hours
-- title: Writing your program - how to find the location of the ISS
-- title: Writing your program - machine Learning with the Coral dongle
-#- title: Common mistakes
-#- title: Testing and checking your work
-  #- testing
-  #- title: Meeting the requirements
-    #- title: "('Life in space' only) Using the LED display"
-    #- title: Doing more than one thing at a time
-    #- title: Networking and system processes
-#- title: A big worked example
-  #  completion:
-  #  - internal
-#-Resources
+- title: Writing your program - How to record data and images
+- title: Writing your program - How to run your experiment for 3 hours
+- title: Writing your program - How to find the location of the ISS
+- title: Writing your program - Machine Learning with the Coral dongle
+- title: Writing your program - Error handling
+- title: Testing and checking your work
+- title: A big worked example
+- title: Resources

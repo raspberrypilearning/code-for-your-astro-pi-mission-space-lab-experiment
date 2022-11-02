@@ -1,73 +1,133 @@
-## For Life in Space experiments only: Using the LED display
+## A big worked example
 
-The LED matrix is the only display available to the Astro Pi computer, which is never connected to a normal monitor or TV screen on the ISS. If nothing is shown on its display for some time, the crew may begin to wonder if the Astro Pi computer has crashed. It will then cost crew time if they need to check it and/or call ground control to report a problem. To avoid this, your code should regularly update the LED matrix in some way, to indicate that your experiment is progressing. 
+Here is an example of an Astro Pi Mission Space Lab experiment idea: the team from CoderDojo Tatooine wants to investigate whether the environment on the ISS is affected by the surface of the Earth it is passing over. Does the ISS get hotter when it passes over a desert, or wetter when it is above the sea?
 
-**Note**: If your experiment is for __Life on Earth__, then you should not use the LED matrix. When the Astro Pi is running Life on Earth experiments, the LED matrix is disabled and the unit is placed under a black "hood", to prevent reflections and stray light from spoiling the images taken from the ISS window.
+This example will serve as a template, to illustrate how you can combine all the elements described so far in this guide to plan and write your computer program.
 
-The `sense_hat` library has functions to write messages to the LED matrix or light up individual pixels.
+For this particular example, the program for the experiment should:
+- Take regular measurements of temperature and humidity every 30 seconds, and log the values in a CSV file
+- Calculate the ISS’s latitude and longitude and log this information in the CSV file
+- Take a photo using the camera on Astro Pi IR, which is pointing out of a window towards Earth, to gather data on whether cloud cover might also be a factor
+- Write the latitude and longitude data in the CSV file and also into the EXIF tags of the images, which have sequentially numbered file names
+- Handle any unexpected errors and log the details
 
-[[[rpi-sensehat-single-pixel]]]
+### The experiment code
 
-These are blocking functions. In other words, nothing else can happen while these tasks are being performed. So if you were using `show_message` to display a very long string of text, that would occupy valuable mission time. Therefore, you should keep any introductory messages at the start of your program to less than 15 seconds from the start of the program.
-
-You could, of course, use a program thread to perform some other task in the background while graphics are displayed on the LED matrix. However, as mentioned in the 'Doing more than one thing at a time' section earlier, you should avoid using threads unless they are absolutely essential for your experiment.
-
-The LED matrix can produce very bright colourful images. However, remember that the ISS is a working environment: you should avoid too much flashing or flickering that may be a distraction to the astronauts.
+Here is what the final code that implements the experiment idea might look like:
 
 ```python
+from pathlib import Path
+from logzero import logger, logfile
 from sense_hat import SenseHat
+from picamera import PiCamera
+from orbit import ISS
 from time import sleep
-import random
+from datetime import datetime, timedelta
+import csv
 
+def create_csv_file(data_file):
+    """Create a new CSV file and add the header row"""
+    with open(data_file, 'w') as f:
+        writer = csv.writer(f)
+        header = ("Counter", "Date/time", "Latitude", "Longitude", "Temperature", "Humidity")
+        writer.writerow(header)
+
+def add_csv_data(data_file, data):
+    """Add a row of data to the data_file CSV"""
+    with open(data_file, 'a') as f:
+        writer = csv.writer(f)
+        writer.writerow(data)
+
+def convert(angle):
+    """
+    Convert a `skyfield` Angle to an EXIF-appropriate
+    representation (rationals)
+    e.g. 98° 34' 58.7 to "98/1,34/1,587/10"
+
+    Return a tuple containing a boolean and the converted angle,
+    with the boolean indicating if the angle is negative.
+    """
+    sign, degrees, minutes, seconds = angle.signed_dms()
+    exif_angle = f'{degrees:.0f}/1,{minutes:.0f}/1,{seconds*10:.0f}/10'
+    return sign < 0, exif_angle
+
+def capture(camera, image):
+    """Use `camera` to capture an `image` file with lat/long EXIF data."""
+    location = ISS.coordinates()
+
+    # Convert the latitude and longitude to EXIF-appropriate representations
+    south, exif_latitude = convert(location.latitude)
+    west, exif_longitude = convert(location.longitude)
+
+    # Set the EXIF tags specifying the current location
+    camera.exif_tags['GPS.GPSLatitude'] = exif_latitude
+    camera.exif_tags['GPS.GPSLatitudeRef'] = "S" if south else "N"
+    camera.exif_tags['GPS.GPSLongitude'] = exif_longitude
+    camera.exif_tags['GPS.GPSLongitudeRef'] = "W" if west else "E"
+
+    # Capture the image
+    camera.capture(image)
+
+
+base_folder = Path(__file__).parent.resolve()
+
+# Set a logfile name
+logfile(base_folder/"events.log")
+
+# Set up Sense Hat
 sense = SenseHat()
 
-# Define some colours — keep brightness low
-g = [0,128,0]
-o = [0,0,0]
+# Set up camera
+cam = PiCamera()
+cam.resolution = (1296, 972)
 
-# Define a simple image
-image = [
-    g,g,g,g,g,g,g,g,
-    o,g,o,o,o,o,g,o,
-    o,o,g,o,o,g,o,o,
-    o,o,o,g,g,o,o,o,
-    o,o,o,g,g,o,o,o,
-    o,o,g,g,g,g,o,o,
-    o,g,g,g,g,g,g,o,
-    g,g,g,g,g,g,g,g,
-]
+# Initialise the CSV file
+data_file = base_folder/"data.csv"
+create_csv_file(data_file)
 
-# Define a function to update the LED matrix
-def active_status():
-    # A list with all possible rotation values
-    rotation_values = [0,90,180,270]
-    # Pick one at random
-    rotation = random.choice(rotation_values)
-    # Set the rotation
-    sense.set_rotation(rotation)
-
-# Display the image
-sense.set_pixels(image)
-while True:
-    # Do stuff (in this case, nothing)
-    sleep(2)
-    # Update the LED matrix
-    active_status()
+# Initialise the photo counter
+counter = 1
+# Record the start and current time
+start_time = datetime.now()
+now_time = datetime.now()
+# Run a loop for (almost) three hours
+while (now_time < start_time + timedelta(minutes=178)):
+    try:
+        humidity = round(sense.humidity, 4)
+        temperature = round(sense.temperature, 4)
+        # Get coordinates of location on Earth below the ISS
+        location = ISS.coordinates()
+        # Save the data to the file
+        data = (
+            counter,
+            datetime.now(),
+            location.latitude.degrees,
+            location.longitude.degrees,
+            temperature,
+            humidity,
+        )
+        add_csv_data(data_file, data)
+        # Capture image
+        image_file = f"{base_folder}/photo_{counter:03d}.jpg"
+        capture(cam, image_file)
+        # Log event
+        logger.info(f"iteration {counter}")
+        counter += 1
+        sleep(30)
+        # Update the current time
+        now_time = datetime.now()
+    except Exception as e:
+        logger.error(f'{e.__class__.__name__}: {e}')
 ```
 
-You should aim to update the screen at least every 15 seconds. If your experiment has period of ‘sleeping’ that is longer than that, you can split the waiting period up:
+Here's a snippet from the `data.csv` file that is produced:
 
-```python
-sh.set_pixels(image)
-while True:
-    # Do stuff (in this case, nothing)
-    sleep(15)
-    # Update the LED matrix
-    active_status()
-    # More doing nothing
-    sleep(15)
-    # Update LEDs again
-    active_status()
+```
+Counter,Date/time,Latitude,Longitude,Temperature,Humidity
+1,2021-02-24 10:46:39.399823,39.740617143761526,3.3473845489216094,27.4958,42.934
+2,2021-02-24 10:47:10.221346,38.53934241569049,5.26367913685018,27.6456,42.7503
+3,2021-02-24 10:47:40.890616,37.309551077336856,7.1032053271899365,27.7018,42.5886
+4,2021-02-24 10:48:11.571371,36.047429941325575,8.879601929060437,27.5894,42.6544
 ```
 
-**Note**: You are not allowed to change the light level of the LEDs. Do not use `sense.low_light`, `sense.gamma`, `sense.reset_gamma`, or `pisense.hat.screen.gamma` in your submitted program.
+Note that exception handling in this program is rather crude: all raised exceptions will be caught and logged. This means that such a program is very unlikely to terminate abruptly and display an error. Even if errors are generated and the program fails to achieve its goal, this will only become apparent by checking the log files for errors. When testing your program, make sure you also check any log files it generates.
