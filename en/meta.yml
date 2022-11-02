@@ -14,9 +14,7 @@ steps:
 - title: Planning your work
 - title: Writing your program - how to record data and images
 - title: Writing your program - how to find the location of the ISS
-#- title: How to run your experiment for 3 hours
-#- title: How to structure your program
-  #- title: How to record images using the camera
+- title: Writing your program - how to run your experiment for 3 hours
 #- title: Machine Learning with the Coral dongle
 #- title: Common mistakes
 #- title: Testing and checking your work
