@@ -18,11 +18,13 @@ You will build your very own Astro Pi and write a Python program to gather data 
 
 By reading this guide you will learn:
 * how to build an Astro Pi and how to use it
-* how to write a Python program that meets the constraints imposed from working on the ISS. In particular, you'll learn about which Python libraries are available aboard the ISS, as well as some common Python use-cases including:
+* how to plan your experiment
+* how to write a Python program using the libraries available aboard the ISS that satisfies some common use-cases including:
+  * how to save data captured from the sensors and the camera
   * how to run your program for 3 hours
   * how to find the location of the ISS
-  * how to save data captured from the sensors and the camera
-* You will also learn about the various restrictions placed on programs running aboard the ISS, and how best to navigate them.
+  * how to improve your program with error handling and logging
+* You will also learn about the various restrictions placed on programs running aboard the ISS and how best to navigate them.
 
 ## Guidelines & Pre-Submission Checklist
 
@@ -33,5 +35,5 @@ In order to have your program run aboard the ISS it's really important that you 
 title: Notes for mentors
 ---
 This guide is designed so that it can also be read by young people. In particular,
-each of the "How to" pattern sections could be used as an activity for your young people.
+each of the "Writing your program" sections could be used as an activity for your young people.
 --- /collapse ---

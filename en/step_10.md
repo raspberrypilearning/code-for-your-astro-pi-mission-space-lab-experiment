@@ -10,7 +10,7 @@ In addition to this checklist, we have made a list of common mistakes for you to
 
 --- collapse ---
 ---
-title:User input
+title: User input
 ---
 
 Your program **should not rely on human input** via the joystick or buttons. The crew will not have time to manually operate the Astro Pis, so your experiment cannot depend on human input. For example, if an experiment needs a button to be pressed by an astronaut to begin, that button press will never happen, and the experiment will not run. This is also why experiments on the crew, like human reaction speed or memory tests, are not suitable as Mission Space Lab entries.
@@ -30,7 +30,15 @@ It is a requirement for all Life in Space submissions to regularly use the LED m
 ---
 title: Poor documentation
 ---
-TODO
+Make sure your code is understandable and easy to read, otherwise it may not be allowed to run on the ISS!
+---/collapse---
+
+---collapse---
+---
+title: Not general enough...
+---
+Your code must be able to deal with slightly different situations
+
 ---/collapse---
 
 ---collapse---

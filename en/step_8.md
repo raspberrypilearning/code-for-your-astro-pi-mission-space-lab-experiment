@@ -2,6 +2,10 @@
 
 You may be planning to use computer vision or machine learning in your program, inspired by the [Calculate the speed of the ISS](https://projects.raspberrypi.org/en/projects/astropi-iss-speed/4) and [image classification](https://projects.raspberrypi.org/en/projects/image-id-coral/2) projects. The success of these approaches relies on having a representative dataset - and fortunately you will find this in the KitOS.
 
+<p style="border-left: solid; border-width:10px; border-color: #fa1111; background-color: #f56c6c; padding: 10px;">
+It's possible that the exact view the Astro Pis have may be different to last year - be cautious with "overfitting" to the data! You may want to play with the scale, crop, and perspective of your training images to make your model or algorithm more generic.
+</p>
+
 In the `Data` folder, you will find a csv file and a selection of images taken from a previous mission which can be used to help test and refine your code.  Find out more below.
 
 <p style="border-left: solid; border-width:10px; border-color: #0faeb0; background-color: aliceblue; padding: 10px;">
@@ -14,7 +18,7 @@ Inside the `Data` folder you will find a file called [`data.csv`](http://rpf.io/
 
 --- collapse ---
 ---
-title: What data is in data.csv?
+title: What is in data.csv?
 ---
 The columns in this file are in the order of this table:
 
@@ -47,15 +51,7 @@ You can use LibreOffice Calc to open this file on the KitOS.
 
 ### Images
 
-There is also a sample of photos taken by the Mark II Astro Pi IR and Vis cameras in the `Data` folder.
-
-You could use these images to train a machine learning algorithm to recognise different types of views, for example. However, please note that there is no guarantee that the location, view, and orientation of the Astro Pi will be exactly the same when your program runs on the ISS. Therefore, your program should be flexible enough to adapt to any changes.
+There is also a sample of photos taken by the Mark II Astro Pi IR and Vis cameras in the `Data` folder. You could use these images to train a machine learning algorithm to recognise different types of views, for example. However, please note that there is no guarantee that the location, view, and orientation of the Astro Pi will be exactly the same when your program runs on the ISS. Therefore, your program should be flexible enough to adapt to any changes.
 
 ![Timelapse of the earth taken from an Astro Pi on the ISS](images/astrocmp-2021.gif)
-
-<p style="border-left: solid; border-width:10px; border-color: #fa1111; background-color: #f56c6c; padding: 10px;">
-CAUTION ABOUT OVERTRAINING - 
-
-We are not sure which window we will be deploying at this year. Please stay tuned at the webinar for more information!!!!
-</p>
 
