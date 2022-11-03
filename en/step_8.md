@@ -5,12 +5,12 @@ You may be planning to use computer vision or machine learning in your program, 
 In the `Data` folder, you will find a csv file and a selection of images taken from a previous mission which can be used to help test and refine your code.  Find out more below.
 
 <p style="border-left: solid; border-width:10px; border-color: #0faeb0; background-color: aliceblue; padding: 10px;">
-Can't find the `Data` folder? Don't worry! You can redownload all of the data (images + csv file) [here](http://rpf.io/ap-data-all+) or just the `csv` file [here](http://rpf.io/ap-sample-data).
+Can't find the `Data` folder? Don't worry! You can redownload all of the data (images + csv file) [here](http://rpf.io/ap-data-all).
 </p>
 
 ### data.csv
 
-Inside the `Data` folder you will find a file called `data.csv`. This is a comma-separated file with 24 hours worth of data from all of the Sense HAT sensors. Click on the collapsible to find out more.
+Inside the `Data` folder you will find a file called [`data.csv`](http://rpf.io/ap-sample-data). This is a comma-separated file with 24 hours worth of data from all of the Sense HAT sensors. Click on the collapsible to find out more.
 
 --- collapse ---
 ---
