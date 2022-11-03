@@ -28,6 +28,15 @@ Once you have answered the 5 questions above and created a rough timeline for yo
 This step will really help you to make sure the outputs of your program are useful for later stages of MSL, and that you remain focused throughout stage 2!
 </p>
 
+--- collapse ---
+---
+title: Limitations of the sensors
+---
+
+Be aware of the limitations of the sensors and the [constraints imposed by them](https://projects.raspberrypi.org/en/projects/experiment-design/1). In particular, be mindful that the temperature and humidity sensors are affected more by the temperature of the CPU than anything else. If you wish to take readings of the ISS environment, you should test the temperature and humidity readings in a controlled (known) environment and come up with a strategy to compensate for this limitation.
+
+---/collapse ---
+
 ### Do some research
 
 There are lots of resources on how to use the Astro Pi hardware on the [projects.raspberrypi.org](https://projects.raspberrypi.org) website. To make the most of your opportunity we recommend you complete either of the pathways below, depending on the nature of your experiment:

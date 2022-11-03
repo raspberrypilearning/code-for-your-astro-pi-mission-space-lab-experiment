@@ -25,6 +25,19 @@ Read through the [Getting started with picamera](https://projects.raspberrypi.or
 ### Choosing camera settings 
 As you will have noticed by reading the [Getting started with picamera](https://projects.raspberrypi.org/en/projects/getting-started-with-picamera/) project, the [picamera library](https://picamera.readthedocs.io/en/release-1.13/) allows you to set a huge selection of camera settings! When choosing which settings to use, or whether to leave the settings on automatic, be mindful that you will be taking pictures in a variety of conditions with a range of weather, landscapes, and lighting! Night-time photography using the Astro Pi's Camera Module is particularly difficult: the ISS is travelling so fast that a long exposure time is needed, and this makes the photos come out very blurry in low-light conditions.g
 
+--- collapse ---
+---
+title: What lenses are used on the real Astro Pis?
+---
+
+TODO: add a bit about the lenses.
+
+
+The camera sensor in the ESA kit is the same high-quality camera as the one found in the new Astro Pis on the ISS. You can read the [documentation about the HQ camera](https://www.raspberrypi.org/documentation/hardware/camera/), and a lot of detailed technical information can also be found in [the relevant section of the PiCamera library documentation](https://picamera.readthedocs.io/en/latest/fov.html#camera-hardware).
+
+---/collapse---
+
+
 ## The Astro Pi sensors
 
 The Astro Pi includes a range of easy to use sensors that are ready to use for your experiments:

@@ -1,6 +1,6 @@
-## Bulletproofing our program
+## Bulletproofing your program
 
-In this section we are going to try and find ways to 'bulletproof' our program so that it stands the best chance of working as intended! There are many reasons why a program can fail, but with some foresight and planning it is possible to deal with these failures appropriately instead of crashing and losing the chance to capture data and images aboard the ISS.
+In this section we are going to try and find ways to 'bulletproof' your program so that it stands the best chance of working as intended! There are many reasons why a program can fail, but with some foresight and planning it is possible to deal with these failures appropriately instead of crashing and losing the chance to capture data and images aboard the ISS.
 
 ## Error handling 
 
@@ -91,7 +91,7 @@ Review your program and consider if you want catch these errors:
 
 - DivideByZeroError
 - ValueError
-- SenseHatError or a subclass - `InvalidGainError`, `InvalidGainError`
+- SenseHatError TODO need to link to the sense hat docs
 --- /task---
 
 ## Logging

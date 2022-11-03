@@ -1,6 +1,6 @@
 ## Machine Learning and computer vision
 
-You may be planning to use computer vision or machine learning in your program, inspired by the [Calculate the speed of the ISS](https://projects.raspberrypi.org/en/projects/astropi-iss-speed/4) and [image classification](https://projects.raspberrypi.org/en/projects/image-id-coral/2) projects. The success of these approaches relies on having a representative dataset - and fortunately you will find this in the KitOS.
+You may be planning to use computer vision or machine learning in your program, inspired by the [Calculate the speed of the ISS](https://projects.raspberrypi.org/en/projects/astropi-iss-speed/4) and [image classification](https://projects.raspberrypi.org/en/projects/image-id-coral/2) projects. The success of both machine learning and computer vision relies on having a representative dataset - and fortunately you will find this in the KitOS.
 
 <p style="border-left: solid; border-width:10px; border-color: #fa1111; background-color: #f56c6c; padding: 10px;">
 It's possible that the exact view the Astro Pis have may be different to last year - be cautious with "overfitting" to the data! You may want to play with the scale, crop, and perspective of your training images to make your model or algorithm more generic.

@@ -30,10 +30,3 @@ By reading this guide you will learn:
 
 In order to have your program run aboard the ISS it's really important that you read the [guidelines on the Astro Pi website](https://astro-pi.org/mission-space-lab/guidelines) and that you look over the [Phase 2 program checklist](https://astro-pi.org/mission-space-lab/guidelines/program-checklist) before submitting your work. Bear in mind that there are some differences in what you are allowed to do depending on if your experiment theme is "Life On Earth" or a "Life In Space".
 
---- collapse ---
----
-title: Notes for mentors
----
-This guide is designed so that it can also be read by young people. In particular,
-each of the "Writing your program" sections could be used as an activity for your young people.
---- /collapse ---

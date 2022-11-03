@@ -81,7 +81,7 @@ def run_for(time_delta, action):
 Can you modify your `main.py` to use the code above, so that it runs for just under 3 hours?
 
 --- task ---
-Modify your `main.py` program to run for 179 minutes.
+Modify your `main.py` program so that it will finish before the 3 hours have elapsed.
 --- /task ---
 
 <p style="border-left: solid; border-width:10px; border-color: #0faeb0; background-color: aliceblue; padding: 10px;">

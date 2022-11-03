@@ -1,6 +1,6 @@
 ## Test and checking your program 
 
-Once you've finished writing your program, its vital that you check that it meets the guidelines and test it using the KitOS. Taking time to check your program against the guidelinesand making sure that it runs without errors is the best way to ensure that your experiment passes our testing procedure and can run on the Astro Pis on the ISS!
+Once you've finished writing your program, its vital that you check that it meets the guidelines and test it using the KitOS. Taking time to check your program against the guidelines and making sure that it runs without errors is the best way to ensure that your experiment passes the Astro Pi Mission Control testing procedure and can run on the ISS!
 
 --- task ---
 Check your program against the [Mission Space Lab guidelines phase 2 checklist](https://astro-pi.org/mission-space-lab/guidelines/program-checklist).
@@ -30,15 +30,18 @@ It is a requirement for all Life in Space submissions to regularly use the LED m
 ---
 title: Poor documentation
 ---
-Make sure your code is understandable and easy to read, otherwise it may not be allowed to run on the ISS!
+When you've created a useful piece of software and you want to share it with other people, a crucial step is creating documentation that helps people understand what the program does, how it works, and how they can use it. This is especially important for your MSL experiment, because it should be obvious from your program how you will achieve your experiment's aims and objectives.
+
+This [project](https://projects.raspberrypi.org/en/projects/documenting-your-code) shows you the recommended way to add useful comments to your program.
+
+_Any attempt to hide, or make it difficult to understand, what a piece of code is doing may result in disqualification. And of course, there should be no bad language or rudeness in your code._
 ---/collapse---
 
 ---collapse---
 ---
-title: Not general enough...
+title: Overfitting to one dataset
 ---
-Your code must be able to deal with slightly different situations
-
+Your code must be able to deal with variations in conditions aboard the ISS. For example, captured images might have small differences in the field of view.
 ---/collapse---
 
 ---collapse---
