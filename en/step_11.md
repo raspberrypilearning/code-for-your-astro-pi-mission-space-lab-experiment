@@ -2,6 +2,8 @@
 
 Here is an example of an Astro Pi Mission Space Lab experiment idea: the team from CoderDojo Tatooine wants to investigate whether the environment on the ISS is affected by the surface of the Earth it is passing over. Does the ISS get hotter when it passes over a desert, or wetter when it is above the sea?
 
+![Graphic of a red planet in space](images/tatooine.png)
+
 This example will serve as a template, to illustrate how you can combine all the elements described so far in this guide to plan and write your computer program.
 
 For this particular example, the program for the experiment should:
