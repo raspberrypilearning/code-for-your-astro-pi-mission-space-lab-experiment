@@ -334,7 +334,18 @@ Continue to the next stage to learn about the Operating System, the Kit OS.
 
 TODO find out where to host the videos
 
+- Camera:
 <iframe width="560" height="315" src="https://www.youtube.com/embed/VzYGDq0D1mw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+- NDVI:
+<iframe width="560" height="315" src="https://youtu.be/tAk0Q3jR_aQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+- General assembly - being updated
+<iframe width="560" height="315" src="https://youtu.be/cFhmKzV_QZs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+- PIR - being updated
+<iframe width="560" height="315" src="https://youtu.be/bezyRA3uHiY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 
 <style>
   /* This hides the Camera steps by default */
@@ -371,8 +382,8 @@ TODO find out where to host the videos
     }
   }
 
-  const checkboxes = ["hasCamera", "hasInfrared", "hasPir", "hasCoral"];
-  const cssClasses = [".camera_step", ".infrared_step", ".pir_step", ".coral_step"];
+  var checkboxes = ["hasCamera", "hasInfrared", "hasPir", "hasCoral"];
+  var cssClasses = [".camera_step", ".infrared_step", ".pir_step", ".coral_step"];
 
   for (let i = 0; i < checkboxes.length; i++) { 
     const checkbox = document.getElementById(checkboxes[i]);
