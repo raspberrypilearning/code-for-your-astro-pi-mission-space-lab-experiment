@@ -1,10 +1,24 @@
-## Machine Learning with the Coral Dongle
+## Machine Learning and computer vision
 
-The Desktop version of the Flight OS also contains a `Data` folder with sample data from a previous mission, which can be used to help test and refine your code. You can also download this [sample data](https://rpf.io/ap-sample-data) separately.
+You may be planning to use computer vision or machine learning in your program, following the [Calculate the speed of the ISS](https://projects.raspberrypi.org/en/projects/astropi-iss-speed/4) and [image classification](https://projects.raspberrypi.org/en/projects/image-id-coral/2) projects. The success of these approaches relies on having a representative dataset - and fortunately you will find this in the KitOS.
 
-### Sensor readings
+In the `Data` folder, you will find a csv file and a selection of images taken from a previous mission which can be used to help test and refine your code.  Find out more below.
 
-There is a comma-separated values (CSV) file with 24 hours worth of data from all of the Sense HAT sensors. The columns in this file are in the order of this table:
+<p style="border-left: solid; border-width:10px; border-color: #0faeb0; background-color: aliceblue; padding: 10px;">
+Can't find the `Data` folder? Don't worry! You can redownload all of the data [here]() TODO.
+the [sample data](https://rpf.io/ap-sample-data) separately at any time.
+TODO add the image link
+</p>
+
+### data.csv
+
+Inside the `Data` folder you will find a file called `data.csv`. This is a comma-separated file with 24 hours worth of data from all of the Sense HAT sensors. Click on the collapsible to find out more.
+
+--- collapse ---
+---
+title: What data is in data.csv?
+---
+The columns in this file are in the order of this table:
 
 | Header | Description |
 | ---    | --- |
@@ -30,10 +44,19 @@ There is a comma-separated values (CSV) file with 24 hours worth of data from al
 | C |  the amount of incident clear light, scaled to 0-256. | 
 | Motion | a boolean signalling whether motion was detected by the PIR sensor. | 
 
-LibreOffice Calc is a spreadsheet program similar to Microsoft Excel and is installed on the Desktop Flight OS. You can use this to look at the data and plot charts.
+You can use LibreOffice Calc to open this file on the KitOS. 
+---
 
 ### Images
 
 There is also a sample of photos taken by the Mark II Astro Pi IR and Vis cameras in the `Data` folder.
 
 You could use these images to train a machine learning algorithm to recognise different types of views, for example. However, please note that there is no guarantee that the location, view, and orientation of the Astro Pi will be exactly the same when your program runs on the ISS. Therefore, your program should be flexible enough to adapt to any changes.
+
+
+<p style="border-left: solid; border-width:10px; border-color: #fa1111; background-color: #f56c6c; padding: 10px;">
+CAUTION ABOUT OVERTRAINING - 
+
+We are not sure which window we will be deploying at this year. Please stay tuned at the webinar for more information!!!!
+</p>
+
