@@ -45,7 +45,7 @@ The columns in this file are in the order of this table:
 | Motion | a boolean signalling whether motion was detected by the PIR sensor. | 
 
 You can use LibreOffice Calc to open this file on the KitOS. 
----
+---/collapse---
 
 ### Images
 
