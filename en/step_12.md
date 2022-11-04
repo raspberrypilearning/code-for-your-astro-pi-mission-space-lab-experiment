@@ -1,6 +1,10 @@
 ## Resources
 
-There are a wealth of resources available to help you succeed! 
+There are a wealth of resources available to help you succeed at every stage of your Astro Pi journey! 
+
+<p style="border-left: solid; border-width:10px; border-color: #0faeb0; background-color: aliceblue; padding: 10px;">
+Stuck? Pi Mission Control team will try to help you! Please [contact us](mailto:enquiries@astro-pi.org) and we will do our best to help you!
+</p>
 
 Here are a few Raspberry Pi projects to wet your appetite:
 
@@ -9,11 +13,14 @@ Here are a few Raspberry Pi projects to wet your appetite:
 - NDVI experiments will find the [NDVI project](https://projects.raspberrypi.org/en/projects/astropi-ndvi) very helpful
 - Machine learning experiments will find the [image classification project](https://projects.raspberrypi.org/en/projects/image-id-coral) an excellent guide to get rolling.
 
-In addition to these projects, there are many other useful and interesting tutorials available on the internet, including:
+In addition to these projects, there are many other useful and interesting tutorials and guies available on the internet:
 
-- [Coral example projects](https://coral.ai/examples/)
-and the [camera examples](https://github.com/google-coral/examples-camera) in particular.
-- [OpenCV Python tutorials](https://docs.opencv.org/4.x/d6/d00/tutorial_py_root.html), which go over all sorts of interesting things like machine learning, edge detection, object tracking, and other cool stuff
+- The [Coral example projects](https://coral.ai/examples/) and the [Coral camera examples](https://github.com/google-coral/examples-camera) give a good overview of what's possible with the Coral accelerator stick.
+- The [OpenCV Python tutorials](https://docs.opencv.org/4.x/d6/d00/tutorial_py_root.html) explain how to do all sorts of cool things like machine learning, edge detection, and object tracking.
+- The [earthpy examples gallery](https://earthpy.readthedocs.io/en/latest/gallery_vignettes/index.html) walks you through how to process satellite imagery, including for calculating NDVI.
+- [This Github page](https://github.com/orbitalindex/awesome-space) contains a curated list of space-related resources.
+- [This list of annotated satellite datasets](https://github.com/Seyed-Ali-Ahmadi/Awesome_Satellite_Benchmark_Datasets) can be used to train your machine learning model.
+- Teams wanting a greater challenge will find a comprehensive resource on aerial and satellite machine learning can be found [here](https://github.com/robmarkcole/satellite-image-deep-learning#datasets) - be warned that it quite advanced.
 
 Finally, don't forget that links to the documentation for each library are available in the [KitOS section](2) if you need specific information on how to use a particular library.
 
