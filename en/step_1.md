@@ -10,7 +10,7 @@ Don't know about Mission Space Lab? Don't panic! Head over to the [Astro Pi webs
 
 ### What you will make
 
-You will build your very own Astro Pi and write a Python program to gather data to support or reject your experiment hypotheses. You will learn how to test your program to give it the best chance of running successfully aboard the International Space Station (ISS)!
+You will build your very own Astro Pi and write a Python program to gather data to support or reject your experiment hypothesis. You will learn how to test your program to give it the best chance of running successfully aboard the International Space Station (ISS)!
 
 ![The Earth, as photographed by a Mission Space Lab experiment on the ISS in 2021.](images/astrocmp-2021.gif)
 

@@ -1,8 +1,8 @@
 ## Running your experiment for 3 hours
 
-In this section we are going to modify our `main.py` so that it will run and stop itself after 180 minutes! We need to ensure that our program gracefully shuts down (e.g. closes the camera, closes any open file, clears the LED matrix) to ensure we don't lose any data.
+In this section we are going to modify our `main.py` so that it will run and stop itself just before our 180 minutes slot is over! We need to ensure that our program gracefully shuts down to ensure we don't lose any data.
 
-#### The datetime library
+### The datetime library
 
 One way to stop a Python program after a specific length of time is using the `datetime` Python library. This library makes it easy to work with times and compare them. Doing so without the library is not always straightforward: it's easy to get it wrong using normal mathematics. For example, it's simple to work out the difference in time between 10:30 and 10:50 (subtract 30 from 50), but slightly more complicated when you have 10:44 and 11:17 (add (60 - 44) to 17). Things become even trickier if the two times are split across two days (for example, the difference in minutes between 23:07 on Monday 31 May and 11:43 on Tuesday 1 June). The `datetime` library makes this type of operation much simpler by allowing you to create `datetime` objects that you can simply add to or subtract from each other.  
 
@@ -25,7 +25,7 @@ while (now_time < start_time + timedelta(minutes=2)):
     now_time = datetime.now()
 ```
 
-Instead of calling the print function we can use call any function, including a function to collect data or capture an image. Can you alter the code above to make it reusable for any function, so that you can use it in your own program?
+Instead of calling the `print` function we can call any function, such as a function to collect data or capture an image. Can you alter the code above to make it reusable for any function, so that you can use it in your own program?
 
 --- collapse ---
 ---
@@ -76,12 +76,40 @@ def run_for(time_delta, action):
 ```
 ---/collapse ---
 
+## Closing resources
+
+At the end of the experiment it's a good idea to close all resources you have open.
+This might mean closing any files you have open:
+
+```python
+file = open(file)
+file.close()
+```
+
+and clearing the `sense_hat` LED matrix:
+```python
+from sense_hat import SenseHat
+
+sense = SenseHat()
+sense.clear()
+```
+
+and closing the camera:
+```python
+
+from picamera import PiCamera
+
+cam = PiCamera()
+cam.close()
+```
+
+
 ## Your experiment
 
-Can you modify your `main.py` to use the code above, so that it runs for just under 3 hours?
+Can you modify your `main.py` to use the code above, so that it runs for just under 3 hours and closes all its resources?
 
 --- task ---
-Modify your `main.py` program so that it will finish before the 3 hours have elapsed.
+Modify your `main.py` program so that it will finish gracefully before the 3 hours have elapsed.
 --- /task ---
 
 <p style="border-left: solid; border-width:10px; border-color: #0faeb0; background-color: aliceblue; padding: 10px;">
