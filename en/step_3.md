@@ -146,7 +146,7 @@ title: skyfield
 
 Skyfield is an astronomy package that computes the positions of stars, planets, and satellites in orbit around the Earth.
 
-In [a later section](6) you can find out how to use skyfield to obtain the position of the International Space Station above the Earth and how to determine whether the ISS is sunlit.
+In the [How to find the location of the ISS](6) section you can find out how to use skyfield to obtain the position of the International Space Station above the Earth and how to determine whether the ISS is sunlit.
 
 #### Documentation
 
