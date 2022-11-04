@@ -133,14 +133,12 @@ Then, push the plastic clip back into place.
 --- task ---
 Place the Sense HAT onto the Raspberry Pi and line up the 40 GPIO pins line up with the corresponding holes in the header.   
 
-TODO this photo is not applicable to everyone now because it has a camera - change
 ![Photo of a Sense HAT fitted on to a Raspberry Pi device with a tall header and camera cable passed through the slot on the HAT.](images/assembly_cam_spacers_sh.JPG)
 --- /task ---
 
 --- task ---
 Use the four remaining black screws to secure the Sense HAT stack to the spacers. 
 
-TODO this photo not applicable to people without Camera
 ![Photo of the Sense HAT with screws securing it to the spacers.](images/assembly_spacer_top.JPG)
 --- /task ---
 

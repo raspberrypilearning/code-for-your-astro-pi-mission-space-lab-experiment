@@ -110,7 +110,7 @@ Review your program and consider if you want catch any of these errors:
 - `DivideByZeroError`
 - `ValueError`
 - `TypeError`
-- `SenseHatError` TODO need to link to the sense hat docs
+- `SenseHatError`
 --- /task---
 
 ## Logging

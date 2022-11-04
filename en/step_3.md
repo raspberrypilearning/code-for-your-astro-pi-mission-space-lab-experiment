@@ -355,7 +355,7 @@ SciPy is a free and open-source Python library used for scientific computing and
 title: TensorFlow Lite and PyCoral
 ---
 
-TensorFlow Lite and the PyCoral library can be used to use or re-train existing machine-learning models for inference. The latter is built on top of TensorFlow Lite but has a simpler, higher-level interface and allows you to easily use the Coral USB Accelerator (Edge TPU). Note that Tensorflow (as opposed to TensorFlow Lite) is not supported by the Kit OS because Tensorflow requires a 64 bit operating system. You may want to use these libraries to create object classifiers, for example. For more information, see the TODO page.
+TensorFlow Lite and the PyCoral library can be used to use or re-train existing machine-learning models for inference. The latter is built on top of TensorFlow Lite but has a simpler, higher-level interface and allows you to easily use the Coral USB Accelerator (Edge TPU). Note that Tensorflow (as opposed to TensorFlow Lite) is not supported by the Kit OS because Tensorflow requires a 64 bit operating system. You may want to use these libraries to create object classifiers, for example. For more information, see the [Machine Learning and computer vision](7) section.
 
 #### Documentation
 
