@@ -6,7 +6,7 @@ Once you've finished writing your program, its vital that you check that it meet
 Check your program against the [Mission Space Lab guidelines phase 2 checklist](https://astro-pi.org/mission-space-lab/guidelines/program-checklist).
 --- /task ---
 
-In addition to this checklist, we have made a list of common mistakes for you to avoid:
+In addition to this checklist, we have prepared a list of common mistakes for you to use while reviewing your work:
 
 --- collapse ---
 ---
@@ -49,7 +49,7 @@ Your code must be able to deal with variations in conditions aboard the ISS. For
 title: Use of absolute file paths
 ---
 
-Make sure that you don’t use any specific paths for your data files. Use the __file__ variable as described in (4).
+Make sure that you don’t use any specific paths for your data files. Use the __file__ variable as described in [](4).
 
 ---/collapse---
 
