@@ -107,7 +107,7 @@ Push the header all the way through, making sure none of the pins are obstructed
 <div class="camera_step">
 
 --- task ---
-![Photo of the camera ribbon cable inserted through the gap in the Sense HAT](images/ribbon_cable_inside_sense_hat.jpg)
+![Photo of the camera ribbon cable inserted through the gap in the Sense HAT](images/ribbon_cable_inside_sense_hat.png)
 
 With the Raspberry Pi High Quality Cable and connector cable unboxed, take the connector cable and feed it through the gap in the Sense HAT. The silver side of the connector cable should face the LED matrix and not the blue side.
 
