@@ -139,14 +139,14 @@ Take some time now to familiarise yourself with the libraries available to use o
 
 --- collapse ---
 ---
-title: Skyfield
+title: skyfield
 ---
 
 #### Usage
 
 Skyfield is an astronomy package that computes the positions of stars, planets, and satellites in orbit around the Earth.
 
-In [*Finding the location of the ISS*](4) TODO - link broken, you can find out how to use Skyfield to obtain the position of the International Space Station above the Earth and how to determine whether the ISS is sunlit.
+In [a later section](6) you can find out how to use skyfield to obtain the position of the International Space Station above the Earth and how to determine whether the ISS is sunlit.
 
 #### Documentation
 
@@ -250,9 +250,61 @@ title: GDAL
 
 The Geospatial Data Abstraction Library (GDAL) is an open-source, cross-platform set of libraries and low-level tools for working with geospatial data in many formats. You may want to use this library if you want to work out the size of the area spanned by your ISS flight path, for example.
 
+#### Usage
+TODO
+
 #### Documentation
 
 - [pypi.org/project/GDAL](https://pypi.org/project/GDAL/)
+
+--- /collapse ---
+
+--- collapse ---
+---
+title: geopandas
+---
+
+GeoPandas is a package to make working with geospatial data in python easier. GeoPandas extends the datatypes used by the `pandas` package to allow spatial operations on geometric types. The [examples gallery](https://geopandas.org/en/stable/gallery/index.html#) shows how  to create a variety of graphs using geospatial data.
+
+#### Usage
+
+Start exploring a dataset interactively:
+```python
+import geopandas
+
+path_to_data = geopandas.datasets.get_path("nybb")
+gdf = geopandas.read_file(path_to_data)
+gdf = gdf.set_index("BoroName")
+gdf["area"] = gdf.area
+gdf.explore("area", legend=False)
+```
+
+#### Documentation
+- [https://geopandas.org/en/stable/docs.html](https://geopandas.org/en/stable/docs.html)
+
+--- /collapse ---
+
+--- collapse ---
+---
+title: earthpy
+---
+
+EarthPy is a package that makes it easier to plot and work with spatial raster and vector data . 
+The [examples gallery](https://earthpy.readthedocs.io/en/latest/gallery_vignettes/index.html) includes examples on how to plot bands of satellite imagery and how to calculate NDVI.
+
+#### Usage
+
+```python
+import earthpy.plot as ep
+import numpy as np
+
+arr = np.random.randint(4, size=(3, 5, 5))
+ep.plot_bands(arr)
+```
+
+#### Documentation
+
+- [https://earthpy.readthedocs.io/en/latest/index.html](https://earthpy.readthedocs.io/en/latest/index.html)
 
 --- /collapse ---
 
@@ -302,7 +354,7 @@ SciPy is a free and open-source Python library used for scientific computing and
 
 --- collapse ---
 ---
-title: TensorFlow Lite, and PyCoral
+title: TensorFlow Lite and PyCoral
 ---
 
 TensorFlow Lite and the PyCoral library can be used to use or re-train existing machine-learning models for inference. The latter is built on top of TensorFlow Lite but has a simpler, higher-level interface and allows you to easily use the Coral USB Accelerator (Edge TPU). Note that Tensorflow (as opposed to TensorFlow Lite) is not supported by the Kit OS because Tensorflow requires a 64 bit operating system. You may want to use these libraries to create object classifiers, for example. For more information, see the TODO page.

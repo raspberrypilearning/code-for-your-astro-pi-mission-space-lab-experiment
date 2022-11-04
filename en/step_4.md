@@ -51,6 +51,8 @@ Pick a project pathway to look at and create a plan to study it as a team
 
 You don't need to just restrict yourself to the projects site though! You could use a search engine to try and find examples of other teams working on a similar idea, to find more data for a machine learning experiment, or to engage with real scientific literature.
 
+Check out the [Resources section](11) for more inspiration.
+
 ### Work out the key program tasks visually
 Once you have a good idea of what you are trying to achieve with your program, the next step is to work out the tasks that the program will need to do. We recommend doing this visually using pen and paper, or a whiteboard, or online using a tool like [Miro](https://miro.com).
 

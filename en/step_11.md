@@ -132,4 +132,7 @@ Counter,Date/time,Latitude,Longitude,Temperature,Humidity
 4,2021-02-24 10:48:11.571371,36.047429941325575,8.879601929060437,27.5894,42.6544
 ```
 
-Note that exception handling in this program is rather crude: all raised exceptions will be caught and logged. This means that such a program is very unlikely to terminate abruptly and display an error. Even if errors are generated and the program fails to achieve its goal, this will only become apparent by checking the log files for errors. When testing your program, make sure you also check any log files it generates.
+<p style="border-left: solid; border-width:10px; border-color: #0faeb0; background-color: aliceblue; padding: 10px;">
+Exception handling in this program is rather crude: all raised exceptions will be caught and logged. This means that such a program is very unlikely to terminate abruptly and display an error. Even if errors are generated and the program fails to achieve its goal, this will only become apparent by checking the log files for errors. When testing your program, make sure you also check any log files it generates.
+</p>
+
