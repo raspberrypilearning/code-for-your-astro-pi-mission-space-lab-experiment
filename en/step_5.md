@@ -8,6 +8,15 @@ To get started, create a file called `main.py`. In this file we will write all o
 Create a file called `main.py`
 ---/task---
 
+--- collapse ---
+---
+title: Growing pains?
+---
+
+Ideally, all of your code should be contained within `main.py`. Don't worry if your experiment is complex and you need to break down your code into individual modules though: additional files are allowed!
+--- /collapse ---
+
+
 ## Recording images using the camera
 
 <p style="border-left: solid; border-width:10px; border-color: #0faeb0; background-color: aliceblue; padding: 10px;">
