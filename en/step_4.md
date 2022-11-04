@@ -1,6 +1,6 @@
 ## Planning Your Work
 
-Teams have often reflected in previous years that they wished they had spent more time in the planning and design stages of their experiment. Being organised should make the most of the opportunity to run your code aboard the ISS, and in this section we've put together the following activity for you to try. Before you try those, check out this video from last year:
+Teams have often reflected in previous years that they wished they had spent more time in the planning and design stages of their experiment. Being organised should make the most of the opportunity to run your code aboard the ISS, and in this section we've put together some team activities for you to try. Before you start, though, check out this video from last year:
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/owcZeUnSixM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
