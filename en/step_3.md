@@ -248,13 +248,11 @@ while True:
 title: GDAL
 ---
 
-The Geospatial Data Abstraction Library (GDAL) is an open-source, cross-platform set of libraries and low-level tools for working with geospatial data in many formats. You may want to use this library if you want to work out the size of the area spanned by your ISS flight path, for example.
-
-#### Usage
-TODO
+The Geospatial Data Abstraction Library (GDAL) is an open-source, cross-platform set of libraries and low-level tools for working with geospatial data in many formats. For most purposes on Astro Pi you may want to look at using `earthpy` or `geopandas` instead which are simpler to use.
 
 #### Documentation
 
+- [GDAL Cookbook](http://pcjericks.github.io/py-gdalogr-cookbook/index.html)
 - [pypi.org/project/GDAL](https://pypi.org/project/GDAL/)
 
 --- /collapse ---
