@@ -1,12 +1,12 @@
-## Running your experiment for 3 hours
+## Running an experiment for 3 hours
 
-In this section we are going to modify our `main.py` so that it will run and stop itself just before our 180 minutes slot is over! We need to ensure that our program gracefully shuts down to ensure we don't lose any data.
+In this section we are going to modify our `main.py` so that it will run and stop itself after 3 hours. Each experiment on the ISS has a 3 hour slot to use after which it will be abruptly stopped! We need to ensure that our program gracefully shuts down to ensure we don't lose any data.
 
 ### The datetime library
 
 One way to stop a Python program after a specific length of time is using the `datetime` Python library. This library makes it easy to work with times and compare them. Doing so without the library is not always straightforward: it's easy to get it wrong using normal mathematics. For example, it's simple to work out the difference in time between 10:30 and 10:50 (subtract 30 from 50), but slightly more complicated when you have 10:44 and 11:17 (add (60 - 44) to 17). Things become even trickier if the two times are split across two days (for example, the difference in minutes between 23:07 on Monday 31 May and 11:43 on Tuesday 1 June). The `datetime` library makes this type of operation much simpler by allowing you to create `datetime` objects that you can simply add to or subtract from each other.  
 
-By recording and storing the time at the start of your experiment, you can then check repeatedly to see if the current time is greater than that start time plus a certain number of minutes, seconds, or hours. In the program below this is used to print "Hello from the ISS" every second for 2 minutes:
+By recording and storing the time at the start of the experiment, we can then check repeatedly to see if the current time is greater than that start time plus a certain number of minutes, seconds, or hours. In the program below this is used to print "Hello from the ISS" every second for 2 minutes:
 
 ```python
 from datetime import datetime, timedelta
@@ -25,27 +25,37 @@ while (now_time < start_time + timedelta(minutes=2)):
     now_time = datetime.now()
 ```
 
-Instead of calling the `print` function we can call any function, such as a function to collect data or capture an image. Can you alter the code above to make it reusable for any function, so that you can use it in your own program?
+Instead of calling the `print` function we might want to call a function to collect data or capture an image. Can you alter the code above to make it call an arbitrary function instead of `print`?
 
 --- collapse ---
 ---
 title: Solution
 ---
-Remember that in Python you can pass functions as values:
+Remember that in Python you can use a function just like any other value. For example, you could assign it to a variable:
 
 ```python
 def say_hello():
     return "Hello world"
 action = say_hello
 ```
-`say_hello` without the `()` refers to the function itself, and does not call it.
-Here we assign the function itself to a variable `action`, and we can call this variable later to get the result of the function: 
+and then call it later using the variable:
 
 ```python
 action()
 ```
 
-We use this idea of passing functions as variables to modify the while loop so that it acccepts any function:
+Or you could pass the function as an input to another function:
+
+```python
+
+def one():
+    return 1
+
+def two(one):
+    return one() + one()
+```
+
+We can use this idea of assinging a function to a variable and passing it as an input to another function to modify the while loop so that it accepts any function:
 
 ```python
 from datetime import datetime, timedelta
@@ -74,6 +84,19 @@ def run_for(time_delta, action):
         now_time = datetime.now()
 
 ```
+
+Now we can call our new function with any `timedelta` and any function:
+
+```python
+from datetime import datetime
+
+def write_time_to_file():
+    with open("data.txt", "a") as f:
+        f.write(str(datetime.now())
+
+run_for(timedelta(minutes=100), write_time_to_file)
+```
+
 ---/collapse ---
 
 ## Closing resources
