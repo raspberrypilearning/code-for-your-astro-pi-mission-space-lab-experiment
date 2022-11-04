@@ -1,13 +1,8 @@
 ## Kit Assembly
 
-In this step we are going to build a real Astro Pi using the official kit you received from ESA! We understand that building your Astro Pi can be intimidating, which is why we have created the checklist below for you to follow! But before starting the assembly, let's familiarise ourselves with what's in the box...
-
-
-<div style="border-left: solid; border-width:10px; border-color: #0faeb0; background-color: aliceblue; padding: 10px;">
-You might want to watch this video as well!
 <iframe width="560" height="315" src="https://www.youtube.com/embed/cFhmKzV_QZs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-</div>
+In this step we are going to build a real Astro Pi using the official kit you received from ESA! We understand that building your Astro Pi can be intimidating, which is why we have created the checklist below for you to follow! But before starting the assembly, let's familiarise ourselves with what's in the box...
 
 --- collapse ---
 ---
