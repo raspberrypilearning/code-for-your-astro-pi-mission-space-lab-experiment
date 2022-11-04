@@ -27,14 +27,11 @@ As you will have noticed by reading the [Getting started with picamera](https://
 
 --- collapse ---
 ---
-title: What lenses are used on the real Astro Pis?
+title: What camera and lenses are used on the real Astro Pis?
 ---
-
-TODO: add a bit about the lenses.
-
-
 The camera sensor in the ESA kit is the same high-quality camera as the one found in the new Astro Pis on the ISS. You can read the [documentation about the HQ camera](https://www.raspberrypi.org/documentation/hardware/camera/), and a lot of detailed technical information can also be found in [the relevant section of the PiCamera library documentation](https://picamera.readthedocs.io/en/latest/fov.html#camera-hardware).
 
+All Life On Earth experiments will use a [5mm Kowa Lens](https://lenses.kowa-usa.com/10mp-jc10m-series/397-lm5jc10m.html), which has a large aperture range. All Life in Space experiments will use the [6mm Raspberry Pi lens](https://uk.farnell.com/raspberry-pi/rpi-6mm-lens/rpi-6mm-wide-angle-lens/dp/3381607). In all experiments the focal length will be set to infinity due to the altitude.
 ---/collapse---
 
 
