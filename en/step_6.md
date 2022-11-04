@@ -99,17 +99,16 @@ run_for(timedelta(minutes=100), write_time_to_file)
 
 ---/collapse ---
 
-## Closing resources
+### Stopping gracefully
 
-At the end of the experiment it's a good idea to close all resources you have open.
-This might mean closing any files you have open:
+At the end of the experiment it's a good idea to close all resources you have open. This might mean closing any files you have open:
 
 ```python
 file = open(file)
 file.close()
 ```
 
-and clearing the `sense_hat` LED matrix:
+or clearing the `sense_hat` LED matrix:
 ```python
 from sense_hat import SenseHat
 
@@ -117,7 +116,7 @@ sense = SenseHat()
 sense.clear()
 ```
 
-and closing the camera:
+or closing the camera:
 ```python
 
 from picamera import PiCamera
