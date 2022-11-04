@@ -53,21 +53,21 @@ You don't need to just restrict yourself to the projects site though! You could 
 ### Work out the key program tasks visually
 Once you have a good idea of what you are trying to achieve with your program, the next step is to work out the tasks that the program will need to do. We recommend doing this visually using pen and paper, or a whiteboard, or online using a tool like [Miro](https://miro.com).
 
---- task---
+--- task ---
 List all of the key tasks that your program will need to perform. You don’t need to worry about the order or the actual functions and commands at this stage — just note down the specific things that need to be achieved like in the image below.
----/task---
+--- /task ---
 
 ![Example key tasks for a Mission Space Lab experiment](images/Astro_Pi_Educator_Focus_Graphics_V6a.png)
 
 --- task ---
 Have a closer look at each task and think about whether it can be split into smaller subtasks. Check to see if there are any actions that can be combined with one another, or if there are any tasks that need to be repeated.
----/task---
+--- /task ---
 
 ![Example refinement of the key tasks for a Mission Space Lab experiment, showing how the ke tasks that involve writing data to a file can be combined together](images/Astro_Pi_Educator_Focus_Graphics_V6b.png)
 
 --- task ---
 Try to put everything into a logical order, using lines to connect the various tasks. It will start to get messy, but you will probably discover that there are some obvious repeated tasks - these tasks are probably going to be written as functions that you will reuse.
----/task---
+--- /task ---
 
 ![Arrange the key tasks into a logical order](images/Astro_Pi_Educator_Focus_Graphics_V6c.png)
 
@@ -90,9 +90,10 @@ A flow chart for a typical experiment might look something like this:
 ### Consider 'What if' scenarios
 
 An important aspect of programming and design is making sure you are ready for when things go wrong. Most experiments will have a main loop that runs repeatedly over the 3-hour period. An unexpected error encountered in this loop could be disastrous if it causes the program to stop or stall and prevent further data collection. So, think of some ‘what if’ scenarios. For example, if you’re reading data from a sensor, what will happen if it gives you an unexpected result? Will your program cope with this? How are you dealing with hardware errors? 
+
 --- task ---
 Identify points in your flowchart where errors might occur and add blocks to cater for them.
----/task---
+--- /task ---
 
 ### Assign tasks to members of the team
 
