@@ -170,5 +170,5 @@ It's a good idea to use **both** the `csv` library (for recording experiment dat
 
 ## Your experiment
 
-Using these strategies you should be able to improve the reliability of your experiment, and to observe its behaviour while its running. In the next section, we will look even more into how we can increase our confidence in our program, and improve its chances of success.
+Using these strategies you can quickly improve the reliability of your experiment and get the ability to observe your program while its running. In the next section, we will look even more into how to increase your confidence in your Python program, to improve its chances of success, and to get ready for submission!
 
