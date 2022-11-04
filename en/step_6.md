@@ -125,6 +125,10 @@ cam = PiCamera()
 cam.close()
 ```
 
+<p style="border-left: solid; border-width:10px; border-color: #0faeb0; background-color: aliceblue; padding: 10px;">
+Don't forget to call the `flush` and `os.fsync` methods regularly on any files you modify in your experiment to ensure they are saved to disk.
+</p>
+
 
 ## Your experiment
 

@@ -49,7 +49,7 @@ Your code must be able to deal with variations in conditions aboard the ISS. For
 title: Use of absolute file paths
 ---
 
-Make sure that you don’t use any specific paths for your data files. Use the __file__ variable as described in [](4).
+Make sure that you don’t use any specific paths for your data files. Use the `__file__` variable as described in [](4).
 
 ---/collapse---
 
