@@ -2,7 +2,8 @@
 
 Teams have often reflected in previous years that they wished they had spent more time in the planning and design stages of their experiment. Being organised should make the most of the opportunity to run your code aboard the ISS, and in this section we've put together the following activity for you to try. Before you try those, check out this video from last year:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/vCFF_e1rSTI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/owcZeUnSixM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 
 ### 5 questions to get started
 
@@ -92,7 +93,7 @@ A flow chart for a typical experiment might look something like this:
 An important aspect of programming and design is making sure you are ready for when things go wrong. Most experiments will have a main loop that runs repeatedly over the 3-hour period. An unexpected error encountered in this loop could be disastrous if it causes the program to stop or stall and prevent further data collection. So, think of some ‘what if’ scenarios. For example, if you’re reading data from a sensor, what will happen if it gives you an unexpected result? Will your program cope with this? How are you dealing with hardware errors? 
 
 --- task ---
-Identify points in your flowchart where errors might occur and add blocks to cater for them.
+Identify points in your flowchart where errors might occur and add new blocks to cater for them.
 --- /task ---
 
 ### Assign tasks to members of the team
@@ -107,8 +108,9 @@ You may want to use a project management tool to keep track of your tasks. Somet
 
 ![Update to the flow chart to reflect changes that become necessary as the program evolves](images/Astro_Pi_Educator_Focus_Graphics_V6e.png)
 
-Whichever method you choose to track your work, make sure to create time to meet regularly to discuss progress and work through any major challenges as a group. It can be useful to update your pseudocode flow diagram to reflect any changes that your team realise are necessary as they write the actual program!
+Whatever method you choose to track your work, make sure to schedule a time to meet regularly to discuss progress and work through any major challenges as a group. It can be useful to update your pseudocode flow diagram to reflect any changes that your team realise are necessary as they write the actual program!
 
 ## Get coding!
 
-Now that you have a much better idea of what your experiment program is going to do, it's time to get coding! Continue reading for specific guidance on how to write aspects of your program.
+Now that you have a much better idea of what your experiment program is going to do, it's time to get coding! Continue reading for specific guidance on how to write your program.
+
