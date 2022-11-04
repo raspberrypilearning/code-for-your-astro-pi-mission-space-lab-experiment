@@ -49,7 +49,7 @@ Your code must be able to deal with variations in conditions aboard the ISS. For
 title: Use of absolute file paths
 ---
 
-Make sure that you don’t use any specific paths for your data files. Use the `__file__` variable as described in the [How to record data and images](5) section.
+Make sure that you don’t use any specific paths for your data files. Use the `__file__` variable as described in the [How to record data and images](4) section.
 
 ---/collapse---
 
@@ -125,7 +125,7 @@ Having checked your program against the guidelines and reviewed it for common mi
 So, to ensure that your entry has the best chance of success, it's important that you test your program thoroughly, debug any errors, and check it against the coding requirements! It’s especially important for you to consider any errors that could occur during your program’s run on the on-board Astro Pis’ Flight OS, such as file path errors or overwriting of files.
 
 <p style="border-left: solid; border-width:10px; border-color: #0faeb0; background-color: aliceblue; padding: 10px;">
-If you have installed any additional software on your KitOS we recommend that you reflash your SD card with the KitOS again. Instructions for doing this are in the [Kit OS section](3).
+If you have installed any additional software on your KitOS we recommend that you reflash your SD card with the KitOS again. Instructions for doing this are in the [Kit OS section](2).
 </p>
 
 To test your program, disconnect your Raspberry Pi from the internet, navigate to your project folder and run it directly with the following command:
@@ -135,8 +135,39 @@ python3 main.py
 ```
 Your code should run for 3 hours and then stop.
 
+--- task ---
+Test your experiment by running `python3 main.py` from the base directory with the internet disconnected.
+--- /task ---
+
 When it's finished, observe any output files created by your project. Are you expecting image files from the camera? Data files? Anything else? Are there reports of errors in your logs?
 
 If you see any errors, or the experiment doesn't do what you expected it to, you'll need to address this before you submit your code to ensure that you have a chance of reaching the final judging round.
 
-Instead, if everything you went well, congratulations you are ready to submit your program! 
+--- task ---
+Review the output of your test run for any problems or unexpected behavour.
+--- /task ---
+
+## Submitting your experiment
+
+If you tested your experiment program and everything went well, congratulations! You are ready to submit your experiment! All that remains to be done is to zip up your work and upload it to your (mentor's) Raspberry Pi account! 
+
+It's easy to `zip` your work using a Terminal:
+
+```bash
+zip -r your_team_name.zip /path/to/your/experiment/base/folder
+```
+
+You should see output like the below:
+
+```txt
+adding: example_experiment/ (stored 0%)
+adding: example_experiment/images/ (stored 0%)
+adding: example_experiment/main.py (stored 0%)
+adding: example_experiment/data/ (stored 0%)
+adding: example_experiment/model.tflite (stored 0%)
+```
+
+<p style="border-left: solid; border-width:10px; border-color: #0faeb0; background-color: aliceblue; padding: 10px;">
+Don't forget to double check you have included every file in the zip!
+</p>
+
