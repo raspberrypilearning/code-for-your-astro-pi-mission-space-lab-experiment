@@ -1,6 +1,13 @@
 ## Kit Assembly
 
-In this step we are going to build a real Astro Pi using the official kit you received from ESA. We understand that building your Astro Pi can be intimidating, which is why we have created the checklist below for you to follow! But before starting the assembly, let's familiarise ourselves with what's in the box...
+In this step we are going to build a real Astro Pi using the official kit you received from ESA! We understand that building your Astro Pi can be intimidating, which is why we have created the checklist below for you to follow! But before starting the assembly, let's familiarise ourselves with what's in the box...
+
+
+<div style="border-left: solid; border-width:10px; border-color: #0faeb0; background-color: aliceblue; padding: 10px;">
+You might want to watch this video as well!
+<iframe width="560" height="315" src="https://www.youtube.com/embed/cFhmKzV_QZs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+</div>
 
 --- collapse ---
 ---
@@ -54,7 +61,7 @@ Before getting started, familiarise yourself with what's in the box and unpack e
   - My box contains an infrared sensor <input type="checkbox" id="hasInfrared">
 </div>
 - My box contains a PIR sensor <input type="checkbox" id="hasPir">
-- My box contains a Coral accelerator <input type="checkbox" id="hasCoral">
+- My box contains a Coral accelerator stick <input type="checkbox" id="hasCoral">
 </div>
 
 --- task --- 
@@ -105,8 +112,12 @@ Push the header all the way through, making sure none of the pins are obstructed
 <div class="camera_step">
 
 --- task ---
+![Photo of the camera ribbon cable inserted through the gap in the Sense HAT](images/ribbon_cable_inside_sense_hat.jpg)
+
 With the Raspberry Pi High Quality Cable and connector cable unboxed, take the connector cable and feed it through the gap in the Sense HAT. The silver side of the connector cable should face the LED matrix and not the blue side.
-TODO photo needed...
+
+Here is a video of the process:
+<iframe width="560" height="315" src="https://www.youtube.com/embed/VzYGDq0D1mw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 --- /task ---
 
 --- task ---
@@ -172,6 +183,11 @@ Now we are going to connect each pin on the PIR sensor to an appropriate pin on 
 **Note**: Your jumper wires may be a different colour to the ones in the photos - the colour doesn't matter, don't worry!
 
 ![Photo of a Raspberry Pi with wires from the PIR connected to the correct pins.](images/assembly_wires.JPG)
+
+Here is a video of the PIR setup:
+<iframe width="560" height="315" src="https://www.youtube.com/embed/bezyRA3uHiY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
 --- /task ---
 
 You've just finished assembling the PIR sensor - great work!
@@ -183,10 +199,10 @@ You've just finished assembling the PIR sensor - great work!
 
 --- task ---
 ![Diagram showing the location of the USB 3 ports on the Raspberry Pi](images/rpi4-usb3-vector.png)
-Good news - the Coral accelerator requires no assembly! 
+Good news - the Coral accelerator stick requires no assembly! 
 Simply locate the USB-C cable and plug it into the accelerator, and then plug the other end into any of the blue USB (USB 3) ports.
 
-![Photo of the Coral accelerator with the USB-C cable inserted](images/coral_usb_c_inserted.jpg)
+![Photo of the Coral accelerator stick with the USB-C cable inserted](images/coral_usb_c_inserted.jpg)
 
 ![Photo of the Raspberry Pi with the Coral USB inserted into a USB 3 port](images/coral_usb_inserted.jpg)
 --- /task ---
@@ -239,7 +255,8 @@ In the next steps we will replace the built-in filter with a separate red filter
 --- task ---
 Remove the built-in infrared filter from the high-quality camera by following the [instructions here](https://www.raspberrypi.org/documentation/accessories/camera.html#raspberry-pi-hq-camera-filter-removal). You will need to use the 1.5mm allen key.
 
-Here is a video of the process: TODO upload / reshoot / edit https://drive.google.com/file/d/1HNMEnRWQf_qhmPMszu5IwRgZftBtba7R/view?usp=sharing
+To help you even more, here is a video of this process:
+<iframe width="560" height="315" src="https://www.youtube.com/embed/tAk0Q3jR_aQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 --- /task ---
 
 
@@ -329,22 +346,6 @@ Finally, connect the USB-C power cable into the Raspberry Pi and watch it boot u
 
 Congratulations, you have made an Astro Pi! 🚀
 Continue to the next stage to learn about the Operating System, the Kit OS.
-
-## Videos
-
-TODO find out where to host the videos
-
-- Camera:
-<iframe width="560" height="315" src="https://www.youtube.com/embed/VzYGDq0D1mw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-- NDVI:
-<iframe width="560" height="315" src="https://www.youtube.com/embed/tAk0Q3jR_aQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-- General assembly - being updated
-<iframe width="560" height="315" src="https://www.youtube.com/embed/cFhmKzV_QZs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-- PIR - being updated
-<iframe width="560" height="315" src="https://www.youtube.com/embed/bezyRA3uHiY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
 <style>
