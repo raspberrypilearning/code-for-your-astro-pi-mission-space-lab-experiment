@@ -362,11 +362,18 @@ Continue to the next stage to learn about the Operating System, the Kit OS.
 </style>
 
 <script type="text/javascript">
-  function getToggleDisplay(css_class) {
+
+  var checkboxValues = JSON.parse(localStorage.getItem('checkboxValues')) || {};
+
+  function getChangeHandler(css_class) {
     return (event) => {
+      // persist the checkbox value
+      console.log(event);
+
+      // show/hide the associated steps
       const steps = document.querySelectorAll(css_class);
       if (event.target.checked) {
-        // show the camera_step class
+        // show the class
         steps.forEach((step) => step.style.display = "block");
       } else {
         // hide
@@ -381,7 +388,7 @@ Continue to the next stage to learn about the Operating System, the Kit OS.
   for (let i = 0; i < checkboxes.length; i++) { 
     const checkbox = document.getElementById(checkboxes[i]);
     const cssClass = cssClasses[i];
-    checkbox.addEventListener('change', getToggleDisplay(cssClass));
+    checkbox.addEventListener('change', getChangeHandler(cssClass));
   }
 
 </script>
