@@ -337,7 +337,7 @@ Connect the little micro-HDMI cable into the HDMI 1 port of the Raspberry Pi and
 --- /task ---
 
 --- task ---
-![Photo of a micro SD card inside an SD card adapter](images/sd_card_adapter.png){: height="311px" width="407px" class="small-img"}
+![Photo of a micro SD card inside an SD card adapter](images/sd_card_adapter.png){: class="small-img"}
 
 The SD card comes in a large adapter, so remove it from the adapter and insert it into the SD port on the bottom of the Raspberry Pi - make sure you put it in the right way!
 
