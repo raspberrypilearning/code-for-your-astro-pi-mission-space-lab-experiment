@@ -104,13 +104,25 @@ In a separate bag, locate the tall GPIO header. We will use this header instead 
 --- task ---
 Line up the header with the corresponding holes on the bottom of the Sense HAT.  
 
+<div class="pir_step">
 ![Photo of tall header lined up with the Sense HAT.](images/assembly_insert_header.JPG)
+</div>
+
+<div class="not_pir_step">
+![Photo of regular header lined up with the Sense HAT.](images/assembly_insert_regular_header.JPG)
+</div>
 --- /task ---
 
 --- task ---
 Push the header all the way through, making sure none of the pins are obstructed and that they are lined up correctly so that they do not become bent.  
 
+<div class="pir_step">
 ![Photo of tall header inserted through the Sense HAT.](images/assembly_sh_header.JPG)
+</div>
+
+<div class="not_pir_step">
+![Photo of regular header inserted through the Sense HAT.](images/assembly_reg_header.JPG)
+</div>
 --- /task ---
 
 <div class="camera_step">
@@ -410,6 +422,7 @@ Continue to the next stage to learn about the Operating System, the Kit OS.
 
       // show/hide the associated steps
       toggleSteps(event.target.checked, css_class);
+      toggleSteps(!event.target.checked, "not_" + css_class);
     }
   }
 
@@ -428,7 +441,6 @@ Continue to the next stage to learn about the Operating System, the Kit OS.
       localStorage.removeItem('checkboxValues')
       checkboxValues = {}
     } else if (checkboxes[i] in checkboxValues) {
-      // should trigger the change event
       checkbox.checked = checkboxValues[checkboxes[i]]; 
       toggleSteps(checkboxValues[checkboxes[i]], cssClass);
     }
