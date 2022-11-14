@@ -383,6 +383,8 @@ Continue to the next stage to learn about the Operating System, the Kit OS.
       // persist the checkbox into localstorage
       var checkboxValues = JSON.parse(localStorage.getItem('checkboxValues')) || {};
       checkboxValues[checkbox_id] = event.target.checked;
+      const ttlInMs = 1000 * 60 * 60 * 24 // 24 hours
+      checkboxValues["expiry"] = new Date().getTime() + ttlInMs
       localStorage.setItem("checkboxValues", JSON.stringify(checkboxValues));
 
       // show/hide the associated steps
@@ -399,7 +401,12 @@ Continue to the next stage to learn about the Operating System, the Kit OS.
     checkbox.addEventListener('change', getChangeHandler(checkboxes[i], cssClass));
     // initialise the checkbox state based on localstorage
     const checkboxValues = JSON.parse(localStorage.getItem('checkboxValues')) || {};
-    if (checkboxes[i] in checkboxValues) {
+    // check expiry
+    if ('expiry' in checkboxValues && 
+        checkboxValues['expiry'] < new Date().getTime()) {
+      localStorage.removeItem('checkboxValues')
+      checkboxValues = {}
+    } else if (checkboxes[i] in checkboxValues) {
       // should trigger the change event
       checkbox.checked = checkboxValues[checkboxes[i]]; 
       toggleSteps(checkboxValues[checkboxes[i]], cssClass);
