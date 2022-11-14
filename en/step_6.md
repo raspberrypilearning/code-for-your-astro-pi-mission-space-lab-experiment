@@ -132,10 +132,8 @@ Don't forget to call the `flush` and `os.fsync` methods regularly on any files y
 
 ## Your experiment
 
-Can you modify your `main.py` to use the code above, so that it runs for just under 3 hours and closes all its resources?
-
 --- task ---
-Modify your `main.py` program so that it will finish gracefully before the 3 hours have elapsed.
+Modify your `main.py` program so that it will finish gracefully and close all its resources before the 3 hours have elapsed.
 --- /task ---
 
 <p style="border-left: solid; border-width:10px; border-color: #0faeb0; background-color: aliceblue; padding: 10px;">

@@ -6,7 +6,7 @@ In this section we are going to try and find ways to improve your program so tha
 
 The first tool in our toolbox is Python's `try-except` statement, which is used to handle exceptions thrown at runtime. Normally, when exceptions are thrown and not handled, this will result in the programming crashing immediately with potential loss of data. However, by using the try-except statement to catch the exception, we can let the program carry on.
 
-A common cause of failed programs is when a mathematical function tries to divide a value by zero. This can happen if you're reading a value from a sensor and then using that as part of a calculation. What will happen if you run the program below at freezing point? Will it print "G'day"?
+A common cause of failed programs is when a mathematical function tries to divide a value by zero. This can happen if you're reading a value from a sensor and then using that as part of a calculation. What will happen if you run the program below at freezing point? Will it print "Hello"?
 
 ```python
 from sense_hat import SenseHat
@@ -15,14 +15,14 @@ sense = SenseHat()
 b = 5
 
 a = b / sense.get_temperature()
-print("G'day")
+print("Hello")
 ```
 
 ---collapse---
 ---
 title: Answer
 ---
-At freezing point, this program will not print "G'day" and instead will crash with a `ZeroDivisionError`. 
+At freezing point, this program will not print "Hello" and instead will crash with a `ZeroDivisionError`.
 ---/collapse---
 
 One way to handle this potential situation is to catch the zero case early:
@@ -30,7 +30,7 @@ One way to handle this potential situation is to catch the zero case early:
 ```python
 if sense.get_temperature() != 0:
     a = b / sense.get_temperature()
-    print("G'day")
+    print("Hello")
 else:
     print("Temperature is zero")
 ```
@@ -40,7 +40,7 @@ But the preferred way of resolving this situation is to try to complete the oper
 ```python
 try:
     a = b / sense.get_temperature()
-    print("G'day")
+    print("Hello")
 except ZeroDivisionError:
     print("Temperature is zero")
 ```
@@ -50,7 +50,7 @@ In this way, we can carry on with our program even in the event of a divide by z
 ```python
 try:
     a = b / sense.get_temperature()
-    print("G'day")
+    print("Hello")
 except ZeroDivisionError:
     print("Temperature is zero")
 except TypeError:

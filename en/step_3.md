@@ -17,7 +17,13 @@ After you have completed these steps, the Astro Pi will reboot itself and you wi
 title: Optional setup - Accessing the Desktop Flight OS remotely
 ---
 
-The Kit OS can be configured so that you are able to connect to it from another desktop. To do this, you will need to install a [compatible VNC client](https://www.realvnc.com/en/connect/download/viewer/) on the other desktop, and then enable VNC on the Astro Pi itself by entering the commands below.
+<p style="border-left: solid; border-width:10px; border-color: #fa1111; background-color: #f56c6c; padding: 10px;">
+**Note:** Enabling VNC may expose your Raspberry Pi to security threats and could allow a hacker to access your machine. Make sure you understand the risks before enabling it.
+</p>
+
+The Kit OS can be configured so that you are able to connect to it from another desktop. To do this, you will need to install a [compatible VNC client](https://www.realvnc.com/en/connect/download/viewer/) on the other desktop, and then enable VNC on the Astro Pi itself by entering the commands below or via the graphical Raspberry Pi Configuration tool (_Menu > Preferences > Raspberry Pi Configuration > Interfaces_).
+
+![Screenshot of the VNC setting in the Raspberry Pi Configuration tool](images/raspi-config-gui-vnc.png)
 
 The default password to connect via VNC is `raspberry` but you are *highly encouraged* to change this using `vncpasswd -service` before enabling VNC.
 
@@ -618,5 +624,5 @@ hat.screen.fade_to(flag)
 
 ## Next steps
 
-This concludes our brief tour of the Kit OS! As you've seen, there are a lot of applications and libraries to become familiar with. Have no fear: with a good plan of action you will become comfortable with these programs and learn how to use them in your own experiment! In the next step, you will learn about how to plan this stage of your experiment.
+This concludes our brief tour of the Kit OS! As you've seen, there are a lot of applications and libraries to become familiar with. With a good plan of action you will be soon using them in your own experiment. In the next step, you will learn about how to plan phase 2 of your experiment.
 

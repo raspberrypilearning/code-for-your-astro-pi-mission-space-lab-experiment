@@ -6,7 +6,7 @@ There are a wealth of resources available to help you succeed at every stage of 
 Stuck? Pi Mission Control team will try to help you! Please [contact us](mailto:enquiries@astro-pi.org) and we will do our best to help you!
 </p>
 
-Here are a few Raspberry Pi projects to wet your appetite:
+Here are a few Raspberry Pi projects to whet your appetite:
 
 - For a Life In Space experiment a great resource is the [Life In Space pathway](https://projects.raspberrypi.org/en/pathways/life-in-space). This includes projects to help you [get started with the Sense HAT](https://projects.raspberrypi.org/en/projects/getting-started-with-the-sense-hat/3) and [collecting data](https://projects.raspberrypi.org/en/projects/sense-hat-data-logger/4), and [designing your experiment](https://projects.raspberrypi.org/en/projects/experiment-design/3).
 - For a Life On Earth experiment there is a [separate pathway](https://projects.raspberrypi.org/en/pathways/life-on-earth) that includes projects to help you [use the camera](https://projects.raspberrypi.org/en/projects/getting-started-with-picamera/6) and even [calculate the speed of the ISS using computer vision](https://projects.raspberrypi.org/en/projects/astropi-iss-speed/5).

@@ -91,7 +91,7 @@ A number of teams want to organise their data into directories such as `data`, `
 
 ---collapse---
 ---
-title: Trying to access the internet
+title: Networking
 ---
 For security reasons, **your program is not allowed to access the network on the ISS**. It should not attempt to open a socket, access the internet, or make a network connection of any kind. This includes local network connections back to the Astro Pi itself. As part of testing your program, you should disable wireless connectivity and unplug the Ethernet cable from your Raspberry Pi to make sure that your experiment runs successfully without an internet connection.
 ---/collapse---
@@ -113,6 +113,20 @@ If you need to do more than one thing at a time, you can use a multi-threaded pr
 **Only use the `threading` library if absolutely necessary** for your experiment. Managing threads can be tricky, and as your experiment will be run as part of a sequence of programs, we need to make sure that the previous one has ended smoothly before starting the next. Rogue threads can run amok and hog system resources, and so must be avoided. If you do use threads in your code, you should make sure that they are all managed carefully and closed cleanly at the end of your experiment. You should additionally make sure that comments in your code clearly explain how this is achieved.
 
 ---/collapse ---
+
+--- collapse ---
+---
+title: Forgetting to delete photos from a Life in Space experiment
+---
+Life in Space experiments are not allowed to save photos - you must delete them before your experiment finishes.
+--- /collapse ---
+
+--- collapse ---
+---
+title: Setting the program execution time too short
+---
+Some teams set their program execution time to a small value (e.g. 5 minutes) for testing and then forget to switch it back to an appropriate value. Make sure to use as much of your allocated 3 hour time slot as possible.
+--- /collapse ---
 
 --- task ---
 Review your program again - can you spot any of the common mistakes in your program?
