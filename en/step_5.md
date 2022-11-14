@@ -149,9 +149,7 @@ Check out the example below if you need more help.
 title: Measuring temperature and humidity
 ---
 
-The team from CoderDojo Numenor wants to investigate whether the environment on the ISS is affected by the day and night cycle. Does the ISS get colder at night, or drier in the day? To do this, they will first have to collect temperature and humidity data.
-
-Fortunately, their team have visited the [Sense HAT documentation](https://pythonhosted.org/sense-hat/), and particularly the [API page](https://pythonhosted.org/sense-hat/api/), and have found the relevant functions to call to measure temperature and humidity. They write  their `collect_data` and are ready to work on the next task!
+A team wants to investigate whether the environment on the ISS is affected by the day and night cycle. Does the ISS get colder at night, or drier in the day? To do this, they will first have to collect temperature and humidity data. The funciton to do this might look like this:
 
 ```python
 from sense_hat import SenseHat

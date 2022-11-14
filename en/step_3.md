@@ -4,7 +4,7 @@
 
 When you power on your Astro Pi for the first time you will be invited to accept the ESA License Agreement, as shown below:
 
-![Screenshot of the ESA Licence Agreement page](images/os_22-23_esa-licence-accept.jpg)
+![Screenshot of the ESA Licence Agreement page](images/os_22-23_esa-licence-accept.jpg){: style="max-width: 80%" }
 
 Once you have accepted the licence agreement, you will be asked to create a new username and password, to set the system time and language settings, and to connect to a WiFi network. For more help on setting up your Raspberry Pi, take a look at [this guide](https://projects.raspberrypi.org/en/projects/raspberry-pi-getting-started/4).
 
@@ -39,7 +39,7 @@ sudo systemctl start avahi-daemon
 You can also connect to the Desktop Flight OS using just a browser, albeit less-securely. On a machine that is connected to the same network as your Astro Pi kit, open up a browser and type `https://astro-pi-kit.local/vnc.html` in the address bar. 
 You will have to tell your browser to trust your unique Astro Pi SSL certificate to continue (e.g. on Chrome, type `thisisunsafe` while the browser tab has focus), but once you have done so you will be lead to the noVNC connection page. Click on the `Connect` button, enter the password you set in `vncpasswd`, and you should see the Flight OS desktop in your browser!
 
-![The Desktop Flight OS accessed remotely through a browser window on an Ubuntu machine.](images/noVNC.jpg)
+![The Desktop Flight OS accessed remotely through a browser window on an MacBook.](images/noVNC.jpg)
 
 --- /collapse ---
 
