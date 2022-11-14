@@ -365,8 +365,8 @@ Continue to the next stage to learn about the Operating System, the Kit OS.
 
   /* TODO small-img class with max-width at 50% */
 
-  td img {
-    max-width: none;
+  #thumbnail_div td img {
+    max-height: none;
     width: 250px;
     height: auto;
   }
