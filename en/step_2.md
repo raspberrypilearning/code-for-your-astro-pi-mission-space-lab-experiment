@@ -363,22 +363,30 @@ Continue to the next stage to learn about the Operating System, the Kit OS.
 
 <script type="text/javascript">
 
-  var checkboxValues = JSON.parse(localStorage.getItem('checkboxValues')) || {};
 
-  function getChangeHandler(css_class) {
+  function toggleSteps(checked, css_class) {
+    /**
+     * Show/hide the associated steps
+    */
+    const steps = document.querySelectorAll(css_class);
+    if (checked) {
+      // show the class
+      steps.forEach((step) => step.style.display = "block");
+    } else {
+      // hide
+      steps.forEach((step) => step.style.display = "none");
+    }
+  }
+
+  function getChangeHandler(checkbox_id, css_class) {
     return (event) => {
-      // persist the checkbox value
-      console.log(event);
+      // persist the checkbox into localstorage
+      var checkboxValues = JSON.parse(localStorage.getItem('checkboxValues')) || {};
+      checkboxValues[checkbox_id] = event.target.checked;
+      localStorage.setItem("checkboxValues", JSON.stringify(checkboxValues));
 
       // show/hide the associated steps
-      const steps = document.querySelectorAll(css_class);
-      if (event.target.checked) {
-        // show the class
-        steps.forEach((step) => step.style.display = "block");
-      } else {
-        // hide
-        steps.forEach((step) => step.style.display = "none");
-      }
+      toggleSteps(event.target.checked, css_class);
     }
   }
 
@@ -388,7 +396,13 @@ Continue to the next stage to learn about the Operating System, the Kit OS.
   for (let i = 0; i < checkboxes.length; i++) { 
     const checkbox = document.getElementById(checkboxes[i]);
     const cssClass = cssClasses[i];
-    checkbox.addEventListener('change', getChangeHandler(cssClass));
+    checkbox.addEventListener('change', getChangeHandler(checkboxes[i], cssClass));
+    // initialise the checkbox state based on localstorage
+    const checkboxValues = JSON.parse(localStorage.getItem('checkboxValues')) || {};
+    if (checkboxes[i] in checkboxValues) {
+      // should trigger the change event
+      checkbox.checked = checkboxValues[checkboxes[i]]; 
+    }
   }
 
 </script>
