@@ -12,7 +12,7 @@ It may be small but your kit box really packs a punch! Your official Astro Pi ki
 
 | 1x [Raspberry Pi 4](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/) 4GB | 1x Power Supply Unit | 1x 16GB Micro SD card | 1x HDMI cable |
 |:--------:|:-------:|:--------:|:--------:|
-| ![Raspberry Pi 4](images/raspberry-pi-vector.png){:width="250px" :height="150px"} | ![PSU](images/pi-power-supply-vector.png) | ![A 16GB SD card](images/sd-card-vector.png) | ![HDMI Cable](images/hdmi-cable.png) |
+| ![Raspberry Pi 4](images/thumbnails/raspberry-pi-vector.png) | ![PSU](images/pi-power-supply-vector.png) | ![A 16GB SD card](images/sd-card-vector.png) | ![HDMI Cable](images/hdmi-cable.png) |
 
 | 1x Sense HAT (V2) | Bag of spacers, screws, and a GPIO header
 |:--------:|:-------:|
