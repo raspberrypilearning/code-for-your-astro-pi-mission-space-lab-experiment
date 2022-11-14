@@ -75,7 +75,7 @@ Place the Raspberry Pi 4 on a flat surface. Make sure it is turned off with noth
 ### Attaching the Sense Hat
 
 We are going to start by assembling the Sense HAT.
-![Animation of the Sense Hat assembly](images/animated_sense_hat.gif)
+![Animation of the Sense Hat assembly](images/animated_sense_hat.gif){: style="max-width: 50%;" }
 
 --- task ---
 Find the Sense HAT and the small bag that comes with it that includes some screws and spacers, as well as a regular GPIO header.
