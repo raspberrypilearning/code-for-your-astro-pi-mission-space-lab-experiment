@@ -402,6 +402,7 @@ Continue to the next stage to learn about the Operating System, the Kit OS.
     if (checkboxes[i] in checkboxValues) {
       // should trigger the change event
       checkbox.checked = checkboxValues[checkboxes[i]]; 
+      toggleSteps(checkboxValues[checkboxes[i], cssClass);
     }
   }
 
