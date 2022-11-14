@@ -194,7 +194,7 @@ You've just finished assembling the PIR sensor - great work!
 Good news - the Coral accelerator stick requires no assembly! 
 Simply locate the USB-C cable and plug it into the accelerator, and then plug the other end into any of the blue USB (USB 3) ports.
 
-![Photo of the Coral accelerator stick with the USB-C cable inserted](images/coral_usb_c_inserted.jpg){:height="600px"}
+![Photo of the Coral accelerator stick with the USB-C cable inserted](images/coral_usb_c_inserted.png)
 
 ![Photo of the Raspberry Pi with the Coral USB inserted into a USB 3 port](images/coral_usb_inserted.jpg)
 --- /task ---
