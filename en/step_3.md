@@ -39,11 +39,11 @@ sudo systemctl start avahi-daemon
 You can also connect to the Desktop Flight OS using just a browser, albeit less-securely. On a machine that is connected to the same network as your Astro Pi kit, open up a browser and type `https://astro-pi-kit.local/vnc.html` in the address bar. 
 You will have to tell your browser to trust your unique Astro Pi SSL certificate to continue (e.g. on Chrome, type `thisisunsafe` while the browser tab has focus), but once you have done so you will be lead to the noVNC connection page. Click on the `Connect` button, enter the password you set in `vncpasswd`, and you should see the Flight OS desktop in your browser!
 
-![The Desktop Flight OS accessed remotely through a browser window on an Ubuntu machine.](images/noVNC.png)
+![The Desktop Flight OS accessed remotely through a browser window on an Ubuntu machine.](images/noVNC.jpg)
 
 --- /collapse ---
 
-![Screenshot of the Desktop version of the Flight Operating System.](images/os-desktop.png)
+![Screenshot of the Desktop version of the Flight Operating System.](images/os-desktop.jpg)
 
 <p style="border-left: solid; border-width:10px; border-color: #fa1111; background-color: #f56c6c; padding: 10px;">
 **Note**: Be careful about installing new software on your Kit OS, as it will make it more likely your experiment won't run successfully on the Astro Pis aboard the ISS.
