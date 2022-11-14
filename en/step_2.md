@@ -10,6 +10,8 @@ title: What's in the box?
 ---
 It may be small but your kit box really packs a punch! Your official Astro Pi kit includes:
 
+<div id="thumbnail_div">
+
 | 1x [Raspberry Pi 4](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/) 4GB | 1x Power Supply Unit | 1x 16GB Micro SD card | 1x HDMI cable |
 |:--------:|:-------:|:--------:|:--------:|
 | ![Raspberry Pi 4](images/raspberry-pi-vector.png) | ![PSU](images/pi-power-supply-vector.png) | ![A 16GB SD card](images/sd-card-vector.png) | ![HDMI Cable](images/hdmi-cable.png) |
@@ -43,6 +45,8 @@ If your experiment involves machine-learning at runtime, you will also have the 
 | ![Coral USB Accelerator](images/coral-vector.png) | ![USB cable](images/usb-cable-vector.png) |
 
 If you want to, you can [make a 3D-printed flight case](https://projects.raspberrypi.org/en/projects/astro-pi-flight-case-mk2){:target="_blank"}. However, you don't need one to take part in Mission Space Lab. 
+
+</div>
 
 --- /collapse ---
 
@@ -360,6 +364,12 @@ Continue to the next stage to learn about the Operating System, the Kit OS.
   }
 
   /* TODO small-img class with max-width at 50% */
+
+  #thumbnail_div td img {
+    max-width: none;
+    width: 250px;
+    height: auto;
+  }
 
 </style>
 
