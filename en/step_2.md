@@ -20,30 +20,35 @@ It may be small but your kit box really packs a punch! Your official Astro Pi ki
 |:--------:|:-------:|
 | ![Sense Hat](images/sense-hat-vector.png) | ![Sense Hat bag contents - spaces, screws, and a GPIO header](images/spacers_screws_gpio_header.png) |
 
+<br>
 If your experiment involves using the camera, you will also have:
 
 | 1x HQ Camera Module | 1x 6mm Camera Lense |
 |:--------:|:-------:|
 | ![HQ Camera module](images/camera-module-vector.png) | ![6mm Camera Lense](images/6mm-lens-vector.png) |
 
+<br>
 and if you will be using infra-red photography, your kit will also include:
 
 | 1x red optical filter | 1x allen key (1.5mm) |
 |:--------:|:-------:|
 | ![Red and IR optical filter](images/midopt-filter.png) | ![allen key](images/allen-key-vector.png) |
 
+<br>
 If your experiment involves detecting movement, your kit will include:
 
 | A passive infrared (PIR) sensor | 3x female-female jumper wires | 1x Tall header pins |
 |:--------:|:-------:|:--------:|
 | ![PIR sensor](images/pir-vector.png) | ![female-female jumper wires](images/jumper-female-to-female-vector.png) | ![Tall header pins](images/tallHeaderPins.png) |
 
+<br>
 If your experiment involves machine-learning at runtime, you will also have the following in your box:
 
 | A [Coral USB Accelerator](https://coral.ai/products/accelerator) | 1x USB-C to USB-A cable |
 |:--------:|:-------:|
 | ![Coral USB Accelerator](images/coral-vector.png) | ![USB cable](images/usb-cable-vector.png) |
 
+<br>
 If you want to, you can [make a 3D-printed flight case](https://projects.raspberrypi.org/en/projects/astro-pi-flight-case-mk2){:target="_blank"}. However, you don't need one to take part in Mission Space Lab. 
 
 </div>
@@ -198,7 +203,7 @@ You've just finished assembling the PIR sensor - great work!
 Good news - the Coral accelerator stick requires no assembly! 
 Simply locate the USB-C cable and plug it into the accelerator, and then plug the other end into any of the blue USB (USB 3) ports.
 
-![Photo of the Coral accelerator stick with the USB-C cable inserted](images/coral_usb_c_inserted.png){: height="638" width="360px" class="small-img" }
+![Photo of the Coral accelerator stick with the USB-C cable inserted](images/coral_usb_c_inserted.jpg){: height="638" width="360px" class="small-img" }
 
 ![Photo of the Raspberry Pi with the Coral USB inserted into a USB 3 port](images/coral_usb_inserted.jpg)
 --- /task ---
