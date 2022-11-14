@@ -30,7 +30,7 @@ and if you will be using infra-red photography, your kit will also include:
 
 | 1x red optical filter | 1x allen key (1.5mm) |
 |:--------:|:-------:|
-| ![Red and IR optical filter](images/midopt-filter-vector.png) | ![allen key](images/allen-key-vector.png) |
+| ![Red and IR optical filter](images/midopt-filter.png) | ![allen key](images/allen-key-vector.png) |
 
 If your experiment involves detecting movement, your kit will include:
 
