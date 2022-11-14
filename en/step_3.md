@@ -4,7 +4,7 @@
 
 When you power on your Astro Pi for the first time you will be invited to accept the ESA License Agreement, as shown below:
 
-![Screenshot of the ESA Licence Agreement page](images/esa_licence_accept.jpg)
+![Screenshot of the ESA Licence Agreement page](images/os_22-23_esa-licence-accept.jpg)
 
 Once you have accepted the licence agreement, you will be asked to create a new username and password, to set the system time and language settings, and to connect to a WiFi network. For more help on setting up your Raspberry Pi, take a look at [this guide](https://projects.raspberrypi.org/en/projects/raspberry-pi-getting-started/4).
 
@@ -23,7 +23,7 @@ title: Optional setup - Accessing the Desktop Flight OS remotely
 
 The Kit OS can be configured so that you are able to connect to it from another desktop. To do this, you will need to install a [compatible VNC client](https://www.realvnc.com/en/connect/download/viewer/) on the other desktop, and then enable VNC on the Astro Pi itself by entering the commands below or via the graphical Raspberry Pi Configuration tool (_Menu > Preferences > Raspberry Pi Configuration > Interfaces_).
 
-![Screenshot of the VNC setting in the Raspberry Pi Configuration tool](images/raspi-config-gui-vnc.png)
+![Screenshot of the VNC setting in the Raspberry Pi Configuration tool](images/os_22-23_vnc_enable.jpg)
 
 The default password to connect via VNC is `raspberry` but you are *highly encouraged* to change this using `vncpasswd -service` before enabling VNC.
 
@@ -43,7 +43,7 @@ You will have to tell your browser to trust your unique Astro Pi SSL certificate
 
 --- /collapse ---
 
-![Screenshot of the Desktop version of the Flight Operating System.](images/os-desktop.jpg)
+![Screenshot of the Desktop version of the Flight Operating System.](images/os_22-23_sense_hat.jpg)
 
 <p style="border-left: solid; border-width:10px; border-color: #fa1111; background-color: #f56c6c; padding: 10px;">
 **Note**: Be careful about installing new software on your Kit OS, as it will make it more likely your experiment won't run successfully on the Astro Pis aboard the ISS.
@@ -72,7 +72,7 @@ Making sure that your program runs successfully in this environment is the best 
 
 There are a lot of applications that are installed in the Kit OS - take a moment to explore the start menu in the top-left corner. Can you find the following applications?
 
-![Screenshot showing the location of the start menu in the top left-hand corner](images/start-menu.jpg)
+![Screenshot showing the location of the start menu in the top left-hand corner](images/os_22-23_programming-apps.jpg)
 
 --- collapse ---
 ---
@@ -88,7 +88,7 @@ Thonny is a Python IDE ([Integrated Development Environment](https://simple.wiki
 title: Visual Studio Code
 ---
 Visual Studio Code is a [text editor](https://simple.wikipedia.org/wiki/Text_editor) and can be used to write programs in many programming languages, including Python. It isn't quite as beginner-friendly as Thonny, but you could also use this to write your program.
-![Screenshot of Visual Studio Code running on the Kit OS](images/visual-studio-code.jpg)
+![Screenshot of Visual Studio Code running on the Kit OS](images/os_22-23_visual-studio-code.jpg)
 --- /collapse ---
 
 --- collapse ---
@@ -96,7 +96,7 @@ Visual Studio Code is a [text editor](https://simple.wikipedia.org/wiki/Text_edi
 title: File Manager
 ---
 The File Manager is used to ... manage files! Every file on your computer can be accessed using this application. For more information, check out [this page](https://projects.raspberrypi.org/en/projects/raspberry-pi-using/7)
-![Screenshot of how to navigate to the File Manager applciation from the start screen](images/file-manager.png)
+![Screenshot of how to navigate to the File Manager applciation from the start screen](images/os_22-23_file-manager.jpg)
 --- /collapse ---
 
 --- collapse ---
@@ -104,7 +104,7 @@ The File Manager is used to ... manage files! Every file on your computer can be
 title: Chromium
 ---
 Chromium is the default web-browser on Raspberry Pi OS - use it to get help preparing your experiment!
-![Screenshot of the Chromium web browser running on the Kit OS](images/chromium.jpg)
+![Screenshot of the Chromium web browser running on the Kit OS](images/os_22-23_chromium.jpg)
 --- /collapse ---
 
 --- collapse ---
@@ -113,7 +113,7 @@ title: Terminal
 ---
 Terminal is an application that you can use to run other programs and automate almost any task on your computer. As an example to get started, type `python3` to open up a python interpreter. Check out [this page](https://projects.raspberrypi.org/en/projects/raspberry-pi-using/8) for more information about the Terminal.
 
-![Screenshot of the Terminal application running on the Kit OS](images/terminal.jpg)
+![Screenshot of the Terminal application running on the Kit OS](images/os_22-23_terminal.jpg)
 --- /collapse ---
 
 ### Python & Python Libraries
