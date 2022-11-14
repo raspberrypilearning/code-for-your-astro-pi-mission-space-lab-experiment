@@ -79,6 +79,7 @@ We are going to start by assembling the Sense HAT.
 
 --- task ---
 Find the Sense HAT and the small bag that comes with it that includes some screws and spacers, as well as a regular GPIO header.
+
 Remove any stickers on the top of the Sense HAT.
 
 ![Photo of the Sense HAT with small header removed.](images/assembly_small_header.JPG)
@@ -201,9 +202,12 @@ You've just finished assembling the PIR sensor - great work!
 --- task ---
 ![Diagram showing the location of the USB 3 ports on the Raspberry Pi](images/rpi4-usb3-vector.png)
 Good news - the Coral accelerator stick requires no assembly! 
-Simply locate the USB-C cable and plug it into the accelerator, and then plug the other end into any of the blue USB (USB 3) ports.
+Simply locate the USB-C cable and plug it into the accelerator
 
-![Photo of the Coral accelerator stick with the USB-C cable inserted](images/coral_usb_c_inserted.jpg){: height="638" width="360px" class="small-img" }
+![Photo of the Coral accelerator stick with the USB-C cable inserted](images/coral_usb_c_inserted.jpg){: height="450px" width="253px" class="small-img" }
+
+<br>
+and then plug the other end into any of the blue USB (USB 3) ports.
 
 ![Photo of the Raspberry Pi with the Coral USB inserted into a USB 3 port](images/coral_usb_inserted.jpg)
 --- /task ---
@@ -333,7 +337,7 @@ Connect the little micro-HDMI cable into the HDMI 1 port of the Raspberry Pi and
 --- /task ---
 
 --- task ---
-![Photo of a micro SD card inside an SD card adapter](images/sd_card_adapter.png)
+![Photo of a micro SD card inside an SD card adapter](images/sd_card_adapter.png){: height="311px" width="407px" class="small-img"}
 
 The SD card comes in a large adapter, so remove it from the adapter and insert it into the SD port on the bottom of the Raspberry Pi - make sure you put it in the right way!
 
