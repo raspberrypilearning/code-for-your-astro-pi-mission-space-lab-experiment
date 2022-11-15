@@ -31,11 +31,12 @@ Read through the [Getting started with picamera](https://projects.raspberrypi.or
 ---/task---
 
 ### Choosing camera settings 
-As you will have noticed by reading the [Getting started with picamera](https://projects.raspberrypi.org/en/projects/getting-started-with-picamera/) project, the [picamera library](https://picamera.readthedocs.io/en/release-1.13/) allows you to set a huge selection of camera settings. When deciding on what settings to use, or whether to leave the settings on automatic, be mindful that you will be taking pictures in a variety of conditions with a range of weather, landscapes, and lighting. Night-time photography using the Astro Pi's Camera Module is particularly difficult: the ISS is travelling so fast that a long exposure time is needed, and this makes the photos come out very blurry in low-light conditions.
 
 <p style="border-left: solid; border-width:10px; border-color: #0faeb0; background-color: aliceblue; padding: 10px;">
 If your team has completed Phase 2 of MSL before please note that the AstroPis may not have exactly the same view as last year as they may be deployed in a different window on the ISS.
 </p>
+
+As you will have noticed by reading the [Getting started with picamera](https://projects.raspberrypi.org/en/projects/getting-started-with-picamera/) project, the [picamera library](https://picamera.readthedocs.io/en/release-1.13/) allows you to set a huge selection of camera settings. When deciding on what settings to use, or whether to leave the settings on automatic, be mindful that you will be taking pictures in a variety of conditions with a range of weather, landscapes, and lighting. Night-time photography using the Astro Pi's Camera Module is particularly difficult: the ISS is travelling so fast that a long exposure time is needed, and this makes the photos come out very blurry in low-light conditions.
 
 --- collapse ---
 ---
