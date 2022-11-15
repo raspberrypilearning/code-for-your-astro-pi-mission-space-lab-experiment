@@ -1,6 +1,6 @@
 ## Test and checking your program 
 
-Once you've finished writing your program, its vital that you check that it meets the guidelines and test it using the KitOS. Taking time to check your program against the guidelines and making sure that it runs without errors is the best way to ensure that your experiment passes the Astro Pi Mission Control testing procedure and can run on the ISS!
+Once you've finished writing your program, its vital that you check that it meets the guidelines and test it using the KitOS. Taking time to check your program against the guidelines and making sure that it runs without errors is the best way to ensure that your experiment passes the Astro Pi Mission Control testing procedure and can run on the ISS.
 
 --- task ---
 Check your program against the [Mission Space Lab guidelines phase 2 checklist](https://astro-pi.org/mission-space-lab/guidelines/program-checklist).
@@ -22,7 +22,7 @@ Your program **should not rely on human input** via the joystick or buttons. The
 title: Inappropriate use of the Sense HAT LED matrix and camera
 ---
 
-It is a requirement for all Life in Space submissions to regularly use the LED matrix. If you need help with this, check out [this project](https://projects.raspberrypi.org/en/projects/getting-started-with-the-sense-hat/3). By constrast, Life on Earth experiments are not allowed to use the LED matrix at all - make sure you know what type of experiment you are running and check the mission specific rules!
+It is a requirement for all Life in Space submissions to regularly use the LED matrix. If you need help with this, check out [this project](https://projects.raspberrypi.org/en/projects/getting-started-with-the-sense-hat/3). By constrast, Life on Earth experiments are not allowed to use the LED matrix at all - make sure you know what type of experiment you are running and check the mission specific rules.
 
 ---/collapse---
 
@@ -85,7 +85,7 @@ We've seen cases where teams have written a function only to forget to call it i
 title: Saving into directories that don't exist
 ---
 
-A number of teams want to organise their data into directories such as `data`, `images`, _etc._ This in and of of itself is a really good thing, but it's easy to forget to make these directories before writing to them! 
+A number of teams want to organise their data into directories such as `data`, `images`, _etc._ This in and of of itself is a really good thing, but it's easy to forget to make these directories before writing to them. 
 
 ---/collapse ---
 
@@ -134,9 +134,9 @@ Review your program again - can you spot any of the common mistakes in your prog
 
 ## Testing your program
 
-Having checked your program against the guidelines and reviewed it for common mistakes, you are ready to test it using the KitOS! Doing this gives your entry the best chance of success and confidence that it will work aboard the ISS. When Astro Pi Mission Control receive your program it will be tested on an actual Flight OS. Hundreds of teams submit programs to the challenge each year and, unfortunately, there is not enough time to check for mistakes or debug complex code errors: if your program has errors when we test it on the Flight OS, your team will not progress to Phase 3 and your code will not run on the ISS. 
+Having checked your program against the guidelines and reviewed it for common mistakes, you are ready to test it using the KitOS. Doing this gives your entry the best chance of success and confidence that it will work aboard the ISS. When Astro Pi Mission Control receive your program it will be tested on an actual Flight OS. Hundreds of teams submit programs to the challenge each year and, unfortunately, there is not enough time to check for mistakes or debug complex code errors: if your program has errors when we test it on the Flight OS, your team will not progress to Phase 3 and your code will not run on the ISS. 
 
-So, to ensure that your entry has the best chance of success, it's important that you test your program thoroughly, debug any errors, and check it against the coding requirements! It’s especially important for you to consider any errors that could occur during your program’s run on the on-board Astro Pis’ Flight OS, such as file path errors or overwriting of files.
+So, to ensure that your entry has the best chance of success, it's important that you test your program thoroughly, debug any errors, and check it against the coding requirements. It’s especially important for you to consider any errors that could occur during your program’s run on the on-board Astro Pis’ Flight OS, such as file path errors or overwriting of files.
 
 <p style="border-left: solid; border-width:10px; border-color: #0faeb0; background-color: aliceblue; padding: 10px;">
 If you have installed any additional software on your KitOS we recommend that you reflash your SD card with the KitOS again. Instructions for doing this are in the [Kit OS section](2).
@@ -163,7 +163,7 @@ Review the output of your test run for any problems or unexpected behavour.
 
 ## Submitting your experiment
 
-If you tested your experiment program and everything went well, congratulations! You are ready to submit your experiment! All that remains to be done is to zip up your work and upload it to your (mentor's) Raspberry Pi account! 
+If you tested your experiment program and everything went well, congratulations: you are ready to submit your experiment! All that remains to be done is to zip up your work and upload it to your (mentor's) Raspberry Pi account.
 
 It's easy to `zip` your work using a Terminal:
 

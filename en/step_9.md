@@ -1,6 +1,6 @@
 ## Bulletproofing your program
 
-In this section we are going to try and find ways to improve your program so that it stands the best chance of working as intended if something unexpected happens! There are many reasons why a program can fail, but with some foresight and planning it is possible to deal with these failures appropriately instead of crashing and losing the chance to capture data and images aboard the ISS.
+In this section we are going to try and find ways to improve your program so that it stands the best chance of working as intended if something unexpected happens. There are many reasons why a program can fail, but with some foresight and planning it is possible to deal with these failures appropriately instead of crashing and losing the chance to capture data and images aboard the ISS.
 
 ## Error handling 
 
@@ -170,5 +170,5 @@ It's a good idea to use **both** the `csv` library (for recording experiment dat
 
 ## Your experiment
 
-Using these strategies you can quickly improve the reliability of your experiment and get the ability to observe your program while its running. In the next section, we will look even more into how to increase your confidence in your Python program, to improve its chances of success, and to get ready for submission!
+Using these strategies you can quickly improve the reliability of your experiment and get the ability to observe your program while its running. In the next section, we will look even more into how to increase your confidence in your Python program, to improve its chances of success, and to get ready for submission.
 

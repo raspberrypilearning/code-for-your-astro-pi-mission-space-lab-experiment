@@ -7,7 +7,7 @@ Teams have often reflected in previous years that they wished they had spent mor
 
 ### 5 questions to get started
 
-To get started planning your Phase 2, you could meet together as a team and try and answer the questions below. This should help you decide how you are going to work together and set some expectations. Make sure everyone gets a turn to speak!
+To get started planning your Phase 2, you could meet together as a team and try and answer the questions below. This should help you decide how you are going to work together and set some expectations. Make sure everyone gets a turn to speak.
 
 - _How are you going to make decisions as a team?_ Will you all have a say, or will you elect someone to take charge?
 - _How can you utilise everyone's strengths?_ What is everyone good at, and how can you help each other?

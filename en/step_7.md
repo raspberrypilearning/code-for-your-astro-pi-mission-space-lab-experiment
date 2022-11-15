@@ -76,7 +76,7 @@ print(f'Lat: {location.latitude.degrees:.1f}')
 print(f'Long: {location.longitude.degrees:.1f}')
 ```
 
-The code above outputs latitude and longitude values in the [Decimal Degrees (DD) format](https://simple.wikipedia.org/wiki/Decimal_degrees), where coordinates are written using degrees (°) as the unit of measurement. There are 180° of latitude: 90° north and 90° south of the equator. There are 360° of longitude: 180° east and 180° west of the prime meridian (the point of zero longitude, defined as a point in Greenwich, England). To precisely specify a location, each degree can be reported as a decimal number, starting with the latitude then the longitude. For example, the point (-28.277777, 71.5841666) describes a [precise location in the Indian ocean](https://goo.gl/maps/VRRhtg4seGzHNmn18)! 
+The code above outputs latitude and longitude values in the [Decimal Degrees (DD) format](https://simple.wikipedia.org/wiki/Decimal_degrees), where coordinates are written using degrees (°) as the unit of measurement. There are 180° of latitude: 90° north and 90° south of the equator. There are 360° of longitude: 180° east and 180° west of the prime meridian (the point of zero longitude, defined as a point in Greenwich, England). To precisely specify a location, each degree can be reported as a decimal number, starting with the latitude then the longitude. For example, the point (-28.277777, 71.5841666) describes a [precise location in the Indian ocean](https://goo.gl/maps/VRRhtg4seGzHNmn18).
 
 ![Screenshot of a map showing the precise location of a coordinate](images/lat_long_point_on_map.png)
 
@@ -171,7 +171,7 @@ title: What is an ephemeris?
 ---
 An ephemeris is a high accuracy table of the position of celestial objects. In this case, it is needed to compute the positions of the Earth and the Sun at a specific point in time. 
 
-The `orbit` library makes it easy to import an ephemeris - all you have to do is put `from orbit import ephemeris` at the top of your file and then pass the `ephemeris` object to skyfield's `is_sunlit` function. In the background, `orbit` will download an ephemeris (`de421.bsp`) to your home folder. If you don't have internet access on your Raspberry Pi you will need to do this yourself by saving [this file](https://naif.jpl.nasa.gov/pub/naif/generic_kernels/spk/planets/a_old_versions/de421.bsp) on another computer and put it in your home folder manually. Fortunately these files never change so you only need to do this once!
+The `orbit` library makes it easy to import an ephemeris - all you have to do is put `from orbit import ephemeris` at the top of your file and then pass the `ephemeris` object to skyfield's `is_sunlit` function. In the background, `orbit` will download an ephemeris (`de421.bsp`) to your home folder. If you don't have internet access on your Raspberry Pi you will need to do this yourself by saving [this file](https://naif.jpl.nasa.gov/pub/naif/generic_kernels/spk/planets/a_old_versions/de421.bsp) on another computer and put it in your home folder manually. Fortunately these files never change so you only need to do this once.
 ---/collapse ---
 
 

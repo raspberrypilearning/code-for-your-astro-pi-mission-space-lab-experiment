@@ -72,7 +72,7 @@ There is also a sample of photos taken by the Mark II Astro Pi IR and Vis camera
 ![Timelapse of the earth taken from an Astro Pi on the ISS](images/astrocmp-2021.gif)
 
 <p style="border-left: solid; border-width:10px; border-color: #0faeb0; background-color: aliceblue; padding: 10px;">
-It's possible that the exact window view the Astro Pis have may be different to last year!
+It's possible that the Astro Pis may have a different window view to last year.
 </p>
 
 ### Overfitting
@@ -87,5 +87,5 @@ When creating a machine learning model or writing a computer vision algorithm, i
 ---
 title: Citizen science
 ---
-The number of public datasets are vast, but more data means better models! If you complete your experiment to phase 4 and [annotate your images](https://github.com/robmarkcole/satellite-image-deep-learning#annotation-tools-with-geo-features) from the AstroPi you could contribute too!
+The number of public datasets are vast, but more data means better models! If you complete your experiment to phase 4 and [annotate your images](https://github.com/robmarkcole/satellite-image-deep-learning#annotation-tools-with-geo-features) from the AstroPi you could contribute too.
 --- /collapse ---

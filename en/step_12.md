@@ -1,9 +1,9 @@
 ## Resources
 
-There are a wealth of resources available to help you succeed at every stage of your Astro Pi journey! 
+There are a wealth of resources available to help you succeed at every stage of your Astro Pi journey. 
 
 <p style="border-left: solid; border-width:10px; border-color: #0faeb0; background-color: aliceblue; padding: 10px;">
-Stuck? Pi Mission Control team will try to help you! Please [contact us](mailto:enquiries@astro-pi.org) and we will do our best to help you!
+Stuck? Please [contact us](mailto:enquiries@astro-pi.org) and we will do our best to help you!
 </p>
 
 Here are a few Raspberry Pi projects to whet your appetite:

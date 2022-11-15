@@ -194,7 +194,7 @@ Now we are going to connect each pin on the PIR sensor to an appropriate pin on 
 - Connect the GND pin on the PIR sensor to pin 6 (GND) on the Raspberry Pi
 - Connect the OUT pin should be connected to pin 32 (GPIO 12)
 
-**Note**: Your jumper wires may be a different colour to the ones in the photos - the colour doesn't matter, don't worry!
+**Note**: Your jumper wires may be a different colour to the ones in the photos.
 
 ![Photo of a Raspberry Pi with wires from the PIR connected to the correct pins.](images/assembly_wires.JPG)
 
@@ -213,8 +213,7 @@ You've just finished assembling the PIR sensor - great work!
 
 --- task ---
 ![Diagram showing the location of the USB 3 ports on the Raspberry Pi](images/rpi4-usb3-vector.png)
-Good news - the Coral ML accelerator requires no assembly! 
-Simply locate the USB-C cable and plug it into the accelerator
+The Coral ML accelerator requires no assembly - simply locate the USB-C cable and plug it into the accelerator
 
 ![Photo of the Coral ML accelerator with the USB-C cable inserted](images/coral_usb_c_inserted.jpg){: height="450px" width="253px" class="small-img" }
 
@@ -256,7 +255,7 @@ Remove the C/CS adapter ring from the high-quality camera.
 If your Life on Earth experiment requires an infrared-sensitive (IR-sensitive) camera - for example, you are doing a NDVI (Normalized Difference Vegetation Index) experiment - then you will need to convert your camera using the steps below.
 
 <p style="border-left: solid; border-width:10px; border-color: #fa1111; background-color: #f56c6c; padding: 10px;">
-**Note**: If you are programming a Life in Space experiment, or your Life on Earth experiment requires photos to be taken in the visible light spectrum only, then please don't convert your high-quality camera sensor as you can't reverse/undo it later!
+**Note**: If you are programming a Life in Space experiment, or your Life on Earth experiment requires photos to be taken in the visible light spectrum only, then please don't convert your high-quality camera sensor as you can't reverse/undo it later.
 </p>
 
 --- collapse ---
@@ -286,7 +285,7 @@ Take the MIDOPT filter and sit it onto the hole in the centre of the high-qualit
 
 --- task ---
  
-Gently start turning the filter clockwise using just your fingers, so that the filter screws down into the high-quality camera sensor. Take care not to touch the glass part of the lens and leave greasy fingerprints!
+Gently start turning the filter clockwise using just your fingers, so that the filter screws down into the high-quality camera sensor. Take care not to touch the glass part of the lens and leave greasy fingerprints.
 
 ![Photo of the high-quality camera sensor with the red filter being turned by hand.](images/filter_fingers.JPG)
 
@@ -301,7 +300,7 @@ Take the tool provided with the filter and line up the two knobbly bits at each 
 
 --- task ---
  
-Continue gently turning the filter using the tool. Take care not to touch the glass part of the lens with the tool — it will scratch it!
+Continue gently turning the filter using the tool. Take care not to touch the glass part of the lens with the tool — it will scratch it.
 
 ![Photo of the high-quality camera sensor with the red filter being turned using the tool.](images/filter_tool.JPG)
 
@@ -329,14 +328,14 @@ Screw the 6mm lens onto the high-quality camera sensor.
 ![Photo of lens mounted on the High Quality Camera sensor](images/assembly_6mm.JPG)
 --- /task ---
 
-Congratulations! Now you have a complete infrared-sensitive camera!
+Congratulations! Now you have a complete infrared-sensitive camera.
 
 </div>
 
 
 ### Final assembly steps
 
-You're almost done, finish your Astro Pi with these steps!
+You're almost done, finish your Astro Pi with these steps:
 
 --- task ---
 Connect your keyboard and mouse into the two (black) USB 2 ports.
@@ -351,17 +350,17 @@ Connect the little micro-HDMI cable into the HDMI 1 port of the Raspberry Pi and
 --- task ---
 ![Photo of a micro SD card inside an SD card adapter](images/sd_card_adapter.png){: class="small-img"}
 
-The SD card comes in a large adapter, so remove it from the adapter and insert it into the SD port on the bottom of the Raspberry Pi - make sure you put it in the right way!
+The SD card comes in a large adapter, so remove it from the adapter and insert it into the SD port on the bottom of the Raspberry Pi - make sure you put it in the right way.
 
 ![Photo of a micro SD card inserted into a Raspberry Pi](images/sd_card_inserted.png)
 --- /task ---
 
 --- task ---
-Finally, connect the USB-C power cable into the Raspberry Pi and watch it boot up!
+Finally, connect the USB-C power cable into the Raspberry Pi and watch it boot up.
 ![Photo of the power cable inserted into a Raspberry Pi](images/power_cable_inserted.png)
 --- /task ---
 
-Congratulations, you have made an Astro Pi! 🚀
+Congratulations, you have made an Astro Pi 🚀
 Continue to the next stage to learn about the Operating System, the Kit OS.
 
 

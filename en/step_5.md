@@ -1,6 +1,6 @@
 ## Writing your program - recording data and images
 
-In this section we are going to start writing your experiment program, and learn how to record data using the sensors and camera! By the end of this page, you will be able to collect measurements and images to support your hypothesis - neat!
+In this section we are going to start writing your experiment program, and learn how to record data using the sensors and camera. By the end of this page, you will be able to collect measurements and images to support your hypothesis - neat!
 
 To get started, create a file called `main.py`. In this file we will write all our functions to take measurements and capture images.
 
@@ -13,26 +13,26 @@ Create a file called `main.py`
 title: Growing pains?
 ---
 
-Ideally, all of your code should be contained within `main.py`. Don't worry if your experiment is complex and you need to break down your code into individual modules though: additional files are allowed!
+Ideally, all of your code should be contained within `main.py`. Don't worry if your experiment is complex and you need to break down your code into individual modules though: additional files are allowed.
 --- /collapse ---
 
 
 ## Recording images using the camera
 
 <p style="border-left: solid; border-width:10px; border-color: #0faeb0; background-color: aliceblue; padding: 10px;">
-Check the [Mission Specific Guidelines](https://astro-pi.org/mission-space-lab/guidelines/program-checklist) to make sure you are allowed to use the camera before reading this section!
+Check the [Mission Specific Guidelines](https://astro-pi.org/mission-space-lab/guidelines/program-checklist) to make sure you are allowed to use the camera before reading this section.
 </p>
 
 ![Photo of a cloudy Earth taken using an AstroPi on the ISS](images/zz_astropi_1_photo_193.jpg)
 
-The Astro Pis on the ISS are equipped with a high-quality camera each so that you can take pictures of Earth - something normally only astronauts can do! Take some time now to read over the [Getting started with picamera](https://projects.raspberrypi.org/en/projects/getting-started-with-picamera/) project to learn how to use the camera.
+The Astro Pis on the ISS are equipped with a high-quality camera each so that you can take pictures of Earth - something normally only astronauts can do. Take some time now to read over the [Getting started with picamera](https://projects.raspberrypi.org/en/projects/getting-started-with-picamera/) project to learn how to use the camera.
 
 ---task---
 Read through the [Getting started with picamera](https://projects.raspberrypi.org/en/projects/getting-started-with-picamera/) project.
 ---/task---
 
 ### Choosing camera settings 
-As you will have noticed by reading the [Getting started with picamera](https://projects.raspberrypi.org/en/projects/getting-started-with-picamera/) project, the [picamera library](https://picamera.readthedocs.io/en/release-1.13/) allows you to set a huge selection of camera settings! When deciding on what settings to use, or whether to leave the settings on automatic, be mindful that you will be taking pictures in a variety of conditions with a range of weather, landscapes, and lighting! Night-time photography using the Astro Pi's Camera Module is particularly difficult: the ISS is travelling so fast that a long exposure time is needed, and this makes the photos come out very blurry in low-light conditions.
+As you will have noticed by reading the [Getting started with picamera](https://projects.raspberrypi.org/en/projects/getting-started-with-picamera/) project, the [picamera library](https://picamera.readthedocs.io/en/release-1.13/) allows you to set a huge selection of camera settings. When deciding on what settings to use, or whether to leave the settings on automatic, be mindful that you will be taking pictures in a variety of conditions with a range of weather, landscapes, and lighting. Night-time photography using the Astro Pi's Camera Module is particularly difficult: the ISS is travelling so fast that a long exposure time is needed, and this makes the photos come out very blurry in low-light conditions.
 
 --- collapse ---
 ---
@@ -80,7 +80,7 @@ cpu = CPUTemperature()
 print(cpu.temperature)
 ```
 
-For more details about the interface for the Sense HAT and gpiozero libraries, make sure to look at the documentation - this is a really useful resource!
+For more details about the interface for the Sense HAT and gpiozero libraries, make sure to look at the documentation - this is a really useful resource.
 
 --- collapse ---
 ---
@@ -112,7 +112,7 @@ for i in range(10):
 ```
 
 <p style="border-left: solid; border-width:10px; border-color: #0faeb0; background-color: aliceblue; padding: 10px;">
-Make sure to check the [MSL Guidelines Phase 2 checklist](https://astro-pi.org/mission-space-lab/guidelines/program-checklist) for rules on files and filenames!
+Make sure to check the [MSL Guidelines Phase 2 checklist](https://astro-pi.org/mission-space-lab/guidelines/program-checklist) for rules on files and filenames.
 </p>
 
 ### Numbering plans for images and files
@@ -136,7 +136,7 @@ for filename in camera.capture_continuous(f"{base_folder}/image_{counter:03d}.jp
 
 ## Your experiment
 
-Having read the [Getting started with the Sense HAT](https://projects.raspberrypi.org/en/projects/getting-started-with-the-sense-hat/7), [Sense HAT data logger](https://projects.raspberrypi.org/en/projects/sense-hat-data-logger/1), and [Getting started with picamera](https://projects.raspberrypi.org/en/projects/getting-started-with-picamera/) projects you are in a good position to start taking your own pictures and measurements!  Can you update your `main.py` file to include a function to collect data from the sensors, or to capture an image?
+Having read the [Getting started with the Sense HAT](https://projects.raspberrypi.org/en/projects/getting-started-with-the-sense-hat/7), [Sense HAT data logger](https://projects.raspberrypi.org/en/projects/sense-hat-data-logger/1), and [Getting started with picamera](https://projects.raspberrypi.org/en/projects/getting-started-with-picamera/) projects you are in a good position to start taking your own pictures and measurements.  Can you update your `main.py` file to include a function to collect data from the sensors, or to capture an image?
 
 --- task ---
 Update your `main.py` file to include a function to collect data from the sensors or to capture an image.

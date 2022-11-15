@@ -1,6 +1,6 @@
 ## Running an experiment for 3 hours
 
-In this section we are going to modify our `main.py` so that it will run and stop itself after 3 hours. Each experiment on the ISS has a 3 hour slot to use after which it will be abruptly stopped! We need to ensure that our program gracefully shuts down to ensure we don't lose any data.
+In this section we are going to modify our `main.py` so that it will run and stop itself after 3 hours. Each experiment on the ISS has a 3 hour slot to use after which it will be abruptly stopped. We need to ensure that our program gracefully shuts down to ensure we don't lose any data.
 
 ### The datetime library
 
