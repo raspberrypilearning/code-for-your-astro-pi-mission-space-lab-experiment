@@ -444,9 +444,12 @@ Continue to the next stage to learn about the Operating System, the Kit OS.
         checkboxValues['expiry'] < new Date().getTime()) {
       localStorage.removeItem('checkboxValues')
       checkboxValues = {}
+      toggleSteps(false, css_class);
+      toggleSteps(true, "not_" + css_class);
     } else if (checkboxes[i] in checkboxValues) {
       checkbox.checked = checkboxValues[checkboxes[i]]; 
       toggleSteps(checkboxValues[checkboxes[i]], cssClass);
+      toggleSteps(!checkboxValues[checkboxes[i]], "not_" + css_class);
     }
   }
 
