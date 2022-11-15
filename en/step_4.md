@@ -9,6 +9,10 @@ Teams have often reflected in previous years that they wished they had spent mor
 
 To get started planning your Phase 2, you could meet together as a team and try and answer the questions below. This should help you decide how you are going to work together and set some expectations. Make sure everyone gets a turn to speak.
 
+--- task ---
+Meet together and answer the five questions below.
+--- /task ---
+
 - _How are you going to make decisions as a team?_ Will you all have a say, or will you elect someone to take charge?
 - _How can you utilise everyone's strengths?_ What is everyone good at, and how can you help each other?
 - _What does everyone want to learn?_ Don't just do what you're good at - try something new!
@@ -21,9 +25,17 @@ As a team, decide on the ideal date you would like to finish writing your progra
 
 ![An example timeline](images/timeline.png)
 
+--- task ---
+Create a timeline for your project that includes your ideal finish date and the date at which you will start checking and testing your program.
+--- /task ---
+
 ### Identify your measurements
 
-Once you have answered the 5 questions above and created a rough timeline for your work, the next step is to note down the measurements and data you will need to test your hypothesis. If you need help with this, take a look at [this project](https://projects.raspberrypi.org/en/projects/experiment-design) and in particular the [define your measurements](https://projects.raspberrypi.org/en/projects/experiment-design/2) page. 
+Once you have answered the 5 questions above and created a rough timeline for your work, you may want to note down the measurements and data you will need to test your hypothesis. If you need help with this, take a look at [this project](https://projects.raspberrypi.org/en/projects/experiment-design) and in particular the [define your measurements](https://projects.raspberrypi.org/en/projects/experiment-design/2) page. 
+
+--- task ---
+Write down the measurements that you will need to take in order to test your hypothesis.
+--- /task ---
 
 <p style="border-left: solid; border-width:10px; border-color: #0faeb0; background-color: aliceblue; padding: 10px;">
 This step will really help you to make sure the outputs of your program are useful for later stages of MSL, and that you remain focused throughout stage 2!
@@ -90,6 +102,10 @@ A flow chart for a typical experiment might look something like this:
 
 ![Create a flow chart](images/Astro_Pi_Educator_Focus_Graphics_V6d.png)
 
+--- task ---
+Create a flow chart of your program using the help above.
+--- /task ---
+
 ### Consider 'What if' scenarios
 
 An important aspect of programming and design is making sure you are ready for when things go wrong. Most experiments will have a main loop that runs repeatedly over the 3-hour period. An unexpected error encountered in this loop could be disastrous if it causes the program to stop or stall and prevent further data collection. So, think of some ‘what if’ scenarios. For example, if you’re reading data from a sensor, what will happen if it gives you an unexpected result? Will your program cope with this? How are you dealing with hardware errors? 
@@ -109,6 +125,10 @@ After finishing your flowchart it is a good idea to review it altogether and dou
 You may want to use a project management tool to keep track of your tasks. Something as simple as [Google Keep](https://www.google.com/keep/) could work, or you could use a [Trello](https://www.trello.com) or [Monday.com](https://www.monday.com) board. 
 
 ![Update to the flow chart to reflect changes that become necessary as the program evolves](images/Astro_Pi_Educator_Focus_Graphics_V6e.png)
+
+--- task ---
+Assign tasks to each member of your team.
+--- /task ---
 
 Whatever method you choose to track your work, make sure to schedule a time to meet regularly to discuss progress and work through any major challenges as a group. It can be useful to update your pseudocode flow diagram to reflect any changes that your team realise are necessary as they write the actual program!
 
