@@ -292,7 +292,7 @@ Gently start turning the filter clockwise using just your fingers, so that the f
 --- /task ---
 
 --- task ---
-![Photo of the MIDOPT filter adjustment tool supplied with the MIDOPT filter](images/midopt_filter_tool.jpg)
+![Photo of the MIDOPT filter adjustment tool supplied with the MIDOPT filter](images/midopt_filter_tool.jpg){: style="max-width: 50%" }
  
 Take the tool provided with the filter and line up the two knobbly bits at each end with the corresponding dimples in the filter. If you have a 3D printer, you might like to print a handle for the tool to make it easier to grip. One of these handles has been printed and sent to the ISS for the astronauts to use when completing the task — but it isn't required. 
 
