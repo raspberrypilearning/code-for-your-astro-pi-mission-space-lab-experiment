@@ -10,7 +10,7 @@ Create a file called `main.py`
 
 --- collapse ---
 ---
-title: Growing pains?
+title: Using multiple Python source files
 ---
 
 Ideally, all of your code should be contained within `main.py`. Don't worry if your experiment is complex and you need to break down your code into individual modules though: additional files are allowed.
@@ -136,7 +136,7 @@ for filename in camera.capture_continuous(f"{base_folder}/image_{counter:03d}.jp
 
 ## Your experiment
 
-Having read the [Getting started with the Sense HAT](https://projects.raspberrypi.org/en/projects/getting-started-with-the-sense-hat/7), [Sense HAT data logger](https://projects.raspberrypi.org/en/projects/sense-hat-data-logger/1), and [Getting started with picamera](https://projects.raspberrypi.org/en/projects/getting-started-with-picamera/) projects you are in a good position to start taking your own pictures and measurements.  Can you update your `main.py` file to include a function to collect data from the sensors, or to capture an image?
+Having read the [Getting started with the Sense HAT](https://projects.raspberrypi.org/en/projects/getting-started-with-the-sense-hat/7), [Sense HAT data logger](https://projects.raspberrypi.org/en/projects/sense-hat-data-logger/1), and [Getting started with picamera](https://projects.raspberrypi.org/en/projects/getting-started-with-picamera/) projects you are in a good position to start taking your own pictures and measurements.
 
 --- task ---
 Update your `main.py` file to include a function to collect data from the sensors or to capture an image.
@@ -149,7 +149,7 @@ Check out the example below if you need more help.
 title: Measuring temperature and humidity
 ---
 
-A team wants to investigate whether the environment on the ISS is affected by the day and night cycle. Does the ISS get colder at night, or drier in the day? To do this, they will first have to collect temperature and humidity data. The funciton to do this might look like this:
+A team wants to investigate whether the environment on the ISS is affected by the day and night cycle. _Does the ISS get colder at night, or drier in the day?_ To do this, they will first have to collect temperature and humidity data. The function to do this might look like this:
 
 ```python
 from sense_hat import SenseHat

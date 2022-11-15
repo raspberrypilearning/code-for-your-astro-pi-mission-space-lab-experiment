@@ -70,9 +70,13 @@ Making sure that your program runs successfully in this environment is the best 
 
 ### Applications
 
-There are a lot of applications that are installed in the Kit OS - take a moment to explore the start menu in the top-left corner. Can you find the following applications?
+There are a lot of applications that are installed in the Kit OS - take a moment to explore the start menu in the top-left corner. How many apps can you see?
 
 ![Screenshot showing the location of the start menu in the top left-hand corner](images/os_22-23_programming-apps.jpg)
+
+--- task ---
+Familiarise yourself with the KitOS by finding the apps below.
+--- /task---
 
 --- collapse ---
 ---

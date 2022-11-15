@@ -25,7 +25,11 @@ while (now_time < start_time + timedelta(minutes=2)):
     now_time = datetime.now()
 ```
 
-Instead of calling the `print` function we might want to call a function to collect data or capture an image. Can you alter the code above to make it call an arbitrary function instead of `print`?
+Instead of calling the `print` function, the code would be more useful if it could call a function to collect data or capture an image. Can you think of how to do this?
+
+--- task ---
+Alter the code above to make it call an arbitrary function instead of the `print` function.
+--- /task ---
 
 --- collapse ---
 ---
