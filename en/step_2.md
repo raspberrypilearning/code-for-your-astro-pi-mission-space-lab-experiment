@@ -109,7 +109,7 @@ Line up the header with the corresponding holes on the bottom of the Sense HAT.
 </div>
 
 <div class="not_pir_step">
-![Photo of regular header lined up with the Sense HAT.](images/assembly_insert_regular_header.JPG)
+![Photo of regular header lined up with the Sense HAT.](images/front_sense_hat_regular_header.jpg)
 </div>
 --- /task ---
 
@@ -121,7 +121,7 @@ Push the header all the way through, making sure none of the pins are obstructed
 </div>
 
 <div class="not_pir_step">
-![Photo of regular header inserted through the Sense HAT.](images/assembly_reg_header.JPG)
+![Photo of regular header inserted through the Sense HAT.](images/back_sense_hat_regular_header.jpg)
 </div>
 --- /task ---
 
