@@ -426,7 +426,7 @@ Continue to the next stage to learn about the Operating System, the Kit OS.
       // show/hide the associated steps
       toggleSteps(event.target.checked, css_class);
       console.log("Calculating not logic");
-      toggleSteps(!event.target.checked, "not_" + css_class);
+      toggleSteps(!event.target.checked, ".not_" + css_class.slice(1));
     }
   }
 
@@ -445,11 +445,11 @@ Continue to the next stage to learn about the Operating System, the Kit OS.
       localStorage.removeItem('checkboxValues')
       checkboxValues = {}
       toggleSteps(false, css_class);
-      toggleSteps(true, "not_" + css_class);
+      toggleSteps(true, ".not_" + css_class.slice(1));
     } else if (checkboxes[i] in checkboxValues) {
       checkbox.checked = checkboxValues[checkboxes[i]]; 
       toggleSteps(checkboxValues[checkboxes[i]], cssClass);
-      toggleSteps(!checkboxValues[checkboxes[i]], "not_" + cssClass);
+      toggleSteps(!checkboxValues[checkboxes[i]], ".not_" + cssClass.slice(1));
     }
   }
 
