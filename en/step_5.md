@@ -16,7 +16,6 @@ title: Using multiple Python source files
 Ideally, all of your code should be contained within `main.py`. Don't worry if your experiment is complex and you need to break down your code into individual modules though: additional files are allowed.
 --- /collapse ---
 
-
 ## Recording images using the camera
 
 <p style="border-left: solid; border-width:10px; border-color: #0faeb0; background-color: aliceblue; padding: 10px;">
@@ -34,6 +33,10 @@ Read through the [Getting started with picamera](https://projects.raspberrypi.or
 ### Choosing camera settings 
 As you will have noticed by reading the [Getting started with picamera](https://projects.raspberrypi.org/en/projects/getting-started-with-picamera/) project, the [picamera library](https://picamera.readthedocs.io/en/release-1.13/) allows you to set a huge selection of camera settings. When deciding on what settings to use, or whether to leave the settings on automatic, be mindful that you will be taking pictures in a variety of conditions with a range of weather, landscapes, and lighting. Night-time photography using the Astro Pi's Camera Module is particularly difficult: the ISS is travelling so fast that a long exposure time is needed, and this makes the photos come out very blurry in low-light conditions.
 
+<p style="border-left: solid; border-width:10px; border-color: #0faeb0; background-color: aliceblue; padding: 10px;">
+If your team has completed Phase 2 of MSL before please note that the AstroPis may not have exactly the same view as last year as they may be deployed in a different window on the ISS.
+</p>
+
 --- collapse ---
 ---
 title: What camera and lenses are used on the real Astro Pis?
@@ -42,7 +45,6 @@ The camera sensor in the ESA kit is the same high-quality camera as the one foun
 
 All Life On Earth experiments will use a [5mm Kowa Lens](https://lenses.kowa-usa.com/10mp-jc10m-series/397-lm5jc10m.html), which has a large aperture range. All Life in Space experiments will use the [6mm Raspberry Pi lens](https://uk.farnell.com/raspberry-pi/rpi-6mm-lens/rpi-6mm-wide-angle-lens/dp/3381607). In all experiments the focal length will be set to infinity due to the altitude.
 ---/collapse---
-
 
 ## The Astro Pi sensors
 
@@ -133,6 +135,7 @@ for filename in camera.capture_continuous(f"{base_folder}/image_{counter:03d}.jp
     print(f'Captured {filename}')
     sleep(300) # wait 5 minutes
 ```
+
 
 ## Your experiment
 
