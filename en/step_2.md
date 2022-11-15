@@ -402,6 +402,9 @@ Continue to the next stage to learn about the Operating System, the Kit OS.
      * Show/hide the associated steps
     */
     const steps = document.querySelectorAll(css_class);
+    console.log(checked);
+    console.log(css_class);
+    console.log(steps);
     if (checked) {
       // show the class
       steps.forEach((step) => step.style.display = "block");
@@ -422,6 +425,7 @@ Continue to the next stage to learn about the Operating System, the Kit OS.
 
       // show/hide the associated steps
       toggleSteps(event.target.checked, css_class);
+      console.log("Calculating not logic");
       toggleSteps(!event.target.checked, "not_" + css_class);
     }
   }
