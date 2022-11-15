@@ -449,7 +449,7 @@ Continue to the next stage to learn about the Operating System, the Kit OS.
     } else if (checkboxes[i] in checkboxValues) {
       checkbox.checked = checkboxValues[checkboxes[i]]; 
       toggleSteps(checkboxValues[checkboxes[i]], cssClass);
-      toggleSteps(!checkboxValues[checkboxes[i]], "not_" + css_class);
+      toggleSteps(!checkboxValues[checkboxes[i]], "not_" + cssClass);
     }
   }
 
