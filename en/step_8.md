@@ -12,7 +12,7 @@ After completing this project, you may want to look at the [OpenCV Python tutori
 
 ### Getting started with machine learning
 
-If you have a Coral USB accelerator stick you may want to check out the [image classification](https://projects.raspberrypi.org/en/projects/image-id-coral/2) project. This will walk you through the process of training a machine learning model to classify images, and give you some experience of using the `tensorflow_lite` library.
+If you have a Coral ML accelerator you may want to check out the [image classification](https://projects.raspberrypi.org/en/projects/image-id-coral/2) project. This will walk you through the process of training a machine learning model to classify images, and give you some experience of using the `tensorflow_lite` library.
 
 --- task ---
 Complete the [image classification](https://projects.raspberrypi.org/en/projects/image-id-coral/2) project.

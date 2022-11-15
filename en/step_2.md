@@ -44,9 +44,9 @@ If your experiment involves detecting movement, your kit will include:
 <br>
 If your experiment involves machine-learning at runtime, you will also have the following in your box:
 
-| A [Coral USB Accelerator](https://coral.ai/products/accelerator) | 1x USB-C to USB-A cable |
+| A [Coral ML Accelerator](https://coral.ai/products/accelerator) | 1x USB-C to USB-A cable |
 |:--------:|:-------:|
-| ![Coral USB Accelerator](images/coral-vector.png) | ![USB cable](images/usb-cable-vector.png) |
+| ![Coral ML Accelerator](images/coral-vector.png) | ![USB cable](images/usb-cable-vector.png) |
 
 <br>
 If you want to, you can [make a 3D-printed flight case](https://projects.raspberrypi.org/en/projects/astro-pi-flight-case-mk2){:target="_blank"}. However, you don't need one to take part in Mission Space Lab. 
@@ -57,7 +57,7 @@ If you want to, you can [make a 3D-printed flight case](https://projects.raspber
 
 ## Method
 
-Before getting started, familiarise yourself with what's in the box and unpack everything. Make a note of whether your box includes the camera module, a Coral TPU accelerator, or a PIR sensor using the checkboxes below. This will show or hide the relevant assembly instructions accordingly.
+Before getting started, familiarise yourself with what's in the box and unpack everything. Make a note of whether your box includes the camera module, a Coral TPU machine learning accelerator (Coral ML accelerator), or a PIR sensor using the checkboxes below. This will show or hide the relevant assembly instructions accordingly.
 
 <div id="checkbox_div">
 - My box contains a camera <input type="checkbox" id="hasCamera">
@@ -65,7 +65,7 @@ Before getting started, familiarise yourself with what's in the box and unpack e
   - My box contains an infrared filter<input type="checkbox" id="hasInfrared">
 </div>
 - My box contains a PIR sensor <input type="checkbox" id="hasPir">
-- My box contains a Coral accelerator stick <input type="checkbox" id="hasCoral">
+- My box contains a Coral ML accelerator <input type="checkbox" id="hasCoral">
 </div>
 
 --- task --- 
@@ -209,19 +209,19 @@ You've just finished assembling the PIR sensor - great work!
 
 <div class="coral_step">
 
-### Setting up the Coral Machine Learning accelerator
+### Setting up the Coral ML accelerator
 
 --- task ---
 ![Diagram showing the location of the USB 3 ports on the Raspberry Pi](images/rpi4-usb3-vector.png)
-Good news - the Coral accelerator stick requires no assembly! 
+Good news - the Coral ML accelerator requires no assembly! 
 Simply locate the USB-C cable and plug it into the accelerator
 
-![Photo of the Coral accelerator stick with the USB-C cable inserted](images/coral_usb_c_inserted.jpg){: height="450px" width="253px" class="small-img" }
+![Photo of the Coral ML accelerator with the USB-C cable inserted](images/coral_usb_c_inserted.jpg){: height="450px" width="253px" class="small-img" }
 
 <br>
 and then plug the other end into any of the blue USB (USB 3) ports.
 
-![Photo of the Raspberry Pi with the Coral USB inserted into a USB 3 port](images/coral_usb_inserted.jpg)
+![Photo of the Raspberry Pi with the Coral ML accelerator inserted into a USB 3 port](images/coral_usb_inserted.jpg)
 --- /task ---
 
 </div>

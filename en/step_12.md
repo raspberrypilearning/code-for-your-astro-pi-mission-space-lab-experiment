@@ -15,7 +15,7 @@ Here are a few Raspberry Pi projects to whet your appetite:
 
 In addition to these projects, there are many other useful and interesting tutorials and guides available on the internet:
 
-- The [Coral example projects](https://coral.ai/examples/) and the [Coral camera examples](https://github.com/google-coral/examples-camera) give a good overview of what's possible with the Coral accelerator stick.
+- The [Coral example projects](https://coral.ai/examples/) and the [Coral camera examples](https://github.com/google-coral/examples-camera) give a good overview of what's possible with the Coral ML accelerator.
 - The [OpenCV Python tutorials](https://docs.opencv.org/4.x/d6/d00/tutorial_py_root.html) explain how to do all sorts of cool things like machine learning, edge detection, and object tracking.
 - The [earthpy examples gallery](https://earthpy.readthedocs.io/en/latest/gallery_vignettes/index.html) walks you through how to process satellite imagery, including for calculating NDVI.
 - [This Github page](https://github.com/orbitalindex/awesome-space) contains a curated list of space-related resources.
