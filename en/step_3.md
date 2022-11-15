@@ -14,7 +14,7 @@ After you have completed these steps, the Astro Pi will reboot itself and you wi
 
 --- collapse ---
 ---
-title: Optional setup - Accessing the Desktop Flight OS remotely
+title: Optional setup - Accessing the Kit OS remotely
 ---
 
 <p style="border-left: solid; border-width:10px; border-color: #fa1111; background-color: #f56c6c; padding: 10px;">
@@ -36,10 +36,10 @@ sudo systemctl enable avahi-daemon
 sudo systemctl start avahi-daemon
 ```
 
-You can also connect to the Desktop Flight OS using just a browser, albeit less-securely. On a machine that is connected to the same network as your Astro Pi kit, open up a browser and type `https://astro-pi-kit.local/vnc.html` in the address bar. 
+You can also connect to the KitOS using just a browser, albeit less-securely. On a machine that is connected to the same network as your Astro Pi kit, open up a browser and type `https://astro-pi-kit.local/vnc.html` in the address bar. 
 You will have to tell your browser to trust your unique Astro Pi SSL certificate to continue (e.g. on Chrome, type `thisisunsafe` while the browser tab has focus), but once you have done so you will be lead to the noVNC connection page. Click on the `Connect` button, enter the password you set in `vncpasswd`, and you should see the Flight OS desktop in your browser.
 
-![The Desktop Flight OS accessed remotely through a browser window on an MacBook.](images/noVNC.jpg)
+![The KitOS accessed remotely through a browser window on an MacBook.](images/noVNC.jpg)
 
 --- /collapse ---
 
@@ -57,7 +57,7 @@ But, if you have accidentally installed anything, you can always redownload and 
 title: Optional - Downloading a fresh version of the Kit OS
 ---
 
-If you want to create additional SD cards to use for Astro Pi, or if you accidentally installed something, you can download the [Desktop Flight OS image file](https://downloads.raspberrypi.org/AstroPi_latest) used in the ESA kits. After downloading, you can use any software tool to write the image file to your own SD card. See [this guide](https://www.raspberrypi.org/documentation/installation/installing-images/) for instructions on how to do this.
+If you want to create additional SD cards to use for Astro Pi, or if you accidentally installed something, you can download the [KitOS image file](https://downloads.raspberrypi.org/AstroPi_latest) used in the official kits. After downloading, you can use any software tool to write the image file to your own SD card. See [this guide](https://www.raspberrypi.org/documentation/installation/installing-images/) for instructions on how to do this.
 
 --- /collapse ---
 
