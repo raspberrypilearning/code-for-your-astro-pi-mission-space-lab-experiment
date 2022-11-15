@@ -13,7 +13,7 @@ Here are a few Raspberry Pi projects to whet your appetite:
 - NDVI experiments will find the [NDVI project](https://projects.raspberrypi.org/en/projects/astropi-ndvi) very helpful
 - Machine learning experiments will find the [image classification project](https://projects.raspberrypi.org/en/projects/image-id-coral) an excellent guide to get rolling.
 
-In addition to these projects, there are many other useful and interesting tutorials and guies available on the internet:
+In addition to these projects, there are many other useful and interesting tutorials and guides available on the internet:
 
 - The [Coral example projects](https://coral.ai/examples/) and the [Coral camera examples](https://github.com/google-coral/examples-camera) give a good overview of what's possible with the Coral accelerator stick.
 - The [OpenCV Python tutorials](https://docs.opencv.org/4.x/d6/d00/tutorial_py_root.html) explain how to do all sorts of cool things like machine learning, edge detection, and object tracking.

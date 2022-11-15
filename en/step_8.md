@@ -1,14 +1,24 @@
-## Machine learning and computer vision
+## Computer vision & machine learning
 
-### Getting started
+### Getting started with computer vision
 
-If you have a Coral accelerator stick you may want to check out the the [Calculate the speed of the ISS](https://projects.raspberrypi.org/en/projects/astropi-iss-speed/4) and [image classification](https://projects.raspberrypi.org/en/projects/image-id-coral/2) projects. These will walk you through the process of training a machine learning model and detecting features in images.
+If you are interested in computer vision then you may want to look at the [Calculate the speed of the ISS](https://projects.raspberrypi.org/en/projects/astropi-iss-speed/4) project. This will walk you through how to start using the `opencv` library to track key points in a sequence of photos of the Earth, and use them to calculate how fast the ISS is flying.
 
 --- task ---
-Work through the [Calculate the speed of the ISS](https://projects.raspberrypi.org/en/projects/astropi-iss-speed/4) and [image classification](https://projects.raspberrypi.org/en/projects/image-id-coral/2) projects.
+Complete the [Calculate the speed of the ISS](https://projects.raspberrypi.org/en/projects/astropi-iss-speed/4) project.
 --- /task ---
 
-Once you've completed these you will know a bit more on how to use `tensorflow_lite` and `opencv`, and will hopefully be ready to train a computer model to do such cool things like object detection and image segmentation! For some inspiration on applications of machine learning in the field of satellite imagery, check out [this Github page](https://github.com/robmarkcole/satellite-image-deep-learning#datasets).
+After completing this project, you may want to look at the [OpenCV Python tutorials](https://docs.opencv.org/4.x/d6/d00/tutorial_py_root.html). These will show you how to do things like edge detection and object tracking - techniques you may decide to use in your own experiment.
+
+### Getting started with machine learning
+
+If you have a Coral USB accelerator stick you may want to check out the [image classification](https://projects.raspberrypi.org/en/projects/image-id-coral/2) project. This will walk you through the process of training a machine learning model to classify images, and give you some experience of using the `tensorflow_lite` library.
+
+--- task ---
+Complete the [image classification](https://projects.raspberrypi.org/en/projects/image-id-coral/2) project.
+--- /task ---
+
+Once you've completed this project you may want to look at the [Coral examples page](https://coral.ai/examples/) and [this Github page](https://github.com/robmarkcole/satellite-image-deep-learning#datasets) for some inspiration on how to apply machine learning techniques to your own experiment. Perhaps you'd like to classify clouds or 'segment landscapes', or discover some underlying structure in your data?
 
 ### Data
 
