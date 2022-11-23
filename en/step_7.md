@@ -1,10 +1,10 @@
 ## Finding the location of the ISS
 
-For many experiments it's really useful to be able to calculate the location of the ISS. Knowing how to work out where in the world the ISS is flying over can you help you do all sorts of handy things like calculating if the Earth and ISS are sunlit - you could even change your program logic to respond to the location of the ISS!
+For many experiments, it's really useful to be able to calculate the location of the ISS. Knowing how to work out where in the world the ISS is flying over can you help you do all sorts of handy things, like calculating if the Earth and ISS are sunlit — you could even change your program logic to respond to the location of the ISS!
 
 ### The orbit library
 
-The easiest way to find the location of the ISS is to use the `orbit` Python library on your KitOS. You can import this library and use the `coordinates` function to work out where on Earth the ISS is flying over:
+The easiest way to find the location of the ISS is to use the `orbit` Python library on your Kit OS. You can import this library and use the `coordinates` function to work out where on Earth the ISS is flying over:
 
 ```python
 from orbit import ISS
@@ -16,7 +16,7 @@ print(location)
 ---
 title: How does it work?
 ---
-The `orbit` library provides a simpler API for the [skyfield](https://rhodesmill.org/skyfield/) library.  Skyfield is a Python library that allows you to calculate the positions of space objects within our solar system. For accurate calculations, `skyfield` requires the most recent two-line element (TLE) data for the ISS. [TLE](https://en.wikipedia.org/wiki/Two-line_element_set) is a data format used to describe the orbits of Earth satellites. A typical file looks something look something like this:
+The `orbit` library provides a simpler application programming interface (API) for the [skyfield](https://rhodesmill.org/skyfield/) library. Skyfield is a Python library that allows you to calculate the positions of space objects within our solar system. For accurate calculations, `skyfield` requires the most recent two-line element (TLE) data for the ISS. [TLE](https://en.wikipedia.org/wiki/Two-line_element_set) is a data format used to describe the orbits of Earth's satellites. A typical file looks something look something like this:
 
 ```
 ISS (ZARYA)             
@@ -26,7 +26,7 @@ ISS (ZARYA)
 
 When you import the `ISS` object from the `orbit` library, an attempt is made to retrieve the TLE data from a file called `iss.tle` in the [home folder](https://simple.wikipedia.org/wiki/Home_directory). If the file is not present but an internet connection is available, the latest data will be downloaded automatically into the `iss.tle` file, so you don't need to worry about it. However, if your Astro Pi kit has no internet access, then you need to manually download the latest [ISS TLE data](http://www.celestrak.com/NORAD/elements/stations.txt), copy the three ISS-related lines into a file called `iss.tle`, and then place this file into your home folder. 
 
-The `ISS` object is implemented as a skyfield `EarthSatellite` object (see the skyfield [reference](https://rhodesmill.org/skyfield/api-satellites.html#skyfield.sgp4lib.EarthSatellite) and [examples](https://rhodesmill.org/skyfield/earth-satellites.html)), which you can use, for example, to compute the coordinates of the Earth location that is currently directly beneath the ISS:
+The `ISS` object is implemented as a skyfield `EarthSatellite` object (see the skyfield [reference](https://rhodesmill.org/skyfield/api-satellites.html#skyfield.sgp4lib.EarthSatellite) and [examples](https://rhodesmill.org/skyfield/earth-satellites.html)), which you can use, for instance, to compute the coordinates of the Earth location that is currently directly beneath the ISS:
 
 ```python
 from orbit import ISS
@@ -42,12 +42,12 @@ print(location)
 ```
 
 <div style="border-left: solid; border-width:10px; border-color: #0faeb0; background-color: aliceblue; padding: 10px;">
-**Note**: The current position of the ISS is an **estimate** based on the telemetry data and the current time: make sure that the system time has been set correctly.
+**Note**: The current position of the ISS is an **estimate** based on the telemetry data and the current time. Make sure that the system time has been set correctly.
 </div>
 
 --- /collapse ---
 
-If you need to, you can access the individual elements of the location, using the [`GeographicPosition` API](https://rhodesmill.org/skyfield/api-topos.html#skyfield.toposlib.GeographicPosition).
+If you need to, you can access the individual elements of the location using the [`GeographicPosition` API](https://rhodesmill.org/skyfield/api-topos.html#skyfield.toposlib.GeographicPosition).
 
 ```python
 print(f'Latitude: {location.latitude}')
@@ -56,7 +56,7 @@ print(f'Elevation: {location.elevation.km}')
 ```
 
 <p style="border-left: solid; border-width:10px; border-color: #0faeb0; background-color: aliceblue; padding: 10px;">
-Note that the latitude and longitude are `Angle` objects while the elevation is a `Distance`. The skyfield documentation describes [how to switch between different angle representations](https://rhodesmill.org/skyfield/api-units.html#skyfield.units.Angle) and [how to express distance in different units](https://rhodesmill.org/skyfield/api-units.html#skyfield.units.Distance): 
+Note that the latitude and longitude are `Angle` objects while the elevation is a `Distance`. The skyfield documentation describes [how to switch between different angle representations](https://rhodesmill.org/skyfield/api-units.html#skyfield.units.Angle) and [how to express distance in different units](https://rhodesmill.org/skyfield/api-units.html#skyfield.units.Distance).
 </p>
 
 --- collapse ---
@@ -80,13 +80,13 @@ The code above outputs latitude and longitude values in the [Decimal Degrees (DD
 
 ![Screenshot of a map showing the precise location of a coordinate](images/lat_long_point_on_map.png)
 
-#### Degrees minutes seconds
+#### Degrees Minutes Seconds
 
 ```python
 print(f'Lat: {location.latitude.signed_dms()}')
 print(f'Long: {location.longitude.signed_dms()}')
 ```
-Another approach is the [degrees:minutes:seconds (DMS) format](https://www.latlong.net/lat-long-dms.html), where each degree is split into 60 minutes (’) and each minute is divided into 60 seconds (”). For even finer accuracy, fractions of seconds given by a decimal point are used. The **sign** of the angle can indicate whether the point that the coordinate refers to is north or south of the equator (for latitude) and east or west of the meridian (for longitude), but to reduce confusion often the abbreviations N W S E are used. The same [point in the Indian Ocean](https://goo.gl/maps/VRRhtg4seGzHNmn18) has a DMS value of 28°16'40.0"S 71°35'03.0"E.
+Another approach is the [Degrees Minutes Seconds (DMS) format](https://www.latlong.net/lat-long-dms.html), where each degree is split into 60 minutes (’) and each minute is divided into 60 seconds (”). For even finer accuracy, fractions of seconds given by a decimal point are used. The **sign** of the angle can indicate whether the point that the coordinate refers to is north or south of the equator (for latitude) and east or west of the meridian (for longitude), but to reduce confusion often the abbreviations N W S E are used. The same [point in the Indian Ocean](https://goo.gl/maps/VRRhtg4seGzHNmn18) has a DMS value of 28°16'40.0"S 71°35'03.0"E.
 
 ---/collapse---
 
@@ -94,7 +94,7 @@ Another approach is the [degrees:minutes:seconds (DMS) format](https://www.latlo
 
 It is very useful to record the position of the Space Station for any images that you capture. You can do this by attaching **metadata** to the image file itself using the [`exif`](https://exif.readthedocs.io/en/latest/usage.html) library.
 
-In the snippet below, a function called `capture` is called to capture an image, after setting the EXIF data to the current latitude and longitude. The coordinates in the EXIF data of images are stored using a variant of the degrees:minutes:seconds (DMS) format, and you can see how the `convert` function takes the data from `ISS.coordinates()` and converts it into a format suitable for storing as EXIF data. Using functions to perform these tasks keeps the program tidy.
+In the snippet below, a function called `capture` is called to capture an image, after setting the EXIF data to the current latitude and longitude. The coordinates in the EXIF data of images are stored using a variant of the DMS format, and you can see how the `convert` function takes the data from `ISS.coordinates()` and converts it into a format suitable for storing as EXIF data. Using functions to perform these tasks keeps the program tidy.
 
 ```python
 from orbit import ISS
@@ -151,7 +151,8 @@ When coordinate information is included in the EXIF metadata of your captured im
 ### Example: ISS in the sunlight
 
 The behaviour of your code might differ depending on whether or not the ISS is in sunlight.
-The `skyfield` library includes an `is_sunlit` method (documentation [here](https://rhodesmill.org/skyfield/earth-satellites.html#find-when-a-satellite-is-in-sunlight)) which you can use with an "ephemeris" table to calculate whether the ISS is sunlit at a specific time:
+
+The `skyfield` library includes an `is_sunlit` method (documentation [here](https://rhodesmill.org/skyfield/earth-satellites.html#find-when-a-satellite-is-in-sunlight)) which you can use with an 'ephemeris' table to calculate whether the ISS is sunlit at a specific time:
 
 ```python
 from orbit import ISS, ephemeris
@@ -171,11 +172,11 @@ title: What is an ephemeris?
 ---
 An ephemeris is a high accuracy table of the position of celestial objects. In this case, it is needed to compute the positions of the Earth and the Sun at a specific point in time. 
 
-The `orbit` library makes it easy to import an ephemeris - all you have to do is put `from orbit import ephemeris` at the top of your file and then pass the `ephemeris` object to skyfield's `is_sunlit` function. In the background, `orbit` will download an ephemeris (`de421.bsp`) to your home folder. If you don't have internet access on your Raspberry Pi you will need to do this yourself by saving [this file](https://naif.jpl.nasa.gov/pub/naif/generic_kernels/spk/planets/a_old_versions/de421.bsp) on another computer and put it in your home folder manually. Fortunately these files never change so you only need to do this once.
+The `orbit` library makes it easy to import an ephemeris — all you have to do is put `from orbit import ephemeris` at the top of your file and then pass the `ephemeris` object to skyfield's `is_sunlit` function. In the background, `orbit` will download an ephemeris (`de421.bsp`) to your home folder. If you don't have internet access on your Raspberry Pi, you will need to do this yourself by saving [this file](https://naif.jpl.nasa.gov/pub/naif/generic_kernels/spk/planets/a_old_versions/de421.bsp) on another computer and put it in your home folder manually. Fortunately these files never change, so you only need to do this once.
 ---/collapse ---
 
 
 <p style="border-left: solid; border-width:10px; border-color: #0faeb0; background-color: aliceblue; padding: 10px;">
-The `is_sunlit` method is a good approximation but it is not 100% reliable: remember that because of the altitude of the ISS the sun rises on the ISS slightly earlier than it does on the surface of the Earth below the ISS. Similarly, the sun sets on the ISS slightly later than it does on the surface of the Earth directly below it. 
+The `is_sunlit` method is a good approximation but it is not 100% reliable. Remember that because of the altitude of the ISS, the sun rises on the ISS slightly earlier than it does on the surface of the Earth below the ISS. Similarly, the sun sets on the ISS slightly later than it does on the surface of the Earth directly below it. 
 </p>
 
