@@ -1,4 +1,4 @@
-## Bulletproofing your program
+## Preparing for the unexpected
 
 A program can fail for many reasons, but with some foresight and planning it is possible to deal with these failures instead of crashing and losing the chance to capture data and images aboard the ISS. In this section we are going to try and find ways to improve your program so that it stands the best chance of working as intended if something unexpected happens. 
 
