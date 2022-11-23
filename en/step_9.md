@@ -4,7 +4,7 @@ A program can fail for many reasons, but with some foresight and planning it is 
 
 ## Error handling 
 
-The first tool in your toolbox is Python's `try-except` statement, which is used to handle exceptions thrown at runtime. Normally, when exceptions are thrown and not handled, the program will crash immediately and data will potentially be lost. However, by using the `try-except` statement to catch the exception, we can let the program carry on.
+The first tool in your toolbox is Python's `try-except` statement, which is used to handle exceptions thrown at runtime. Normally, when exceptions are thrown and not handled, the program will crash immediately and data will potentially be lost. However, by using the 'try-except' statement to catch the exception, we can let the program carry on.
 
 A common cause of failed programs is when a mathematical function tries to divide a value by zero. This can happen if you're reading a value from a sensor and then using that as part of a calculation. What will happen if you run the program below at freezing point? Will it print "Hello"?
 
