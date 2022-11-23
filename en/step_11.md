@@ -1,111 +1,138 @@
-## Common mistakes
+## A complete worked example
 
-Mission Space Lab has been running for a few years now and there have been some amazing experiments. However, every year there are some fantastic entries that don't get to run on the ISS due to problems with their final code.
+The team from CoderDojo Tatooine wants to investigate whether the environment on the ISS is affected by the surface of the Earth it is passing over. Does the ISS get hotter when it passes over a desert, or wetter when it is above the sea?
 
-There are also some experiments that run but do not produce any data for their teams due to avoidable errors.
+![Graphic of a red planet in space](images/tatooine.png)
 
-Here are some common problems that you should avoid.
+This example will serve as a template, to illustrate how you can combine all the elements described so far in this guide to plan and write your computer program.
 
-## Don't forget to call your functions
+For this particular example, the program for the experiment should:
+- Take regular measurements of temperature and humidity every 30 seconds, and log the values in a CSV file
+- Calculate the ISS’s latitude and longitude and log this information in the CSV file
+- Take a photo using the camera on Astro Pi IR, which is pointing out of a window towards Earth, to gather data on whether cloud cover might also be a factor
+- Write the latitude and longitude data in the CSV file and also into the EXIF tags of the images, which have sequentially numbered file names
+- Handle any unexpected errors and log the details
 
-We have seen examples of submissions where the teams have forgotten to call their funciton! Make sure you test your program before submitting it.
+### The experiment code
 
-## Do not rely on user input
-
-Your program **should not rely on human input** via the joystick or buttons. The crew will not have time to manually operate the Astro Pis, so your experiment cannot depend on human input. For example, if an experiment needs a button to be pressed by an astronaut to begin, that button press will never happen, and the experiment will not run. This is also why experiments on the crew, like human reaction speed or memory tests, are not suitable as Mission Space Lab entries.
-
-## Save data
-
-Make sure that any experimental data is written to a file as soon as it is recorded. Avoid saving data to an internal list or dictionary as you go along and then writing it all to a file at the end of the experiment, because if your experiment ends abruptly due to an error or because it exceeds the 3-hour time limit, you won't get any data.
-
-## Do not use absolute file paths
-
-Make sure that you don't use any specific paths for your data files. Use the `__file__` variable as described in 'Recording data from your experiment'.
-
-## Check for 'divide by zero' errors
-
-A common cause of failed programs is when a mathematical function tries to divide a value by zero. This can happen if you're reading a value from a sensor and then using that as part of a calculation. Always make sure that your program can cope if one of the values returned by a sensor (in particular the accelerometer) is zero.
-
-## Make sure your code can handle errors (exceptions)
-
-An **exception** is an event that occurs during the execution of a program and disrupts the normal flow of the program's instructions. For example, if your program takes two numbers and divides them, this would work in many cases:
+Here is what the final code that implements the experiment idea might look like:
 
 ```python
->>> a = 1
->>> b = 2
->>> c = a / b
->>> print(c)
-0.5
+from pathlib import Path
+from logzero import logger, logfile
+from sense_hat import SenseHat
+from picamera import PiCamera
+from orbit import ISS
+from time import sleep
+from datetime import datetime, timedelta
+import csv
+
+def create_csv_file(data_file):
+    """Create a new CSV file and add the header row"""
+    with open(data_file, 'w') as f:
+        writer = csv.writer(f)
+        header = ("Counter", "Date/time", "Latitude", "Longitude", "Temperature", "Humidity")
+        writer.writerow(header)
+
+def add_csv_data(data_file, data):
+    """Add a row of data to the data_file CSV"""
+    with open(data_file, 'a') as f:
+        writer = csv.writer(f)
+        writer.writerow(data)
+
+def convert(angle):
+    """
+    Convert a `skyfield` Angle to an EXIF-appropriate
+    representation (rationals)
+    e.g. 98° 34' 58.7 to "98/1,34/1,587/10"
+
+    Return a tuple containing a boolean and the converted angle,
+    with the boolean indicating if the angle is negative.
+    """
+    sign, degrees, minutes, seconds = angle.signed_dms()
+    exif_angle = f'{degrees:.0f}/1,{minutes:.0f}/1,{seconds*10:.0f}/10'
+    return sign < 0, exif_angle
+
+def capture(camera, image):
+    """Use `camera` to capture an `image` file with lat/long EXIF data."""
+    location = ISS.coordinates()
+
+    # Convert the latitude and longitude to EXIF-appropriate representations
+    south, exif_latitude = convert(location.latitude)
+    west, exif_longitude = convert(location.longitude)
+
+    # Set the EXIF tags specifying the current location
+    camera.exif_tags['GPS.GPSLatitude'] = exif_latitude
+    camera.exif_tags['GPS.GPSLatitudeRef'] = "S" if south else "N"
+    camera.exif_tags['GPS.GPSLongitude'] = exif_longitude
+    camera.exif_tags['GPS.GPSLongitudeRef'] = "W" if west else "E"
+
+    # Capture the image
+    camera.capture(image)
+
+
+base_folder = Path(__file__).parent.resolve()
+
+# Set a logfile name
+logfile(base_folder/"events.log")
+
+# Set up Sense Hat
+sense = SenseHat()
+
+# Set up camera
+cam = PiCamera()
+cam.resolution = (1296, 972)
+
+# Initialise the CSV file
+data_file = base_folder/"data.csv"
+create_csv_file(data_file)
+
+# Initialise the photo counter
+counter = 1
+# Record the start and current time
+start_time = datetime.now()
+now_time = datetime.now()
+# Run a loop for (almost) three hours
+while (now_time < start_time + timedelta(minutes=178)):
+    try:
+        humidity = round(sense.humidity, 4)
+        temperature = round(sense.temperature, 4)
+        # Get coordinates of location on Earth below the ISS
+        location = ISS.coordinates()
+        # Save the data to the file
+        data = (
+            counter,
+            datetime.now(),
+            location.latitude.degrees,
+            location.longitude.degrees,
+            temperature,
+            humidity,
+        )
+        add_csv_data(data_file, data)
+        # Capture image
+        image_file = f"{base_folder}/photo_{counter:03d}.jpg"
+        capture(cam, image_file)
+        # Log event
+        logger.info(f"iteration {counter}")
+        counter += 1
+        sleep(30)
+        # Update the current time
+        now_time = datetime.now()
+    except Exception as e:
+        logger.error(f'{e.__class__.__name__}: {e}')
 ```
-But if the second number is zero, then the division operation would fail:
 
-```python
->>> a = 1
->>> b = 0
->>> c = a / b
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-ZeroDivisionError: division by zero
+Here's a snippet from the `data.csv` file that is produced:
+
+```
+Counter,Date/time,Latitude,Longitude,Temperature,Humidity
+1,2021-02-24 10:46:39.399823,39.740617143761526,3.3473845489216094,27.4958,42.934
+2,2021-02-24 10:47:10.221346,38.53934241569049,5.26367913685018,27.6456,42.7503
+3,2021-02-24 10:47:40.890616,37.309551077336856,7.1032053271899365,27.7018,42.5886
+4,2021-02-24 10:48:11.571371,36.047429941325575,8.879601929060437,27.5894,42.6544
 ```
 
-One way to handle this potential situation is to catch the zero case early:
+<p style="border-left: solid; border-width:10px; border-color: #0faeb0; background-color: aliceblue; padding: 10px;">
+Exception handling in this program is rather crude: all raised exceptions will be caught and logged. This means that such a program is very unlikely to terminate abruptly and display an error. Even if errors are generated and the program fails to achieve its goal, this will only become apparent by checking the log files for errors. When testing your program, make sure you also check any log files it generates.
+</p>
 
-```python
-if b != 0:
-    c = a / b
-else:
-    print("b cannot be zero")
-```
-
-Another way is to try to complete the operation, but handle the exception if it occurs:
-
-```python
-try:
-    c = a / b
-except ZeroDivisionError:
-    print("b cannot be zero")
-```
-
-A good example of an exception that may occur when you use the Sense HAT is this: your program uses a variable as a pixel colour value, but the value assigned to the variable falls outside of the range allowed (0 to 255).
-
-```python
->>> r = a + b
->>> sense.set_pixel(x, y, r, g, b)
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-  File "/usr/local/lib/python3.5/dist-packages/sense_hat/sense_hat.py", line 399, in set_pixel
-    raise ValueError('Pixel elements must be between 0 and 255')
-ValueError: Pixel elements must be between 0 and 255
-```
-
-It's important to anticipate all the places in your program where a variable may reach a value that would cause problems. For example, if you're using the humidity measurement to determine how red pixels are, make sure that this value can't possibly go outside the range 0 to 255, not just during testing, but in all possible situations:
-
-```python
-red = int(max(0, min(sh.humidity / 100 * 255, 255)))
-```
-
-This line of code means that if the humidity measurement is 0 or below, the value of `red` will be 0, and if the measurement is 100 or over, the value of `red` will be 255. For measurements in between 0 and 100, the value of `red` will be proportional. In addition, the value of `red` will always be an integer.
-
-### Multiple exceptions
-
-The easiest way to handle exceptions is to catch all exceptions and deal with them in the same way:
-
-```python
-try:
-    do_something()
-except:
-    print("An error occurred")
-```
-
-However, this tells you nothing about what went wrong in your program. You should instead consider what types of exceptions can occur. It is possible to deal with different exceptions in different ways:
-
-```python
-try:
-    divide(a, b)
-except ZeroDivisionError:
-    print("b cannot be zero")
-except TypeError:
-    print("a and b must be numbers")
-```
-
-Using a combination of avoidance and good exception handling, you can avoid errors that would prevent your program from completing its run and causing you disappointment. Imagine getting back the logs from a failed experiment only to see that there was an exception that could have been handled, or an error message that didn't reveal anything about what went wrong.

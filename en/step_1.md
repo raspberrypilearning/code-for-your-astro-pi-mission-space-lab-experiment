@@ -1,80 +1,32 @@
 ## Introduction
 
-The European Astro Pi Challenge is an ESA Education project run in collaboration with the Raspberry Pi Foundation. Astro Pi Mission Space Lab offers young people the amazing opportunity to conduct scientific investigations in space by writing computer programs that run on Raspberry Pi computers — the Astro Pis — aboard the International Space Station (ISS).
+In this project, you will learn how to turn your Phase 1 experiment idea into a real experiment that can run on your own Astro Pi hardware and on the International Space Station (ISS).
 
-![Two views of the Astro Pi, showing the front panel (with some of the sensors) and the camera.](images/astro-pi-double.png){:width="800px"}
+<p style="border-left: solid; border-width:10px; border-color: #0faeb0; background-color: aliceblue; padding: 10px;">
+Don't know about Mission Space Lab? Don't panic! Head over to the [Astro Pi website](https://astro-pi.org/mission-space-lab/) for more information and to sign up for next year.
+</p>
 
-This guide covers Phase 2 for both Mission Space Lab themes: **Life on Earth** and **Life in Space**. We want your experiment to run reliably on the ISS, and this guide will help you get started quickly and give you the best chance of running your program without problems.
-
-Even if you’ve entered the Astro Pi competition before, please make sure that you read and follow this guide, as many things have changed in comparison to previous years.
+![Two views of the Astro Pi, showing the front panel (with some of the sensors) and the camera.](images/astro-pi-double.png)
 
 ### What you will make
 
-The guide includes information on assembling your kit, writing the code for your experiment, and testing your program. It also includes essential details about what is and isn’t possible with the Astro Pi hardware and software.
-
-There are certain reasonable **requirements** that your entry needs to meet in order to progress to the next phase. You will find them clearly explained throughout the guide and also in the last step, as a checklist. There are also **suggestions** or best practices that you should follow, to ensure that your program scores highly during the judging process and can run easily on the ISS without requiring modifications. If you think you need to do things differently, please get in touch **before** submitting your entry.
-
-Most of the information in this guide applies to both Life in Space and Life on Earth experiments, however, there are a few differences that you need to consider depending on the theme that you have chosen.
-
---- collapse ---
----
-title: Notes for Life in Space experiments
----
-
-+ Although you can use the camera as part of your experiment (for example, to work out how bright it is on the ISS), you cannot use it to take photos of astronauts and no captured images or videos can remain stored in the experiment folder after the end of the experiment.
-+ Your program should display a helpful message or image on the Sense HAT's LED matrix so that nearby astronauts know that an experiment is running. This should change regularly to indicate that everything is running correctly.
-
---- /collapse ---
-
---- collapse ---
----
-title: Notes for Life on Earth experiments
----
-
-+ You should not use the LED matrix while your experiment is running. The LED matrix will be disabled and the Astro Pi will be covered to prevent stray light from spoiling the images taken from the window.
-
---- /collapse ---
+You will build your very own Astro Pi and write a Python program to gather data to support or reject your experiment hypothesis. You will learn how to test your program to give it the best chance of running successfully aboard the International Space Station (ISS).
 
 ![The Earth, as photographed by a Mission Space Lab experiment on the ISS in 2021.](images/astrocmp-2021.gif)
 
---- collapse ---
----
-title: What you will learn
----
+### What you will learn
 
-You'll learn how to connect the hardware that you'll need to the Raspberry Pi (e.g. the Sense HAT, the Camera Module, a PIR motion sensor, or the Coral TPU), and how to turn your Mission Space Lab Phase 1 idea into a working experiment by writing a Python program that can run on the ISS Astro Pis.
+By reading this guide you will learn how to:
+1. Build an Astro Pi and how to use it
+2. Plan your experiment
+3. Write a Python program using the libraries available aboard the ISS, including how to:
+    * Save data captured from the sensors and the camera
+    * Run your program for 3 hours
+    * Find the location of the ISS
+    * Improve your program with error handling and logging
+4. Test and review your work to give your team the best chance of running your experiment on the ISS
 
---- /collapse ---
+## Guidelines and pre-submission checklist
 
---- collapse ---
----
-title: What you will need
----
-### Hardware
+In order to have your program run aboard the ISS, it's really important that you read the [guidelines on the Astro Pi website](https://astro-pi.org/mission-space-lab/guidelines) and that you look over the [Phase 2 program checklist](https://astro-pi.org/mission-space-lab/guidelines/program-checklist) before submitting your work. Bear in mind that there are some differences in what you are allowed to do depending on if your experiment theme is 'Life On Earth' or 'Life In Space'.
 
-+ A Raspberry Pi 4
-+ A Sense HAT
-+ A Camera Module (if necessary for your experiment)
-+ A passive infrared (PIR) motion sensor (if necessary for your experiment)
-+ A Coral TPU (if necessary for your experiment)
-
-### Software
-
-You will need the Desktop version of the Flight Operating System (OS) for the Astro Pi. This is a custom build of the Desktop Raspberry Pi Operating System, which includes all the software libraries present on the Astro Pi units on the ISS.
-
-### Additional resources
-
-+ If you want to, you can [make a 3D-printed flight case](https://projects.raspberrypi.org/en/projects/astro-pi-flight-case-mk2){:target="_blank"}, and use this to even more closely simulate the ISS environment for more realistic testing. However, this is not a requirement, and you can take part in Mission Space Lab without building a replica flight case.
-
---- /collapse ---
-
-### Note to mentors: Collaboration during the coronavirus pandemic
-
-We understand that restrictions in place due to the coronavirus pandemic might negatively impact teams being able to get together to work with their Astro Pi kit. To help teams hold these sessions online and collaborate remotely, we have created lesson plan templates for mentors to use in their sessions:
-
-[First session](https://rpf.io/first-session-spacelab){:target="_blank"}
-[Ongoing sessions](https://rpf.io/ongoing-sessions-spacelab){:target="_blank"}
-
-When collaborating remotely with your team, it is important to ensure that you enforce solid child safeguarding policies and procedures, as well as comply with all local laws. 
-
-We recommend following the Raspberry Pi Foundation's [safeguarding guidelines](https://rpf.io/safeguarding){:target="_blank"} and best practices.
