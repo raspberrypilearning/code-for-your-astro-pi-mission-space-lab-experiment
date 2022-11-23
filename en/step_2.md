@@ -1,8 +1,8 @@
-## Kit Assembly
+## Kit assembly
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/cFhmKzV_QZs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-In this step we are going to build an Astro Pi using the official kit you received. Before starting the assembly, let's familiarise ourselves with what's in the box...
+In this step we are going to build an Astro Pi using the official kit you received. Before starting the assembly, let's familiarise ourselves with what's in the box.
 
 --- collapse ---
 ---
@@ -12,7 +12,7 @@ It may be small but your kit box really packs a punch! Your official Astro Pi ki
 
 <div id="thumbnail_div">
 
-| 1x [Raspberry Pi 4](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/) 4GB | 1x Power Supply Unit | 1x 16GB Micro SD card | 1x HDMI cable |
+| 1x [Raspberry Pi 4](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/) 4GB | 1x Power supply unit | 1x 16GB microSD card | 1x HDMI cable |
 |:--------:|:-------:|:--------:|:--------:|
 | ![Raspberry Pi 4](images/raspberry-pi-vector.png) | ![PSU](images/pi-power-supply-vector.png) | ![A 16GB SD card](images/sd-card-vector.png) | ![HDMI Cable](images/hdmi-cable.png) |
 
@@ -23,30 +23,30 @@ It may be small but your kit box really packs a punch! Your official Astro Pi ki
 <br>
 If your experiment involves using the camera, you will also have:
 
-| 1x HQ Camera Module | 1x 6mm Camera Lense |
+| 1x HQ Camera | 1x 6mm Camera lens |
 |:--------:|:-------:|
-| ![HQ Camera module](images/camera-module-vector.png) | ![6mm Camera Lense](images/6mm-lens-vector.png) |
+| ![HQ Camera](images/camera-module-vector.png) | ![6mm Camera Lense](images/6mm-lens-vector.png) |
 
 <br>
-and if you will be using infra-red photography, your kit will also include:
+and if you will be using infrared photography, your kit will also include:
 
-| 1x red optical filter | 1x allen key (1.5mm) |
+| 1x Red optical filter | 1x Allen key (1.5mm) |
 |:--------:|:-------:|
-| ![Red and IR optical filter](images/midopt-filter.png) | ![allen key](images/allen-key-vector.png) |
+| ![Red and IR optical filter](images/midopt-filter.png) | ![Allen key](images/allen-key-vector.png) |
 
 <br>
 If your experiment involves detecting movement, your kit will include:
 
-| A passive infrared (PIR) sensor | 3x female-female jumper wires | 1x Tall header pins |
+| A passive infrared (PIR) sensor | 3x F-F jumper wires | 1x Tall header pins |
 |:--------:|:-------:|:--------:|
-| ![PIR sensor](images/pir-vector.png) | ![female-female jumper wires](images/jumper-female-to-female-vector.png) | ![Tall header pins](images/tallHeaderPins.png) |
+| ![PIR sensor](images/pir-vector.png) | ![F-F jumper wires](images/jumper-female-to-female-vector.png) | ![Tall header pins](images/tallHeaderPins.png) |
 
 <br>
 If your experiment involves machine-learning at runtime, you will also have the following in your box:
 
-| A [Coral ML Accelerator](https://coral.ai/products/accelerator) | 1x USB-C to USB-A cable |
+| A [Coral ML accelerator](https://coral.ai/products/accelerator) | 1x USB-C to USB-A cable |
 |:--------:|:-------:|
-| ![Coral ML Accelerator](images/coral-vector.png) | ![USB cable](images/usb-cable-vector.png) |
+| ![Coral ML accelerator](images/coral-vector.png) | ![USB cable](images/usb-cable-vector.png) |
 
 <br>
 If you want to, you can [make a 3D-printed flight case](https://projects.raspberrypi.org/en/projects/astro-pi-flight-case-mk2){:target="_blank"}. However, you don't need one to take part in Mission Space Lab. 
@@ -62,7 +62,7 @@ Before getting started, familiarise yourself with what's in the box and unpack e
 <div id="checkbox_div">
 - My box contains a camera <input type="checkbox" id="hasCamera">
 <div class="camera_step">
-  - My box contains an infrared filter<input type="checkbox" id="hasInfrared">
+- My box contains an infrared filter<input type="checkbox" id="hasInfrared">
 </div>
 - My box contains a PIR sensor <input type="checkbox" id="hasPir">
 - My box contains a Coral ML accelerator <input type="checkbox" id="hasCoral">
@@ -74,7 +74,7 @@ Place the Raspberry Pi 4 on a flat surface. Make sure it is turned off with noth
 
 ### Attaching the Sense Hat
 
-We are going to start by assembling the Sense HAT.
+Let's start by assembling the Sense HAT.
 ![Animation of the Sense Hat assembly](images/animated_sense_hat.gif){: style="max-width: 50%;" }
 
 --- task ---
@@ -163,7 +163,7 @@ Use the four remaining black screws to secure the Sense HAT stack to the spacers
 ![Photo of the Sense HAT with screws securing it to the spacers.](images/assembly_spacer_top.JPG)
 --- /task ---
 
-We've finished putting the Sense HAT on. On to the next step.
+You've finished putting the Sense HAT on. On to the next step.
 
 <div class="pir_step">
 
@@ -176,7 +176,7 @@ Take the PIR and remove the foam pin protector block.
 --- /task ---
 
 --- task ---
-Take a moment to familiarise yourself with the [layout of the Raspberry Pi pins](https://pinout.xyz). Notice that the odd-numbered pins are on the left, the even-numbered pins are on the right, and that the pin number increases by 2 each time we go down a row. 
+Take a moment to familiarise yourself with the [layout of the Raspberry Pi pins](https://pinout.xyz). Notice that the odd-numbered pins are on the left-hand side, the even-numbered pins are on the right-hand side, and that the pin number increases by 2 each time we go down a row. 
 
 ![Diagram of the Raspberry Pi headers](images/rpi4-headers-vector.png)
 
@@ -186,13 +186,13 @@ Take a moment to look at the PIR sensor. Do you see the labels GND, VCC, and OUT
 --- /task ---
 
 --- task ---
-Now we are going to connect each pin on the PIR sensor to an appropriate pin on the Raspberry Pi using the three female-female jumper wires provided in the kit.
+Now we are going to connect each pin on the PIR sensor to an appropriate pin on the Raspberry Pi using the three F-F jumper wires provided in the kit.
 
 ![Diagram of the PIR wiring](images/pir_wiring-vector.png)
 
 - Connect the VCC pin on the PIR sensor to pin 1 (3V3) on the Raspberry Pi
 - Connect the GND pin on the PIR sensor to pin 6 (GND) on the Raspberry Pi
-- Connect the OUT pin should be connected to pin 32 (GPIO 12)
+- Connect the OUT pin on the PIR sensor to pin 32 (GPIO 12)
 
 **Note**: Your jumper wires may be a different colour to the ones in the photos.
 
@@ -204,7 +204,7 @@ Here is a video of the PIR setup:
 
 --- /task ---
 
-You've just finished assembling the PIR sensor - great work!
+You've just finished assembling the PIR sensor. Great work!
 </div>
 
 <div class="coral_step">
@@ -213,7 +213,7 @@ You've just finished assembling the PIR sensor - great work!
 
 --- task ---
 ![Diagram showing the location of the USB 3 ports on the Raspberry Pi](images/rpi4-usb3-vector.png)
-The Coral ML accelerator requires no assembly - simply locate the USB-C cable and plug it into the accelerator
+The Coral ML accelerator requires no assembly — simply locate the USB-C cable and plug it into the accelerator,
 
 ![Photo of the Coral ML accelerator with the USB-C cable inserted](images/coral_usb_c_inserted.jpg){: height="450px" width="253px" class="small-img" }
 
@@ -231,7 +231,7 @@ and then plug the other end into any of the blue USB (USB 3) ports.
 
 --- task ---
  
-Find the high quality camera board and check that the back focus ring is screwed all the way in. 
+Find the high-quality camera board and check that the back focus ring is screwed all the way in. 
 ![Photo of the high-quality camera sensor with the back focus ring screwed all the way in.](images/filter_backfocus.JPG)
 
 --- /task ---
@@ -252,7 +252,7 @@ Remove the C/CS adapter ring from the high-quality camera.
 
 ### Converting the camera to use infrared
 
-If your Life on Earth experiment requires an infrared-sensitive (IR-sensitive) camera - for example, you are doing a NDVI (Normalized Difference Vegetation Index) experiment - then you will need to convert your camera using the steps below.
+If your Life on Earth experiment requires an infrared-sensitive (IR-sensitive) camera — for example, you are doing a NDVI (Normalised Difference Vegetation Index) experiment — then you will need to convert your camera using the steps below.
 
 <p style="border-left: solid; border-width:10px; border-color: #fa1111; background-color: #f56c6c; padding: 10px;">
 **Note**: If you are programming a Life in Space experiment, or your Life on Earth experiment requires photos to be taken in the visible light spectrum only, then please don't convert your high-quality camera sensor as you can't reverse/undo it later.
@@ -262,14 +262,14 @@ If your Life on Earth experiment requires an infrared-sensitive (IR-sensitive) c
 ---
 title: How does the infrared camera work?
 ---
-The high-quality camera sensor can detect infrared (IR) light. However, the sensor housing contains an IR filter, which is used to greatly reduce the camera’s sensitivity to IR light.  This is so that the images captured by the high-quality camera sensor look the same as what we see with our eyes (which are not sensitive to IR light). By removing this filter we allow the IR light to pass through along with visible light.
+The high-quality camera sensor can detect infrared (IR) light. However, the sensor housing contains an IR filter, which is used to greatly reduce the camera’s sensitivity to IR light.  This is so that the images captured by the high-quality camera sensor look the same as what we see with our eyes (which are not sensitive to IR light). By removing this filter, we allow the IR light to pass through along with visible light.
 
 In the next steps we will replace the built-in filter with a separate red filter which allows only reflected red light (660nm) and reflected near-infrared light (850nm) through to the sensor.  See our [NDVI project](https://projects.raspberrypi.org/en/projects/astropi-ndvi) for more information. 
 
 --- /collapse ---
 
 --- task ---
-Remove the built-in infrared filter from the high-quality camera by following the [instructions here](https://www.raspberrypi.org/documentation/accessories/camera.html#raspberry-pi-hq-camera-filter-removal). You will need to use the 1.5mm allen key.
+Remove the built-in infrared filter from the high-quality camera by following the [instructions here](https://www.raspberrypi.org/documentation/accessories/camera.html#raspberry-pi-hq-camera-filter-removal). You will need to use the 1.5mm Allen key.
 
 To help you even more, here is a video of this process:
 <iframe width="560" height="315" src="https://www.youtube.com/embed/tAk0Q3jR_aQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -318,7 +318,7 @@ You should start to feel increasing resistance as the filter gets lower. After a
 </div>
 
 --- task ---
-Remove the cap from the narrower end of the 6mm lens 
+Remove the cap from the narrower end of the 6mm lens. 
 
 ![Photo of the 6mm lens with the cap removed from the narrower end](images/6mm_narrow_cap_removed.png)
 --- /task ---
@@ -336,7 +336,7 @@ Congratulations! Now you have a complete infrared-sensitive camera.
 
 ### Final assembly steps
 
-You're almost done, finish your Astro Pi with these steps:
+You're almost done. Finish your Astro Pi with these steps:
 
 --- task ---
 Connect your keyboard and mouse into the two (black) USB 2 ports.
@@ -351,7 +351,7 @@ Connect the little micro-HDMI cable into the HDMI 1 port of the Raspberry Pi and
 --- task ---
 ![Photo of a micro SD card inside an SD card adapter](images/sd_card_adapter.png){: class="small-img"}
 
-The SD card comes in a large adapter, so remove it from the adapter and insert it into the SD port on the bottom of the Raspberry Pi - make sure you put it in the right way.
+The SD card comes in a large adapter, so remove it from the adapter and insert it into the SD port on the bottom of the Raspberry Pi — make sure you put it in the right way.
 
 ![Photo of a micro SD card inserted into a Raspberry Pi](images/sd_card_inserted.png)
 --- /task ---
@@ -361,7 +361,7 @@ Finally, connect the USB-C power cable into the Raspberry Pi and watch it boot u
 ![Photo of the power cable inserted into a Raspberry Pi](images/power_cable_inserted.png)
 --- /task ---
 
-Congratulations, you have made an Astro Pi 🚀
+Congratulations, you have made an Astro Pi! 🚀
 Continue to the next stage to learn about the Operating System, the Kit OS.
 
 
