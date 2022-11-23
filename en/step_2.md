@@ -65,7 +65,6 @@ Before getting started, familiarise yourself with what's in the box and unpack e
 - My box contains an infrared filter<input type="checkbox" id="hasInfrared">
 </div>
 - My box contains a PIR sensor <input type="checkbox" id="hasPir">
-</div>
 - My box contains a Coral ML accelerator <input type="checkbox" id="hasCoral">
 </div>
 
