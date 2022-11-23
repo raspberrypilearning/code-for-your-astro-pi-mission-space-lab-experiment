@@ -1,10 +1,10 @@
 ## Bulletproofing your program
 
-In this section we are going to try and find ways to improve your program so that it stands the best chance of working as intended if something unexpected happens. There are many reasons why a program can fail, but with some foresight and planning it is possible to deal with these failures appropriately instead of crashing and losing the chance to capture data and images aboard the ISS.
+A program can fail for many reasons, but with some foresight and planning it is possible to deal with these failures instead of crashing and losing the chance to capture data and images aboard the ISS. In this section we are going to try and find ways to improve your program so that it stands the best chance of working as intended if something unexpected happens. 
 
 ## Error handling 
 
-The first tool in our toolbox is Python's `try-except` statement, which is used to handle exceptions thrown at runtime. Normally, when exceptions are thrown and not handled, this will result in the programming crashing immediately with potential loss of data. However, by using the try-except statement to catch the exception, we can let the program carry on.
+The first tool in your toolbox is Python's `try-except` statement, which is used to handle exceptions thrown at runtime. Normally, when exceptions are thrown and not handled, the program will crash immediately and data will potentially be lost. However, by using the `try-except` statement to catch the exception, we can let the program carry on.
 
 A common cause of failed programs is when a mathematical function tries to divide a value by zero. This can happen if you're reading a value from a sensor and then using that as part of a calculation. What will happen if you run the program below at freezing point? Will it print "Hello"?
 
@@ -25,7 +25,7 @@ title: Answer
 At freezing point, this program will not print "Hello" and instead will crash with a `ZeroDivisionError`.
 ---/collapse---
 
-One way to handle this potential situation is to catch the zero case early:
+One way to handle this situation is to catch the zero case early:
 
 ```python
 if sense.get_temperature() != 0:
@@ -35,7 +35,7 @@ else:
     print("Temperature is zero")
 ```
 
-But the preferred way of resolving this situation is to try to complete the operation, but handle the exception using a `try-except` statement:
+The preferred way of resolving this situation is to try to complete the operation, but handle the exception using a `try-except` statement:
 
 ```python
 try:
@@ -45,7 +45,7 @@ except ZeroDivisionError:
     print("Temperature is zero")
 ```
 
-In this way, we can carry on with our program even in the event of a divide by zero error, and We can deal with other errors by catching them in their own `except` clause:
+In this way, we can carry on with our program even in the event of a divide by zero error, and we can deal with other errors by catching them in their own `except` clause:
 
 ```python
 try:
@@ -83,7 +83,7 @@ except TypeError:
 --- /collapse ---
 
 
-Sadly this doesn't guarantee that the program will be useful if it carries on: in the program above we will never be able to use the value of `a` in the event that the temperature is zero. Yet, on balance, it's probably a good addition to your experiment program to make the most of the time available on the ISS.
+Sadly this doesn't guarantee that the program will be useful if it carries on. In the program above, we will never be able to use the value of `a` in the event that the temperature is zero. Yet, on balance, it's probably a good addition to your experiment program to make the most of the time available on the ISS.
 
 ### An example - ValueError from the Sense HAT
 
@@ -102,10 +102,10 @@ ValueError: Pixel elements must be between 0 and 255
 It's important to anticipate all the places in your program where a variable may reach a value that would cause problems, and use the `try-except` statement to your advantage. You can do this using a combination of reading the documentation and testing your code in a variety of environmental conditions.
 
 
-Using a combination of avoidance and good exception handling, you can avoid errors that would prevent your program from completing its run and causing you disappointment. Imagine getting back the logs from a failed experiment only to see that there was an exception that could have been handled, or an error message that didn't reveal anything about what went wrong.
+Using a combination of avoidance and good exception handling, you can avoid errors that would prevent your program from completing its run and causing you disappointment. Imagine receiving the logs from a failed experiment only to see that there was an exception that could have been handled, or an error message that didn't reveal anything about what went wrong.
 
 --- task ---
-Review your program and consider if you want catch any of these errors:
+Review your program and consider if you want to catch any of these errors:
 
 - `DivideByZeroError`
 - `ValueError`
@@ -115,7 +115,7 @@ Review your program and consider if you want catch any of these errors:
 
 ## Logging
 
-The second tool we have in our bulletproofing toolbox is the `logzero` library. The `logzero` Python library makes it easy to make notes about what's going on in your program. If you got back your experiment data only to find lots of missing data with no explanation, you wouldn't be able to find out what happened. Instead, you can log as much information about what happens in your program. Log every loop iteration, log every time an important function is called, and if you have conditionals in your program, log which route the program went (`if` or `else`).
+The second tool we have in our toolbox is the `logzero` library. If your experiment data came back with lots of missing data and no explanation, you wouldn't be able to find out what happened. The `logzero` Python library makes it easy to make notes about what's going on in your program. You can log as much information about what happens in your program — every loop iteration, every time an important function is called — and if you have conditionals in your program, `logzero` will log which route the program went (`if` or `else`).
 
 Here's a basic example of how logzero can be used to keep track of loop iterations:
 
@@ -170,5 +170,5 @@ It's a good idea to use **both** the `csv` library (for recording experiment dat
 
 ## Your experiment
 
-Using these strategies you can quickly improve the reliability of your experiment and get the ability to observe your program while its running. In the next section, we will look even more into how to increase your confidence in your Python program, to improve its chances of success, and to get ready for submission.
+Using these strategies, you can quickly improve the reliability of your experiment and you can observe your program while its running. In the next section, we will look further into how to increase your confidence in your Python program, to improve its chances of success, and to get ready for submission.
 
