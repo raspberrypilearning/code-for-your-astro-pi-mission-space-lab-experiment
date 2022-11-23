@@ -171,7 +171,7 @@ title: What is an ephemeris?
 ---
 An ephemeris is a high accuracy table of the position of celestial objects. In this case, it is needed to compute the positions of the Earth and the Sun at a specific point in time. 
 
-The `orbit` library makes it easy to import an ephemeris - all you have to do is put `from orbit import ephemeris` at the top of your file and then pass the `ephemeris` object to skyfield's `is_sunlit` function. In the background, `orbit` will download an ephemeris `de421.bsp` to your home folder. If you don't have internet access on your Raspberry Pi you will need to do this yourself by saving [this file](https://naif.jpl.nasa.gov/pub/naif/generic_kernels/spk/planets/a_old_versions/de421.bsp) on another computer and put it in your home folder manually. Fortunately these files never change so you only need to do this once.
+The `orbit` library makes it easy to import an ephemeris - all you have to do is put `from orbit import ephemeris` at the top of your file and then pass the `ephemeris` object to skyfield's `is_sunlit` function. In the background, `orbit` will download an ephemeris file named `de421.bsp` to your home folder. If you don't have internet access on your Raspberry Pi you will need to do this yourself by saving [this file](https://naif.jpl.nasa.gov/pub/naif/generic_kernels/spk/planets/a_old_versions/de421.bsp) on another computer and put it in your home folder manually. Fortunately these files never change so you only need to do this once.
 ---/collapse ---
 
 
