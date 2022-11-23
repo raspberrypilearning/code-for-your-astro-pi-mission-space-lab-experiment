@@ -1,12 +1,12 @@
 ## Running an experiment for 3 hours
 
-In this section we are going to modify our `main.py` so that it will run and stop itself after 3 hours. Each experiment on the ISS has a 3 hour slot to use after which it will be abruptly stopped. We need to ensure that our program gracefully shuts down to ensure we don't lose any data.
+In this section we are going to modify our `main.py` so that it will run and stop itself after 3 hours. Each experiment on the ISS has a 3 hour slot to use, after which it will be abruptly stopped. We need to shut down our program gracefully to ensure we don't lose any data.
 
 ### The datetime library
 
 One way to stop a Python program after a specific length of time is using the `datetime` Python library. This library makes it easy to work with times and compare them. Doing so without the library is not always straightforward: it's easy to get it wrong using normal mathematics. For example, it's simple to work out the difference in time between 10:30 and 10:50 (subtract 30 from 50), but slightly more complicated when you have 10:44 and 11:17 (add (60 - 44) to 17). Things become even trickier if the two times are split across two days (for example, the difference in minutes between 23:07 on Monday 31 May and 11:43 on Tuesday 1 June). The `datetime` library makes this type of operation much simpler by allowing you to create `datetime` objects that you can simply add to or subtract from each other.  
 
-By recording and storing the time at the start of the experiment, we can then check repeatedly to see if the current time is greater than that start time plus a certain number of minutes, seconds, or hours. In the program below this is used to print "Hello from the ISS" every second for 2 minutes:
+By recording and storing the time at the start of the experiment, we can then check repeatedly to see if the current time is greater than that start time plus a certain number of minutes, seconds, or hours. In the program below, this is used to print "Hello from the ISS" every second for 2 minutes:
 
 ```python
 from datetime import datetime, timedelta
