@@ -2,7 +2,7 @@
 
 ### Setting up your OS
 
-When you power on your Astro Pi for the first time you will be invited to accept the ESA License Agreement, as shown below:
+When you power on your Astro Pi for the first time you will be invited to accept the ESA Licence Agreement, as shown below:
 
 ![Screenshot of the ESA Licence Agreement page](images/os_22-23_esa-licence-accept.jpg){: style="max-width: 80%" }
 
@@ -10,7 +10,7 @@ Once you have accepted the licence agreement, you will be asked to create a new 
 
 ![Animation of the first-time setup screens shown to users of the Kit OS](images/piwiz.gif)
 
-After you have completed these steps, the Astro Pi will reboot itself and you will be ready to start using the Kit OS 🚀
+After you have completed these steps, the Astro Pi will reboot itself and you will be ready to start using the Kit OS. 🚀
 
 --- collapse ---
 ---
@@ -21,11 +21,11 @@ title: Optional setup - Accessing the Kit OS remotely
 **Note:** Enabling VNC may expose your Raspberry Pi to security threats and could allow a hacker to access your machine. Make sure you understand the risks before enabling it.
 </p>
 
-The Kit OS can be configured so that you are able to connect to it from another desktop. To do this, you will need to install a [compatible VNC client](https://www.realvnc.com/en/connect/download/viewer/) on the other desktop, and then enable VNC on the Astro Pi itself by entering the commands below or via the graphical Raspberry Pi Configuration tool (_Menu > Preferences > Raspberry Pi Configuration > Interfaces_).
+The Kit OS can be configured so that you are able to connect to it from another desktop. To do this, you will need to install a [compatible VNC client](https://www.realvnc.com/en/connect/download/viewer/) on the other desktop, and then enable VNC on the Astro Pi itself by entering the commands below or via the graphical Raspberry Pi Configuration tool (Menu > Preferences > Raspberry Pi Configuration > Interfaces).
 
 ![Screenshot of the VNC setting in the Raspberry Pi Configuration tool](images/os_22-23_vnc_enable.jpg)
 
-The default password to connect via VNC is `raspberry` but you are *highly encouraged* to change this using `vncpasswd -service` before enabling VNC.
+The default password to connect via VNC is `raspberry` but you are highly encouraged to change this using `vncpasswd -service` before enabling VNC.
 
 ```bash
 sudo raspi-config nonint do_vnc 0
@@ -36,7 +36,7 @@ sudo systemctl enable avahi-daemon
 sudo systemctl start avahi-daemon
 ```
 
-You can also connect to the KitOS using just a browser, albeit less-securely. On a machine that is connected to the same network as your Astro Pi kit, open up a browser and type `https://astro-pi-kit.local/vnc.html` in the address bar. 
+You can also connect to the Kit OS using just a browser, albeit less securely. On a machine that is connected to the same network as your Astro Pi kit, open up a browser and type `https://astro-pi-kit.local/vnc.html` in the address bar. 
 You will have to tell your browser to trust your unique Astro Pi SSL certificate to continue (e.g. on Chrome, type `thisisunsafe` while the browser tab has focus), but once you have done so you will be lead to the noVNC connection page. Click on the `Connect` button, enter the password you set in `vncpasswd`, and you should see the Flight OS desktop in your browser.
 
 ![The KitOS accessed remotely through a browser window on an MacBook.](images/noVNC.jpg)
@@ -46,9 +46,9 @@ You will have to tell your browser to trust your unique Astro Pi SSL certificate
 ![Screenshot of the Desktop version of the Flight Operating System.](images/os_22-23_sense_hat.jpg)
 
 <p style="border-left: solid; border-width:10px; border-color: #fa1111; background-color: #f56c6c; padding: 10px;">
-**Note**: Be careful about installing new software on your Kit OS, as it will make it more likely your experiment won't run successfully on the Astro Pis aboard the ISS.
+**Note**: Be careful about installing new software on your Kit OS, as it will increase the chances of your experiment not running successfully on the Astro Pis aboard the ISS.
 
-But, if you have accidentally installed anything, you can always redownload and reinstall the Kit OS and start again
+But, if you have accidentally installed anything, you can always redownload and reinstall the Kit OS and start again.
 
 </p>
 
@@ -57,7 +57,7 @@ But, if you have accidentally installed anything, you can always redownload and 
 title: Optional - Downloading a fresh version of the Kit OS
 ---
 
-If you want to create additional SD cards to use for Astro Pi, or if you accidentally installed something, you can download the [KitOS image file](https://downloads.raspberrypi.org/AstroPi_latest) used in the official kits. After downloading, you can use any software tool to write the image file to your own SD card. See [this guide](https://www.raspberrypi.org/documentation/installation/installing-images/) for instructions on how to do this.
+If you want to create additional SD cards to use for Astro Pi, or if you accidentally installed something, you can download the [Kit OS image file](https://downloads.raspberrypi.org/AstroPi_latest) used in the official kits. After downloading, you can use any software tool to write the image file to your own SD card. See [this guide](https://www.raspberrypi.org/documentation/installation/installing-images/) for instructions on how to do this.
 
 --- /collapse ---
 
@@ -65,17 +65,17 @@ Now it's time to take a tour of the OS.
 
 ### A tour of the OS
 
-The Kit OS is a special version of the Raspberry Pi Desktop OS (Bullseye 32 bit) that contains the same programs and libraries as the Astro Pis aboard the International Space Station.  It includes everything you need to **develop** and **test** your experiment, and more!
+The Kit OS is a special version of the Raspberry Pi Desktop OS (Bullseye 32 bit) that contains the same programs and libraries as the Astro Pis aboard the International Space Station. It includes everything you need to **develop** and **test** your experiment, and more!
 Making sure that your program runs successfully in this environment is the best way to ensure that your experiment can run on the Astro Pis on the ISS.
 
 ### Applications
 
-There are a lot of applications that are installed in the Kit OS - take a moment to explore the start menu in the top-left corner. How many apps can you see?
+There are a lot of applications that are installed in the Kit OS — take a moment to explore the start menu in the top left-hand corner. How many apps can you see?
 
 ![Screenshot showing the location of the start menu in the top left-hand corner](images/os_22-23_programming-apps.jpg)
 
 --- task ---
-Familiarise yourself with the KitOS by finding the apps below.
+Familiarise yourself with the Kit OS by finding the apps below.
 --- /task---
 
 --- collapse ---
@@ -99,7 +99,7 @@ Visual Studio Code is a [text editor](https://simple.wikipedia.org/wiki/Text_edi
 ---
 title: File Manager
 ---
-The File Manager is used to ... manage files. Every file on your computer can be accessed using this application. For more information, check out [this page](https://projects.raspberrypi.org/en/projects/raspberry-pi-using/7)
+The File Manager is used to ... manage files. Every file on your computer can be accessed using this application. For more information, check out [this page](https://projects.raspberrypi.org/en/projects/raspberry-pi-using/7).
 ![Screenshot of how to navigate to the File Manager applciation from the start screen](images/os_22-23_file-manager.jpg)
 --- /collapse ---
 
@@ -107,7 +107,7 @@ The File Manager is used to ... manage files. Every file on your computer can be
 ---
 title: Chromium
 ---
-Chromium is the default web-browser on Raspberry Pi OS - use it to get help preparing your experiment.
+Chromium is the default web browser on Raspberry Pi OS — use it to get help preparing your experiment.
 ![Screenshot of the Chromium web browser running on the Kit OS](images/os_22-23_chromium.jpg)
 --- /collapse ---
 
@@ -115,21 +115,21 @@ Chromium is the default web-browser on Raspberry Pi OS - use it to get help prep
 ---
 title: Terminal
 ---
-Terminal is an application that you can use to run other programs and automate almost any task on your computer. As an example to get started, type `python3` to open up a python interpreter. Check out [this page](https://projects.raspberrypi.org/en/projects/raspberry-pi-using/8) for more information about the Terminal.
+Terminal is an application that you can use to run other programs and automate almost any task on your computer. As an example to get started, type `python3` to open up a python interpreter. Check out [this page](https://projects.raspberrypi.org/en/projects/raspberry-pi-using/8) for more information about Terminal.
 
 ![Screenshot of the Terminal application running on the Kit OS](images/os_22-23_terminal.jpg)
 --- /collapse ---
 
-### Python & Python Libraries
+### Python and Python libraries
 
 --- collapse ---
 ---
 title: What is Python?
 ---
-Python is the general purpose programming language that you will use to run your experiment. Python programs are instructions formed of special words telling the computer what to do. Using Python you can do almost anything you can imagine. The application that runs a Python program is called the _interpreter_. If this is your first time with Python, check out [this project](https://projects.raspberrypi.org/en/codeclub/python-module-1).
+Python is the general purpose programming language that you will use to run your experiment. Python programs are instructions formed of special words telling the computer what to do. Using Python, you can do almost anything you can imagine. The application that runs a Python program is called the 'interpreter'. If this is your first time with Python, check out [this project](https://projects.raspberrypi.org/en/codeclub/python-module-1).
 --- /collapse ---
 
-The Kit OS comes with Python version 3.9.2 and many additional Python _libraries_ pre-installed to help you write the program for your experiment. The same Python and library versions have been installed on the Astro Pis aboard the ISS, so running your program on the Kit OS should behave similar as it would in space. 
+The Kit OS comes with Python version 3.9.2 and many additional Python libraries pre-installed to help you write the program for your experiment. The same Python and library versions have been installed on the Astro Pis aboard the ISS, so running your program on the Kit OS should behave similar as it would in space. 
 
 <p style="border-left: solid; border-width:10px; border-color: #d17500; #ff8f00; background-color: #ff8f00; padding: 10px;">
 Because the ISS is a secured environment, these are the only libraries that you will be allowed to use in your experiment if it runs on the Astro Pis on board. Please [contact us](mailto:enquiries@astro-pi.org) if you think anything is missing or have any suggestions.
@@ -149,14 +149,14 @@ Take some time now to familiarise yourself with the libraries available to use o
 
 --- collapse ---
 ---
-title: skyfield
+title: Skyfield
 ---
 
 #### Usage
 
 Skyfield is an astronomy package that computes the positions of stars, planets, and satellites in orbit around the Earth.
 
-In the [How to find the location of the ISS](6) section you can find out how to use skyfield to obtain the position of the International Space Station above the Earth and how to determine whether the ISS is sunlit.
+In the [How to find the location of the ISS](6) section you can find out how to use Skyfield to obtain the position of the International Space Station above the Earth and how to determine whether the ISS is sunlit.
 
 #### Documentation
 
@@ -212,7 +212,7 @@ sense = SenseHat()
 start = Color('yellow')
 end = Color('cyan')
 
-# Slowly transition the Sense HAT from the `start` to the `end` colour
+# Slowly transition the Sense HAT from the `start` to the `end` color
 for color in start.gradient(end, steps=100):
     sense.clear(color.rgb_bytes)
     sleep(0.1)
@@ -226,10 +226,10 @@ for color in start.gradient(end, steps=100):
 
 --- collapse ---
 ---
-title: gpiozero
+title: GPIO Zero
 ---
 
-GPIO Zero is a simple but powerful GPIO (General Purpose Input Output) library. Most of its its functionality is restricted aboard the ISS - for example, the only pin you are allowed to access is GPIO pin 12, where the motion sensor is connected. However, some of its other features can be handy in your experiment, such as the internal device `CPUTemperature`.
+GPIO Zero is a simple but powerful GPIO (General Purpose Input Output) library. Most of its functionality is restricted aboard the ISS — for example, the only pin you are allowed to access is GPIO pin 12, where the motion sensor is connected. However, some of its other features can be handy in your experiment, such as the internal device `CPUTemperature`.
 
 #### Usage
 
@@ -258,7 +258,7 @@ while True:
 title: GDAL
 ---
 
-The Geospatial Data Abstraction Library (GDAL) is an open-source, cross-platform set of libraries and low-level tools for working with geospatial data in many formats. For most purposes on Astro Pi you may want to look at using `earthpy` or `geopandas` instead which are simpler to use.
+The Geospatial Data Abstraction Library (GDAL) is an open-source, cross-platform set of libraries and low-level tools for working with geospatial data in many formats. For most purposes on Astro Pi, you may want to look at using `earthpy` or `geopandas` instead which are simpler to use.
 
 #### Documentation
 
@@ -269,10 +269,10 @@ The Geospatial Data Abstraction Library (GDAL) is an open-source, cross-platform
 
 --- collapse ---
 ---
-title: geopandas
+title: GeoPandas
 ---
 
-GeoPandas is a package to make working with geospatial data in python easier. GeoPandas extends the datatypes used by the `pandas` package to allow spatial operations on geometric types. The [examples gallery](https://geopandas.org/en/stable/gallery/index.html#) shows how  to create a variety of graphs using geospatial data.
+GeoPandas is a package to make working with geospatial data in Python easier. GeoPandas extends the datatypes used by the `pandas` package to allow spatial operations on geometric types. The [examples gallery](https://geopandas.org/en/stable/gallery/index.html#) shows how to create a variety of graphs using geospatial data.
 
 #### Usage
 
@@ -294,10 +294,10 @@ gdf.explore("area", legend=False)
 
 --- collapse ---
 ---
-title: earthpy
+title: EarthPy
 ---
 
-EarthPy is a package that makes it easier to plot and work with spatial raster and vector data . 
+EarthPy is a package that makes it easier to plot and work with spatial raster and vector data. 
 The [examples gallery](https://earthpy.readthedocs.io/en/latest/gallery_vignettes/index.html) includes examples on how to plot bands of satellite imagery and how to calculate NDVI.
 
 #### Usage
@@ -318,10 +318,10 @@ ep.plot_bands(arr)
 
 --- collapse ---
 ---
-title: numpy
+title: NumPy
 ---
 
-`numpy` is a general-purpose array-processing library designed to efficiently manipulate large multidimensional arrays (e.g. matrixes) of arbitrary records without sacrificing too much speed for small multidimensional arrays.
+`numpy` is a general purpose array processing library designed to efficiently manipulate large multidimensional arrays (e.g. matrixes) of arbitrary records without sacrificing too much speed for small multidimensional arrays.
 
 #### Usage
 
@@ -352,7 +352,7 @@ camera.capture(output, 'rgb')
 title: SciPy
 ---
 
-SciPy is a free and open-source Python library used for scientific computing and technical computing. SciPy contains modules for optimisation, linear algebra, integration, interpolation, special functions, FFT (Fast Fourrier Transform), signal and image processing, ODE (Ordinary Differential Equations) solvers, and other tasks common in science and engineering. You may need to use this library to solve a particular equation, for example.
+SciPy is a free open-source Python library used for scientific computing and technical computing. SciPy contains modules for optimisation, linear algebra, integration, interpolation, special functions, FFT (Fast Fourrier Transform), signal and image processing, ODE (Ordinary Differential Equations) solvers, and other tasks common in science and engineering. You may need to use this library to solve a particular equation.
 
 #### Documentation
 
@@ -365,7 +365,7 @@ SciPy is a free and open-source Python library used for scientific computing and
 title: TensorFlow Lite and PyCoral
 ---
 
-TensorFlow Lite and the PyCoral library can be used to use or re-train existing machine-learning models for inference. The latter is built on top of TensorFlow Lite but has a simpler, higher-level interface and allows you to easily use the Coral ML Accelerator (Edge TPU). Note that Tensorflow (as opposed to TensorFlow Lite) is not supported by the Kit OS because Tensorflow requires a 64 bit operating system. You may want to use these libraries to create object classifiers, for example. For more information, see the [Machine Learning and computer vision](7) section.
+TensorFlow Lite and the PyCoral library can be used to use or re-train existing machine learning models for inference. The latter is built on top of TensorFlow Lite but has a simpler, higher-level interface and allows you to easily use the Coral ML Accelerator (Edge TPU). Note that Tensorflow (as opposed to TensorFlow Lite) is not supported by the Kit OS because Tensorflow requires a 64-bit operating system. You may want to use these libraries to create object classifiers, for example. For more information, see the [Machine Learning and computer vision](7) section.
 
 #### Documentation
 
@@ -404,7 +404,7 @@ title: logzero
 
 #### Usage
 
-Logs are categorised into different levels according to severity. By using the various levels appropriately you will be able to tune the amount of information you get about your program according to your debugging needs.
+Logs are categorised into different levels according to severity. By using the various levels appropriately, you will be able to tune the amount of information you get about your program according to your debugging needs.
 
 ```python
 from logzero import logger
@@ -423,7 +423,7 @@ logger.error("error")
 
 --- collapse ---
 ---
-title: matplotlib
+title: Matplotlib
 ---
 
 `matplotlib` is a 2D plotting library that produces publication-quality figures in a variety of hard copy formats and interactive environments. You may want to use it to analyse the results of your test runs.
@@ -476,10 +476,10 @@ The core image library is designed for fast access to data stored in a few basic
 
 --- collapse ---
 ---
-title: opencv
+title: OpenCV
 ---
 
-`opencv` is an open-source computer vision library. The Astro Pi units specifically have the `opencv-contrib-python-headless` package installed, which includes all of `opencv` plus additional modules (listed in the [opencv docs](https://docs.opencv.org/master/)), and excludes all GUI functionality. You may want to use opencv for [edge detection](https://projects.raspberrypi.org/en/projects/astropi-iss-speed/3), for example.
+`opencv` is an open-source computer vision library. The Astro Pi units specifically have the `opencv-contrib-python-headless` package installed, which includes all of `opencv` plus additional modules (listed in the [opencv docs](https://docs.opencv.org/master/)), and excludes all GUI functionality. You may want to use OpenCV for [edge detection](https://projects.raspberrypi.org/en/projects/astropi-iss-speed/3), for example.
 
 #### Documentation
 
@@ -628,5 +628,5 @@ hat.screen.fade_to(flag)
 
 ## Next steps
 
-This concludes our brief tour of the Kit OS. As you've seen, there are a lot of applications and libraries to become familiar with. With a good plan of action you will be soon using them in your own experiment. In the next step, you will learn about how to plan phase 2 of your experiment.
+This concludes our brief tour of the Kit OS. As you've seen, there are a lot of applications and libraries to become familiar with. With a good plan of action you will be soon using them in your own experiment. In the next step, you will learn about how to plan Phase 2 of your experiment.
 
