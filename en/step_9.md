@@ -35,7 +35,7 @@ else:
     print("Temperature is zero")
 ```
 
-The preferred way of resolving this situation is to try to complete the operation, but handle the exception using a `try-except` statement:
+The preferred way of resolving this situation is to try to complete the operation, but handle the exception using a 'try-except' statement:
 
 ```python
 try:
