@@ -344,7 +344,7 @@ Connect your keyboard and mouse into the two (black) USB 2 ports.
 --- /task ---
 
 --- task ---
-Connect the little micro-HDMI cable into the HDMI 1 port of the Raspberry Pi and connect the other end into your screen.
+Connect the smaller micro-HDMI cable head into the HDMI 1 port of the Raspberry Pi and connect the other end into your screen.
 ![Photo of a micro-HDMI cable connected to the Raspberry Pi](images/hdmi_cable_inserted.png)
 --- /task ---
 
