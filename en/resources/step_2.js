@@ -3,6 +3,10 @@ function toggleSteps(checked, css_class) {
    * Show/hide the associated steps
   */
   const steps = document.querySelectorAll(css_class);
+  console.log("Inside toggleSteps");
+  console.log(checked);
+  console.log(css_class);
+  console.log(steps);
   if (checked) {
     // show the class
     steps.forEach((step) => step.style.display = "block");
@@ -36,14 +40,19 @@ for (let i = 0; i < checkboxes.length; i++) {
   checkbox.addEventListener('change', getChangeHandler(checkboxes[i], cssClass));
   // initialise the checkbox state based on localstorage
   const checkboxValues = JSON.parse(localStorage.getItem('checkboxValues')) || {};
+  console.log(checkboxes[i]);
+  console.log(cssClass);
+  console.log(checkboxValues);
   // check expiry
   if ('expiry' in checkboxValues && 
       checkboxValues['expiry'] < new Date().getTime()) {
+    console.log('expired');
     localStorage.removeItem('checkboxValues')
     checkboxValues = {}
     toggleSteps(false, css_class);
     toggleSteps(true, ".not_" + css_class.slice(1));
   } else if (checkboxes[i] in checkboxValues) {
+    console.log('not expired');
     checkbox.checked = checkboxValues[checkboxes[i]]; 
     toggleSteps(checkboxValues[checkboxes[i]], cssClass);
     toggleSteps(!checkboxValues[checkboxes[i]], ".not_" + cssClass.slice(1));
