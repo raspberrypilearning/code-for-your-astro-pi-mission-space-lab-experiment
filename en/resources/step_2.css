@@ -1,0 +1,25 @@
+/* This hides the Camera steps by default */
+.camera_step {
+  display: none;
+}
+.infrared_step {
+  display: none;
+}
+.pir_step {
+  display: none;
+}
+.coral_step {
+  display: none;
+}
+
+#checkbox_div ul {
+  margin-bottom: 0;
+}
+
+/* TODO small-img class with max-width at 50% */
+
+#thumbnail_div td img {
+  max-height: none;
+  width: 250px;
+  height: auto;
+}
