@@ -1,6 +1,6 @@
 ## Kit assembly
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/cFhmKzV_QZs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/dFBg2VRtddU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 In this step we are going to build an Astro Pi using the official kit you received. Before starting the assembly, let's familiarise ourselves with what's in the box.
 
@@ -199,8 +199,7 @@ Now we are going to connect each pin on the PIR sensor to an appropriate pin on 
 ![Photo of a Raspberry Pi with wires from the PIR connected to the correct pins.](images/assembly_wires.JPG)
 
 Here is a video of the PIR setup:
-<iframe width="560" height="315" src="https://www.youtube.com/embed/bezyRA3uHiY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
+<iframe width="560" height="315" src="https://www.youtube.com/embed/MEY8iAO3hlU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 --- /task ---
 
