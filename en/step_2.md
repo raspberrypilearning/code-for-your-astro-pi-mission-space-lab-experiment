@@ -365,4 +365,4 @@ Continue to the next stage to learn about the Operating System, the Kit OS.
 
 
 <link rel="stylesheet" href="resources/step_2.css">
-<script type="text/javascript" src="resources/step_2.js"></script>
+<script type="text/javascript" src="resources/step_2.js" defer></script>
