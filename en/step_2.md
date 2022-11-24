@@ -60,12 +60,12 @@ If you want to, you can [make a 3D-printed flight case](https://projects.raspber
 Before getting started, familiarise yourself with what's in the box and unpack everything. Make a note of whether your box includes the camera module, a Coral TPU machine learning accelerator (Coral ML accelerator), or a PIR sensor using the checkboxes below. This will show or hide the relevant assembly instructions accordingly.
 
 <div id="checkbox_div">
-- My box contains a camera <input type="checkbox" id="hasCamera">
+- My box contains a camera <input type="checkbox" id="hasCamera" checked>
 <div class="camera_step">
-- My box contains an infrared filter<input type="checkbox" id="hasInfrared">
+- My box contains an infrared filter<input type="checkbox" id="hasInfrared" checked>
 </div>
-- My box contains a PIR sensor <input type="checkbox" id="hasPir">
-- My box contains a Coral ML accelerator <input type="checkbox" id="hasCoral">
+- My box contains a PIR sensor <input type="checkbox" id="hasPir" checked>
+- My box contains a Coral ML accelerator <input type="checkbox" id="hasCoral" checked>
 </div>
 
 --- task --- 
