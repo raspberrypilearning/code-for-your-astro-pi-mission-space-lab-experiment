@@ -580,7 +580,7 @@ You can log the humidity to the display using the code below:
 ```python
 from sense_hat import SenseHat
 sense = SenseHat()
-sense.show_message(sense.get_humidity())
+sense.show_message(str(sense.get_humidity()))
 ```
 
 #### Documentation
