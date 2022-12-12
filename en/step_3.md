@@ -585,7 +585,7 @@ sense.show_message(str(sense.get_humidity()))
 
 #### Documentation
 
-- [https://pythonhosted.org/sense-hat/](https://pythonhosted.org/sense-hat/)
+- [https://sense-hat.readthedocs.io/en/latest/](https://sense-hat.readthedocs.io/en/latest/)
 - [Additional documentation for the colour sensor](https://gist.github.com/boukeas/e46ab3558b33d2f554192a9b4265b85f)
 
 --- /collapse ---
