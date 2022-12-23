@@ -10,7 +10,7 @@ When you power on your Astro Pi for the first time you will be invited to accept
 ---
 title: Troubleshooting - ESA screen does not appear
 ---
-The initial agreement page will only display on the HDMI1 output of the Raspberry Pi. If you only see the background image, make sure you have connected to HDMI1.
+The initial agreement page will only display on the HDMI1 output of the Raspberry Pi. If you only see the background image make sure you have connected your screen to HDMI1.
 --- /collapse ---
 
 Once you have accepted the licence agreement, you will be asked to create a new username and password, to set the system time and language settings, and to connect to a WiFi network. For more help on setting up your Raspberry Pi, take a look at [this guide](https://projects.raspberrypi.org/en/projects/raspberry-pi-getting-started/4).
