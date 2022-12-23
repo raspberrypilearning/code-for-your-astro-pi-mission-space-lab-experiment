@@ -6,6 +6,13 @@ When you power on your Astro Pi for the first time you will be invited to accept
 
 ![Screenshot of the ESA Licence Agreement page](images/os_22-23_esa-licence-accept.jpg){: style="max-width: 80%" }
 
+--- collapse ---
+---
+title: Troubleshooting - ESA screen does not appear
+---
+The initial agreement page will only display on the HDMI1 output of the Raspberry Pi. If you only see the background image make sure you have connected your screen to HDMI1.
+--- /collapse ---
+
 Once you have accepted the licence agreement, you will be asked to create a new username and password, to set the system time and language settings, and to connect to a WiFi network. For more help on setting up your Raspberry Pi, take a look at [this guide](https://projects.raspberrypi.org/en/projects/raspberry-pi-getting-started/4).
 
 ![Animation of the first-time setup screens shown to users of the Kit OS](images/piwiz.gif)
